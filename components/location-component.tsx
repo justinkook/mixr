@@ -8,7 +8,7 @@ function LocationComponent() {
 
   const handleClick = async () => {
     const response = await axios.get(
-      `http://api.ipstack.com/check?access_key=${process.env.NEXT_PUBLIC_IPSTACK_API_KEY}`
+      `https://api.ipstack.com/check?access_key=${process.env.NEXT_PUBLIC_IPSTACK_API_KEY}`
     );
     const { city, country_name } = response.data;
     setLocation({
