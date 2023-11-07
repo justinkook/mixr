@@ -1,113 +1,98 @@
-import Image from 'next/image'
+import DateCard from "@/components/date-card";
+import EventCardMetadata from "@/components/event-metadata";
+import LocationComponent from "@/components/location-component";
+import TabSlider from "@/components/tab-slider";
+import { Bell, Menu, Search } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+      <div className="bg-white flex w-[375px] flex-col">
+        <div className="self-center flex w-[329px] max-w-full items-start justify-between gap-5 mt-4 px-5 ">
+          <div className="flex items-start gap-5 mt-2.5 self-start">
+            <Menu />
+            <div className="text-gray-900 text-lg font-bold leading-7 self-center whitespace-nowrap my-auto">
+              MIXR
+            </div>
+          </div>
+          <div className="flex items-center gap-3.5 self-center">
+            <Search />
+            <Bell />
+          </div>
+        </div>
+        <div className="bg-gray-100 self-stretch w-full h-px mt-2.5" />
+        <div className="items-start flex w-[117px] max-w-full flex-col ml-6 mt-6 px-5 self-start max-md:ml-2.5">
+          <div className="text-gray-400 text-xs leading-5 self-stretch whitespace-nowrap -mr-5">
+            Find events near
+          </div>
+          <div className="text-gray-900 text-lg font-bold leading-7 self-stretch whitespace-nowrap -mr-5 mt-1">
+            <LocationComponent />
+          </div>
+        </div>
+        <TabSlider tabs={["Upcoming", "Today", "Tomorrow", "Popular"]} />
+        <div className="justify-between items-start self-center flex w-[327px] max-w-full gap-5 mt-6 px-5">
+          <div className="text-gray-900 text-base font-bold leading-6">
+            Featured events
+          </div>
+          <div className="text-gray-400 text-right text-sm font-medium leading-5 whitespace-nowrap self-start">
+            See All
+          </div>
+        </div>
+        <div className="flex-col overflow-hidden self-center relative flex aspect-square w-[323px] max-w-full mt-4 px-4 py-3.5">
+          <Image
+            src="/images/card.png"
+            className="absolute  h-full w-full object-cover object-center inset-0"
+            alt="card image"
+            width={300}
+            height={90}
+          />
+          <DateCard day="12" month="Aug" />
+          <EventCardMetadata
+            title="Art Festival"
+            location="California"
+            time="12:00 PM"
+            price="FREE"
+          />
+        </div>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/121755a3-20fa-4bec-84a5-2f633e45e8d3?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&"
+          className="aspect-[14.2] object-contain object-center w-[71px] overflow-hidden self-center max-w-full mt-4"
+        />
+        <div className="self-stretch flex grow flex-col w-full mt-7 pl-6 pr-6 max-md:px-5">
+          <div className="text-gray-900 text-base font-bold leading-6 self-stretch whitespace-nowrap">
+            Upcoming events
+          </div>
+          <div className="bg-white self-stretch flex w-full items-start justify-between gap-3 mt-4 pl-3 pr-3.5 pt-3 rounded-2xl">
+            <img
+              loading="lazy"
+              srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa0655d3-40cb-4078-ae36-fee53a9a559d?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&"
+              className="aspect-square object-contain object-center w-[88px] overflow-hidden max-w-full self-start"
             />
-          </a>
+            <div className="items-start flex flex-col w-[203px] self-start">
+              <div className="text-gray-900 text-sm font-bold leading-5 self-stretch">
+                House Of Materials Workshop Event For Creators
+              </div>
+              <div className="justify-between items-start self-stretch flex w-full gap-5 mt-4">
+                <div className="items-start flex gap-1 mt-2 self-start">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1f4d4c09-e6fc-4ebc-9f04-2a4bcd440038?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&"
+                    className="aspect-square object-contain object-center w-4 overflow-hidden self-stretch max-w-full"
+                  />
+                  <div className="text-gray-400 text-xs font-medium leading-5 self-stretch whitespace-nowrap">
+                    California
+                  </div>
+                </div>
+                <div className="text-indigo-500 text-center text-xs font-medium leading-5 self-stretch whitespace-nowrap justify-center items-center bg-violet-50 flex-1 px-4 py-1.5 rounded-lg">
+                  FREE
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
