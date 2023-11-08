@@ -4,6 +4,7 @@ import LocationComponent from "@/components/location-component";
 import TabSlider from "@/components/tab-slider";
 import { Bell, Menu, Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -39,21 +40,23 @@ export default function Home() {
             See All
           </div>
         </div>
-        <div className="flex-col overflow-hidden self-center relative flex aspect-square w-[323px] max-w-full mt-4 px-4 py-3.5">
-          <Image
-            src="/images/card.png"
-            className="absolute  h-full w-full object-cover object-center inset-0"
-            alt="card image"
-            width={300}
-            height={90}
-          />
-          <DateCard day="12" month="Aug" />
-          <EventCardMetadata
-            title="Art Festival"
-            location="California"
-            time="12:00 PM"
-            price="FREE"
-          />
+        <div className="cursor-pointer flex-col overflow-hidden self-center relative flex aspect-square w-[323px] max-w-full mt-4 px-4 py-3.5">
+          <Link href="/events/newy-art-festival">
+            <Image
+              src="/images/card.png"
+              className="absolute  h-full w-full object-cover object-center inset-0"
+              alt="card image"
+              width={300}
+              height={90}
+            />
+            <DateCard day="12" month="Aug" />
+            <EventCardMetadata
+              title="Art Festival"
+              location="California"
+              time="12:00 PM"
+              price="FREE"
+            />
+          </Link>
         </div>
         <img
           loading="lazy"
