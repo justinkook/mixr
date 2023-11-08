@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function LocationComponent() {
@@ -29,6 +29,12 @@ function LocationComponent() {
       console.log("Geolocation is not supported by this browser.");
     }
   };
+
+  useEffect(() => {
+    handleClick();
+
+    // TODO: Cancel the geolocation request if the component is unmounted
+  }, []);
 
   return (
     <button
