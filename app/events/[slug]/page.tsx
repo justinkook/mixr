@@ -13,7 +13,7 @@ type ArtEventComponentProps = {
   spotsLeft: string;
 };
 
-export default function ArtEventComponent(props: ArtEventComponentProps) {
+export default function ArtEventComponent() {
   const {
     eventTitle,
     eventDate,
@@ -23,7 +23,7 @@ export default function ArtEventComponent(props: ArtEventComponentProps) {
     aboutEvent,
     ticketPrice,
     spotsLeft,
-  } = props || {
+  } = {
     eventTitle: "NewY Art Festival: 2022 Dana",
     eventDate: "29",
     eventMonth: "Sep",
