@@ -14,6 +14,76 @@ export const fontSans = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "MIXR",
   description: "Always be in the Mix",
+  manifest: "/manifest.json",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+    },
+  },
+  icons: {
+    icon: "/icon-192x192.png",
+    shortcut: "/icon-512x512.png",
+    apple: "/icon-192x192.png",
+  },
+  openGraph: {
+    title: "MIXR",
+    description: "Always be in the Mix",
+    url: "https://app.gen3tickets.com",
+    siteName: "MIXR",
+    images: [
+      {
+        url: "/icon-192x192.png",
+        width: 192,
+        height: 192,
+        alt: "MIXR Logo 192x192",
+      },
+      {
+        url: "/icon-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "MIXR Logo 512x512",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MIXR",
+    description: "Always be in the Mix",
+    siteId: "1467726470533754880",
+    creator: "@MIXR",
+    creatorId: "1467726470533754880",
+    images: ["/icon-192x192.png", "/icon-512x512.png"],
+  },
+  keywords: [
+    "Event Management",
+    "Event Ticketing",
+    "Event Planning",
+    "Event Marketing",
+    "Event Registration",
+    "Happy Hours",
+  ],
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  appleWebApp: {
+    startupImage: ["/icon-512x512.png"],
+  },
+  verification: {
+    google: "google",
+  },
 };
 
 export default function RootLayout({
@@ -23,13 +93,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon-192x192.png"></link>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#5766C7" />
-      </head>
       <ThemeProvider attribute="class" defaultTheme="system">
         <body
           className={cn(
