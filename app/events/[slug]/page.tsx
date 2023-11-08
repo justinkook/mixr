@@ -1,10 +1,12 @@
 import * as React from "react";
 import Image from "next/image";
-import { ArrowLeft, CalendarPlus, Heart, Share, Video } from "lucide-react";
+import { ArrowLeft, CalendarPlus, Heart, Share } from "lucide-react";
 
 type ArtEventComponentProps = {
   eventTitle: string;
   eventDate: string;
+  eventMonth: string;
+  eventDay: string;
   eventTime: string;
   aboutEvent: string;
   ticketPrice: string;
@@ -15,7 +17,9 @@ export default function ArtEventComponent(
   props: ArtEventComponentProps = {
     eventTitle: "NewY Art Festival: 2022 Dana",
     eventDate: "29",
-    eventTime: "Friday",
+    eventMonth: "Sep",
+    eventDay: "Friday",
+    eventTime: "09:00 PM - 11:00 PM",
     aboutEvent:
       "We're celebrating our 30th edition of the California Art Festival in CA this Spring so join us at the Building Park in California State University from March 29 - 30, 2022 with our Private View opening on Saturday, March 26!",
     ticketPrice: "$60.98 - $75.00",
@@ -25,6 +29,8 @@ export default function ArtEventComponent(
   const {
     eventTitle,
     eventDate,
+    eventMonth,
+    eventDay,
     eventTime,
     aboutEvent,
     ticketPrice,
@@ -32,7 +38,9 @@ export default function ArtEventComponent(
   } = {
     eventTitle: "NewY Art Festival: 2022 Dana Point 48-50",
     eventDate: "29",
-    eventTime: "Friday",
+    eventMonth: "Sep",
+    eventDay: "Friday",
+    eventTime: "09:00 PM - 11:00 PM",
     aboutEvent:
       "We're celebrating our 30th edition of the California Art Festival in CA this Spring so join us at the Building Park in California State University from March 29 - 30, 2022 with our Private View opening on Saturday, March 26!",
     ticketPrice: "$60.98 - $75.00",
@@ -70,15 +78,15 @@ export default function ArtEventComponent(
                 {eventDate}
               </div>
               <div className="text-gray-400 text-center text-xs leading-4 self-stretch whitespace-nowrap">
-                Sep
+                {eventMonth}
               </div>
             </div>
             <div className="items-start self-center flex flex-col my-auto">
               <div className="text-gray-900 text-sm font-bold leading-5 self-stretch whitespace-nowrap">
-                {eventTime}
+                {eventDay}
               </div>
               <div className="text-gray-400 text-xs leading-5 self-stretch whitespace-nowrap mt-1">
-                09:00 PM - End
+                {eventTime}
               </div>
             </div>
           </div>
