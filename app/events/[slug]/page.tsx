@@ -3,8 +3,6 @@ import Image from "next/image";
 import { ArrowLeft, CalendarPlus, Heart, Share, Video } from "lucide-react";
 
 type ArtEventComponentProps = {
-  imageUrl1: string;
-  imageUrl2: string;
   eventTitle: string;
   eventDate: string;
   eventTime: string;
@@ -15,10 +13,7 @@ type ArtEventComponentProps = {
 
 export default function ArtEventComponent(
   props: ArtEventComponentProps = {
-    imageUrl1: "...",
-    imageUrl2:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/510cb55e-d88b-44c9-9e4f-e096354ccb22?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&",
-    eventTitle: "NewY Art Festival: 2022 Dana Point 48-50",
+    eventTitle: "NewY Art Festival: 2022 Dana",
     eventDate: "29",
     eventTime: "Friday",
     aboutEvent:
@@ -28,8 +23,6 @@ export default function ArtEventComponent(
   }
 ) {
   const {
-    imageUrl1,
-    imageUrl2,
     eventTitle,
     eventDate,
     eventTime,
@@ -37,9 +30,6 @@ export default function ArtEventComponent(
     ticketPrice,
     spotsLeft,
   } = {
-    imageUrl1: "/images/card.png",
-    imageUrl2:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/510cb55e-d88b-44c9-9e4f-e096354ccb22?apiKey=dc0e24a5b59142fa962f2e2c6c5cffce&",
     eventTitle: "NewY Art Festival: 2022 Dana Point 48-50",
     eventDate: "29",
     eventTime: "Friday",
@@ -60,30 +50,20 @@ export default function ArtEventComponent(
       </div>
       <hr className="bg-gray-100 self-stretch w-full h-px" />
       <section className="self-stretch flex flex-col w-full mt-3 px-6 max-md:px-5">
-        <div className="flex-col overflow-hidden self-stretch relative flex aspect-[1.3625] w-full pl-4 pr-20 pt-48 pb-4 max-md:pr-5 max-md:pt-44 rounded-xl">
+        <div className="flex-col overflow-hidden self-stretch relative flex aspect-[1.3625] w-full pl-4 pr-20 pt-48 pb-4 max-md:pr-5 max-md:pt-44 rounded-xl mt-3.5">
           <Image
+            priority
             src="/images/card.png"
             className="absolute h-full w-full object-cover object-center inset-0"
             alt="banner image"
             width={375}
             height={274}
           />
-          <div className="relative justify-center items-start shadow-lg bg-gray-900 flex w-[113px] max-w-full gap-1 px-3 py-3 rounded-xl self-start">
-            <Video color="white" fill="white" />
-            <div className="text-white text-center text-xs leading-5 self-stretch whitespace-nowrap">
-              <a
-                href="#"
-                className="text-white text-center text-xs leading-5 self-stretch whitespace-nowrap"
-              >
-                Watch video
-              </a>
-            </div>
-          </div>
         </div>
         <h2 className="text-gray-900 text-xl font-bold leading-8 self-stretch mt-3.5">
           {eventTitle}
         </h2>
-        <div className="justify-between items-start self-stretch flex w-full gap-5">
+        <div className="justify-between items-start self-stretch flex w-full gap-5 mt-8">
           <div className="items-start self-stretch flex justify-between gap-4">
             <div className="justify-center items-center bg-zinc-100 self-stretch flex w-12 max-w-full flex-col px-4 py-1.5 rounded-xl">
               <div className="text-gray-900 text-center text-sm font-bold leading-5 self-stretch whitespace-nowrap">

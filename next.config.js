@@ -13,12 +13,23 @@ const nextConfig = withPWA({
     defaultLocale: "en",
   },
   images: {
-    domains: [
-      "misc.scdn.co",
-      "i.scdn.co",
-      "i1.sndcdn.com",
-      "mucdgwedfzbqjqodwdrz.supabase.co",
-      "cdn.builder.io",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.scdn.co",
+      },
+      {
+        protocol: "https",
+        hostname: "**.scdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "mucdgwedfzbqjqodwdrz.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.builder.io",
+      },
     ],
   },
 });

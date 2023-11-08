@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-import { ThemeProvider } from "@/providers/theme-provider";
-
 import "@/styles/globals.css";
 
 export const fontSans = Noto_Sans_JP({
@@ -12,6 +10,7 @@ export const fontSans = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://app.gen3tickets.com"),
   title: "MIXR",
   description: "Always be in the Mix",
   manifest: "/manifest.json",
@@ -93,16 +92,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeProvider attribute="class" defaultTheme="system">
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
-        >
-          {children}
-        </body>
-      </ThemeProvider>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
