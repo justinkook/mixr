@@ -16,14 +16,6 @@ const nextConfig = withPWA({
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.scdn.co",
-      },
-      {
-        protocol: "https",
-        hostname: "**.scdn.com",
-      },
-      {
-        protocol: "https",
         hostname: "mucdgwedfzbqjqodwdrz.supabase.co",
       },
       {
