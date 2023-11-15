@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import ListItem from "../dashboard/overview/list-item";
+import ListItem from "../manage/overview/list-item";
 
 const components: { title: string; href: string; description: string }[] = [
   {

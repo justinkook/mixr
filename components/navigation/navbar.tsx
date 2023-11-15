@@ -3,7 +3,7 @@
 import { OrganizationSwitcher } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
 import { MainNav } from "./main-nav";
-import { Search } from "../dashboard/overview/search";
+import { Search } from "../manage/overview/search";
 import {
   SignInButton,
   SignUpButton,
