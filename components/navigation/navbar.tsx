@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { OrganizationSwitcher } from "@clerk/nextjs";
-import { Menu } from "lucide-react";
+import { Bell, Menu, SearchIcon } from "lucide-react";
 import { MainNav } from "./main-nav";
-import { Search } from "../manage/overview/search";
 import {
   SignInButton,
   SignUpButton,
@@ -11,8 +11,14 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/clerk-react";
+import { Button } from "../ui/button";
+import useCommandModal from "@/hooks/useCommandModal";
+import useNotifications from "@/hooks/useNotifications";
 
 export function Navbar() {
+  const { isOpen, onOpenChange } = useCommandModal();
+  const { isOpen: show, onOpenChange: setShow } = useNotifications();
+
   return (
     <div className="border-b">
       <div className="flex h-16 items-center px-4 gap-6">
@@ -28,9 +34,17 @@ export function Navbar() {
         />
         <MainNav />
         <div className="ml-auto flex items-center space-x-4">
-          <Search />
+          <Button variant="ghost">
+            <SearchIcon onClick={() => onOpenChange(!isOpen)} />
+          </Button>
+          <Button variant="ghost">
+            <Bell onClick={() => setShow(!show)} />
+          </Button>
           <SignedIn>
-            <UserButton userProfileMode="navigation" />
+            <UserButton
+              userProfileMode="navigation"
+              userProfileUrl="/user-profile"
+            />
           </SignedIn>
           <SignedOut>
             <SignInButton />
