@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { metadataConfig } from "@/config/metadata";
 import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { ClerkProvider, MultisessionAppSupport } from "@clerk/nextjs";
+import { Providers } from "@/components/providers/providers";
 
 import "@/styles/globals.css";
 
@@ -27,24 +26,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ClerkProvider
-          appearance={{
-            elements: {
-              colorPrimary: "primary",
-            },
-          }}
-        >
-          <MultisessionAppSupport>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-          </MultisessionAppSupport>
-        </ClerkProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
