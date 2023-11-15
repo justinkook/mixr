@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@/lib/utils";
 
+import { ClerkProvider } from "@clerk/nextjs";
+
 import "@/styles/globals.css";
 
 export const fontSans = Noto_Sans_JP({
@@ -91,14 +93,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
-        {children}
+        <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
   );
