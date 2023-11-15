@@ -1,8 +1,8 @@
 import DateCard from "@/components/date-card";
 import EventCardMetadata from "@/components/event-metadata";
+import Header from "@/components/header";
 import LocationComponent from "@/components/location-component";
 import TabSlider from "@/components/tab-slider";
-import { Bell, Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,18 +10,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="bg-white flex w-[375px] flex-col">
-        <div className="self-center flex w-[329px] max-w-full items-start justify-between gap-5 mt-4 px-5 ">
-          <div className="flex items-start gap-5 mt-2.5 self-start">
-            <Menu />
-            <div className="text-gray-900 text-lg font-bold leading-7 self-center whitespace-nowrap my-auto">
-              MIXR
-            </div>
-          </div>
-          <div className="flex items-center gap-3.5 self-center">
-            <Search />
-            <Bell />
-          </div>
-        </div>
+        <Header />
         <div className="bg-gray-100 self-stretch w-full h-px mt-2.5" />
         <div className="items-start flex w-[117px] max-w-full flex-col ml-6 mt-6 px-5 self-start max-md:ml-2.5">
           <div className="text-gray-400 text-xs leading-5 self-stretch whitespace-nowrap -mr-5">

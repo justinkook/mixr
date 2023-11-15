@@ -93,23 +93,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: "bg-primary",
-        },
-      }}
-    >
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <ClerkProvider
+          appearance={{
+            elements: {
+              colorPrimary: "bg-primary",
+            },
+          }}
         >
           {children}
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
