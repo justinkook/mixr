@@ -23,7 +23,9 @@ import { DataTable } from "@/components/manage/guests/data-table";
 import { columns } from "@/components/manage/guests/columns";
 import dataJSON from "@/components/manage/guests/tasks.json";
 import { taskSchema } from "@/lib/schema";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "NewY Art Festival: 2022 Dana Point 48-50",
@@ -48,9 +50,11 @@ export default async function EventManagePage() {
               NewY Art Festival: 2022 Dana Point 48-50
             </h2>
             <div className="flex items-center space-x-2">
-              <Button>
-                Event Page <ArrowUpRight />
-              </Button>
+              <Link href="/event/[slug]" as="/event/newy-art-festival">
+                <Button>
+                  Event Page <ArrowUpRight />
+                </Button>
+              </Link>
             </div>
           </div>
           <Tabs defaultValue="overview" className="space-y-4">
@@ -59,6 +63,7 @@ export default async function EventManagePage() {
               <TabsTrigger value="guests">Guests</TabsTrigger>
               <TabsTrigger value="tickets">Tickets</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
+              <TabsTrigger value="settings">Settings</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -83,14 +88,14 @@ export default async function EventManagePage() {
                   <CardContent>
                     <div className="text-2xl font-bold">$45,231.89</div>
                     <p className="text-xs text-muted-foreground">
-                      +20.1% from last month
+                      $120.13 from sponsors
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Subscriptions
+                      Guests
                     </CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -108,15 +113,17 @@ export default async function EventManagePage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+2350</div>
+                    <div className="text-2xl font-bold">50 going</div>
                     <p className="text-xs text-muted-foreground">
-                      +180.1% from last month
+                      180 guests invited
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Sales</CardTitle>
+                    <CardTitle className="text-sm font-medium">
+                      Tickets
+                    </CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -132,9 +139,9 @@ export default async function EventManagePage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+12,234</div>
+                    <div className="text-2xl font-bold">234 sold</div>
                     <p className="text-xs text-muted-foreground">
-                      +19% from last month
+                      19 tickets remaining
                     </p>
                   </CardContent>
                 </Card>
@@ -175,9 +182,9 @@ export default async function EventManagePage() {
                 </Card>
                 <Card className="col-span-3">
                   <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
+                    <CardTitle>Recent Guests</CardTitle>
                     <CardDescription>
-                      You made 265 sales this month.
+                      You have 265 guests attending.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -187,7 +194,7 @@ export default async function EventManagePage() {
               </div>
             </TabsContent>
             <TabsContent value="guests" className="space-y-4">
-              <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
+              <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
                 <div className="flex items-center justify-between space-y-2">
                   <div>
                     <h2 className="text-2xl font-bold tracking-tight">
@@ -197,8 +204,85 @@ export default async function EventManagePage() {
                       Manage your guest list, approvals, invitations
                     </p>
                   </div>
+                  <div className="flex items-center space-x-2">
+                    <Button variant="secondary">
+                      <Plus size={20} />
+                      Invite Guest
+                    </Button>
+                  </div>
                 </div>
                 <DataTable data={tasks} columns={columns} />
+              </div>
+            </TabsContent>
+            <TabsContent value="tickets" className="space-y-4">
+              <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+                <div className="flex items-center justify-between space-y-2">
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">
+                      Tickets
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Create ticket types and set prices,
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Button variant="secondary">
+                      <Plus size={20} />
+                      Create Ticket
+                    </Button>
+                  </div>
+                </div>
+                <Separator />
+                <div className="flex items-center justify-between space-y-2">
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">
+                      Sponsors
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Create sponsor tickets and outline terms
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Button variant="secondary">
+                      <Plus size={20} />
+                      Create Sponsor
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+            <TabsContent value="analytics" className="space-y-4">
+              <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+                <div className="flex items-center justify-between space-y-2">
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">
+                      Analytics
+                    </h2>
+                    <p className="text-muted-foreground">
+                      See active views, device, or location breakdown
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Button variant="secondary">Enable</Button>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+            <TabsContent value="settings" className="space-y-4">
+              <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+                <div className="flex items-center justify-between space-y-2">
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">
+                      Analytics
+                    </h2>
+                    <p className="text-muted-foreground">
+                      See active views, device, or location breakdown
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Button variant="secondary">Enable</Button>
+                  </div>
+                </div>
               </div>
             </TabsContent>
           </Tabs>
