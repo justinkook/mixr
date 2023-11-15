@@ -1,4 +1,10 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { Bell, Menu, Search } from "lucide-react";
 
 export default function Header() {
@@ -18,6 +24,7 @@ export default function Header() {
         </SignedIn>
         <SignedOut>
           <SignInButton />
+          <SignUpButton />
         </SignedOut>
       </div>
     </header>

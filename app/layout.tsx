@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, MultisessionAppSupport } from "@clerk/nextjs";
 
 import "@/styles/globals.css";
 
@@ -107,7 +107,7 @@ export default function RootLayout({
             },
           }}
         >
-          {children}
+          <MultisessionAppSupport>{children}</MultisessionAppSupport>
         </ClerkProvider>
       </body>
     </html>
