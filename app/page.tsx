@@ -48,6 +48,7 @@ export default function Home() {
               alt="card image"
               width={300}
               height={90}
+              priority
             />
             <DateCard day="12" month="Aug" />
             <EventCardMetadata
