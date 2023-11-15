@@ -1,6 +1,6 @@
 import DateCard from "@/components/date-card";
 import EventCardMetadata from "@/components/event-metadata";
-import Header from "@/components/header";
+import Header from "@/components/navigation/main-header";
 import LocationComponent from "@/components/location-component";
 import TabSlider from "@/components/tab-slider";
 import Image from "next/image";
