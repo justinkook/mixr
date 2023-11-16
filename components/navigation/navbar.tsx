@@ -42,8 +42,9 @@ export function Navbar() {
             <UserButton userProfileMode="modal" />
           </SignedIn>
           <SignedOut>
-            <SignInButton />
-            <SignUpButton />
+            <Button variant="outline">
+              <SignInButton mode="modal" />
+            </Button>
           </SignedOut>
         </div>
       </div>
