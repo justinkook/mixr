@@ -20,7 +20,7 @@ export function Navbar() {
     useNotifications();
 
   return (
-    <div className="border-b">
+    <nav className="border-b sticky top-0 z-10 bg-background">
       <div className="flex h-16 items-center px-4 gap-6">
         <Button variant="ghost" className="lg:hidden">
           <Menu />
@@ -54,6 +54,6 @@ export function Navbar() {
           </SignedOut>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
