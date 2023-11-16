@@ -71,10 +71,6 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                   <BookUser className="mr-2 h-4 w-4" />
                   Your Events
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
-                  <Settings className="mr-2 h-4 w-4" />
-                  Your Organizations
-                </Button>
               </div>
             </div>
           </SignedIn>

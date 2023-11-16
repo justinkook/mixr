@@ -44,15 +44,11 @@ export function CommandModal() {
               <CommandGroup heading="Suggestions">
                 <CommandItem>
                   <Calendar className="mr-2 h-4 w-4" />
-                  <span>Calendar</span>
+                  <span>Search Events</span>
                 </CommandItem>
                 <CommandItem>
                   <Smile className="mr-2 h-4 w-4" />
-                  <span>Search Emoji</span>
-                </CommandItem>
-                <CommandItem>
-                  <Calculator className="mr-2 h-4 w-4" />
-                  <span>Calculator</span>
+                  <span>Search Organizations</span>
                 </CommandItem>
               </CommandGroup>
               <CommandSeparator />

@@ -52,8 +52,8 @@ export default function Home() {
                 </div>
               </div>
               <Separator className="my-4" />
-              <div className="relative">
-                <ScrollArea>
+              <ScrollArea>
+                <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
                     {listenNowAlbums.map((album) => (
                       <AlbumArtwork
@@ -66,35 +66,37 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div>
-              <div className="mt-6 space-y-1">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  Upcoming
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  All upcoming events.
-                </p>
+                </div>
+                <ScrollBar orientation="horizontal" />
+              </ScrollArea>
+              <div className="mt-6 space-y-1 flex justify-between">
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-tight">
+                    Upcoming
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    All upcoming events.
+                  </p>
+                </div>
+                <div className="ml-auto mr-4">
+                  <Button variant="link">See all</Button>
+                </div>
               </div>
               <Separator className="my-4" />
-              <div className="relative">
-                <ScrollArea>
-                  <div className="flex space-x-4 pb-4">
-                    {madeForYouAlbums.map((album) => (
-                      <AlbumArtwork
-                        key={album.name}
-                        album={album}
-                        className="w-[150px]"
-                        aspectRatio="square"
-                        width={150}
-                        height={150}
-                      />
-                    ))}
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div>
+              <ScrollArea>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 overflow-auto grid-auto-flow-column w-full">
+                  {madeForYouAlbums.map((album) => (
+                    <AlbumArtwork
+                      key={album.name}
+                      album={album}
+                      className="w-[200px]"
+                      aspectRatio="square"
+                      width={200}
+                      height={200}
+                    />
+                  ))}
+                </div>
+              </ScrollArea>
             </TabsContent>
             <TabsContent
               value="today"

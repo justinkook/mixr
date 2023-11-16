@@ -26,8 +26,7 @@ export function Navbar() {
           <Menu />
         </Button>
         <OrganizationSwitcher
-          organizationProfileMode="navigation"
-          organizationProfileUrl="/organization-profile"
+          organizationProfileMode="modal"
           appearance={{
             elements: {
               rootBox: "mt-2",
@@ -43,10 +42,7 @@ export function Navbar() {
             <Bell onClick={() => setShowNotifications(!showNotifications)} />
           </Button>
           <SignedIn>
-            <UserButton
-              userProfileMode="navigation"
-              userProfileUrl="/user-profile"
-            />
+            <UserButton userProfileMode="modal" />
           </SignedIn>
           <SignedOut>
             <SignInButton />

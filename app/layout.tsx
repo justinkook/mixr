@@ -35,7 +35,7 @@ export default function RootLayout({
             <div className="border-t">
               <div className="bg-background">
                 <div className="grid lg:grid-cols-5">
-                  <Sidebar className="hidden md:block" />
+                  <Sidebar className="hidden lg:block" />
                   {children}
                 </div>
               </div>
