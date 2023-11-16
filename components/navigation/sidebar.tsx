@@ -13,15 +13,18 @@ import {
   ShieldCheck,
   Ticket,
   Users,
+  Wallet,
   Zap,
 } from "lucide-react";
 import { SignedIn } from "@clerk/nextjs";
 
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <aside className={cn("self-start sticky top-0 col-span-1", className)}>
-      <ScrollArea>
-        <div className="space-y-4 py-4">
+    <aside
+      className={cn("self-start sticky top-0 col-span-1 border-r", className)}
+    >
+      <div className="space-y-4 py-4">
+        <ScrollArea>
           <div className="px-3 py-2 ">
             <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
               Discover
@@ -71,6 +74,14 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                   <BookUser className="mr-2 h-4 w-4" />
                   Your Events
                 </Button>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Wallet className="mr-2 h-4 w-4" />
+                  Billing
+                </Button>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Settings className="mr-2 h-4 w-4" />
+                  Settings
+                </Button>
               </div>
             </div>
           </SignedIn>
@@ -92,9 +103,10 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
               </p>
             </div>
           </div>
-        </div>
-        <ScrollBar orientation="vertical" />
-      </ScrollArea>
+
+          <ScrollBar orientation="vertical" />
+        </ScrollArea>
+      </div>
     </aside>
   );
 }
