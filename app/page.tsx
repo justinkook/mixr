@@ -24,11 +24,13 @@ export default function Home() {
             <div className="space-between flex items-center">
               <TabsList>
                 <TabsTrigger value="upcoming" className="relative">
-                  Upcoming
+                  Trending
                 </TabsTrigger>
-                <TabsTrigger value="today">Today</TabsTrigger>
-                <TabsTrigger value="tomorrow">Tomorrow</TabsTrigger>
-                <TabsTrigger value="free">Free</TabsTrigger>
+                <TabsTrigger value="today">Music</TabsTrigger>
+                <TabsTrigger value="tomorrow">Networking</TabsTrigger>
+                <TabsTrigger value="free">Tech</TabsTrigger>
+                <TabsTrigger value="free">Parties</TabsTrigger>
+                <TabsTrigger value="free">Art</TabsTrigger>
               </TabsList>
               <div className="ml-auto mr-4">
                 <Button>

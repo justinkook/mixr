@@ -32,27 +32,19 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
             <div className="space-y-1">
               <Button variant="secondary" className="w-full justify-start">
                 <Zap className="mr-2 h-4 w-4" />
-                Trending
+                Upcoming
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <Radio className="mr-2 h-4 w-4" />
-                Live
+                Today
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <Headphones className="mr-2 h-4 w-4" />
-                Music
+                Tomorrow
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <Cpu className="mr-2 h-4 w-4" />
-                Tech
-              </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <Users className="mr-2 h-4 w-4" />
-                Networking
-              </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <PartyPopper className="mr-2 h-4 w-4" />
-                Parties
+                Free
               </Button>
             </div>
           </div>

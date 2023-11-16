@@ -61,6 +61,7 @@ export default async function EventManagePage() {
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="guests">Guests</TabsTrigger>
                 <TabsTrigger value="tickets">Tickets</TabsTrigger>
+                <TabsTrigger value="sponsors">Sponsors</TabsTrigger>
                 <TabsTrigger value="analytics">Analytics</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
               </TabsList>
@@ -121,7 +122,7 @@ export default async function EventManagePage() {
                   <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium">
-                        Tickets
+                        Impressions
                       </CardTitle>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -138,9 +139,9 @@ export default async function EventManagePage() {
                       </svg>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold">234 sold</div>
+                      <div className="text-2xl font-bold">234 viewed</div>
                       <p className="text-xs text-muted-foreground">
-                        19 tickets remaining
+                        119 clicks
                       </p>
                     </CardContent>
                   </Card>
@@ -232,6 +233,10 @@ export default async function EventManagePage() {
                     </div>
                   </div>
                   <Separator />
+                </div>
+              </TabsContent>
+              <TabsContent value="sponsors" className="space-y-4">
+                <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
                   <div className="flex items-center justify-between space-y-2">
                     <div>
                       <h2 className="text-2xl font-bold tracking-tight">
@@ -248,6 +253,7 @@ export default async function EventManagePage() {
                       </Button>
                     </div>
                   </div>
+                  <Separator />
                 </div>
               </TabsContent>
               <TabsContent value="analytics" className="space-y-4">
