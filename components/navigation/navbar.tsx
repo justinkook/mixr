@@ -11,11 +11,10 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { Button } from "../ui/button";
-import useCommandModal from "@/hooks/useCommandModal";
 import useNotifications from "@/hooks/useNotifications";
+import { Search } from "../manage/overview/search";
 
 export function Navbar() {
-  const { isOpen, onOpenChange } = useCommandModal();
   const { isOpen: showNotifications, onOpenChange: setShowNotifications } =
     useNotifications();
 
@@ -35,9 +34,7 @@ export function Navbar() {
         />
         <MainNav />
         <div className="ml-auto flex items-center space-x-4">
-          <Button variant="ghost">
-            <SearchIcon onClick={() => onOpenChange(!isOpen)} />
-          </Button>
+          <Search />
           <Button variant="ghost">
             <Bell onClick={() => setShowNotifications(!showNotifications)} />
           </Button>
