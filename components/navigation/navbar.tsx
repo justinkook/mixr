@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <div className="border-b">
       <div className="flex h-16 items-center px-4 gap-6">
-        <Button variant="ghost">
+        <Button variant="ghost" className="lg:hidden">
           <Menu />
         </Button>
         <OrganizationSwitcher

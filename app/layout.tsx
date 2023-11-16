@@ -6,6 +6,9 @@ import { Providers } from "@/components/providers/providers";
 
 import "@/styles/globals.css";
 
+import { Sidebar } from "@/components/navigation/sidebar";
+import { Navbar } from "@/components/navigation/navbar";
+
 export const fontSans = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -26,7 +29,19 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex-col md:flex">
+            <Navbar />
+            <div className="border-t">
+              <div className="bg-background">
+                <div className="grid lg:grid-cols-5">
+                  <Sidebar className="hidden md:block" />
+                  {children}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Providers>
       </body>
     </html>
   );

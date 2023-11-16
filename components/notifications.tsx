@@ -25,7 +25,7 @@ export default function Notifications() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="pointer-events-auto w-full max-w-sm rounded-lg bg-background shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-0.5">
@@ -36,22 +36,20 @@ export default function Notifications() {
                     />
                   </div>
                   <div className="ml-3 w-0 flex-1">
-                    <p className="text-sm font-medium text-gray-900">
-                      Emilia Gates
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="text-sm font-medium">Emilia Gates</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
                       Sent you an invite to connect.
                     </p>
                     <div className="mt-4 flex">
                       <button
                         type="button"
-                        className="inline-flex items-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="inline-flex items-center rounded-md bg-primary px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       >
                         Accept
                       </button>
                       <button
                         type="button"
-                        className="ml-3 inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                        className="ml-3 inline-flex items-center rounded-md bg-secondary px-2.5 py-1.5 text-sm font-semibold text-foreground shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                       >
                         Decline
                       </button>
@@ -60,7 +58,7 @@ export default function Notifications() {
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="inline-flex rounded-md bg-background text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                       onClick={() => {
                         onOpenChange(false);
                       }}
