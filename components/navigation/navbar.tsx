@@ -14,6 +14,7 @@ import { NavigationContent } from "./navigation-content";
 import { CommandModal } from "../command-modal";
 import { useState } from "react";
 import { Input } from "../ui/input";
+import Image from "next/image";
 
 type NavbarProps = {
   setSidebarOpen: (open: boolean) => void;
@@ -24,9 +25,18 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
 
   return (
     <nav className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+      <SignedOut>
+        <Image
+          src={"/images/card.png"}
+          width={26}
+          height={26}
+          alt={"Revent logo"}
+        />
+        Revent
+      </SignedOut>
       <button
         type="button"
-        className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+        className="-m-2.5 p-2.5 lg:hidden"
         onClick={() => setSidebarOpen(true)}
       >
         <span className="sr-only">Open sidebar</span>

@@ -144,27 +144,27 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                   </ul>
                 </ScrollArea>
               </li>
-              <li className="px-3 py-2">
-                <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-                  Legal
-                </h2>
-                <ul role="list" className="space-y-1">
-                  <Button variant="ghost" className="w-full justify-start">
-                    <ShieldCheck className="mr-2 h-4 w-4" />
-                    Privacy Policy
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <FileText className="mr-2 h-4 w-4" />
-                    Terms & Conditions
-                  </Button>
-                </ul>
-              </li>
-              <li className="mt-auto px-3">
-                <p className="text-sm text-muted-foreground px-4 py-2">
-                  © 2023 Revent.
-                </p>
-              </li>
             </SignedIn>
+            <li className="px-3 py-2">
+              <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+                Legal
+              </h2>
+              <ul role="list" className="space-y-1">
+                <Button variant="ghost" className="w-full justify-start">
+                  <ShieldCheck className="mr-2 h-4 w-4" />
+                  Privacy Policy
+                </Button>
+                <Button variant="ghost" className="w-full justify-start">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Terms & Conditions
+                </Button>
+              </ul>
+            </li>
+            <li className="mt-auto px-3">
+              <p className="text-sm text-muted-foreground px-4 py-2">
+                © 2023 Revent.
+              </p>
+            </li>
           </ul>
         </nav>
       </ScrollArea>

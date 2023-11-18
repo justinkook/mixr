@@ -19,19 +19,20 @@ export default function Home() {
   return (
     <>
       <div className="col-span-3 lg:col-span-5">
-        <div className="h-full px-4 py-6 lg:px-8">
-          <Tabs defaultValue="upcoming" className="h-full space-y-6">
+        <div className="h-full px-4 py-6 lg:px-8 space-y-6">
+          <h2 className="text-3xl font-bold tracking-tight">New York</h2>
+          <Tabs defaultValue="trending" className="h-full space-y-6">
             <div className="space-between flex items-center">
               <ScrollArea className="w-full">
                 <TabsList>
-                  <TabsTrigger value="upcoming" className="relative">
+                  <TabsTrigger value="trending" className="relative">
                     Trending
                   </TabsTrigger>
-                  <TabsTrigger value="today">Music</TabsTrigger>
-                  <TabsTrigger value="tomorrow">Networking</TabsTrigger>
-                  <TabsTrigger value="free">Tech</TabsTrigger>
-                  <TabsTrigger value="free">Parties</TabsTrigger>
-                  <TabsTrigger value="free">Art</TabsTrigger>
+                  <TabsTrigger value="music">Music</TabsTrigger>
+                  <TabsTrigger value="networking">Networking</TabsTrigger>
+                  <TabsTrigger value="tech">Tech</TabsTrigger>
+                  <TabsTrigger value="parties">Parties</TabsTrigger>
+                  <TabsTrigger value="art">Art</TabsTrigger>
                 </TabsList>
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
@@ -43,7 +44,7 @@ export default function Home() {
               </div>
             </div>
             <TabsContent
-              value="upcoming"
+              value="trending"
               className="border-none p-0 outline-none"
             >
               <div className="flex items-center justify-between">
@@ -104,7 +105,7 @@ export default function Home() {
               </ScrollArea>
             </TabsContent>
             <TabsContent
-              value="today"
+              value="music"
               className="h-full flex-col border-none p-0 data-[state=active]:flex"
             >
               <div className="flex items-center justify-between">
