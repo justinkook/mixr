@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
@@ -10,11 +9,6 @@ import { AlbumArtwork } from "@/components/music/album-artwork";
 import { PodcastEmptyPlaceholder } from "@/components/music/podcast-empty-placeholder";
 import { listenNowAlbums, madeForYouAlbums } from "@/components/music/albums";
 import { LocationCombobox } from "@/components/location-combobox";
-
-export const metadata: Metadata = {
-  title: "Find events",
-  description: "Find events near you",
-};
 
 export default function Home() {
   return (
