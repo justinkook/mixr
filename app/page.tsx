@@ -34,7 +34,6 @@ export default function Home() {
                   <TabsTrigger value="parties">Parties</TabsTrigger>
                   <TabsTrigger value="art">Art</TabsTrigger>
                 </TabsList>
-                <ScrollBar orientation="horizontal" />
               </ScrollArea>
               <div className="hidden md:block ml-auto mr-4">
                 <Button>
