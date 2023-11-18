@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="col-span-3 lg:col-span-4">
+      <div className="col-span-3 lg:col-span-5">
         <div className="h-full px-4 py-6 lg:px-8">
           <Tabs defaultValue="upcoming" className="h-full space-y-6">
             <div className="space-between flex items-center">
