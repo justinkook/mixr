@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 export const metadataConfig: Metadata = {
   metadataBase: new URL("https://app.gen3tickets.com"),
-  title: "MIXR",
-  description: "Always be in the Mix",
+  title: "Revent",
+  description: "Reinvent how you event",
   manifest: "/manifest.json",
   alternates: {
     canonical: "/",
@@ -17,22 +17,22 @@ export const metadataConfig: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "MIXR",
-    description: "Always be in the Mix",
+    title: "Revent",
+    description: "Rinvent how you event",
     url: "https://app.gen3tickets.com",
-    siteName: "MIXR",
+    siteName: "Revent",
     images: [
       {
         url: "/android-chrome-192x192.png",
         width: 192,
         height: 192,
-        alt: "MIXR Logo 192x192",
+        alt: "Revent Logo 192x192",
       },
       {
         url: "/android-chrome-512x512.png",
         width: 512,
         height: 512,
-        alt: "MIXR Logo 512x512",
+        alt: "Revent Logo 512x512",
       },
     ],
     locale: "en_US",
@@ -40,10 +40,10 @@ export const metadataConfig: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MIXR",
-    description: "Always be in the Mix",
+    title: "Revent",
+    description: "Reinvent how you event",
     siteId: "1467726470533754880",
-    creator: "@MIXR",
+    creator: "@Revent",
     creatorId: "1467726470533754880",
     images: ["/android-chrome-192x192.png", "/android-chrome-512x512.png"],
   },
