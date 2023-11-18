@@ -60,12 +60,6 @@ export function LocationCombobox() {
     return response.data.results;
   };
 
-  useEffect(() => {
-    handleClick();
-
-    // TODO: Cancel the geolocation request if the component is unmounted
-  }, []);
-
   // useEffect(() => {
   //   const fetchResults = async () => {
   //     const results = await fetchAddress(location);
