@@ -74,7 +74,7 @@ export default function NavigationLayout({
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col lg:mt-16">
+        <div className="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:flex lg:w-72 lg:flex-col lg:mt-16">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <Sidebar />
         </div>

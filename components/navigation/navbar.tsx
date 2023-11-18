@@ -4,12 +4,14 @@ import { OrganizationSwitcher } from "@clerk/nextjs";
 import { MenuIcon, SearchIcon } from "lucide-react";
 import {
   SignInButton,
+  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
 } from "@clerk/clerk-react";
 import { Button } from "../ui/button";
 import { Search } from "../manage/overview/search";
+import { NavigationContent } from "./navigation-content";
 
 type NavbarProps = {
   setSidebarOpen: (open: boolean) => void;
@@ -34,6 +36,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           },
         }}
       />
+      <NavigationContent />
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6 items-center justify-end">
         <div className="flex items-center gap-x-4 lg:gap-x-6">
           <form
@@ -51,6 +54,9 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           <SignedOut>
             <Button variant="outline">
               <SignInButton mode="modal" />
+            </Button>
+            <Button>
+              <SignUpButton mode="modal" />
             </Button>
           </SignedOut>
         </div>
