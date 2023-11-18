@@ -22,17 +22,20 @@ export default function Home() {
         <div className="h-full px-4 py-6 lg:px-8">
           <Tabs defaultValue="upcoming" className="h-full space-y-6">
             <div className="space-between flex items-center">
-              <TabsList>
-                <TabsTrigger value="upcoming" className="relative">
-                  Trending
-                </TabsTrigger>
-                <TabsTrigger value="today">Music</TabsTrigger>
-                <TabsTrigger value="tomorrow">Networking</TabsTrigger>
-                <TabsTrigger value="free">Tech</TabsTrigger>
-                <TabsTrigger value="free">Parties</TabsTrigger>
-                <TabsTrigger value="free">Art</TabsTrigger>
-              </TabsList>
-              <div className="ml-auto mr-4">
+              <ScrollArea className="w-full">
+                <TabsList>
+                  <TabsTrigger value="upcoming" className="relative">
+                    Trending
+                  </TabsTrigger>
+                  <TabsTrigger value="today">Music</TabsTrigger>
+                  <TabsTrigger value="tomorrow">Networking</TabsTrigger>
+                  <TabsTrigger value="free">Tech</TabsTrigger>
+                  <TabsTrigger value="free">Parties</TabsTrigger>
+                  <TabsTrigger value="free">Art</TabsTrigger>
+                </TabsList>
+                <ScrollBar orientation="horizontal" />
+              </ScrollArea>
+              <div className="hidden md:block ml-auto mr-4">
                 <Button>
                   <PlusCircledIcon className="mr-2 h-4 w-4" />
                   Create event

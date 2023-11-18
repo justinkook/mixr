@@ -10,7 +10,6 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { Button } from "../ui/button";
-import { Search } from "../manage/overview/search";
 import { NavigationContent } from "./navigation-content";
 import { CommandModal } from "../command-modal";
 import { useState } from "react";
