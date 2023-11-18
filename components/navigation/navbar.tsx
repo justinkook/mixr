@@ -12,12 +12,17 @@ import {
 import { Button } from "../ui/button";
 import { Search } from "../manage/overview/search";
 import { NavigationContent } from "./navigation-content";
+import { CommandModal } from "../command-modal";
+import { useState } from "react";
+import { Input } from "../ui/input";
 
 type NavbarProps = {
   setSidebarOpen: (open: boolean) => void;
 };
 
 export function Navbar({ setSidebarOpen }: NavbarProps) {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <nav className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
       <button
@@ -44,9 +49,17 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
             action="#"
             method="GET"
           >
-            <Search />
+            <Input
+              type="search"
+              placeholder="Search..."
+              className="sm:w-[100px] md:w-[300px]"
+              onClick={() => setOpenModal(!openModal)}
+            />
           </form>
-          <SearchIcon className="flex sm:hidden" />
+          <SearchIcon
+            className="flex sm:hidden"
+            onClick={() => setOpenModal(!openModal)}
+          />
           {/* Profile dropdown */}
           <SignedIn>
             <UserButton userProfileMode="modal" />
@@ -61,6 +74,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </SignedOut>
         </div>
       </div>
+      <CommandModal open={openModal} onOpenChange={setOpenModal} />
     </nav>
   );
 }
