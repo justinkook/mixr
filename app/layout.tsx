@@ -3,11 +3,9 @@ import { metadataConfig } from "@/config/metadata";
 import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers/providers";
+import NavigationLayout from "@/components/navigation/navigation-layout";
 
 import "@/styles/globals.css";
-
-import { Sidebar } from "@/components/navigation/sidebar";
-import { Navbar } from "@/components/navigation/navbar";
 
 export const fontSans = Noto_Sans_JP({
   subsets: ["latin"],
@@ -30,17 +28,13 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <div className="flex-col md:flex">
-            <Navbar />
-            <div className="border-t">
-              <div className="bg-background">
-                <div className="grid lg:grid-cols-5">
-                  <Sidebar className="hidden lg:block" />
-                  {children}
-                </div>
+          <NavigationLayout>
+            <div className="flex-col md:flex">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+                {children}
               </div>
             </div>
-          </div>
+          </NavigationLayout>
         </Providers>
       </body>
     </html>
