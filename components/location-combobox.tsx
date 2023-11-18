@@ -95,7 +95,7 @@ export function LocationCombobox() {
             value={location}
             onValueChange={(v) => setLocation(v)}
           />
-          <CommandEmpty>No address found.</CommandEmpty>
+          <CommandEmpty>No places found.</CommandEmpty>
           <CommandGroup>
             {/* {addresses.length > 0 &&
               addresses.map((address) => (
