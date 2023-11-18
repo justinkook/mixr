@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlbumArtwork } from "@/components/music/album-artwork";
 import { PodcastEmptyPlaceholder } from "@/components/music/podcast-empty-placeholder";
 import { listenNowAlbums, madeForYouAlbums } from "@/components/music/albums";
+import { LocationCombobox } from "@/components/location-combobox";
 
 export const metadata: Metadata = {
   title: "Find events",
@@ -20,7 +21,12 @@ export default function Home() {
     <>
       <div className="col-span-3 lg:col-span-5">
         <div className="h-full px-4 py-6 lg:px-8 space-y-6">
-          <h2 className="text-3xl font-bold tracking-tight">New York</h2>
+          <div>
+            <div className="text-muted-secondary text-s leading-5 self-stretch whitespace-nowrap">
+              Find events near
+            </div>
+            <LocationCombobox />
+          </div>
           <Tabs defaultValue="trending" className="h-full space-y-6">
             <div className="space-between flex items-center">
               <ScrollArea className="w-full">
