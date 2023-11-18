@@ -39,7 +39,7 @@ export function LocationCombobox() {
         const state = locationData.find((component: any) =>
           component.types.includes("administrative_area_level_1")
         ).long_name;
-        setCurrentLocation(`${city}, ${state}`);
+        setCurrentLocation(`${city}`);
       });
     } else {
       console.log("Geolocation is not supported by this browser.");
@@ -82,10 +82,10 @@ export function LocationCombobox() {
           variant="ghost"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between -ml-4"
+          className="max-w-xs md:max-w-full justify-between -ml-4"
         >
-          <h2 className="text-3xl font-bold tracking-tight mt-1">
-            {currentLocation && currentLocation}
+          <h2 className="text-3xl font-bold tracking-tight mt-1 truncate md:whitespace-normal">
+            {currentLocation ? currentLocation : "New York"}
             {/* {location && !currentLocation
               ? addresses.find((addresses) => addresses.value === location)
                   ?.label || "New York"
