@@ -66,14 +66,14 @@ export function LocationCombobox() {
     // TODO: Cancel the geolocation request if the component is unmounted
   }, []);
 
-  useEffect(() => {
-    const fetchResults = async () => {
-      const results = await fetchAddress(location);
-      setAddresses(results);
-    };
+  // useEffect(() => {
+  //   const fetchResults = async () => {
+  //     const results = await fetchAddress(location);
+  //     setAddresses(results);
+  //   };
 
-    fetchResults();
-  }, [location]);
+  //   fetchResults();
+  // }, [location]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
