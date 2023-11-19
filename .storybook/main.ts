@@ -6,18 +6,23 @@ const config: StorybookConfig = {
   addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions"],
   framework: {
     name: "@storybook/nextjs",
-    options: {},
+    options: {
+      nextConfigPath: "../next.config.js",
+    },
   },
   docs: {
     autodocs: true,
   },
-  webpackFinal: async (config, { configType }) => {
-    config.resolve!.modules = [path.resolve(__dirname, ".."), "node_modules"]
-
-    config.resolve!.alias = {
-      ...config.resolve!.alias,
-      "@/components": path.resolve(__dirname, "../components"),
-      "@/lib": path.resolve(__dirname, "../../lib"),
+  webpackFinal: async (config) => {
+    if (config.resolve) {
+      config.resolve = {
+        ...config.resolve,
+        modules: [path.resolve(__dirname, ".."), "node_modules"],
+        alias: {
+          ...(config.resolve.alias ?? {}),
+          "@/lib": path.resolve(__dirname, "../lib"),
+        },
+      }
     }
 
     return config

@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install modules
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       - name: Next Linting
-        run: yarn lint
+        run: pnpm run lint
       - name: Run tests
-        run: yarn test
+        run: pnpm test
