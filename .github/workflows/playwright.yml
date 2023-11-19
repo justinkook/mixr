@@ -40,6 +40,8 @@ jobs:
         run: pnpm playwright install --with-deps
       - name: Run Playwright tests
         run: pnpm run test:e2e
+        env:
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
