@@ -17,7 +17,9 @@
     "test": "jest --passWithNoTests",
     "test:e2e": "playwright test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=mixr",
+    "generate-types": "npx supabase gen types typescript --project-id mucdgwedfzbqjqodwdrz --schema public > types/supabase.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.1",
