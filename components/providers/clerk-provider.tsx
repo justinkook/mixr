@@ -1,24 +1,20 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { ClerkProvider, MultisessionAppSupport } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
+import { ClerkProvider, MultisessionAppSupport } from "@clerk/nextjs"
+import { dark } from "@clerk/themes"
 
-export function ClerkThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
+export function ClerkThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
-    setMounted(true);
-  }, [mounted]);
+    setMounted(true)
+  }, [mounted])
 
   if (!mounted) {
-    return null;
+    return null
   }
 
   return (
@@ -33,5 +29,5 @@ export function ClerkThemeProvider({
     >
       <MultisessionAppSupport>{children}</MultisessionAppSupport>
     </ClerkProvider>
-  );
+  )
 }

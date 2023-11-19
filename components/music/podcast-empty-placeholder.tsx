@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -7,9 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 export function PodcastEmptyPlaceholder() {
   return (
@@ -31,9 +31,7 @@ export function PodcastEmptyPlaceholder() {
         </svg>
 
         <h3 className="mt-4 text-lg font-semibold">No episodes added</h3>
-        <p className="mb-4 mt-2 text-sm text-muted-foreground">
-          You have not added any podcasts. Add one below.
-        </p>
+        <p className="mb-4 mt-2 text-sm text-muted-foreground">You have not added any podcasts. Add one below.</p>
         <Dialog>
           <DialogTrigger asChild>
             <Button size="sm" className="relative">
@@ -43,9 +41,7 @@ export function PodcastEmptyPlaceholder() {
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Add Podcast</DialogTitle>
-              <DialogDescription>
-                Copy and paste the podcast feed URL to import.
-              </DialogDescription>
+              <DialogDescription>Copy and paste the podcast feed URL to import.</DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid gap-2">
@@ -60,5 +56,5 @@ export function PodcastEmptyPlaceholder() {
         </Dialog>
       </div>
     </div>
-  );
+  )
 }

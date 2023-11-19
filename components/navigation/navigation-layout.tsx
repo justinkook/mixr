@@ -1,27 +1,19 @@
-"use client";
+"use client"
 
-import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { X } from "lucide-react";
-import { Sidebar } from "./sidebar";
-import { Navbar } from "./navbar";
+import { Fragment, useState } from "react"
+import { Dialog, Transition } from "@headlessui/react"
+import { X } from "lucide-react"
+import { Sidebar } from "./sidebar"
+import { Navbar } from "./navbar"
 
-export default function NavigationLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+export default function NavigationLayout({ children }: { children: React.ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
     <>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog
-            as="div"
-            className="relative z-50 lg:hidden"
-            onClose={setSidebarOpen}
-          >
+          <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -55,11 +47,7 @@ export default function NavigationLayout({
                     leaveTo="opacity-0"
                   >
                     <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                      <button
-                        type="button"
-                        className="-m-2.5 p-2.5"
-                        onClick={() => setSidebarOpen(false)}
-                      >
+                      <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
                         <span className="sr-only">Close sidebar</span>
                         <X className="h-6 w-6 text-white" aria-hidden="true" />
                       </button>
@@ -74,7 +62,7 @@ export default function NavigationLayout({
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:flex lg:w-72 lg:flex-col lg:mt-16">
+        <div className="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:mt-16 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <Sidebar />
         </div>
@@ -88,5 +76,5 @@ export default function NavigationLayout({
         </div>
       </div>
     </>
-  );
+  )
 }

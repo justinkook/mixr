@@ -1,9 +1,5 @@
 const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="h-full w-full flex flex-col gap-3 justify-start overflow-auto bg-background">
-      {children}
-    </div>
-  );
-};
+  return <div className="flex h-full w-full flex-col justify-start gap-3 overflow-auto bg-background">{children}</div>
+}
 
-export default ProfileLayout;
+export default ProfileLayout

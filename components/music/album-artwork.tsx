@@ -1,15 +1,15 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
-import { Album } from "./albums";
-import DateCard from "../date-card";
-import { Heart } from "lucide-react";
+import { Album } from "./albums"
+import DateCard from "../date-card"
+import { Heart } from "lucide-react"
 
 interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
-  album: Album;
-  aspectRatio?: "portrait" | "square";
-  width: number;
-  height: number;
+  album: Album
+  aspectRatio?: "portrait" | "square"
+  width: number
+  height: number
 }
 
 export function AlbumArtwork({
@@ -22,7 +22,7 @@ export function AlbumArtwork({
 }: AlbumArtworkProps) {
   return (
     <div className={cn("space-y-3", className)} {...props}>
-      <div className="overflow-hidden rounded-md relative">
+      <div className="relative overflow-hidden rounded-md">
         <Image
           src={album.cover}
           alt={album.name}
@@ -30,19 +30,15 @@ export function AlbumArtwork({
           height={height}
           className={cn(
             "h-auto w-auto object-cover transition-all hover:scale-105",
-            aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square",
+            aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
           )}
         />
         {album.date?.day && album.date?.month && (
           <>
-            <div className="absolute top-2 left-2">
-              <DateCard
-                day={album.date?.day}
-                month={album.date?.month}
-                aspectRatio="square"
-              />
+            <div className="absolute left-2 top-2">
+              <DateCard day={album.date?.day} month={album.date?.month} aspectRatio="square" />
             </div>
-            <Heart className="absolute top-4 right-4 stroke-primary fill-background hover:fill-primary" />
+            <Heart className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
           </>
         )}
       </div>
@@ -53,5 +49,5 @@ export function AlbumArtwork({
         <p className="text-xs text-secondary-foreground">{album.time}</p>
       </div>
     </div>
-  );
+  )
 }

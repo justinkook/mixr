@@ -1,8 +1,8 @@
-import { UserProfile } from "@clerk/nextjs";
+import { UserProfile } from "@clerk/nextjs"
 
 export default function Page() {
   return (
-    <div className="flex justify-center mb-20">
+    <div className="mb-20 flex justify-center">
       <UserProfile
         path="/user-profile"
         routing="path"
@@ -13,5 +13,5 @@ export default function Page() {
         }}
       />
     </div>
-  );
+  )
 }

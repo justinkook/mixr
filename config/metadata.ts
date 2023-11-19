@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
 export const metadataConfig: Metadata = {
   metadataBase: new URL("https://app.gen3tickets.com"),
@@ -74,4 +74,4 @@ export const metadataConfig: Metadata = {
   verification: {
     google: "google",
   },
-};
+}

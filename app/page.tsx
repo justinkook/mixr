@@ -1,24 +1,22 @@
-import { PlusCircledIcon } from "@radix-ui/react-icons";
+import { PlusCircledIcon } from "@radix-ui/react-icons"
 
-import { Button } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { AlbumArtwork } from "@/components/music/album-artwork";
-import { PodcastEmptyPlaceholder } from "@/components/music/podcast-empty-placeholder";
-import { listenNowAlbums, madeForYouAlbums } from "@/components/music/albums";
-import { LocationCombobox } from "@/components/location-combobox";
+import { AlbumArtwork } from "@/components/music/album-artwork"
+import { PodcastEmptyPlaceholder } from "@/components/music/podcast-empty-placeholder"
+import { listenNowAlbums, madeForYouAlbums } from "@/components/music/albums"
+import { LocationCombobox } from "@/components/location-combobox"
 
 export default function Home() {
   return (
     <>
       <div className="col-span-3 lg:col-span-5">
-        <div className="h-full px-4 py-6 lg:px-8 space-y-6">
+        <div className="h-full space-y-6 px-4 py-6 lg:px-8">
           <div>
-            <div className="text-muted-secondary text-s leading-5 self-stretch whitespace-nowrap">
-              Find events near
-            </div>
+            <div className="text-muted-secondary text-s self-stretch whitespace-nowrap leading-5">Find events near</div>
             <LocationCombobox />
           </div>
           <Tabs defaultValue="trending" className="h-full space-y-6">
@@ -35,25 +33,18 @@ export default function Home() {
                   <TabsTrigger value="art">Art</TabsTrigger>
                 </TabsList>
               </ScrollArea>
-              <div className="hidden md:block ml-auto mr-4">
+              <div className="ml-auto mr-4 hidden md:block">
                 <Button>
                   <PlusCircledIcon className="mr-2 h-4 w-4" />
                   Create event
                 </Button>
               </div>
             </div>
-            <TabsContent
-              value="trending"
-              className="border-none p-0 outline-none"
-            >
+            <TabsContent value="trending" className="border-none p-0 outline-none">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                    Planned for You
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    Your personalized picks.
-                  </p>
+                  <h2 className="text-2xl font-semibold tracking-tight">Planned for You</h2>
+                  <p className="text-sm text-muted-foreground">Your personalized picks.</p>
                 </div>
               </div>
               <Separator className="my-4" />
@@ -74,14 +65,10 @@ export default function Home() {
                 </div>
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
-              <div className="mt-6 space-y-1 flex justify-between">
+              <div className="mt-6 flex justify-between space-y-1">
                 <div>
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                    Upcoming
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    All upcoming events.
-                  </p>
+                  <h2 className="text-2xl font-semibold tracking-tight">Upcoming</h2>
+                  <p className="text-sm text-muted-foreground">All upcoming events.</p>
                 </div>
                 <div className="ml-auto mr-4">
                   <Button variant="link">See all</Button>
@@ -89,7 +76,7 @@ export default function Home() {
               </div>
               <Separator className="my-4" />
               <ScrollArea>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 overflow-auto grid-auto-flow-column w-full">
+                <div className="grid-auto-flow-column grid w-full grid-cols-1 gap-4 overflow-auto sm:grid-cols-2 md:grid-cols-4">
                   {madeForYouAlbums.map((album) => (
                     <AlbumArtwork
                       key={album.name}
@@ -103,18 +90,11 @@ export default function Home() {
                 </div>
               </ScrollArea>
             </TabsContent>
-            <TabsContent
-              value="music"
-              className="h-full flex-col border-none p-0 data-[state=active]:flex"
-            >
+            <TabsContent value="music" className="h-full flex-col border-none p-0 data-[state=active]:flex">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                    New Episodes
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    Your favorite podcasts. Updated daily.
-                  </p>
+                  <h2 className="text-2xl font-semibold tracking-tight">New Episodes</h2>
+                  <p className="text-sm text-muted-foreground">Your favorite podcasts. Updated daily.</p>
                 </div>
               </div>
               <Separator className="my-4" />
@@ -124,5 +104,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
