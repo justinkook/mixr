@@ -37,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
-        run: pnpm run playwright install --with-deps
+        run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: pnpm run playwright test
+        run: pnpm run test:e2e
       - uses: actions/upload-artifact@v3
         if: always()
         with:

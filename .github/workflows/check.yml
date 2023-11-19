@@ -46,7 +46,7 @@ jobs:
       - name: Unit & Integration tests
         run: pnpm test
       - name: Install Playwright Browsers
-        run: pnpm run playwright install --with-deps
+        run: npx playwright install --with-deps
       - name: Smoke & Acceptance tests
         run: |
           pnpm run build-storybook --quiet
