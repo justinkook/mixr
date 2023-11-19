@@ -45,3 +45,10 @@ next-env.d.ts
 
 # Storybook Generated Build
 storybook-static
+
+# Playwright Test Report
+/playwright-report/
+/playwright/.cache/
+
+# only-allow force pnpm
+/.npm-only-allow
