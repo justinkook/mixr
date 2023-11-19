@@ -99,5 +99,6 @@
     "tsc": "^2.0.4",
     "typescript": "^5",
     "webpack": "5.89.0"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

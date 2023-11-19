@@ -74,7 +74,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     <div
       className={cn(
         "flex grow flex-col overflow-y-auto bg-background border-r pb-4",
-        className
+        className,
       )}
     >
       <ScrollArea>

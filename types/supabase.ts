@@ -37,7 +37,7 @@ export interface Database {
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       accounts: {
@@ -71,7 +71,7 @@ export interface Database {
             columns: ["primary_owner_user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       community: {
@@ -180,7 +180,7 @@ export interface Database {
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       customers: {
@@ -202,7 +202,7 @@ export interface Database {
             columns: ["id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       events: {
@@ -317,7 +317,7 @@ export interface Database {
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       likes: {
@@ -348,7 +348,7 @@ export interface Database {
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       prices: {
@@ -401,7 +401,7 @@ export interface Database {
             columns: ["product_id"];
             referencedRelation: "products";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       products: {
@@ -495,7 +495,7 @@ export interface Database {
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
       tickets: {
@@ -601,7 +601,7 @@ export interface Database {
             columns: ["id"];
             referencedRelation: "users";
             referencedColumns: ["id"];
-          }
+          },
         ];
       };
     };

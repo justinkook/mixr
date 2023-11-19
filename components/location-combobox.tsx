@@ -30,14 +30,14 @@ export function LocationCombobox() {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`,
         );
         const locationData = response.data.results[0].address_components;
         const city = locationData.find((component: any) =>
-          component.types.includes("locality")
+          component.types.includes("locality"),
         ).long_name;
         const state = locationData.find((component: any) =>
-          component.types.includes("administrative_area_level_1")
+          component.types.includes("administrative_area_level_1"),
         ).long_name;
         setCurrentLocation(`${city}`);
       });
@@ -54,7 +54,7 @@ export function LocationCombobox() {
           input: inputText,
           key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         },
-      }
+      },
     );
     console.log(response.data.results);
     return response.data.results;

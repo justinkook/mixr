@@ -12,7 +12,7 @@ const DateCard: React.FC<DateCardProps> = ({ day, month, aspectRatio }) => {
     <div
       className={cn(
         "justify-center items-center bg-secondary relative flex max-w-[62px] max-h-[62px] flex-col px-6 py-2.5 rounded-xl self-end max-md:px-5",
-        aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+        aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square",
       )}
     >
       <h3 className="text-center text-sm font-bold leading-5 self-center whitespace-nowrap">

@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: "${{ env.node_version }}"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint check
         run: yarn lint
       - name: Format check
