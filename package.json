@@ -127,7 +127,7 @@
     "*": "prettier -w --ignore-unknown"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "packageManager": "pnpm@8.10.5"
 }
