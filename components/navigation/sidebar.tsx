@@ -1,61 +1,61 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { FileText, Heart, Home, LayoutGrid, ShieldCheck, Ticket, Zap } from "lucide-react"
-import { SignedIn } from "@clerk/nextjs"
-import Link from "next/link"
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { FileText, Heart, Home, LayoutGrid, ShieldCheck, Ticket, Zap } from 'lucide-react'
+import { SignedIn } from '@clerk/nextjs'
+import Link from 'next/link'
 
 const navigation = [
-  { name: "Home", href: "/", icon: Home, current: true },
-  { name: "Browse", href: "/search", icon: LayoutGrid, current: false },
+  { name: 'Home', href: '/', icon: Home, current: true },
+  { name: 'Browse', href: '/search', icon: LayoutGrid, current: false },
 ]
 
 const events = [
   {
-    name: "React Rendezvous",
-    href: "/event/react-rendezvous",
+    name: 'React Rendezvous',
+    href: '/event/react-rendezvous',
     icon: Zap,
     current: false,
   },
   {
-    name: "Async Awakenings",
-    href: "/event/async-awakenings",
+    name: 'Async Awakenings',
+    href: '/event/async-awakenings',
     icon: Zap,
     current: false,
   },
   {
-    name: "The Art of Reusability",
-    href: "/event/the-art-of-reusability",
+    name: 'The Art of Reusability',
+    href: '/event/the-art-of-reusability',
     icon: Zap,
     current: false,
   },
   {
-    name: "Thinking Components",
-    href: "/event/thinking-components",
+    name: 'Thinking Components',
+    href: '/event/thinking-components',
     icon: Zap,
     current: false,
   },
   {
-    name: "Functional Fury",
-    href: "/event/functional-fury",
+    name: 'Functional Fury',
+    href: '/event/functional-fury',
     icon: Zap,
     current: false,
   },
   {
-    name: "Stateful Symphony",
-    href: "/event/stateful-symphony",
+    name: 'Stateful Symphony',
+    href: '/event/stateful-symphony',
     icon: Zap,
     current: false,
   },
   {
-    name: "Functional Fury",
-    href: "/event/functional-fury",
+    name: 'Functional Fury',
+    href: '/event/functional-fury',
     icon: Zap,
     current: false,
   },
   {
-    name: "Stateful Symphony",
-    href: "/event/stateful-symphony",
+    name: 'Stateful Symphony',
+    href: '/event/stateful-symphony',
     icon: Zap,
     current: false,
   },
@@ -63,7 +63,7 @@ const events = [
 
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("flex grow flex-col overflow-y-auto border-r bg-background pb-4", className)}>
+    <div className={cn('flex grow flex-col overflow-y-auto border-r bg-background pb-4', className)}>
       <ScrollArea>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
           <ul role="list" className="flex flex-1 flex-col">
@@ -73,7 +73,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 {navigation.map((item) => (
                   <li key={item.name}>
                     <Link href={item.href}>
-                      <Button variant={item.current ? "secondary" : "ghost"} className="w-full justify-start">
+                      <Button variant={item.current ? 'secondary' : 'ghost'} className="w-full justify-start">
                         <item.icon className="mr-2 h-4 w-4" aria-hidden="true" />
                         {item.name}
                       </Button>
@@ -104,7 +104,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       <li key={event.name}>
                         <Link href={event.href}>
                           <Button
-                            variant={event.current ? "secondary" : "ghost"}
+                            variant={event.current ? 'secondary' : 'ghost'}
                             className="w-full justify-start font-normal"
                           >
                             <event.icon className="mr-2 h-4 w-4" aria-hidden="true" />

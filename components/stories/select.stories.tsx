@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
 import {
   Select,
@@ -9,12 +9,12 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "../ui/select"
+} from '../ui/select'
 
 const meta: Meta<typeof Select> = {
-  title: "ui/Select",
+  title: 'ui/Select',
   component: Select,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta

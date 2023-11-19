@@ -1,13 +1,13 @@
-import type { StorybookConfig } from "@storybook/nextjs"
-const path = require("path")
+import type { StorybookConfig } from '@storybook/nextjs'
+const path = require('path')
 
 const config: StorybookConfig = {
-  stories: ["../components/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions"],
+  stories: ['../components/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
-    name: "@storybook/nextjs",
+    name: '@storybook/nextjs',
     options: {
-      nextConfigPath: "../next.config.js",
+      nextConfigPath: '../next.config.js',
     },
   },
   docs: {
@@ -17,10 +17,10 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve = {
         ...config.resolve,
-        modules: [path.resolve(__dirname, ".."), "node_modules"],
+        modules: [path.resolve(__dirname, '..'), 'node_modules'],
         alias: {
           ...(config.resolve.alias ?? {}),
-          "@/lib": path.resolve(__dirname, "../lib"),
+          '@/lib': path.resolve(__dirname, '../lib'),
         },
       }
     }

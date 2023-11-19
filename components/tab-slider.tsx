@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
 type TabSliderProps = {
   tabs: string[]
@@ -19,7 +19,7 @@ export default function TabSlider(props: TabSliderProps) {
         <button
           key={tab}
           className={`items-center justify-center self-stretch whitespace-nowrap text-xs font-bold leading-5 ${
-            activeTab === tab ? "bg-indigo-500 text-white" : "bg-zinc-100 text-gray-900"
+            activeTab === tab ? 'bg-indigo-500 text-white' : 'bg-zinc-100 text-gray-900'
           } w-[${tab.length * 10}px] max-w-full rounded-xl px-4 py-3`}
           onClick={() => handleTabClick(tab)}
         >

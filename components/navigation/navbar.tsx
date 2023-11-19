@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { OrganizationSwitcher } from "@clerk/nextjs"
-import { MenuIcon, SearchIcon } from "lucide-react"
-import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react"
-import { Button } from "../ui/button"
-import { NavigationContent } from "./navigation-content"
-import { CommandModal } from "../command-modal"
-import { useState } from "react"
-import { Input } from "../ui/input"
-import Image from "next/image"
+import { OrganizationSwitcher } from '@clerk/nextjs'
+import { MenuIcon, SearchIcon } from 'lucide-react'
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
+import { Button } from '../ui/button'
+import { NavigationContent } from './navigation-content'
+import { CommandModal } from '../command-modal'
+import { useState } from 'react'
+import { Input } from '../ui/input'
+import Image from 'next/image'
 
 type NavbarProps = {
   setSidebarOpen: (open: boolean) => void
@@ -20,7 +20,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
   return (
     <nav className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
       <SignedOut>
-        <Image src={"/images/card.png"} width={26} height={26} alt={"Revent logo"} />
+        <Image src={'/images/card.png'} width={26} height={26} alt={'Revent logo'} />
         Revent
       </SignedOut>
       <button type="button" className="-m-2.5 p-2.5 lg:hidden" onClick={() => setSidebarOpen(true)}>
@@ -31,7 +31,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
         organizationProfileMode="modal"
         appearance={{
           elements: {
-            rootBox: "mt-2",
+            rootBox: 'mt-2',
           },
         }}
       />

@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { useState } from "react"
+import { useState } from 'react'
 
-import { Calendar, CreditCard, Settings, Smile, User } from "lucide-react"
+import { Calendar, CreditCard, Settings, Smile, User } from 'lucide-react'
 import {
   CommandDialog,
   CommandEmpty,
@@ -12,7 +12,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/ui/command"
+} from '@/components/ui/command'
 
 type CommandModalProps = {
   open: boolean
@@ -20,7 +20,7 @@ type CommandModalProps = {
 }
 
 export function CommandModal({ open, onOpenChange }: CommandModalProps) {
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState('')
   return (
     <>
       <CommandDialog open={open} onOpenChange={onOpenChange}>

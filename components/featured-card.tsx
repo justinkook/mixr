@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import { useState } from "react"
-import Image from "next/image"
-import DateCard from "./date-card"
-import EventCardMetadata from "./event-metadata"
+import * as React from 'react'
+import { useState } from 'react'
+import Image from 'next/image'
+import DateCard from './date-card'
+import EventCardMetadata from './event-metadata'
 
 type ArtFestivalCardProps = {
   imageUrl: string

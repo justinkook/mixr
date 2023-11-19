@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from "react"
-import { ChevronsUpDown, MapPin } from "lucide-react"
+import { useEffect, useState } from 'react'
+import { ChevronsUpDown, MapPin } from 'lucide-react'
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import axios from "axios"
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import axios from 'axios'
 
 export function LocationCombobox() {
   const [open, setOpen] = useState(false)
-  const [location, setLocation] = useState("")
-  const [currentLocation, setCurrentLocation] = useState("")
+  const [location, setLocation] = useState('')
+  const [currentLocation, setCurrentLocation] = useState('')
   const [addresses, setAddresses] = useState([])
 
   const handleClick = async () => {
@@ -23,19 +23,19 @@ export function LocationCombobox() {
           `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
         )
         const locationData = response.data.results[0].address_components
-        const city = locationData.find((component: any) => component.types.includes("locality")).long_name
+        const city = locationData.find((component: any) => component.types.includes('locality')).long_name
         const state = locationData.find((component: any) =>
-          component.types.includes("administrative_area_level_1")
+          component.types.includes('administrative_area_level_1')
         ).long_name
         setCurrentLocation(`${city}`)
       })
     } else {
-      console.log("Geolocation is not supported by this browser.")
+      console.log('Geolocation is not supported by this browser.')
     }
   }
 
   const fetchAddress = async (inputText: string) => {
-    const response = await axios.get("https://maps.googleapis.com/maps/api/place/autocomplete/json", {
+    const response = await axios.get('https://maps.googleapis.com/maps/api/place/autocomplete/json', {
       params: {
         input: inputText,
         key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
@@ -64,7 +64,7 @@ export function LocationCombobox() {
           className="-ml-4 max-w-xs justify-between md:max-w-full"
         >
           <h2 className="mt-1 truncate text-3xl font-bold tracking-tight md:whitespace-normal">
-            {currentLocation ? currentLocation : "New York"}
+            {currentLocation ? currentLocation : 'New York'}
             {/* {location && !currentLocation
               ? addresses.find((addresses) => addresses.value === location)
                   ?.label || "New York"

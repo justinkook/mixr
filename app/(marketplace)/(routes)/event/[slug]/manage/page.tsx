@@ -1,28 +1,28 @@
-import { Metadata } from "next"
-import Link from "next/link"
-import Image from "next/image"
-import { z } from "zod"
+import { Metadata } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import { z } from 'zod'
 
-import { ArrowUpRight, Plus } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowUpRight, Plus } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 /* Overview Components */
-import { Overview } from "@/components/manage/overview/overview"
-import { RecentSales } from "@/components/manage/overview/recent-sales"
+import { Overview } from '@/components/manage/overview/overview'
+import { RecentSales } from '@/components/manage/overview/recent-sales'
 
 /* Guest Components */
-import { DataTable } from "@/components/manage/guests/data-table"
-import { columns } from "@/components/manage/guests/columns"
-import dataJSON from "@/components/manage/guests/tasks.json"
-import { taskSchema } from "@/lib/schema"
-import SettingsAccountPage from "@/components/manage/settings/account/settings-page"
+import { DataTable } from '@/components/manage/guests/data-table'
+import { columns } from '@/components/manage/guests/columns'
+import dataJSON from '@/components/manage/guests/tasks.json'
+import { taskSchema } from '@/lib/schema'
+import SettingsAccountPage from '@/components/manage/settings/account/settings-page'
 
 export const metadata: Metadata = {
-  title: "NewY Art Festival: 2022 Dana Point 48-50",
-  description: "Example dashboard app built using the components.",
+  title: 'NewY Art Festival: 2022 Dana Point 48-50',
+  description: 'Example dashboard app built using the components.',
 }
 
 // TODO: Replace Simulate a database read for tasks.

@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { ScrollArea } from "../ui/scroll-area"
-import { Separator } from "../ui/separator"
+import { ScrollArea } from '../ui/scroll-area'
+import { Separator } from '../ui/separator'
 
 const meta: Meta<typeof ScrollArea> = {
-  title: "ui/ScrollArea",
+  title: 'ui/ScrollArea',
   component: ScrollArea,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta

@@ -1,4 +1,4 @@
-import { UserProfile } from "@clerk/nextjs"
+import { UserProfile } from '@clerk/nextjs'
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
         routing="path"
         appearance={{
           elements: {
-            navbarMobileMenuRow: "hidden",
+            navbarMobileMenuRow: 'hidden',
           },
         }}
       />

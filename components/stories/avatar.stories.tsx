@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 
 const meta: Meta<typeof Avatar> = {
-  title: "ui/Avatar",
+  title: 'ui/Avatar',
   component: Avatar,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 

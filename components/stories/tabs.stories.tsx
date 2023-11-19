@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
+import { Label } from '../ui/label'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 
 const meta: Meta<typeof Tabs> = {
-  title: "ui/Tabs",
+  title: 'ui/Tabs',
   component: Tabs,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta
@@ -61,6 +61,6 @@ export const Base: Story = {
     </Tabs>
   ),
   args: {
-    defaultValue: "account",
+    defaultValue: 'account',
   },
 }

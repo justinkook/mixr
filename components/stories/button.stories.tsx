@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { Loader2, Mail } from "lucide-react"
+import { Meta, StoryObj } from '@storybook/react'
+import { Loader2, Mail } from 'lucide-react'
 
-import { Button } from "../ui/button"
+import { Button } from '../ui/button'
 
 const meta: Meta<typeof Button> = {
-  title: "ui/Button",
+  title: 'ui/Button',
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta
@@ -20,25 +20,25 @@ export const Base: Story = {
 export const Outline: Story = {
   render: (args) => <Button {...args}>Button</Button>,
   args: {
-    variant: "outline",
+    variant: 'outline',
   },
 }
 export const Ghost: Story = {
   render: (args) => <Button {...args}>Button</Button>,
   args: {
-    variant: "ghost",
+    variant: 'ghost',
   },
 }
 export const Secondary: Story = {
   render: (args) => <Button {...args}>Button</Button>,
   args: {
-    variant: "secondary",
+    variant: 'secondary',
   },
 }
 export const Link: Story = {
   render: (args) => <Button {...args}>Button</Button>,
   args: {
-    variant: "link",
+    variant: 'link',
   },
 }
 export const Loading: Story = {
@@ -49,7 +49,7 @@ export const Loading: Story = {
     </Button>
   ),
   args: {
-    variant: "outline",
+    variant: 'outline',
   },
 }
 export const WithIcon: Story = {
@@ -59,6 +59,6 @@ export const WithIcon: Story = {
     </Button>
   ),
   args: {
-    variant: "secondary",
+    variant: 'secondary',
   },
 }

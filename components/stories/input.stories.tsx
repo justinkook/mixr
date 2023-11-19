@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
+import { Label } from '../ui/label'
 
 const meta: Meta<typeof Input> = {
-  title: "ui/Input",
+  title: 'ui/Input',
   component: Input,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta
@@ -17,8 +17,8 @@ type Story = StoryObj<typeof Input>
 export const Default: Story = {
   render: (args) => <Input {...args} />,
   args: {
-    type: "email",
-    placeholder: "Email",
+    type: 'email',
+    placeholder: 'Email',
   },
 }
 export const Disabled: Story = {

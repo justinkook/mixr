@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Checkbox } from "../ui/checkbox"
+import { Checkbox } from '../ui/checkbox'
 
 const meta: Meta<typeof Checkbox> = {
-  title: "ui/Checkbox",
+  title: 'ui/Checkbox',
   component: Checkbox,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta

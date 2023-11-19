@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from 'react'
+import Link from 'next/link'
 
 import {
   NavigationMenu,
@@ -11,9 +11,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { Bot } from "lucide-react"
-import ListItem from "../manage/overview/list-item"
+} from '@/components/ui/navigation-menu'
+import { Bot } from 'lucide-react'
+import ListItem from '../manage/overview/list-item'
 
 export function NavigationContent() {
   return (

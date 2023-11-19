@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 import {
   Cloud,
   CreditCard,
@@ -14,9 +14,9 @@ import {
   User,
   UserPlus,
   Users,
-} from "lucide-react"
+} from 'lucide-react'
 
-import { Button } from "../ui/button"
+import { Button } from '../ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,12 +30,12 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
+} from '../ui/dropdown-menu'
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: "ui/DropdownMenu",
+  title: 'ui/DropdownMenu',
   component: DropdownMenu,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta

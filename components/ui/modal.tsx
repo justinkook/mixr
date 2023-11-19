@@ -1,6 +1,6 @@
-import * as Dialog from "@radix-ui/react-dialog"
-import { Button } from "./button"
-import { X } from "lucide-react"
+import * as Dialog from '@radix-ui/react-dialog'
+import { Button } from './button'
+import { X } from 'lucide-react'
 
 interface ModalProps {
   open: boolean

@@ -1,18 +1,18 @@
-import { cn } from "@/lib/utils"
-import React from "react"
+import { cn } from '@/lib/utils'
+import React from 'react'
 
 type DateCardProps = {
   day: string
   month: string
-  aspectRatio?: "portrait" | "square"
+  aspectRatio?: 'portrait' | 'square'
 }
 
 const DateCard: React.FC<DateCardProps> = ({ day, month, aspectRatio }) => {
   return (
     <div
       className={cn(
-        "relative flex max-h-[62px] max-w-[62px] flex-col items-center justify-center self-end rounded-xl bg-secondary px-6 py-2.5 max-md:px-5",
-        aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+        'relative flex max-h-[62px] max-w-[62px] flex-col items-center justify-center self-end rounded-xl bg-secondary px-6 py-2.5 max-md:px-5',
+        aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
       )}
     >
       <h3 className="self-center whitespace-nowrap text-center text-sm font-bold leading-5">{day}</h3>

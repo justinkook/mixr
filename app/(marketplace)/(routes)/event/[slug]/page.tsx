@@ -1,6 +1,6 @@
-import * as React from "react"
-import Image from "next/image"
-import { ArrowLeft, CalendarPlus, Heart, Share } from "lucide-react"
+import * as React from 'react'
+import Image from 'next/image'
+import { ArrowLeft, CalendarPlus, Heart, Share } from 'lucide-react'
 
 type ArtEventComponentProps = {
   eventTitle: string
@@ -15,15 +15,15 @@ type ArtEventComponentProps = {
 
 export default function ArtEventComponent() {
   const { eventTitle, eventDate, eventMonth, eventDay, eventTime, aboutEvent, ticketPrice, spotsLeft } = {
-    eventTitle: "NewY Art Festival: 2022 Dana",
-    eventDate: "29",
-    eventMonth: "Sep",
-    eventDay: "Friday",
-    eventTime: "09:00 PM - 11:00 PM",
+    eventTitle: 'NewY Art Festival: 2022 Dana',
+    eventDate: '29',
+    eventMonth: 'Sep',
+    eventDay: 'Friday',
+    eventTime: '09:00 PM - 11:00 PM',
     aboutEvent:
       "We're celebrating our 30th edition of the California Art Festival in CA this Spring so join us at the Building Park in California State University from March 29 - 30, 2022 with our Private View opening on Saturday, March 26!",
-    ticketPrice: "$60.98 - $75.00",
-    spotsLeft: "200",
+    ticketPrice: '$60.98 - $75.00',
+    spotsLeft: '200',
   }
 
   return (

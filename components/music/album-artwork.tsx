@@ -1,27 +1,27 @@
-import Image from "next/image"
-import { cn } from "@/lib/utils"
+import Image from 'next/image'
+import { cn } from '@/lib/utils'
 
-import { Album } from "./albums"
-import DateCard from "../date-card"
-import { Heart } from "lucide-react"
+import { Album } from './albums'
+import DateCard from '../date-card'
+import { Heart } from 'lucide-react'
 
 interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
   album: Album
-  aspectRatio?: "portrait" | "square"
+  aspectRatio?: 'portrait' | 'square'
   width: number
   height: number
 }
 
 export function AlbumArtwork({
   album,
-  aspectRatio = "portrait",
+  aspectRatio = 'portrait',
   width,
   height,
   className,
   ...props
 }: AlbumArtworkProps) {
   return (
-    <div className={cn("space-y-3", className)} {...props}>
+    <div className={cn('space-y-3', className)} {...props}>
       <div className="relative overflow-hidden rounded-md">
         <Image
           src={album.cover}
@@ -29,8 +29,8 @@ export function AlbumArtwork({
           width={width}
           height={height}
           className={cn(
-            "h-auto w-auto object-cover transition-all hover:scale-105",
-            aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+            'h-auto w-auto object-cover transition-all hover:scale-105',
+            aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
           )}
         />
         {album.date?.day && album.date?.month && (

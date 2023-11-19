@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { Fragment, useState } from "react"
-import { Dialog, Transition } from "@headlessui/react"
-import { X } from "lucide-react"
-import { Sidebar } from "./sidebar"
-import { Navbar } from "./navbar"
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { X } from 'lucide-react'
+import { Sidebar } from './sidebar'
+import { Navbar } from './navbar'
 
 export default function NavigationLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)

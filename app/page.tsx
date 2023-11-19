@@ -1,14 +1,14 @@
-import { PlusCircledIcon } from "@radix-ui/react-icons"
+import { PlusCircledIcon } from '@radix-ui/react-icons'
 
-import { Button } from "@/components/ui/button"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from '@/components/ui/button'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { AlbumArtwork } from "@/components/music/album-artwork"
-import { PodcastEmptyPlaceholder } from "@/components/music/podcast-empty-placeholder"
-import { listenNowAlbums, madeForYouAlbums } from "@/components/music/albums"
-import { LocationCombobox } from "@/components/location-combobox"
+import { AlbumArtwork } from '@/components/music/album-artwork'
+import { PodcastEmptyPlaceholder } from '@/components/music/podcast-empty-placeholder'
+import { listenNowAlbums, madeForYouAlbums } from '@/components/music/albums'
+import { LocationCombobox } from '@/components/location-combobox'
 
 export default function Home() {
   return (

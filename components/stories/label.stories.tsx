@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Label } from "../ui/label"
+import { Label } from '../ui/label'
 
 const meta: Meta<typeof Label> = {
-  title: "ui/Label",
+  title: 'ui/Label',
   component: Label,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 }
 export default meta
