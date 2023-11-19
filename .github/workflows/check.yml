@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "${{ env.node_version }}"
-       - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           run_install: false
