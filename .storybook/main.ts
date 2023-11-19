@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs"
+const path = require("path")
 
 const config: StorybookConfig = {
   stories: ["../components/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -9,6 +10,17 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
+  },
+  webpackFinal: async (config, { configType }) => {
+    config.resolve!.modules = [path.resolve(__dirname, ".."), "node_modules"]
+
+    config.resolve!.alias = {
+      ...config.resolve!.alias,
+      "@/components": path.resolve(__dirname, "../components"),
+      "@/lib": path.resolve(__dirname, "../../lib"),
+    }
+
+    return config
   },
 }
 export default config
