@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -15,8 +16,7 @@
     "build-storybook": "storybook build",
     "test": "jest --passWithNoTests",
     "format": "prettier --write \"**/*.{ts,tsx,md}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "preinstall": "npx only-allow pnpm"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.1",
