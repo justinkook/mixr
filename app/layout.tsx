@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import { metadataConfig } from '@/config/metadata'
 import { Noto_Sans_JP } from 'next/font/google'
 import { cn } from '@/lib/utils'
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">{children}</div>
             </div>
           </NavigationLayout>
+          <Analytics />
         </Providers>
       </body>
     </html>
