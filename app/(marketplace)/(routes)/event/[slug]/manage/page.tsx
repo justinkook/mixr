@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { z } from 'zod'
 
 import { ArrowUpRight, Plus } from 'lucide-react'
@@ -35,7 +34,7 @@ export default async function EventManagePage() {
 
   return (
     <>
-      <div className="col-span-3 lg:col-span-4 lg:border-l">
+      <div className="col-span-3 lg:col-span-5">
         <div className="h-full px-4 py-6 lg:px-8">
           <div className="flex-1 space-y-4 p-8 pt-6">
             <div className="flex items-center justify-between space-y-2">
