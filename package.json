@@ -11,10 +11,11 @@
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
     "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "storybook": "storybook dev -p 6006",
-    "test-storybook": "test-storybook --passWithNoTests",
+    "test-storybook": "test-storybook",
     "build-storybook": "storybook build",
     "test": "jest --passWithNoTests",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.1",
