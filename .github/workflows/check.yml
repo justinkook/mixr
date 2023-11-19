@@ -45,9 +45,11 @@ jobs:
         run: pnpm run prettier
       - name: Unit & Integration tests
         run: pnpm test
-      - name: Smoke & Acceptance tests
-        run: |
-          pnpm run build-storybook --quiet
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+      - uses: docker://mcr.microsoft.com/playwright:v1.34.3-jammy
+        name: Smoke & Acceptance tests with Playwright
+        with:
+          args: |
+            pnpm run build-storybook --quiet
+            npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && pnpm run test-storybook"
