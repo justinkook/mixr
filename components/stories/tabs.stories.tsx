@@ -24,7 +24,7 @@ export const Base: Story = {
       </TabsList>
       <TabsContent value="account">
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Make changes to your account here. Click save when you're done.
+          Make changes to your account here. Click save when youre done.
         </p>
         <div className="grid gap-2 py-4">
           <div className="space-y-1">
@@ -42,7 +42,7 @@ export const Base: Story = {
       </TabsContent>
       <TabsContent value="password">
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Change your password here. After saving, you'll be logged out.
+          Change your password here. After saving, youll be logged out.
         </p>
         <div className="grid gap-2 py-4">
           <div className="space-y-1">
