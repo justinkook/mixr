@@ -1,5 +1,6 @@
 {
-  "name": "revent",
+  "name": "@revent/app",
+  "description": "Revent is a platform for hosting events and selling tickets.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +25,7 @@
     "generate-types": "npx supabase gen types typescript --project-id mucdgwedfzbqjqodwdrz --schema public > types/supabase.ts"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^4.28.0",
     "@clerk/nextjs": "^4.27.1",
     "@clerk/themes": "^1.7.9",
     "@headlessui/react": "^1.7.17",
