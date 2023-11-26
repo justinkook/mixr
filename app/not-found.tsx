@@ -1,6 +1,7 @@
 import { ChevronRightIcon } from 'lucide-react'
 import { BookMarkedIcon, BookOpenIcon, LayersIcon, RssIcon } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const links = [
   {
@@ -46,10 +47,10 @@ export default function NotFoundPage() {
               </div>
               <div className="flex-auto">
                 <h3 className="text-sm font-semibold leading-6 text-foreground">
-                  <a href={link.href}>
+                  <Link href={link.href}>
                     <span className="absolute inset-0" aria-hidden="true" />
                     {link.name}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{link.description}</p>
               </div>
@@ -60,10 +61,10 @@ export default function NotFoundPage() {
           ))}
         </ul>
         <div className="mt-10 flex justify-center">
-          <a href="#" className="text-sm font-semibold leading-6 text-primary">
+          <Link href="/" className="text-sm font-semibold leading-6 text-primary">
             <span aria-hidden="true">&larr;</span>
             Back to home
-          </a>
+          </Link>
         </div>
       </div>
     </main>
