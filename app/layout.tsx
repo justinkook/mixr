@@ -20,11 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <Providers>
-          <NavigationLayout>
-            <div className="flex-col md:flex">
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">{children}</div>
-            </div>
-          </NavigationLayout>
+          <NavigationLayout>{children}</NavigationLayout>
           <Analytics />
         </Providers>
       </body>

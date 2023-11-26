@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { FileText, Heart, Home, LayoutGrid, ShieldCheck, Ticket, Zap } from 'lucide-react'
-import { SignedIn } from '@clerk/nextjs'
+import { Heart, Home, LayoutGrid, ReceiptIcon, SettingsIcon, Ticket, Zap } from 'lucide-react'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
+import { SignInButton, SignUpButton } from '@clerk/clerk-react'
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home, current: true },
@@ -13,49 +14,49 @@ const navigation = [
 const events = [
   {
     name: 'React Rendezvous',
-    href: '/event/react-rendezvous/manage',
+    href: '/manage/react-rendezvous',
     icon: Zap,
     current: false,
   },
   {
     name: 'Async Awakenings',
-    href: '/event/async-awakenings/manage',
+    href: '/manage/async-awakenings',
     icon: Zap,
     current: false,
   },
   {
     name: 'The Art of Reusability',
-    href: '/event/the-art-of-reusability/manage',
+    href: '/manage/the-art-of-reusability',
     icon: Zap,
     current: false,
   },
   {
     name: 'Thinking Components',
-    href: '/event/thinking-components/manage',
+    href: '/manage/thinking-components',
     icon: Zap,
     current: false,
   },
   {
     name: 'Functional Fury',
-    href: '/event/functional-fury/manage',
+    href: '/manage/functional-fury',
     icon: Zap,
     current: false,
   },
   {
     name: 'Stateful Symphony',
-    href: '/event/stateful-symphony/manage',
+    href: '/manage/stateful-symphony',
     icon: Zap,
     current: false,
   },
   {
     name: 'Functional Fury',
-    href: '/event/functional-fury/manage',
+    href: '/manage/functional-fury',
     icon: Zap,
     current: false,
   },
   {
     name: 'Stateful Symphony',
-    href: '/event/stateful-symphony/manage',
+    href: '/manage/stateful-symphony',
     icon: Zap,
     current: false,
   },
@@ -82,9 +83,9 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 ))}
               </ul>
             </li>
-            <SignedIn>
-              <li className="px-3 py-2">
-                <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">You</h2>
+            <li className="px-3 py-2">
+              <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">You</h2>
+              <SignedIn>
                 <ul role="list" className="space-y-1">
                   <Button variant="ghost" className="w-full justify-start">
                     <Heart className="mr-2 h-4 w-4" />
@@ -94,8 +95,28 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                     <Ticket className="mr-2 h-4 w-4" />
                     Tickets
                   </Button>
+                  <Button variant="ghost" className="w-full justify-start">
+                    <ReceiptIcon className="mr-2 h-4 w-4" />
+                    Billing
+                  </Button>
+                  <Button variant="ghost" className="w-full justify-start">
+                    <SettingsIcon className="mr-2 h-4 w-4" />
+                    Settings
+                  </Button>
                 </ul>
-              </li>
+              </SignedIn>
+              <SignedOut>
+                <ul role="list" className="space-y-1">
+                  <Button variant="link" className="w-full justify-start">
+                    <SignInButton />
+                  </Button>
+                  <Button variant="link" className="w-full justify-start">
+                    <SignUpButton />
+                  </Button>
+                </ul>
+              </SignedOut>
+            </li>
+            <SignedIn>
               <li className="py-2">
                 <h2 className="relative px-7 text-lg font-semibold tracking-tight">Events</h2>
                 <ScrollArea className="h-[270px] px-1">
@@ -117,22 +138,6 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 </ScrollArea>
               </li>
             </SignedIn>
-            <li className="px-3 py-2">
-              <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">Legal</h2>
-              <ul role="list" className="space-y-1">
-                <Button variant="ghost" className="w-full justify-start">
-                  <ShieldCheck className="mr-2 h-4 w-4" />
-                  Privacy Policy
-                </Button>
-                <Button variant="ghost" className="w-full justify-start">
-                  <FileText className="mr-2 h-4 w-4" />
-                  Terms & Conditions
-                </Button>
-              </ul>
-            </li>
-            <li className="mt-auto px-3">
-              <p className="px-4 py-2 text-sm text-muted-foreground">© 2023 Revent.</p>
-            </li>
           </ul>
         </nav>
       </ScrollArea>

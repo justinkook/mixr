@@ -30,6 +30,10 @@ const nextConfig = withPWA({
         protocol: 'https',
         hostname: 'img.clerk.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'tailwindui.com',
+      },
     ],
   },
 })

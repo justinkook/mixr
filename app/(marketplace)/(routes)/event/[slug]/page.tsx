@@ -1,98 +1,199 @@
-import * as React from 'react'
+import { ArrowUpRightIcon, CalendarPlus, Map, MapPinIcon } from 'lucide-react'
+import { HeartIcon } from 'lucide-react'
 import Image from 'next/image'
-import { ArrowLeft, CalendarPlus, Heart, Share } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card, CardFooter, CardTitle } from '@/components/ui/card'
+import { RegistrationCard } from '@/components/registration-card'
 
-type ArtEventComponentProps = {
-  eventTitle: string
-  eventDate: string
-  eventMonth: string
-  eventDay: string
-  eventTime: string
-  aboutEvent: string
-  ticketPrice: string
-  spotsLeft: string
+const product = {
+  name: `AIMG's Stacked Startup Showcase`,
+  images: [
+    {
+      id: 1,
+      name: 'Angled view',
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      alt: 'Angled front view with bag zipped and handles upright.',
+    },
+  ],
+  description: `
+    <p>Join AI Marketers Guild at our next Stacked Startup Showcase event in NYC!</p>
+    <br><p>We'll be bringing together community members and friends. Participating startups will offer demos. Cash bar.</p>
+    <br><p>Startups will share demos on their laptops. Presenters will be invited to join the previous day's virtual AI Insiders event for more formal presentations.</p>
+    <br><strong>Request to demo when you RSVP.</strong><br>
+    <br><p>The location is a centrally located bar in Chelsea, visible to all approved attendees.</p>
+    <br><p>Demoing companies to be announced soon.</p>
+  `,
 }
 
-export default function ArtEventComponent() {
-  const { eventTitle, eventDate, eventMonth, eventDay, eventTime, aboutEvent, ticketPrice, spotsLeft } = {
-    eventTitle: 'NewY Art Festival: 2022 Dana',
-    eventDate: '29',
-    eventMonth: 'Sep',
-    eventDay: 'Friday',
-    eventTime: '09:00 PM - 11:00 PM',
-    aboutEvent:
-      "We're celebrating our 30th edition of the California Art Festival in CA this Spring so join us at the Building Park in California State University from March 29 - 30, 2022 with our Private View opening on Saturday, March 26!",
-    ticketPrice: '$60.98 - $75.00',
-    spotsLeft: '200',
-  }
-
+export default function EventPage() {
   return (
-    <article className="flex w-[375px] flex-col bg-white">
-      <div className="flex h-[56px] items-center justify-between self-stretch px-6 max-md:px-5">
-        <ArrowLeft />
-        <div className="flex items-center gap-4 self-center">
-          <Share />
-          <Heart />
+    <div className="mx-auto max-w-2xl py-4 sm:px-4 sm:py-8 lg:max-w-7xl lg:px-8">
+      <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+        {/* Event Image */}
+        <div className="lg:col-span-3 lg:row-end-1">
+          <div className="overflow-hidden rounded-lg">
+            <Image
+              src={product.images[0].src}
+              alt={product.images[0].alt}
+              width={590}
+              height={590}
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+        </div>
+
+        {/* Product info */}
+        <div className="mx-auto mt-6 max-w-2xl sm:mt-16 lg:col-span-4 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
+          <div className="flex flex-col">
+            <Link href="/organizer/revent">
+              <div className="flex flex-row items-center">
+                <Avatar className="mr-2 h-3 w-3">
+                  <AvatarImage src="/images/card.png" alt="@revent" />
+                  <AvatarFallback>RE</AvatarFallback>
+                </Avatar>
+                <h1 className="text-sm font-medium leading-8 tracking-tight text-muted-foreground sm:text-base">
+                  Revent
+                </h1>
+                <ArrowUpRightIcon className="ml-1 h-4 w-4 text-muted-foreground" />
+              </div>
+            </Link>
+            <div className="mt-4">
+              <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">{product.name}</h2>
+            </div>
+
+            {/* Event Date & Time */}
+            <div className="mt-6">
+              <h2 className="sr-only">Event Date</h2>
+              <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                <div className="flex items-start justify-between gap-4 self-stretch">
+                  <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                    <div className="self-stretch whitespace-nowrap text-center text-sm font-bold leading-5 text-foreground">
+                      29
+                    </div>
+                    <div className="self-center whitespace-nowrap text-center text-xs leading-4 text-muted-foreground">
+                      Nov
+                    </div>
+                  </div>
+                  <div className="my-auto flex flex-col items-start self-center">
+                    <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 text-foreground lg:text-base">
+                      Wednesday, November 29
+                    </div>
+                    <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+                      5:00 PM to 7:00 PM
+                    </div>
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  className="flex h-12 w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl border border-solid border-[color:var(--primary-base,#5766C7)] p-3"
+                >
+                  <CalendarPlus color="var(--primary-base,#5766C7)" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Location */}
+            <div className="mt-3">
+              <h3 className="sr-only">Location</h3>
+              <div className="flex items-center">
+                <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                  <div className="flex items-start justify-between gap-4 self-stretch">
+                    <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                      <MapPinIcon />
+                    </div>
+                    <div className="my-auto flex flex-col items-start self-center">
+                      <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
+                        Register to See Address
+                      </div>
+                      <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+                        New York, New York
+                      </div>
+                    </div>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="flex h-12 w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl border border-solid border-[color:var(--primary-base,#5766C7)] p-3"
+                  >
+                    <Map color="var(--primary-base,#5766C7)" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Registration */}
+            <div className="mt-8 hidden lg:block">
+              <h3 className="sr-only">Registration</h3>
+              <RegistrationCard />
+            </div>
+
+            {/* Description */}
+            <div className="mt-6">
+              <h3 className="sr-only">Description</h3>
+              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
+              <p
+                className="mt-2 line-clamp-5 self-stretch text-sm leading-5 text-muted-foreground lg:line-clamp-none lg:text-base"
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />
+              <Link href="/" className="mt-2 self-stretch text-sm font-medium leading-5 text-primary lg:hidden">
+                Show more
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto mt-8 w-full max-w-2xl lg:col-span-3 lg:mt-0 lg:max-w-none">
+          {/* Organizer */}
+          <div className="mt-6">
+            <h3 className="sr-only">Organizer</h3>
+            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">Organizer</h3>
+
+            <div className="mt-4 flex items-center">
+              <div className="flex h-full w-full items-center justify-between gap-5 self-stretch px-0">
+                <div className="flex items-start justify-between gap-4 self-stretch">
+                  <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch px-4 py-1.5">
+                    <Link href="/organizer/revent">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src="/images/card.png" alt="@revent" />
+                        <AvatarFallback>RE</AvatarFallback>
+                      </Avatar>
+                    </Link>
+                  </div>
+                  <div className="my-auto flex flex-col items-start self-center">
+                    <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
+                      Revent
+                    </div>
+                    <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+                      12k Members
+                    </div>
+                  </div>
+                </div>
+                <Button variant="outline" size="lg">
+                  Join
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Location Map */}
+          <div className="mt-6">
+            <h3 className="sr-only">Location Map</h3>
+            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">Location</h3>
+            <p className="mt-4 line-clamp-2 self-stretch text-sm leading-5 text-foreground lg:text-base">
+              New York, New York
+            </p>
+            <div className="mt-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193596.00927429678!2d-74.1444865316967!3d40.69737092230556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1701008541704!5m2!1sen!2sus"
+                width="100%"
+                height="350"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
         </div>
       </div>
-      <hr className="h-px w-full self-stretch bg-gray-100" />
-      <section className="mt-3 flex w-full flex-col self-stretch px-6 max-md:px-5">
-        <div className="relative mt-3.5 flex aspect-[1.3625] w-full flex-col self-stretch overflow-hidden rounded-xl pb-4 pl-4 pr-20 pt-48 max-md:pr-5 max-md:pt-44">
-          <Image
-            priority
-            src="/images/card.png"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            alt="banner image"
-            width={375}
-            height={274}
-          />
-        </div>
-        <h2 className="mt-3.5 self-stretch text-xl font-bold leading-8 text-gray-900">{eventTitle}</h2>
-        <div className="mt-8 flex w-full items-start justify-between gap-5 self-stretch">
-          <div className="flex items-start justify-between gap-4 self-stretch">
-            <div className="flex w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-zinc-100 px-4 py-1.5">
-              <div className="self-stretch whitespace-nowrap text-center text-sm font-bold leading-5 text-gray-900">
-                {eventDate}
-              </div>
-              <div className="self-stretch whitespace-nowrap text-center text-xs leading-4 text-gray-400">
-                {eventMonth}
-              </div>
-            </div>
-            <div className="my-auto flex flex-col items-start self-center">
-              <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 text-gray-900">{eventDay}</div>
-              <div className="mt-1 self-stretch whitespace-nowrap text-xs leading-5 text-gray-400">{eventTime}</div>
-            </div>
-          </div>
-          <div className="flex w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl border border-solid border-[color:var(--primary-base,#5766C7)] p-3">
-            <CalendarPlus color="#5766C7" />
-          </div>
-        </div>
-        <div className="mt-6 flex grow flex-col items-start self-stretch">
-          <h3 className="self-stretch text-base font-bold leading-6 text-gray-900">About this event</h3>
-          <p className="mt-2 self-stretch text-sm leading-5 text-gray-400">{aboutEvent}</p>
-          <a href="#" className="mt-2 self-stretch text-sm font-medium leading-5 text-indigo-500">
-            Show more
-          </a>
-        </div>
-      </section>
-      <section className="mb-9 mt-4 flex w-full flex-col items-start self-stretch bg-white px-6 py-2 max-md:px-5">
-        <div className="flex w-full items-start justify-between gap-5 self-stretch">
-          <div className="my-auto flex flex-col items-start self-center">
-            <div className="self-stretch whitespace-nowrap text-base font-bold leading-6 text-gray-900">
-              {ticketPrice}
-            </div>
-            <div className="mt-1 self-stretch whitespace-nowrap text-xs leading-5 text-gray-400">
-              {spotsLeft} Spots left
-            </div>
-          </div>
-          <a
-            href="#"
-            className="w-[148px] max-w-full items-center justify-center self-stretch rounded-2xl bg-indigo-500 px-4 py-5 text-center text-sm font-bold leading-5 text-white"
-          >
-            Get a Ticket
-          </a>
-        </div>
-      </section>
-    </article>
+    </div>
   )
 }

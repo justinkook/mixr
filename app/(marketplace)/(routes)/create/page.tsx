@@ -6,11 +6,11 @@ import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { AlbumArtwork } from '@/components/music/album-artwork'
-import { listenNowAlbums } from '@/components/music/albums'
+import { PodcastEmptyPlaceholder } from '@/components/music/podcast-empty-placeholder'
+import { listenNowAlbums, madeForYouAlbums } from '@/components/music/albums'
 import { LocationCombobox } from '@/components/location-combobox'
-import { Zap } from 'lucide-react'
 
-export default function Home() {
+export default function CreatePage() {
   return (
     <>
       <div className="col-span-3 lg:col-span-5">
@@ -24,8 +24,7 @@ export default function Home() {
               <ScrollArea className="w-full">
                 <TabsList>
                   <TabsTrigger value="trending" className="relative">
-                    <Zap className="mr-2 h-4 w-4" />
-                    All
+                    Trending
                   </TabsTrigger>
                   <TabsTrigger value="music">Music</TabsTrigger>
                   <TabsTrigger value="networking">Networking</TabsTrigger>
@@ -33,7 +32,6 @@ export default function Home() {
                   <TabsTrigger value="parties">Parties</TabsTrigger>
                   <TabsTrigger value="art">Art</TabsTrigger>
                 </TabsList>
-                <ScrollBar orientation="horizontal" />
               </ScrollArea>
               <div className="ml-auto mr-4 hidden md:block">
                 <Button>
@@ -58,7 +56,7 @@ export default function Home() {
                         key={album.name}
                         album={album}
                         className="w-[250px]"
-                        aspectRatio="portrait"
+                        aspectRatio="square"
                         width={250}
                         height={330}
                       />
@@ -78,22 +76,29 @@ export default function Home() {
               </div>
               <Separator className="my-4" />
               <ScrollArea>
-                <div className="relative max-w-full">
-                  <div className="flex space-x-4 pb-4">
-                    {listenNowAlbums.map((album) => (
-                      <AlbumArtwork
-                        key={album.name}
-                        album={album}
-                        className="w-[250px]"
-                        aspectRatio="portrait"
-                        width={250}
-                        height={330}
-                      />
-                    ))}
-                  </div>
+                <div className="grid-auto-flow-column grid w-full grid-cols-1 gap-4 overflow-auto sm:grid-cols-2 md:grid-cols-4">
+                  {madeForYouAlbums.map((album) => (
+                    <AlbumArtwork
+                      key={album.name}
+                      album={album}
+                      className="w-[200px]"
+                      aspectRatio="square"
+                      width={200}
+                      height={200}
+                    />
+                  ))}
                 </div>
-                <ScrollBar orientation="horizontal" />
               </ScrollArea>
+            </TabsContent>
+            <TabsContent value="music" className="h-full flex-col border-none p-0 data-[state=active]:flex">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <h2 className="text-2xl font-semibold tracking-tight">New Episodes</h2>
+                  <p className="text-sm text-muted-foreground">Your favorite podcasts. Updated daily.</p>
+                </div>
+              </div>
+              <Separator className="my-4" />
+              <PodcastEmptyPlaceholder />
             </TabsContent>
           </Tabs>
         </div>
