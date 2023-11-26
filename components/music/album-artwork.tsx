@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 import { Album } from './albums'
@@ -22,26 +23,28 @@ export function AlbumArtwork({
 }: AlbumArtworkProps) {
   return (
     <div className={cn('space-y-3', className)} {...props}>
-      <div className="relative overflow-hidden rounded-md">
-        <Image
-          src={album.cover}
-          alt={album.name}
-          width={width}
-          height={height}
-          className={cn(
-            'h-auto w-auto object-cover transition-all hover:scale-105',
-            aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
+      <Link href={`/event/${album.name}`}>
+        <div className="relative overflow-hidden rounded-md">
+          <Image
+            src={album.cover}
+            alt={album.name}
+            width={width}
+            height={height}
+            className={cn(
+              'h-auto w-auto object-cover transition-all hover:scale-105',
+              aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
+            )}
+          />
+          {album.date?.day && album.date?.month && (
+            <>
+              <div className="absolute left-2 top-2">
+                <DateCard day={album.date?.day} month={album.date?.month} aspectRatio="square" />
+              </div>
+              <Heart className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
+            </>
           )}
-        />
-        {album.date?.day && album.date?.month && (
-          <>
-            <div className="absolute left-2 top-2">
-              <DateCard day={album.date?.day} month={album.date?.month} aspectRatio="square" />
-            </div>
-            <Heart className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
-          </>
-        )}
-      </div>
+        </div>
+      </Link>
       <div className="space-y-1 text-sm">
         <p className="text-xs text-muted-foreground">{album.organizer}</p>
         <h3 className="font-medium leading-none">{album.name}</h3>
