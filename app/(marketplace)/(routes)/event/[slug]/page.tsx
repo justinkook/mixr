@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, CalendarPlus, Map, MapPinIcon } from 'lucide-react'
+import { ArrowUpRightIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -83,12 +83,6 @@ export default function EventPage() {
                     </div>
                   </div>
                 </div>
-                <Button
-                  variant="outline"
-                  className="flex h-12 w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl border border-solid border-[color:var(--primary-base,#5766C7)] p-3"
-                >
-                  <CalendarPlus color="var(--primary-base,#5766C7)" />
-                </Button>
               </div>
             </div>
 
@@ -110,12 +104,6 @@ export default function EventPage() {
                       </div>
                     </div>
                   </div>
-                  <Button
-                    variant="outline"
-                    className="flex h-12 w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl border border-solid border-[color:var(--primary-base,#5766C7)] p-3"
-                  >
-                    <Map color="var(--primary-base,#5766C7)" />
-                  </Button>
                 </div>
               </div>
             </div>
@@ -135,7 +123,9 @@ export default function EventPage() {
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
               <Link href="/" className="mt-2 self-stretch text-sm font-medium leading-5 text-primary lg:hidden">
-                Show more
+                <Button variant="link" className="p-0">
+                  Show more
+                </Button>
               </Link>
             </div>
           </div>
