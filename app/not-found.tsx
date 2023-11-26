@@ -24,8 +24,10 @@ export default function NotFoundPage() {
     <main className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:px-8">
       <Image
         className="mx-auto h-10 w-auto sm:h-12"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-        alt="Your Company"
+        src="/images/card.png"
+        alt="Revent Alt Logo"
+        width={12}
+        height={10}
       />
       <div className="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
         <p className="text-base font-semibold leading-8 text-primary">404</p>
