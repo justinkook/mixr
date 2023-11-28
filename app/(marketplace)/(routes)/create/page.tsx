@@ -3,9 +3,9 @@
 import { CalendarIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { OrganizationSwitcher } from '@clerk/clerk-react'
+import { Editor } from 'novel'
 import { Input } from '@/components/ui/input'
 import { LocationCombobox } from '@/components/location-combobox'
-import LexicalEditor from '@/components/editor/lexical-editor'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CreateTicketCard } from '@/components/create-ticket-card'
@@ -96,9 +96,7 @@ export default function CreateEventPage() {
 
                 <div className="mt-6">
                   <h3 className="sr-only">Create Event Button</h3>
-                  <Button type="submit" className="w-full">
-                    Create Event
-                  </Button>
+                  <Button className="w-full">Create Event</Button>
                 </div>
               </CardContent>
             </Card>
@@ -112,9 +110,11 @@ export default function CreateEventPage() {
               <h3 className="sr-only">Description</h3>
               <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
               <p className="text-sm text-muted-foreground">Optional</p>
-              <p className="mt-4">
-                <LexicalEditor />
-              </p>
+              <div className="mt-4">
+                <Card className="min-h-[250px]">
+                  <Editor className="mb-0 max-w-2xl flex-wrap" defaultValue="Enter event description" />
+                </Card>
+              </div>
             </div>
 
             {/* Tickets */}
