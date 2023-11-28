@@ -41,7 +41,7 @@ export default function CreateEventPage() {
             <Card>
               <CardHeader>
                 <div className="mb-2">
-                  <OrganizationSwitcher />
+                  <OrganizationSwitcher hidePersonal />
                 </div>
 
                 {/* Event Image */}
@@ -111,6 +111,7 @@ export default function CreateEventPage() {
             <div className="mt-6 lg:mt-0">
               <h3 className="sr-only">Description</h3>
               <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
+              <p className="text-sm text-muted-foreground">Optional</p>
               <p className="mt-4">
                 <LexicalEditor />
               </p>
@@ -119,7 +120,8 @@ export default function CreateEventPage() {
             {/* Tickets */}
             <div className="mt-12 lg:mt-6">
               <h3 className="sr-only">Tickets</h3>
-              <h3 className="mb-4 self-stretch text-base font-bold leading-6 lg:text-lg">Tickets</h3>
+              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">Tickets</h3>
+              <p className="mb-4 text-sm text-muted-foreground">Optional</p>
               <CreateTicketCard />
             </div>
           </div>
