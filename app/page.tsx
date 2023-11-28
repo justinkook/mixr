@@ -7,8 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { AlbumArtwork } from '@/components/music/album-artwork'
 import { listenNowAlbums } from '@/components/music/albums'
-import { LocationCombobox } from '@/components/location-combobox'
+import { PlacesCombobox } from '@/components/places-combobox'
 import { Zap } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         <div className="h-full space-y-6 px-4 py-6 lg:px-8">
           <div>
             <div className="text-muted-secondary text-s self-stretch whitespace-nowrap leading-5">Find events near</div>
-            <LocationCombobox />
+            <PlacesCombobox />
           </div>
           <Tabs defaultValue="trending" className="h-full space-y-6">
             <div className="space-between flex items-center">
@@ -36,10 +37,12 @@ export default function Home() {
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
               <div className="ml-auto mr-4 hidden md:block">
-                <Button>
-                  <PlusCircledIcon className="mr-2 h-4 w-4" />
-                  Create event
-                </Button>
+                <Link href={'/create'}>
+                  <Button>
+                    <PlusCircledIcon className="mr-2 h-4 w-4" />
+                    Create event
+                  </Button>
+                </Link>
               </div>
             </div>
             <TabsContent value="trending" className="border-none p-0 outline-none">

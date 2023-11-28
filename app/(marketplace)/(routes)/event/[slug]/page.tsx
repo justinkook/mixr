@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { RegistrationCard } from '@/components/registration-card'
+import { Card } from '@/components/ui/card'
 
 const product = {
   name: `AIMG's Stacked Startup Showcase`,
@@ -31,7 +32,7 @@ export default function EventPage() {
       <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
         {/* Event Image */}
         <div className="lg:col-span-3 lg:row-end-1">
-          <div className="overflow-hidden rounded-lg">
+          <Card className="overflow-hidden rounded-lg">
             <Image
               src={product.images[0].src}
               alt={product.images[0].alt}
@@ -39,7 +40,7 @@ export default function EventPage() {
               height={590}
               className="h-full w-full object-cover object-center"
             />
-          </div>
+          </Card>
         </div>
 
         {/* Product info */}

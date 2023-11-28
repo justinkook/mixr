@@ -1,108 +1,130 @@
-import { PlusCircledIcon } from '@radix-ui/react-icons'
+'use client'
 
-import { Button } from '@/components/ui/button'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
-import { AlbumArtwork } from '@/components/music/album-artwork'
-import { PodcastEmptyPlaceholder } from '@/components/music/podcast-empty-placeholder'
-import { listenNowAlbums, madeForYouAlbums } from '@/components/music/albums'
+import { CalendarIcon, MapPinIcon } from 'lucide-react'
+import Image from 'next/image'
+import { OrganizationSwitcher } from '@clerk/clerk-react'
+import { Input } from '@/components/ui/input'
 import { LocationCombobox } from '@/components/location-combobox'
+import LexicalEditor from '@/components/editor/lexical-editor'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { CreateTicketCard } from '@/components/create-ticket-card'
+import { DateCombobox } from '@/components/date-combobox'
 
-export default function CreatePage() {
+const product = {
+  name: `AIMG's Stacked Startup Showcase`,
+  images: [
+    {
+      id: 1,
+      name: 'Angled view',
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      alt: 'Angled front view with bag zipped and handles upright.',
+    },
+  ],
+  description: `
+    <p>Join AI Marketers Guild at our next Stacked Startup Showcase event in NYC!</p>
+    <br><p>We'll be bringing together community members and friends. Participating startups will offer demos. Cash bar.</p>
+    <br><p>Startups will share demos on their laptops. Presenters will be invited to join the previous day's virtual AI Insiders event for more formal presentations.</p>
+    <br><strong>Request to demo when you RSVP.</strong><br>
+    <br><p>The location is a centrally located bar in Chelsea, visible to all approved attendees.</p>
+    <br><p>Demoing companies to be announced soon.</p>
+  `,
+}
+
+export default function CreateEventPage() {
   return (
-    <>
-      <div className="col-span-3 lg:col-span-5">
-        <div className="h-full space-y-6 px-4 py-6 lg:px-8">
-          <div>
-            <div className="text-muted-secondary text-s self-stretch whitespace-nowrap leading-5">Find events near</div>
-            <LocationCombobox />
-          </div>
-          <Tabs defaultValue="trending" className="h-full space-y-6">
-            <div className="space-between flex items-center">
-              <ScrollArea className="w-full">
-                <TabsList>
-                  <TabsTrigger value="trending" className="relative">
-                    Trending
-                  </TabsTrigger>
-                  <TabsTrigger value="music">Music</TabsTrigger>
-                  <TabsTrigger value="networking">Networking</TabsTrigger>
-                  <TabsTrigger value="tech">Tech</TabsTrigger>
-                  <TabsTrigger value="parties">Parties</TabsTrigger>
-                  <TabsTrigger value="art">Art</TabsTrigger>
-                </TabsList>
-              </ScrollArea>
-              <div className="ml-auto mr-4 hidden md:block">
-                <Button>
-                  <PlusCircledIcon className="mr-2 h-4 w-4" />
-                  Create event
-                </Button>
-              </div>
-            </div>
-            <TabsContent value="trending" className="border-none p-0 outline-none">
-              <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                  <h2 className="text-2xl font-semibold tracking-tight">Planned for You</h2>
-                  <p className="text-sm text-muted-foreground">Your personalized picks.</p>
+    <div className="mx-auto max-w-2xl py-4 sm:px-4 sm:py-8 lg:max-w-7xl lg:px-8">
+      <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+        <div className="lg:col-span-3 lg:row-end-1 lg:min-w-fit">
+          {/* Product info */}
+          <div className="flex flex-col">
+            <Card>
+              <CardHeader>
+                <div className="mb-2">
+                  <OrganizationSwitcher />
                 </div>
-              </div>
-              <Separator className="my-4" />
-              <ScrollArea>
-                <div className="relative max-w-full">
-                  <div className="flex space-x-4 pb-4">
-                    {listenNowAlbums.map((album) => (
-                      <AlbumArtwork
-                        key={album.name}
-                        album={album}
-                        className="w-[250px]"
-                        aspectRatio="square"
-                        width={250}
-                        height={330}
-                      />
-                    ))}
+
+                {/* Event Image */}
+                <Card className="max-h-[400px] overflow-hidden rounded-lg">
+                  <Image
+                    src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
+                    alt={product.images[0].alt}
+                    width={400}
+                    height={400}
+                    className="aspect-square h-full w-full object-cover object-center"
+                  />
+                </Card>
+              </CardHeader>
+              <CardContent>
+                <Input
+                  type="text"
+                  placeholder="Event Name"
+                  className="border-none pl-0 text-2xl font-bold leading-8 tracking-tight sm:text-3xl"
+                />
+
+                {/* Event Date & Time */}
+                <div className="mt-6">
+                  <h2 className="sr-only">Event Date</h2>
+                  <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                    <div className="flex w-full items-start justify-start gap-4 self-stretch">
+                      <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                        <CalendarIcon className="h-6 w-6" />
+                      </div>
+                      <div className="flex w-full flex-col items-start self-center">
+                        <DateCombobox />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <ScrollBar orientation="horizontal" />
-              </ScrollArea>
-              <div className="mt-6 flex justify-between space-y-1">
-                <div>
-                  <h2 className="text-2xl font-semibold tracking-tight">Upcoming</h2>
-                  <p className="text-sm text-muted-foreground">All upcoming events.</p>
+
+                {/* Location */}
+                <div className="mt-3">
+                  <h3 className="sr-only">Location</h3>
+                  <div className="flex items-center">
+                    <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                      <div className="flex w-full items-start justify-between gap-4 self-stretch">
+                        <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                          <MapPinIcon />
+                        </div>
+                        <div className="flex w-full flex-col items-start self-center">
+                          <LocationCombobox />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="ml-auto mr-4">
-                  <Button variant="link">See all</Button>
+
+                <div className="mt-6">
+                  <h3 className="sr-only">Create Event Button</h3>
+                  <Button type="submit" className="w-full">
+                    Create Event
+                  </Button>
                 </div>
-              </div>
-              <Separator className="my-4" />
-              <ScrollArea>
-                <div className="grid-auto-flow-column grid w-full grid-cols-1 gap-4 overflow-auto sm:grid-cols-2 md:grid-cols-4">
-                  {madeForYouAlbums.map((album) => (
-                    <AlbumArtwork
-                      key={album.name}
-                      album={album}
-                      className="w-[200px]"
-                      aspectRatio="square"
-                      width={200}
-                      height={200}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
-            </TabsContent>
-            <TabsContent value="music" className="h-full flex-col border-none p-0 data-[state=active]:flex">
-              <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                  <h2 className="text-2xl font-semibold tracking-tight">New Episodes</h2>
-                  <p className="text-sm text-muted-foreground">Your favorite podcasts. Updated daily.</p>
-                </div>
-              </div>
-              <Separator className="my-4" />
-              <PodcastEmptyPlaceholder />
-            </TabsContent>
-          </Tabs>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className="row-span-1 mx-auto mt-6 max-w-2xl flex-wrap lg:col-span-4 lg:row-end-2 lg:mt-0 xl:row-span-2">
+          <div className="flex flex-col">
+            {/* Description */}
+            <div className="mt-6 lg:mt-0">
+              <h3 className="sr-only">Description</h3>
+              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
+              <p className="mt-4">
+                <LexicalEditor />
+              </p>
+            </div>
+
+            {/* Tickets */}
+            <div className="mt-12 lg:mt-6">
+              <h3 className="sr-only">Tickets</h3>
+              <h3 className="mb-4 self-stretch text-base font-bold leading-6 lg:text-lg">Tickets</h3>
+              <CreateTicketCard />
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
