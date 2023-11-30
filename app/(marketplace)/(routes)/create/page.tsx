@@ -112,12 +112,8 @@ export default function CreateEventPage() {
               <h3 className="sr-only">Description</h3>
               <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
               <div className="mt-4">
-                <Card className="min-h-[250px]">
-                  <Editor
-                    className="mb-0 max-w-2xl flex-wrap"
-                    defaultValue="Enter event description"
-                    disableLocalStorage
-                  />
+                <Card className="min-h-[330px]">
+                  <Editor className="mb-0 max-w-2xl flex-wrap" disableLocalStorage />
                 </Card>
               </div>
             </div>
