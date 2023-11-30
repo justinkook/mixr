@@ -1,5 +1,3 @@
-import { PlusCircledIcon } from '@radix-ui/react-icons'
-
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
@@ -9,7 +7,6 @@ import { AlbumArtwork } from '@/components/music/album-artwork'
 import { listenNowAlbums } from '@/components/music/albums'
 import { PlacesCombobox } from '@/components/places-combobox'
 import { Zap } from 'lucide-react'
-import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -36,14 +33,6 @@ export default function Home() {
                 </TabsList>
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
-              <div className="ml-auto mr-4 hidden md:block">
-                <Link href={'/create'}>
-                  <Button>
-                    <PlusCircledIcon className="mr-2 h-4 w-4" />
-                    Create event
-                  </Button>
-                </Link>
-              </div>
             </div>
             <TabsContent value="trending" className="border-none p-0 outline-none">
               <div className="flex items-center justify-between">

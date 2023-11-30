@@ -5,6 +5,7 @@ import { Noto_Sans_JP } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { Providers } from '@/components/providers/providers'
 import NavigationLayout from '@/components/navigation/navigation-layout'
+import { Toaster } from '@/components/ui/toaster'
 
 import '@/styles/globals.css'
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <Providers>
           <NavigationLayout>{children}</NavigationLayout>
+          <Toaster />
           <Analytics />
         </Providers>
       </body>

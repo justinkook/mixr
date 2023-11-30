@@ -32,7 +32,7 @@ export function NavigationContent() {
                     <Bot />
                     <div className="mb-2 mt-4 text-lg font-medium">Ask Eva</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Get recommendations for venues using AI
+                      Get recommendations for your event using AI
                     </p>
                   </a>
                 </NavigationMenuLink>
@@ -47,17 +47,12 @@ export function NavigationContent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/pricing" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Pricing</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="https://github.com/gen3-tickets" passHref target="_blank" rel="noopener noreferrer">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Docs</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/blog" legacyBehavior passHref>
+          <Link href="https://medium.com/" passHref target="_blank" rel="noopener noreferrer">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Blog</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

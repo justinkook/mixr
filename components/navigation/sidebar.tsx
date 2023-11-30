@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Heart, Home, LayoutGrid, ReceiptIcon, SettingsIcon, Ticket, Zap } from 'lucide-react'
+import { Heart, Home, LayoutGrid, SettingsIcon, Ticket, Zap } from 'lucide-react'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import { SignInButton, SignUpButton } from '@clerk/clerk-react'
@@ -94,10 +94,6 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                   <Button variant="ghost" className="w-full justify-start">
                     <Ticket className="mr-2 h-4 w-4" />
                     Tickets
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <ReceiptIcon className="mr-2 h-4 w-4" />
-                    Billing
                   </Button>
                   <Button variant="ghost" className="w-full justify-start">
                     <SettingsIcon className="mr-2 h-4 w-4" />

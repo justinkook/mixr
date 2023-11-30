@@ -40,7 +40,12 @@ export function LocationCombobox() {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="secondary" role="combobox" aria-expanded={open} className="h-full w-full flex-col text-left">
+        <Button
+          variant="secondary"
+          role="combobox"
+          aria-expanded={open}
+          className="h-full w-full flex-col bg-secondary text-left"
+        >
           <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
             {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
           </div>
