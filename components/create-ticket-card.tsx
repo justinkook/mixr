@@ -1,6 +1,6 @@
 import { SignedOut } from '@clerk/nextjs'
 
-import { CopyPlusIcon, MoreHorizontal, PenIcon, PlusCircleIcon, Trash } from 'lucide-react'
+import { CopyPlusIcon, MoreHorizontal, PenIcon, Trash } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { CreateTicketModal } from './create-ticket-modal'
 
 export function CreateTicketCard() {
   return (
@@ -122,10 +123,7 @@ export function CreateTicketCard() {
         </SignedOut>
       </CardContent>
       <CardFooter>
-        <Button type="submit" variant="outline" className="w-full">
-          <PlusCircleIcon className="mr-2 h-4 w-4" />
-          Create Ticket Type
-        </Button>
+        <CreateTicketModal />
       </CardFooter>
     </Card>
   )
