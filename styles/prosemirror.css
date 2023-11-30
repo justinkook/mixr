@@ -5,14 +5,14 @@
 .ProseMirror .is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
-  color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
   pointer-events: none;
   height: 0;
 }
 .ProseMirror .is-empty::before {
   content: attr(data-placeholder);
   float: left;
-  color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
   pointer-events: none;
   height: 0;
 }
