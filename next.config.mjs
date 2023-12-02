@@ -1,11 +1,14 @@
-/** @type {import('next').NextConfig} */
-const withPWA = require('next-pwa')({
+import { env } from './env.mjs'
+import withPWAModule from 'next-pwa'
+
+const withPWA = withPWAModule({
   dest: 'public',
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
+  disable: env.NODE_ENV === 'development',
 })
 
+/** @type {import('next').NextConfig} */
 const nextConfig = withPWA({
   reactStrictMode: true,
   i18n: {
@@ -37,4 +40,5 @@ const nextConfig = withPWA({
     ],
   },
 })
-module.exports = nextConfig
+
+export default nextConfig

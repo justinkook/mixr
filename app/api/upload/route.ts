@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 
 export const runtime = 'edge'
 
+// Update to using Supabase Storage AWS S3 Bucket
 export async function POST(req: Request) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
     return new Response("Missing BLOB_READ_WRITE_TOKEN. Don't forget to add that to your .env file.", {

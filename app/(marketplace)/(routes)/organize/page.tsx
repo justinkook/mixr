@@ -3,13 +3,13 @@
 import { CalendarIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { OrganizationSwitcher } from '@clerk/clerk-react'
-import { Editor } from 'novel'
 import { Input } from '@/components/ui/input'
 import { LocationCombobox } from '@/components/location-combobox'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CreateTicketCard } from '@/components/create-ticket-card'
 import { DateCombobox } from '@/components/date-combobox'
+import Editor from '@/components/editor/editor'
 
 const product = {
   name: `AIMG's Stacked Startup Showcase`,
