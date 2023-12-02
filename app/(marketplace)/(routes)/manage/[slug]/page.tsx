@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { z } from 'zod'
 
-import { ArrowUpRight, CalendarIcon, MapPinIcon, Plus } from 'lucide-react'
+import { ArrowUpRight, CalendarIcon, MapPinIcon, Plus, PlusCircleIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -22,7 +22,7 @@ import { LocationCombobox } from '@/components/location-combobox'
 import { DateCombobox } from '@/components/date-combobox'
 import { Input } from '@/components/ui/input'
 import Image from 'next/image'
-import { OrganizationSwitcher } from '@clerk/clerk-react'
+import { CreateTicketCard } from '@/components/create-ticket-card'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {
@@ -148,16 +148,17 @@ export default async function EventManagePage() {
                   <div className="flex items-center justify-between space-y-2">
                     <div>
                       <h2 className="text-2xl font-bold tracking-tight">Tickets</h2>
-                      <p className="text-muted-foreground">Create ticket types and set prices,</p>
+                      <p className="text-muted-foreground">Create ticket types and set prices.</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button variant="secondary">
-                        <Plus size={20} />
+                        <PlusCircleIcon className="mr-2 h-4 w-4" />
                         Create Ticket
                       </Button>
                     </div>
                   </div>
                   <Separator />
+                  <CreateTicketCard />
                 </div>
               </TabsContent>
               <TabsContent value="insights" className="space-y-4">
