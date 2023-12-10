@@ -7,10 +7,13 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -18,6 +21,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import { guestSchema } from '@/lib/schema'
+import { PencilIcon, TimerResetIcon, TrashIcon } from 'lucide-react'
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
@@ -63,26 +67,39 @@ export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TDa
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
-        <DropdownMenuItem>Edit</DropdownMenuItem>
-        {statusActions().length > 0 && (
-          <>
-            <DropdownMenuSeparator />
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
-              <DropdownMenuSubContent>
-                <DropdownMenuRadioGroup value={guest.status}>
-                  {statusActions().map((action, index) => (
-                    <DropdownMenuRadioItem key={index} value={`${action}`} className="pl-4">
-                      {action}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuSub>
-          </>
-        )}
-        <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <PencilIcon className="mr-2 h-4 w-4" />
+            Edit
+          </DropdownMenuItem>
+          {statusActions().length > 0 && (
+            <>
+              <DropdownMenuSeparator />
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>
+                  <TimerResetIcon className="mr-2 h-4 w-4" />
+                  Status
+                </DropdownMenuSubTrigger>
+                <DropdownMenuSubContent>
+                  <DropdownMenuRadioGroup value={guest.status}>
+                    {statusActions().map((action, index) => (
+                      <DropdownMenuRadioItem key={index} value={`${action}`} className="pl-4">
+                        {action}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuSubContent>
+              </DropdownMenuSub>
+            </>
+          )}
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="text-destructive">
+            <TrashIcon className="mr-2 h-4 w-4" />
+            Delete
+            <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   )

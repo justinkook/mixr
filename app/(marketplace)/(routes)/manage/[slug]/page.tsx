@@ -36,6 +36,7 @@ import Image from 'next/image'
 import { CreateTicketCard } from '@/components/create-ticket-card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { InviteGuestModal } from '@/components/manage/guests/invite-guest-modal'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {
@@ -172,10 +173,7 @@ export default async function EventManagePage() {
                       <p className="text-muted-foreground">Manage your guest list, approvals, and orders.</p>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Button variant="secondary">
-                        <PlusCircleIcon className="mr-2 h-4 w-4" />
-                        Invite Guest
-                      </Button>
+                      <InviteGuestModal />
                     </div>
                   </div>
                   <Separator />

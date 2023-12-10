@@ -54,7 +54,13 @@ export function LocationCombobox() {
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full p-0">
+      <PopoverContent
+        className="p-0"
+        style={{
+          width: 'var(--radix-popover-trigger-width)',
+          maxHeight: 'var(--radix-popover-content-available-height)',
+        }}
+      >
         {/* Desktop Combobox */}
         {!isMobile && (
           <Command>
