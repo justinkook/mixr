@@ -1,71 +1,73 @@
-import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
-} from '@radix-ui/react-icons'
-
-export const labels = [
-  {
-    value: 'bug',
-    label: 'Bug',
-  },
-  {
-    value: 'feature',
-    label: 'Feature',
-  },
-  {
-    value: 'documentation',
-    label: 'Documentation',
-  },
-]
+import { CheckCircle2Icon, HelpCircleIcon, XCircleIcon } from 'lucide-react'
 
 export const statuses = [
+  // Requires Approval
   {
-    value: 'backlog',
-    label: 'Backlog',
-    icon: QuestionMarkCircledIcon,
+    value: 'pending approval',
+    label: 'Pending Approval',
+    icon: HelpCircleIcon,
   },
   {
-    value: 'todo',
-    label: 'Todo',
-    icon: CircleIcon,
+    value: 'approved',
+    label: 'Approved',
+    icon: CheckCircle2Icon,
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
-    icon: StopwatchIcon,
+    value: 'rejected',
+    label: 'Rejected',
+    icon: XCircleIcon,
+  },
+  // Free Tickets
+  {
+    value: 'maybe',
+    label: 'Maybe',
+    icon: HelpCircleIcon,
   },
   {
-    value: 'done',
-    label: 'Done',
-    icon: CheckCircledIcon,
+    value: 'going',
+    label: 'Going',
+    icon: CheckCircle2Icon,
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
-    icon: CrossCircledIcon,
+    value: 'not going',
+    label: 'Not going',
+    icon: XCircleIcon,
   },
-]
-
-export const priorities = [
+  // Paid Tickets
   {
-    label: 'Low',
-    value: 'low',
-    icon: ArrowDownIcon,
+    value: 'unpaid',
+    label: 'Unpaid',
+    icon: HelpCircleIcon,
   },
   {
-    label: 'Medium',
-    value: 'medium',
-    icon: ArrowRightIcon,
+    value: 'paid',
+    label: 'Paid',
+    icon: CheckCircle2Icon,
   },
   {
-    label: 'High',
-    value: 'high',
-    icon: ArrowUpIcon,
+    value: 'refunded',
+    label: 'Refunded',
+    icon: XCircleIcon,
+  },
+  // Manual Email Invitations
+  {
+    value: 'pending invite',
+    label: 'Pending Invite',
+    icon: HelpCircleIcon,
+  },
+  {
+    value: 'accepted invite',
+    label: 'Accepted Invite',
+    icon: CheckCircle2Icon,
+  },
+  {
+    value: 'declined invite',
+    label: 'Declined Invite',
+    icon: XCircleIcon,
+  },
+  {
+    value: 'expired invite',
+    label: 'Expired Invite',
+    icon: XCircleIcon,
   },
 ]

@@ -1,10 +1,6 @@
-import { SignedOut } from '@clerk/nextjs'
-
 import { CopyPlusIcon, MoreHorizontal, PenIcon, Trash } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import {
   DropdownMenu,
@@ -20,10 +16,7 @@ import { CreateTicketModal } from './create-ticket-modal'
 export function CreateTicketCard() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-sm font-medium">Ticket Type</CardTitle>
-      </CardHeader>
-      <CardContent className="grid gap-6">
+      <CardContent className="grid gap-6 pt-6">
         <RadioGroup id="ticket-type" defaultValue="card" className="grid grid-cols-1 gap-4">
           <div>
             <RadioGroupItem value="card" id="card" className="peer sr-only" />
@@ -111,16 +104,6 @@ export function CreateTicketCard() {
             </Card>
           </div>
         </RadioGroup>
-        <SignedOut>
-          <div className="grid gap-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" type="text" placeholder="First Last" />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="number">Email Address</Label>
-            <Input id="email" type="email" placeholder="" />
-          </div>
-        </SignedOut>
       </CardContent>
       <CardFooter>
         <CreateTicketModal />

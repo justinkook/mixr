@@ -11,22 +11,48 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { labels } from './labels'
-import { taskSchema } from '@/lib/schema'
+import { guestSchema } from '@/lib/schema'
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
 }
 
 export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
-  const task = taskSchema.parse(row.original)
+  const guest = guestSchema.parse(row.original)
+
+  const statusActions = () => {
+    switch (guest.status) {
+      case 'pending approval':
+        return [
+          <span key="approve" className="text-primary">
+            Approve
+          </span>,
+          <span key="reject" className="text-destructive">
+            Reject
+          </span>,
+        ]
+      case 'pending invite':
+        return [
+          <span key="cancel" className="text-destructive">
+            Cancel Invite
+          </span>,
+        ]
+      case 'expired invite':
+        return [
+          <span key="resend" className="text-primary">
+            Resend Invite
+          </span>,
+        ]
+      default:
+        return []
+    }
+  }
 
   return (
     <DropdownMenu>
@@ -38,26 +64,25 @@ export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TDa
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem>Edit</DropdownMenuItem>
-        <DropdownMenuItem>Make a copy</DropdownMenuItem>
-        <DropdownMenuItem>Favorite</DropdownMenuItem>
+        {statusActions().length > 0 && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
+              <DropdownMenuSubContent>
+                <DropdownMenuRadioGroup value={guest.status}>
+                  {statusActions().map((action, index) => (
+                    <DropdownMenuRadioItem key={index} value={`${action}`} className="pl-4">
+                      {action}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuSubContent>
+            </DropdownMenuSub>
+          </>
+        )}
         <DropdownMenuSeparator />
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Labels</DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
-            <DropdownMenuRadioGroup value={task.label}>
-              {labels.map((label) => (
-                <DropdownMenuRadioItem key={label.value} value={label.value}>
-                  {label.label}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Delete
-          <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

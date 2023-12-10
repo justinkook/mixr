@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Bot } from 'lucide-react'
-import ListItem from '../manage/overview/list-item'
+import NavItem from './nav-item'
 
 export function NavigationContent() {
   return (
@@ -37,12 +37,12 @@ export function NavigationContent() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/search" title="iOS">
+              <NavItem href="/search" title="iOS">
                 Download the app on the App Store
-              </ListItem>
-              <ListItem href="/save" title="Android">
+              </NavItem>
+              <NavItem href="/save" title="Android">
                 Download the app on the Google Play Store
-              </ListItem>
+              </NavItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
