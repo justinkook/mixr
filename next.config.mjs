@@ -1,15 +1,15 @@
 import { env } from './env.mjs'
-import withPWAModule from 'next-pwa'
+import withPWA from 'next-pwa'
 
-const withPWA = withPWAModule({
+const pwaConfig = {
   dest: 'public',
   register: true,
   skipWaiting: true,
   disable: env.NODE_ENV === 'development',
-})
+}
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withPWA({
+const nextConfig = withPWA(pwaConfig)({
   reactStrictMode: true,
   i18n: {
     locales: ['en'],

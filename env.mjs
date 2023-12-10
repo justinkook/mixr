@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 export const env = createEnv({
   server: {
+    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
     SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
     OPENAI_API_KEY: z.string().min(1),
     CLERK_SECRET_KEY: z.string().min(1),
@@ -17,9 +18,12 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(1),
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
   },
-  shared: {
-    NODE_ENV: z.enum(['development', 'production']),
-  },
+  // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
+  // runtimeEnv: {
+  //   DATABASE_URL: process.env.DATABASE_URL,
+  //   NEXT_PUBLIC_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_PUBLISHABLE_KEY,
+  // },
+  // For Next.js >= 13.4.4, you only need to destructure client variables:
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
