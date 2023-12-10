@@ -1,9 +1,9 @@
-import EventManageBanner from '@/components/event-manage-banner'
+import { BackNavbar } from '@/components/navigation/back-navbar'
 
 export default function EventLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <EventManageBanner />
+      <BackNavbar />
       <main className="px-4 py-4 sm:px-6 lg:px-8">{children}</main>
     </>
   )
