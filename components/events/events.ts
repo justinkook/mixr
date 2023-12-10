@@ -1,4 +1,4 @@
-export interface Album {
+export interface Event {
   name: string
   organizer: string
   date?: { day: string; month: string }
@@ -7,7 +7,7 @@ export interface Album {
   cover: string
 }
 
-export const listenNowAlbums: Album[] = [
+export const eventMockData: Event[] = [
   {
     name: 'React Rendezvous',
     organizer: 'Ethan Byte',
@@ -104,7 +104,7 @@ export const listenNowAlbums: Album[] = [
   },
 ]
 
-export const madeForYouAlbums: Album[] = [
+export const madeForYouEvents: Event[] = [
   {
     name: 'Thinking Components',
     organizer: 'Lena Logic',

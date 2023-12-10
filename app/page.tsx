@@ -3,8 +3,8 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { AlbumArtwork } from '@/components/music/album-artwork'
-import { listenNowAlbums } from '@/components/music/albums'
+import { EventCard } from '@/components/events/event-card'
+import { eventMockData, madeForYouEvents } from '@/components/events/events'
 import { PlacesCombobox } from '@/components/places-combobox'
 import { Zap } from 'lucide-react'
 
@@ -45,10 +45,10 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {listenNowAlbums.map((album) => (
-                      <AlbumArtwork
-                        key={album.name}
-                        album={album}
+                    {madeForYouEvents.map((event) => (
+                      <EventCard
+                        key={event.name}
+                        event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
                         width={250}
@@ -72,10 +72,10 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {listenNowAlbums.map((album) => (
-                      <AlbumArtwork
-                        key={album.name}
-                        album={album}
+                    {eventMockData.map((event) => (
+                      <EventCard
+                        key={event.name}
+                        event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
                         width={250}
