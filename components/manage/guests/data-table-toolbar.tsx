@@ -9,6 +9,7 @@ import { DataTableViewOptions } from './data-table-view-options'
 
 import { statuses } from './labels'
 import { DataTableFacetedFilter } from './data-table-faceted-filter'
+import { formatPascalCase } from '@/lib/utils'
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
@@ -18,7 +19,13 @@ interface DataTableToolbarProps<TData> {
 export function DataTableToolbar<TData>({ table, data }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
-  const uniqueTypes = Array.from(new Set(data.map((row: any) => row['type'])))
+  const uniqueTypes: {
+    label: string
+    value: string
+  }[] = Array.from(new Set(data.map((row: any) => row['type']))).map((type) => ({
+    label: formatPascalCase(type),
+    value: type,
+  }))
 
   return (
     <div className="flex items-center justify-between">

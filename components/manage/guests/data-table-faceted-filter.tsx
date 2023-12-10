@@ -2,7 +2,7 @@ import * as React from 'react'
 import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons'
 import { Column } from '@tanstack/react-table'
 
-import { cn } from '@/lib/utils'
+import { cn, formatPascalCase } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -23,7 +23,6 @@ interface DataTableFacetedFilterProps<TData, TValue> {
   options: {
     label: string
     value: string
-    icon?: React.ComponentType<{ className?: string }>
   }[]
 }
 
@@ -57,7 +56,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                     .filter((option) => selectedValues.has(option.value))
                     .map((option) => (
                       <Badge variant="secondary" key={option.value} className="rounded-sm px-1 font-normal">
-                        {option.label}
+                        {formatPascalCase(option.label)}
                       </Badge>
                     ))
                 )}
