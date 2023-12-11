@@ -70,7 +70,7 @@ export function AppearanceForm() {
                 </FormControl>
                 <ChevronDownIcon className="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
               </div>
-              <FormDescription>Set the font you want to use in the dashboard.</FormDescription>
+              <FormDescription>Set the font you want to use in the event page.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -81,7 +81,7 @@ export function AppearanceForm() {
           render={({ field }) => (
             <FormItem className="space-y-1">
               <FormLabel>Theme</FormLabel>
-              <FormDescription>Select the theme for the dashboard.</FormDescription>
+              <FormDescription>Select the theme for the event page.</FormDescription>
               <FormMessage />
               <RadioGroup
                 onValueChange={field.onChange}
