@@ -27,7 +27,7 @@ export default function Editor({
   onDebouncedUpdate = () => {},
   debounceDuration = 750,
   storageKey = 'novel__content',
-  disableLocalStorage = false,
+  disableLocalStorage = true,
 }: {
   /**
    * The API route to use for the OpenAI completion API.
