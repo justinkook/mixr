@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 
 import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
-import { BackNavbar } from '@/components/navigation/back-navbar'
 
 export const metadata: Metadata = {
   title: 'Forms',
@@ -18,6 +16,10 @@ const sidebarNavItems = [
   {
     title: 'Account',
     href: '/organize/settings/account',
+  },
+  {
+    title: 'Team',
+    href: '/organize/settings/team',
   },
   {
     title: 'Appearance',

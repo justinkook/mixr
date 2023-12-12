@@ -31,12 +31,15 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href="/settings">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+          <Link href="/saved">
+            <DropdownMenuItem>Saved</DropdownMenuItem>
           </Link>
-          <a href="https://finix.payments-dashboard.com" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>Billing </DropdownMenuItem>
-          </a>
+          <Link href="/following">
+            <DropdownMenuItem>Following</DropdownMenuItem>
+          </Link>
+          <Link href="/tickets">
+            <DropdownMenuItem>Tickets</DropdownMenuItem>
+          </Link>
           <Link href="/settings">
             <DropdownMenuItem>Settings </DropdownMenuItem>
           </Link>

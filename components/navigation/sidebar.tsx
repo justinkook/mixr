@@ -17,6 +17,7 @@ import {
   UsersIcon,
   WaypointsIcon,
   Zap,
+  ZapIcon,
 } from 'lucide-react'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import { SignInButton, SignUpButton } from '@clerk/clerk-react'
@@ -85,6 +86,7 @@ const userNavItems = [
 ]
 
 const orgNavItems = [
+  { name: 'Events', href: '/organize/events', icon: ZapIcon },
   { name: 'Contacts', href: '/organize/contacts', icon: UsersIcon },
   { name: 'Insights', href: '/organize/insights', icon: WaypointsIcon },
   { name: 'Billing', href: 'https://finix.payments-dashboard.com', icon: ReceiptIcon },

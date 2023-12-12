@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/use-toast'
+import { CopyIcon } from 'lucide-react'
 
 const EventFormSchema = z.object({
   publicUrl: z
@@ -65,6 +66,9 @@ export function EventForm() {
                   <FormControl>
                     <Input {...field} className="w-fit rounded-l-none border-l-0" />
                   </FormControl>
+                  <Button variant="outline" className="ml-2 shrink-0">
+                    <CopyIcon className="h-4 w-4" />
+                  </Button>
                 </div>
                 <FormMessage />
               </FormItem>

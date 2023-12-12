@@ -6,6 +6,8 @@ import Editor from '@/components/editor/editor'
 import HeroEventCard from '@/components/hero-event-card'
 import { FAQSection } from '@/components/faq-section'
 import { Badge } from '@/components/ui/badge'
+import { CreateTicketCard } from '@/components/create-ticket-card'
+import { Separator } from '@/components/ui/separator'
 
 export default async function EventOverviewPage() {
   return (
@@ -15,7 +17,7 @@ export default async function EventOverviewPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
           <Card className="col-span-4">
             <CardHeader className="flex flex-row justify-between">
-              <div>
+              <div className="space-y-1.5">
                 <CardTitle>Event Details</CardTitle>
                 <CardDescription>Edit location and date.</CardDescription>
               </div>
@@ -30,34 +32,36 @@ export default async function EventOverviewPage() {
               <CardTitle>Custom Tags</CardTitle>
               <CardDescription>Add tags for help in discovery.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pb-4">
               <Input placeholder="Add a tag" className="w-full" />
-              <p className="py-2 text-sm text-muted-foreground">Enter a comma after each tag</p>
+              <p className="py-2 text-xs text-muted-foreground">Enter a comma after each tag</p>
+              <Separator className="my-4" />
+              <h4 className="pt-4 text-sm font-medium">Custom tags</h4>
             </CardContent>
             <CardFooter className="flex-wrap gap-4 overflow-y-auto">
               <Badge className="mr-2">
-                Tech <XCircleIcon className="ml-2 h-4 w-4" />
+                Tech <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                Crypto <XCircleIcon className="ml-2 h-4 w-4" />
+                Crypto <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                NFT.NYC <XCircleIcon className="ml-2 h-4 w-4" />
+                NFT.NYC <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                Solana <XCircleIcon className="ml-2 h-4 w-4" />
+                Solana <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                Polygon Labs <XCircleIcon className="ml-2 h-4 w-4" />
+                Polygon Labs <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                Workshop <XCircleIcon className="ml-2 h-4 w-4" />
+                Workshop <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
             </CardFooter>
           </Card>
           <Card className="col-span-7">
             <CardHeader className="flex flex-row justify-between">
-              <div>
+              <div className="space-y-1.5">
                 <CardTitle>About Event</CardTitle>
                 <CardDescription>Edit event description or auto generate using AI.</CardDescription>
               </div>
@@ -71,7 +75,7 @@ export default async function EventOverviewPage() {
           </Card>
           <Card className="col-span-4">
             <CardHeader className="flex flex-row justify-between">
-              <div>
+              <div className="space-y-1.5">
                 <CardTitle>Event FAQ</CardTitle>
                 <CardDescription>
                   Have a different question and can’t find the answer you’re looking for?
@@ -88,7 +92,7 @@ export default async function EventOverviewPage() {
           </Card>
           <Card className="col-span-3">
             <CardHeader className="flex flex-row justify-between">
-              <div>
+              <div className="space-y-1.5">
                 <CardTitle>Event Agenda</CardTitle>
                 <CardDescription>Add Agenda for your event. You can add multiple agenda items.</CardDescription>
               </div>
@@ -98,7 +102,7 @@ export default async function EventOverviewPage() {
               </Button>
             </CardHeader>
             <CardContent>
-              <FAQSection />
+              <CreateTicketCard />
             </CardContent>
           </Card>
         </div>

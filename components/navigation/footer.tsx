@@ -23,7 +23,7 @@ const social = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-6 sm:py-10 lg:pl-72">
+    <footer className="border-t border-border py-3 sm:py-6 lg:pl-72">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 px-6 sm:flex-row lg:px-8">
         <p className="text-sm leading-7 text-muted-foreground">&copy; 2023 Revent. All rights reserved.</p>
         <div className="hidden sm:block sm:h-7 sm:w-px sm:flex-none sm:bg-muted" />

@@ -8,6 +8,10 @@ const tabNavItems = [
     href: '/organize',
   },
   {
+    title: 'Events',
+    href: '/organize/events',
+  },
+  {
     title: 'Contacts',
     href: '/organize/contacts',
   },
