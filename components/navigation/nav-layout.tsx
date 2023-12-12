@@ -7,7 +7,7 @@ import { Sidebar } from './sidebar'
 import { Navbar } from './navbar'
 import { Footer } from './footer'
 
-export default function NavigationLayout({ children }: { children: React.ReactNode }) {
+export default function NavLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -49,7 +49,7 @@ export default function NavigationLayout({ children }: { children: React.ReactNo
                   <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
                     <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
                       <span className="sr-only">Close sidebar</span>
-                      <X className="h-6 w-6 text-white" aria-hidden="true" />
+                      <X className="h-6 w-6 text-background" aria-hidden="true" />
                     </button>
                   </div>
                 </Transition.Child>
@@ -62,7 +62,7 @@ export default function NavigationLayout({ children }: { children: React.ReactNo
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:mt-16 lg:flex lg:w-72 lg:flex-col">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <Sidebar />
       </div>

@@ -15,12 +15,14 @@ import {
 import { Bot } from 'lucide-react'
 import NavItem from './nav-item'
 
-export function NavigationContent() {
+export function NavContent() {
   return (
     <NavigationMenu className="hidden md:flex">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            Products
+          </NavigationMenuTrigger>
           <NavigationMenuContent className="z-50">
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -47,14 +49,24 @@ export function NavigationContent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="https://github.com/gen3-tickets" passHref target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/gen3-tickets"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Docs</NavigationMenuLink>
-          </Link>
+          </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="https://medium.com/" passHref target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://medium.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Blog</NavigationMenuLink>
-          </Link>
+          </a>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

@@ -1,23 +1,24 @@
 'use client'
 
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
-  BuildingIcon,
   HeartIcon,
   Home,
   LayoutGrid,
   ReceiptIcon,
   SettingsIcon,
   TicketIcon,
+  UserPlusIcon,
   WaypointsIcon,
   Zap,
 } from 'lucide-react'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
-import Link from 'next/link'
 import { SignInButton, SignUpButton } from '@clerk/clerk-react'
-import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home, current: true },
@@ -77,7 +78,7 @@ const events = [
 
 const userNavItems = [
   { name: 'Saved', href: '/saved', icon: HeartIcon },
-  { name: 'Following', href: '/following', icon: BuildingIcon },
+  { name: 'Following', href: '/following', icon: UserPlusIcon },
   { name: 'Tickets', href: '/tickets', icon: TicketIcon },
   { name: 'Settings', href: '/settings', icon: SettingsIcon },
 ]
@@ -94,6 +95,15 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={cn('flex grow flex-col overflow-y-auto border-r bg-background pb-4', className)}>
       <ScrollArea>
+        <div className="flex h-16 shrink-0 items-center px-6 py-2">
+          <Image
+            className="h-8 w-auto"
+            src="https://tailwindui.com/img/logos/mark.svg"
+            alt="Revent"
+            width={32}
+            height={32}
+          />
+        </div>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
           <ul role="list" className="flex flex-1 flex-col">
             <li className="px-3 py-2">

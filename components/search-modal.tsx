@@ -19,7 +19,7 @@ type CommandModalProps = {
   onOpenChange: (open: boolean) => void
 }
 
-export function CommandModal({ open, onOpenChange }: CommandModalProps) {
+export function SearchModal({ open, onOpenChange }: CommandModalProps) {
   const [searchQuery, setSearchQuery] = useState('')
   return (
     <>

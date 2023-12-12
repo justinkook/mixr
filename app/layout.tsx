@@ -5,7 +5,7 @@ import { metadataConfig } from '@/config/metadata'
 import { Noto_Sans_JP } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { Providers } from '@/components/providers/providers'
-import NavigationLayout from '@/components/navigation/navigation-layout'
+import NavLayout from '@/components/navigation/nav-layout'
 import { Toaster } from '@/components/ui/toaster'
 
 import '@/styles/globals.css'
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <Providers>
-          <NavigationLayout>{children}</NavigationLayout>
+          <NavLayout>{children}</NavLayout>
           <Toaster />
           <Analytics />
         </Providers>
