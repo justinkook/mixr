@@ -60,7 +60,7 @@ export function NavContent() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <a
-            href="https://medium.com/"
+            href="https://medium.com/@contact_26315"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"

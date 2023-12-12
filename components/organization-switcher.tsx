@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useRouter } from 'next/navigation'
 import { ChevronsUpDownIcon, CheckIcon, PlusCircleIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -40,7 +41,7 @@ const groups = [
     ],
   },
   {
-    label: 'Teams',
+    label: 'Organizations',
     organizations: [
       {
         label: 'Acme Inc.',
@@ -61,6 +62,7 @@ type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 interface OrganizationSwitcherProps extends PopoverTriggerProps {}
 
 export default function OrganizationSwitcher({ className }: OrganizationSwitcherProps) {
+  const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const [showNewOrganizationDialog, setShowNewOrganizationDialog] = React.useState(false)
   const [selectedOrganization, setSelectedOrganization] = React.useState<Organization>(groups[0].organizations[0])
@@ -100,6 +102,11 @@ export default function OrganizationSwitcher({ className }: OrganizationSwitcher
                       onSelect={() => {
                         setSelectedOrganization(organization)
                         setOpen(false)
+                        if (group.label === 'Organizations') {
+                          router.push('/organize')
+                        } else {
+                          router.push('/')
+                        }
                       }}
                       className="text-sm"
                     >

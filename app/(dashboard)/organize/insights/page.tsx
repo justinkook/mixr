@@ -8,20 +8,20 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { CalendarDateRangePicker } from '@/components/date-range-picker'
 
-export default async function OrganizerInsightsPage() {
+export default async function EventInsightsPage() {
   return (
     <>
-      <div className="hidden h-full flex-1 flex-col space-y-6 px-10 pb-16 md:flex">
+      <div className="hidden h-full flex-1 flex-col space-y-8 pt-4 md:flex">
         <div className="flex items-center justify-between space-y-2">
-          <div className="space-y-0.5">
+          <div>
             <h2 className="text-2xl font-bold tracking-tight">Insights</h2>
-            <p className="text-muted-foreground">View your organization insights for all events.</p>
+            <p className="text-muted-foreground">View tracking metrics and revenue reports.</p>
           </div>
           <div className="flex items-center space-x-2">
             <CalendarDateRangePicker />
           </div>
         </div>
-        <Separator className="my-6" />
+        <Separator />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

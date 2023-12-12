@@ -14,6 +14,7 @@ import {
   SettingsIcon,
   TicketIcon,
   UserPlusIcon,
+  UsersIcon,
   WaypointsIcon,
   Zap,
 } from 'lucide-react'
@@ -84,6 +85,7 @@ const userNavItems = [
 ]
 
 const orgNavItems = [
+  { name: 'Contacts', href: '/organize/contacts', icon: UsersIcon },
   { name: 'Insights', href: '/organize/insights', icon: WaypointsIcon },
   { name: 'Billing', href: 'https://finix.payments-dashboard.com', icon: ReceiptIcon },
   { name: 'Settings', href: '/organize/settings', icon: SettingsIcon },
