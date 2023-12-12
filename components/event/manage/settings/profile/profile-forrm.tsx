@@ -14,13 +14,13 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/use-toast'
 
 const profileFormSchema = z.object({
-  username: z
+  name: z
     .string()
     .min(2, {
-      message: 'Username must be at least 2 characters.',
+      message: 'Name must be at least 2 characters.',
     })
     .max(30, {
-      message: 'Username must not be longer than 30 characters.',
+      message: 'Name must not be longer than 30 characters.',
     }),
   email: z
     .string({
@@ -73,16 +73,15 @@ export function ProfileForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="First Last" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a pseudonym. You can only change this once
-                every 30 days.
+                This is your public display name. It can be your real name or a pseudonym.
               </FormDescription>
               <FormMessage />
             </FormItem>

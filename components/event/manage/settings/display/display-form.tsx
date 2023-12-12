@@ -11,28 +11,20 @@ import { toast } from '@/components/ui/use-toast'
 
 const items = [
   {
-    id: 'recents',
-    label: 'Recents',
+    id: 'saved',
+    label: 'Saved',
   },
   {
-    id: 'home',
-    label: 'Home',
+    id: 'tickets',
+    label: 'Tickets',
   },
   {
-    id: 'applications',
-    label: 'Applications',
+    id: 'settings',
+    label: 'Settings',
   },
   {
-    id: 'desktop',
-    label: 'Desktop',
-  },
-  {
-    id: 'downloads',
-    label: 'Downloads',
-  },
-  {
-    id: 'documents',
-    label: 'Documents',
+    id: 'events',
+    label: 'My Events',
   },
 ] as const
 
