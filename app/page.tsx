@@ -3,8 +3,8 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { EventCard } from '@/components/events/event-card'
-import { eventMockData, madeForYouEvents } from '@/components/events/events'
+import { EventCard } from '@/components/event/event-card'
+import { eventMockData, madeForYouEvents } from '@/components/event/events'
 import { PlacesCombobox } from '@/components/places-combobox'
 import { Zap } from 'lucide-react'
 
