@@ -1,7 +1,7 @@
 'use client'
 
 import { MenuIcon, SearchIcon } from 'lucide-react'
-import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
+import { OrganizationSwitcher, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 import { Button } from '../ui/button'
 import { NavigationContent } from './navigation-content'
 import { CommandModal } from '../command-modal'
@@ -36,7 +36,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           <SearchIcon className="flex sm:hidden" onClick={() => setOpenModal(!openModal)} />
           {/* Profile dropdown */}
           <SignedIn>
-            <UserButton userProfileMode="modal" />
+            <OrganizationSwitcher afterSelectOrganizationUrl="/organize" />
           </SignedIn>
           <SignedOut>
             <Button variant="outline">

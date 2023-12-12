@@ -1,6 +1,6 @@
 import { BackNavbar } from '@/components/navigation/back-navbar'
 
-export default function EventLayout({ children }: { children: React.ReactNode }) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <BackNavbar />

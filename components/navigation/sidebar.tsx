@@ -3,7 +3,17 @@
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { HeartIcon, Home, LayoutGrid, ReceiptIcon, SettingsIcon, TicketIcon, WaypointsIcon, Zap } from 'lucide-react'
+import {
+  BuildingIcon,
+  HeartIcon,
+  Home,
+  LayoutGrid,
+  ReceiptIcon,
+  SettingsIcon,
+  TicketIcon,
+  WaypointsIcon,
+  Zap,
+} from 'lucide-react'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import { SignInButton, SignUpButton } from '@clerk/clerk-react'
@@ -67,6 +77,7 @@ const events = [
 
 const userNavItems = [
   { name: 'Saved', href: '/saved', icon: HeartIcon },
+  { name: 'Following', href: '/following', icon: BuildingIcon },
   { name: 'Tickets', href: '/tickets', icon: TicketIcon },
   { name: 'Settings', href: '/settings', icon: SettingsIcon },
 ]
