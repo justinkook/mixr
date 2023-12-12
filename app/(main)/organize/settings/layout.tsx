@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 
 import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
@@ -39,7 +38,7 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
-      <div className="hidden space-y-6 p-10 pb-16 md:block">
+      <div className="hidden space-y-6 px-10 pb-16 md:block">
         <div className="space-y-0.5">
           <h2 className="text-2xl font-bold tracking-tight">Organization Settings</h2>
           <p className="text-muted-foreground">Manage your organization settings and set e-mail preferences.</p>

@@ -1,10 +1,13 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Heart, Home, LayoutGrid, SettingsIcon, Ticket, Zap } from 'lucide-react'
+import { HeartIcon, Home, LayoutGrid, ReceiptIcon, SettingsIcon, TicketIcon, WaypointsIcon, Zap } from 'lucide-react'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import { SignInButton, SignUpButton } from '@clerk/clerk-react'
+import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home, current: true },
@@ -62,7 +65,21 @@ const events = [
   },
 ]
 
+const userNavItems = [
+  { name: 'Saved', href: '/saved', icon: HeartIcon },
+  { name: 'Tickets', href: '/tickets', icon: TicketIcon },
+  { name: 'Settings', href: '/settings', icon: SettingsIcon },
+]
+
+const orgNavItems = [
+  { name: 'Insights', href: '/organize/insights', icon: WaypointsIcon },
+  { name: 'Billing', href: 'https://finix.payments-dashboard.com', icon: ReceiptIcon },
+  { name: 'Settings', href: '/organize/settings', icon: SettingsIcon },
+]
+
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
+  const pathname = usePathname()
+
   return (
     <div className={cn('flex grow flex-col overflow-y-auto border-r bg-background pb-4', className)}>
       <ScrollArea>
@@ -87,18 +104,23 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
               <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">You</h2>
               <SignedIn>
                 <ul role="list" className="space-y-1">
-                  <Button variant="ghost" className="w-full justify-start">
-                    <Heart className="mr-2 h-4 w-4" />
-                    Saved
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <Ticket className="mr-2 h-4 w-4" />
-                    Tickets
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <SettingsIcon className="mr-2 h-4 w-4" />
-                    Settings
-                  </Button>
+                  {pathname.includes('organize')
+                    ? orgNavItems.map((item) => (
+                        <Link href={item.href} key={item.href}>
+                          <Button variant="ghost" className="w-full justify-start">
+                            {item.icon && <item.icon className="mr-2 h-4 w-4" />}
+                            {item.name}
+                          </Button>
+                        </Link>
+                      ))
+                    : userNavItems.map((item) => (
+                        <Link href={item.href} key={item.href}>
+                          <Button variant="ghost" className="w-full justify-start">
+                            {item.icon && <item.icon className="mr-2 h-4 w-4" />}
+                            {item.name}
+                          </Button>
+                        </Link>
+                      ))}
                 </ul>
               </SignedIn>
               <SignedOut>

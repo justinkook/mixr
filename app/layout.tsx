@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { metadataConfig } from '@/config/metadata'
 import { Noto_Sans_JP } from 'next/font/google'
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Analytics />
         </Providers>
       </body>
+      <Script type="text/javascript" src="https://js.finix.com/v/1/finix.js" />
     </html>
   )
 }
