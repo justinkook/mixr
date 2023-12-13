@@ -1,14 +1,6 @@
-import { Metadata } from 'next'
-
-import { CopyPlusIcon } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
-import { Button } from '@/components/ui/button'
-
-export const metadata: Metadata = {
-  title: 'Forms',
-  description: 'Advanced form example using react-hook-form and Zod.',
-}
+import CreateEventModal from '@/components/create-event-modal'
 
 const sidebarNavItems = [
   {
@@ -35,10 +27,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
             <p className="text-muted-foreground">Change public url, appearance, or delete event.</p>
           </div>
           <div className="flex items-center space-x-2">
-            <Button variant="secondary">
-              <CopyPlusIcon className="mr-2 h-4 w-4" />
-              Duplicate
-            </Button>
+            <CreateEventModal label="Duplicate Event" variant="secondary" />
           </div>
         </div>
         <Separator className="my-6" />

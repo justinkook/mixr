@@ -55,18 +55,35 @@ const groups = [
   },
 ]
 
-type Organization = (typeof groups)[number]['organizations'][number]
+type OrganizationGroup = {
+  label: string
+  organizations: {
+    label: string
+    value: string
+  }[]
+}
+
+type Organization = OrganizationGroup[][number]['organizations'][number]
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
-interface OrganizationSwitcherProps extends PopoverTriggerProps {}
+interface OrganizationSwitcherProps extends PopoverTriggerProps {
+  hidePersonal?: boolean
+}
 
-export default function OrganizationSwitcher({ className }: OrganizationSwitcherProps) {
+export default function OrganizationSwitcher({ className, hidePersonal }: OrganizationSwitcherProps) {
   const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const [showNewOrganizationDialog, setShowNewOrganizationDialog] = React.useState(false)
   const [selectedOrganization, setSelectedOrganization] = React.useState<Organization>(groups[0].organizations[0])
 
+  const filterGroups = (orgGroups: OrganizationGroup[]) => {
+    if (hidePersonal) {
+      return orgGroups.filter((group) => group.label !== 'Personal Account')
+    } else {
+      return orgGroups
+    }
+  }
   return (
     <Dialog open={showNewOrganizationDialog} onOpenChange={setShowNewOrganizationDialog}>
       <Popover open={open} onOpenChange={setOpen}>
@@ -94,7 +111,7 @@ export default function OrganizationSwitcher({ className }: OrganizationSwitcher
             <CommandList>
               <CommandInput placeholder="Search organization..." />
               <CommandEmpty>No organization found.</CommandEmpty>
-              {groups.map((group) => (
+              {filterGroups(groups).map((group) => (
                 <CommandGroup key={group.label} heading={group.label}>
                   {group.organizations.map((organization) => (
                     <CommandItem
@@ -102,10 +119,12 @@ export default function OrganizationSwitcher({ className }: OrganizationSwitcher
                       onSelect={() => {
                         setSelectedOrganization(organization)
                         setOpen(false)
-                        if (group.label === 'Organizations') {
-                          router.push('/organize')
-                        } else {
-                          router.push('/')
+                        if (!hidePersonal) {
+                          if (group.label === 'Organizations') {
+                            router.push('/organize')
+                          } else {
+                            router.push('/')
+                          }
                         }
                       }}
                       className="text-sm"
