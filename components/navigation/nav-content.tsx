@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Bot } from 'lucide-react'
 import NavItem from './nav-item'
+import { mainNav } from '@/config/nav'
 
 export function NavContent() {
   return (
@@ -48,26 +49,17 @@ export function NavContent() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <a
-            href="https://github.com/gen3-tickets"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Docs</NavigationMenuLink>
-          </a>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <a
-            href="https://medium.com/@contact_26315"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Blog</NavigationMenuLink>
-          </a>
-        </NavigationMenuItem>
+        {mainNav.map((navItem) => (
+          <NavigationMenuItem key={navItem.href}>
+            <Link
+              href={navItem.href}
+              {...(navItem.external && { target: '_blank', rel: 'noopener noreferrer' })}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>{navItem.title}</NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   )

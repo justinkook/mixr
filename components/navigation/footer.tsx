@@ -1,25 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-
-import { GithubIcon, InstagramIcon, TwitterIcon } from 'lucide-react'
-
-const social = [
-  {
-    name: 'Twitter',
-    href: '#',
-    icon: TwitterIcon,
-  },
-  {
-    name: 'GitHub',
-    href: '#',
-    icon: GithubIcon,
-  },
-  {
-    name: 'Instagram',
-    href: '#',
-    icon: InstagramIcon,
-  },
-]
+import { socials } from '@/config/nav'
 
 export function Footer() {
   return (
@@ -38,10 +19,10 @@ export function Footer() {
         </Link>
         <div className="hidden sm:block sm:h-7 sm:w-px sm:flex-none sm:bg-muted" />
         <div className="flex gap-x-4">
-          {social.map((item, itemIdx) => (
+          {socials.map((item, itemIdx) => (
             <Link key={itemIdx} href={item.href} className="text-muted-foreground hover:text-muted-foreground">
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
+              <span className="sr-only">{item.title}</span>
+              {item.icon && <item.icon className="h-6 w-6" aria-hidden="true" />}
             </Link>
           ))}
         </div>

@@ -5,12 +5,10 @@ import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
+import { NavItem } from '@/types/nav'
 
 interface SettingsSidebarProps extends React.HTMLAttributes<HTMLElement> {
-  items: {
-    href: string
-    title: string
-  }[]
+  items: NavItem[]
 }
 
 export function SettingsSidebar({ className, items, ...props }: SettingsSidebarProps) {

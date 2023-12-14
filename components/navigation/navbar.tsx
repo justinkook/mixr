@@ -1,11 +1,7 @@
-'use client'
-
-import { MenuIcon, SearchIcon } from 'lucide-react'
+import { MenuIcon } from 'lucide-react'
 import { SignInButton, SignUpButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 import { Button } from '../ui/button'
-import { SearchModal } from '../search-modal'
-import { useState } from 'react'
-import { Input } from '../ui/input'
+import { SearchCommandModal } from '../search-command-modal'
 import { UserNav } from './user-nav'
 import OrganizationSwitcher from '../organization-switcher'
 import { NavContent } from './nav-content'
@@ -15,8 +11,6 @@ type NavbarProps = {
 }
 
 export function Navbar({ setSidebarOpen }: NavbarProps) {
-  const [openModal, setOpenModal] = useState(false)
-
   return (
     <nav className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:ml-72 lg:px-8">
       <Button variant="ghost" type="button" className="-m-2.5 p-2.5 lg:hidden" onClick={() => setSidebarOpen(true)}>
@@ -29,14 +23,8 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           <NavContent />
           <div className="ml-auto flex items-center space-x-4">
             <div className="relative hidden flex-1 sm:flex">
-              <Input
-                type="search"
-                placeholder="Search..."
-                className="sm:w-[100px] md:w-[300px]"
-                onClick={() => setOpenModal(!openModal)}
-              />
+              <SearchCommandModal />
             </div>
-            <SearchIcon className="flex sm:hidden" onClick={() => setOpenModal(!openModal)} />
             {/* Profile dropdown */}
             <SignedIn>
               <UserNav />
@@ -52,7 +40,6 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </div>
         </div>
       </div>
-      <SearchModal open={openModal} onOpenChange={setOpenModal} />
     </nav>
   )
 }

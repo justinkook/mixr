@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { userNav } from '@/config/nav'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -31,18 +33,11 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href="/saved">
-            <DropdownMenuItem>Saved</DropdownMenuItem>
-          </Link>
-          <Link href="/following">
-            <DropdownMenuItem>Following</DropdownMenuItem>
-          </Link>
-          <Link href="/tickets">
-            <DropdownMenuItem>Tickets</DropdownMenuItem>
-          </Link>
-          <Link href="/settings">
-            <DropdownMenuItem>Settings </DropdownMenuItem>
-          </Link>
+          {userNav.map((navItem) => (
+            <Link key={navItem.href} href={navItem.href}>
+              <DropdownMenuItem>{navItem.title}</DropdownMenuItem>
+            </Link>
+          ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Log out</DropdownMenuItem>
