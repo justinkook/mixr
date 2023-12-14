@@ -85,7 +85,7 @@ export function SearchCommandModal({ ...props }: DialogProps) {
                 key={navItem.href}
                 value={navItem.title}
                 onSelect={() => {
-                  runCommand(() => router.push(navItem.href as string))
+                  runCommand(() => window.open(navItem.href, '_blank'))
                 }}
               >
                 <FileIcon className="mr-2 h-4 w-4" />

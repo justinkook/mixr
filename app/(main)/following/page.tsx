@@ -1,5 +1,6 @@
 import { OrganizerCard } from '@/components/organizer-card'
-import { OrganizerEmptyPlaceholder } from '@/components/organizer-empty-placeholder'
+import { EmptyPlaceholder } from '@/components/empty-placeholder'
+import { UsersIcon } from 'lucide-react'
 
 const organizations = [
   {
@@ -85,10 +86,17 @@ export default async function FollowingPage() {
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {organizations.length > 0 ? (
+        {organizations.length < 0 ? (
           organizations.map((organization) => <OrganizerCard key={organization.name} organizer={organization} />)
         ) : (
-          <OrganizerEmptyPlaceholder className="col-span-4" />
+          <EmptyPlaceholder
+            content={{
+              icon: UsersIcon,
+              title: 'Not organizers available',
+              description: 'You are not following any organizers.',
+            }}
+            className="col-span-4"
+          />
         )}
       </div>
     </>

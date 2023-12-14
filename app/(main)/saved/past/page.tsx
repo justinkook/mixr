@@ -1,5 +1,6 @@
-import { EventEmptyPlaceholder } from '@/components/event/event-empty-placeholder'
+import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { EventGridCard } from '@/components/event/event-grid-card'
+import { ZapIcon } from 'lucide-react'
 
 const organizations = [
   {
@@ -18,7 +19,10 @@ export default async function FollowingPage() {
         {organizations.length > 0 ? (
           organizations.map((organization) => <EventGridCard key={organization.name} />)
         ) : (
-          <EventEmptyPlaceholder className="col-span-4" />
+          <EmptyPlaceholder
+            content={{ icon: ZapIcon, title: 'No past events saved', description: 'You have not saved any events.' }}
+            className="col-span-4"
+          />
         )}
       </div>
     </>
