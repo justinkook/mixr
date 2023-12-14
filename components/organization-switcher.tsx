@@ -77,7 +77,7 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
   const [showNewOrganizationDialog, setShowNewOrganizationDialog] = React.useState(false)
   const [selectedOrganization, setSelectedOrganization] = React.useState<Organization>(groups[0].organizations[0])
 
-  const filterGroups = (orgGroups: OrganizationGroup[]) => {
+  const filterPersonal = (orgGroups: OrganizationGroup[]) => {
     if (hidePersonal) {
       return orgGroups.filter((group) => group.label !== 'Personal Account')
     } else {
@@ -111,7 +111,7 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
             <CommandList>
               <CommandInput placeholder="Search organization..." />
               <CommandEmpty>No organization found.</CommandEmpty>
-              {filterGroups(groups).map((group) => (
+              {filterPersonal(groups).map((group) => (
                 <CommandGroup key={group.label} heading={group.label}>
                   {group.organizations.map((organization) => (
                     <CommandItem

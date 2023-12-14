@@ -70,18 +70,12 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     <div className={cn('flex grow flex-col overflow-y-auto border-r bg-background pb-4', className)}>
       <ScrollArea>
         <div className="flex h-16 shrink-0 items-center px-6 py-2">
-          <Image
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg"
-            alt="Revent"
-            width={32}
-            height={32}
-          />
+          <Image src="/images/card.png" alt="Revent" className="h-8 w-auto" width={32} height={32} />
         </div>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
           <ul role="list" className="flex flex-1 flex-col">
-            {sidebarNavItems.map((navItem) => (
-              <li key={navItem.href} className="px-3 py-2">
+            {sidebarNavItems.map((navItem, index) => (
+              <li key={index} className="px-3 py-2">
                 <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">{navItem.title}</h2>
                 <ul role="list" className="space-y-1">
                   {navItem.items.map((subItem) => (
@@ -105,8 +99,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 <h2 className="relative px-7 text-lg font-semibold tracking-tight">Events</h2>
                 <ScrollArea className="h-[270px] px-1">
                   <ul role="list" className="space-y-1 p-2">
-                    {events.map((event) => (
-                      <li key={event.name}>
+                    {events.map((event, index) => (
+                      <li key={index}>
                         <Link href={event.href}>
                           <Button
                             variant={event.current ? 'secondary' : 'ghost'}

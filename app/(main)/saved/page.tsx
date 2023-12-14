@@ -84,8 +84,8 @@ export default async function SavedPage() {
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {organizations.map((organization) => (
-          <OrganizerCard key={organization.name} organizer={organization} />
+        {organizations.map((organization, index) => (
+          <OrganizerCard key={index} organizer={organization} />
         ))}
       </div>
     </>

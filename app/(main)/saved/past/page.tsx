@@ -17,7 +17,7 @@ export default async function FollowingPage() {
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {organizations.length > 0 ? (
-          organizations.map((organization) => <EventGridCard key={organization.name} />)
+          organizations.map((organization, index) => <EventGridCard key={index} />)
         ) : (
           <EmptyPlaceholder
             content={{ icon: ZapIcon, title: 'No past events saved', description: 'You have not saved any events.' }}

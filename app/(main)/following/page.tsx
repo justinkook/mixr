@@ -86,8 +86,8 @@ export default async function FollowingPage() {
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {organizations.length < 0 ? (
-          organizations.map((organization) => <OrganizerCard key={organization.name} organizer={organization} />)
+        {organizations.length > 0 ? (
+          organizations.map((organization, index) => <OrganizerCard key={index} organizer={organization} />)
         ) : (
           <EmptyPlaceholder
             content={{

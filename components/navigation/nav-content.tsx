@@ -49,15 +49,15 @@ export function NavContent() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {mainNav.map((navItem) => (
-          <NavigationMenuItem key={navItem.href}>
-            <Link
+        {mainNav.map((navItem, index) => (
+          <NavigationMenuItem key={index} className="text-sm font-medium text-muted-foreground transition-colors">
+            <NavigationMenuLink
               href={navItem.href}
               {...(navItem.external && { target: '_blank', rel: 'noopener noreferrer' })}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={navigationMenuTriggerStyle()}
             >
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>{navItem.title}</NavigationMenuLink>
-            </Link>
+              {navItem.title}
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>

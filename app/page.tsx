@@ -45,9 +45,9 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {madeForYouEvents.map((event) => (
+                    {madeForYouEvents.map((event, index) => (
                       <EventCard
-                        key={event.name}
+                        key={index}
                         event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
@@ -72,9 +72,9 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {eventMockData.map((event) => (
+                    {eventMockData.map((event, index) => (
                       <EventCard
-                        key={event.name}
+                        key={index}
                         event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
@@ -100,9 +100,9 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {eventMockData.map((event) => (
+                    {eventMockData.map((event, index) => (
                       <EventCard
-                        key={event.name}
+                        key={index}
                         event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
@@ -128,9 +128,9 @@ export default function Home() {
               <ScrollArea>
                 <div className="relative max-w-full">
                   <div className="flex space-x-4 pb-4">
-                    {eventMockData.map((event) => (
+                    {eventMockData.map((event, index) => (
                       <EventCard
-                        key={event.name}
+                        key={index}
                         event={event}
                         className="w-[250px]"
                         aspectRatio="portrait"
