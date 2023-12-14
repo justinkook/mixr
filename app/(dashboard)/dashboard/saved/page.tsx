@@ -85,12 +85,12 @@ const events = [
 export default async function SavedPage() {
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {events.length > 0 ? (
           events.map((event, index) => <EventGridCard key={index} event={event} />)
         ) : (
           <EmptyPlaceholder
-            className="col-span-3"
+            className="col-span-4"
             content={{
               icon: ZapIcon,
               title: 'No events available',

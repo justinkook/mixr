@@ -219,6 +219,10 @@ export const dashboardTabs: MainNavItem[] = [
     href: '/dashboard',
   },
   {
+    title: 'Saved',
+    href: '/dashboard/saved',
+  },
+  {
     title: 'Events',
     href: '/dashboard/events',
   },
