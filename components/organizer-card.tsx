@@ -1,7 +1,7 @@
-import { CalendarDaysIcon } from 'lucide-react'
+import { CalendarDaysIcon, UserPlusIcon, ZapIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { cn } from '@/lib/utils'
 
@@ -45,6 +45,16 @@ export function OrganizerCard({ className, ...props }: React.HTMLAttributes<HTML
           </div>
         </div>
       </CardContent>
+      <CardFooter className="flex space-x-4 text-sm text-muted-foreground">
+        <div className="flex items-center">
+          <ZapIcon className="mr-1 h-3 w-3" />
+          23 Events
+        </div>
+        <div className="flex items-center">
+          <UserPlusIcon className="mr-1 h-3 w-3" />
+          12k Followers
+        </div>
+      </CardFooter>
     </Card>
   )
 }

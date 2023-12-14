@@ -45,10 +45,7 @@ export function EventGridCard({ className, ...props }: React.HTMLAttributes<HTML
           </Button>
         </div>
       </CardContent>
-      <CardFooter
-        className="flex space-x-4 text-sm text-muted-foreground"
-        style={{ borderTop: '1px solid var(--border-color)' }}
-      >
+      <CardFooter className="flex space-x-4 text-sm text-muted-foreground">
         <div className="flex items-center">
           <MapPinIcon className="mr-1 h-3 w-3" />
           New York, NY

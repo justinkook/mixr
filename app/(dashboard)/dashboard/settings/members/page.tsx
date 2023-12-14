@@ -3,7 +3,7 @@ import { TeamMembers } from '@/components/team-members'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
-export default function SettingsTeamPage() {
+export default function SettingsMembersPage() {
   return (
     <div className="space-y-6">
       <div>

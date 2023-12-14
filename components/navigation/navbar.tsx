@@ -12,7 +12,7 @@ type NavbarProps = {
 
 export function Navbar({ setSidebarOpen }: NavbarProps) {
   return (
-    <nav className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:ml-72 lg:px-8">
+    <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-x-4 border-b bg-background/95 px-4 shadow-sm backdrop-blur sm:gap-x-6 sm:px-6 lg:ml-72 lg:px-8">
       <Button variant="ghost" type="button" className="-m-2.5 p-2.5 lg:hidden" onClick={() => setSidebarOpen(true)}>
         <span className="sr-only">Open sidebar</span>
         <MenuIcon className="h-6 w-6" aria-hidden="true" />
@@ -40,6 +40,6 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   )
 }

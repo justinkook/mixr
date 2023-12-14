@@ -70,33 +70,6 @@ export const userNav: SidebarNavItem[] = [
 
 export const dashboardNav: SidebarNavItem[] = [
   {
-    title: 'Saved',
-    href: '/dashboard/saved',
-    icon: HeartIcon,
-    items: [
-      {
-        title: 'Events',
-        href: '/dashboard/saved',
-        items: [],
-      },
-      {
-        title: 'Venues',
-        href: '/dashboard/saved/venues',
-        items: [],
-      },
-      {
-        title: 'Vendors',
-        href: '/dashboard/saved/vendors',
-        items: [],
-      },
-      {
-        title: 'Entertainment',
-        href: '/dashboard/saved/entertainment',
-        items: [],
-      },
-    ],
-  },
-  {
     title: 'Events',
     href: '/dashboard/events',
     icon: ZapIcon,
@@ -130,8 +103,8 @@ export const dashboardNav: SidebarNavItem[] = [
         items: [],
       },
       {
-        title: 'Team',
-        href: '/dashboard/settings/team',
+        title: 'Members',
+        href: '/dashboard/settings/members',
         items: [],
       },
       {
@@ -217,10 +190,6 @@ export const dashboardTabs: MainNavItem[] = [
   {
     title: 'Overview',
     href: '/dashboard',
-  },
-  {
-    title: 'Saved',
-    href: '/dashboard/saved',
   },
   {
     title: 'Events',
