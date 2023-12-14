@@ -52,28 +52,55 @@ export const userNav: SidebarNavItem[] = [
   },
 ]
 
-export const organizerNav: SidebarNavItem[] = [
+export const dashboardNav: SidebarNavItem[] = [
+  {
+    title: 'Saved',
+    href: '/dashboard/saved',
+    icon: HeartIcon,
+    items: [
+      {
+        title: 'Events',
+        href: '/dashboard/saved',
+        items: [],
+      },
+      {
+        title: 'Venues',
+        href: '/dashboard/saved/venues',
+        items: [],
+      },
+      {
+        title: 'Vendors',
+        href: '/dashboard/saved/vendors',
+        items: [],
+      },
+      {
+        title: 'Entertainment',
+        href: '/dashboard/saved/entertainment',
+        items: [],
+      },
+    ],
+  },
   {
     title: 'Events',
-    href: '/organize/events',
+    href: '/dashboard/events',
     icon: ZapIcon,
     items: [],
   },
   {
     title: 'Contacts',
-    href: '/organize/contacts',
+    href: '/dashboard/contacts',
     icon: UsersIcon,
     items: [],
   },
   {
     title: 'Insights',
-    href: '/organize/insights',
+    href: '/dashboard/insights',
     icon: BarChartBigIcon,
     items: [],
   },
   {
     title: 'Settings',
-    href: '/organize/settings',
+    href: '/dashboard/settings',
     icon: SettingsIcon,
     items: [],
   },
@@ -118,20 +145,20 @@ export const sidebarNav: SidebarNavItem[] = [
   },
 ]
 
-export const organizerSidebarNav: SidebarNavItem[] = [
+export const dashboardSidebarNav: SidebarNavItem[] = [
   {
     title: 'Discover',
     href: '',
     items: [
       {
-        title: 'Home',
-        href: '/',
+        title: 'Dashboard',
+        href: '/dashboard',
         icon: Home,
         items: [],
       },
       {
-        title: 'Browse',
-        href: '/browse',
+        title: 'Marketplace',
+        href: '/marketplace',
         icon: LayoutGridIcon,
         items: [],
       },
@@ -140,30 +167,30 @@ export const organizerSidebarNav: SidebarNavItem[] = [
   {
     title: 'You',
     href: '',
-    items: organizerNav,
+    items: dashboardNav,
   },
 ]
 
-export const organizerTabs: MainNavItem[] = [
+export const dashboardTabs: MainNavItem[] = [
   {
     title: 'Overview',
-    href: '/organize',
+    href: '/dashboard',
   },
   {
     title: 'Events',
-    href: '/organize/events',
+    href: '/dashboard/events',
   },
   {
     title: 'Contacts',
-    href: '/organize/contacts',
+    href: '/dashboard/contacts',
   },
   {
     title: 'Insights',
-    href: '/organize/insights',
+    href: '/dashboard/insights',
   },
   {
     title: 'Settings',
-    href: '/organize/settings',
+    href: '/dashboard/settings',
   },
 ]
 

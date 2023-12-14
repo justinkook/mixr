@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { organizerSidebarNav, sidebarNav } from '@/config/nav'
+import { dashboardSidebarNav, sidebarNav } from '@/config/nav'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -64,14 +64,22 @@ const events = [
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const pathname = usePathname()
 
-  const sidebarNavItems = pathname.includes('organize') ? organizerSidebarNav : sidebarNav
+  const sidebarNavItems = pathname.includes('dashboard') ? dashboardSidebarNav : sidebarNav
 
   return (
     <div className={cn('flex grow flex-col overflow-y-auto border-r bg-background pb-4', className)}>
       <ScrollArea>
-        <div className="flex h-16 shrink-0 items-center px-6 py-2">
-          <Image src="/images/card.png" alt="Revent" className="h-8 w-auto" width={32} height={32} />
-        </div>
+        <Link href="/">
+          <div className="flex h-16 shrink-0 items-center px-6 py-2">
+            <Image
+              src="https://tailwindui.com/img/logos/mark.svg"
+              alt="Revent"
+              className="h-8 w-auto"
+              width={32}
+              height={32}
+            />
+          </div>
+        </Link>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
           <ul role="list" className="flex flex-1 flex-col">
             {sidebarNavItems.map((navItem, index) => (

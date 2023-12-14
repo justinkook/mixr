@@ -4,7 +4,7 @@ import * as React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { DialogProps } from '@radix-ui/react-dialog'
 
-import { mainNav, organizerNav, userNav } from '@/config/nav'
+import { mainNav, dashboardNav, userNav } from '@/config/nav'
 import { Calendar, FileIcon, SearchIcon, Smile } from 'lucide-react'
 import {
   CommandDialog,
@@ -41,7 +41,7 @@ export function SearchCommandModal({ ...props }: DialogProps) {
     command()
   }, [])
 
-  const navItems = pathname.includes('organize') ? organizerNav : userNav
+  const navItems = pathname.includes('dashboard') ? dashboardNav : userNav
 
   return (
     <>

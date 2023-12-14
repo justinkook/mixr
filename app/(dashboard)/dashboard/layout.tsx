@@ -1,4 +1,4 @@
-import { organizerTabs } from '@/config/nav'
+import { dashboardTabs } from '@/config/nav'
 
 import CreateEventModal from '@/components/create-event-modal'
 import TabNav from '@/components/event/manage/tab-nav'
@@ -12,7 +12,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <CreateEventModal />
         </div>
       </div>
-      <TabNav items={organizerTabs} />
+      <TabNav items={dashboardTabs} />
       {children}
     </div>
   )

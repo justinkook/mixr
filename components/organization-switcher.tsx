@@ -121,7 +121,7 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
                         setOpen(false)
                         if (!hidePersonal) {
                           if (group.label === 'Organizations') {
-                            router.push('/organize')
+                            router.push('/dashboard')
                           } else {
                             router.push('/')
                           }

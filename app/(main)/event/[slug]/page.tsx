@@ -46,7 +46,7 @@ export default function EventPage() {
         {/* Product info */}
         <div className="mx-auto mt-6 max-w-2xl sm:mt-16 lg:col-span-4 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
           <div className="flex flex-col">
-            <Link href="/organizer/revent">
+            <Link href="/dashboard/revent">
               <div className="flex flex-row items-center">
                 <Avatar className="mr-2 h-3 w-3">
                   <AvatarImage src="/images/card.png" alt="@revent" />
@@ -141,7 +141,7 @@ export default function EventPage() {
               <div className="flex h-full w-full items-center justify-between gap-5 self-stretch px-0">
                 <div className="flex items-start justify-between gap-4 self-stretch">
                   <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch px-4 py-1.5">
-                    <Link href="/organizer/revent">
+                    <Link href="/dashboard/revent">
                       <Avatar className="h-12 w-12">
                         <AvatarImage src="/images/card.png" alt="@revent" />
                         <AvatarFallback>RE</AvatarFallback>
