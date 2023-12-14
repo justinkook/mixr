@@ -1,20 +1,7 @@
+import { userNav } from '@/config/nav'
+
 import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
-
-const sidebarNavItems = [
-  {
-    title: 'Account',
-    href: '/settings',
-  },
-  {
-    title: 'Appearance',
-    href: '/settings/appearance',
-  },
-  {
-    title: 'Notifications',
-    href: '/settings/notifications',
-  },
-]
 
 interface SettingsLayoutProps {
   children: React.ReactNode
@@ -30,7 +17,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
       <Separator className="my-6" />
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
         <aside className="-mx-4 lg:w-1/5">
-          <SettingsSidebar items={sidebarNavItems} />
+          <SettingsSidebar items={userNav.find((n) => n.title === 'Settings')?.items!} />
         </aside>
         <div className="flex-1 lg:max-w-2xl">{children}</div>
       </div>

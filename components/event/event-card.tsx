@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
+import { HeartIcon } from 'lucide-react'
 import { Event } from './events'
 import DateCard from '../date-card'
-import { Heart } from 'lucide-react'
 
 interface EventCardProps extends React.HTMLAttributes<HTMLDivElement> {
   event: Event
@@ -33,7 +33,7 @@ export function EventCard({ event, aspectRatio = 'portrait', width, height, clas
               <div className="absolute left-2 top-2">
                 <DateCard day={event.date?.day} month={event.date?.month} aspectRatio="square" />
               </div>
-              <Heart className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
+              <HeartIcon className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
             </>
           )}
         </div>

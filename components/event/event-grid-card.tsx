@@ -1,65 +1,67 @@
-import { ChevronDownIcon, CircleIcon, PlusIcon, StarIcon } from 'lucide-react'
+import Image from 'next/image'
+import { cn } from '@/lib/utils'
+
+import { CalendarDaysIcon, Clock7Icon, HeartIcon, MapPinIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
-export function EventGridCard() {
+type Event = {
+  name: string
+  description: string
+  avatar: string
+  followers: number
+  createdAt: string
+}
+
+type OrganizerCardProps = React.HTMLAttributes<HTMLDivElement> & {
+  event?: Event
+}
+
+export function EventGridCard({ className, ...props }: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
   return (
-    <Card>
-      <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
-        <div className="space-y-1">
-          <CardTitle>shadcn/ui</CardTitle>
-          <CardDescription>Beautifully designed components built with Radix UI and Tailwind CSS.</CardDescription>
-        </div>
-        <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
-          <Button variant="secondary" className="px-3 shadow-none">
-            <StarIcon className="mr-2 h-4 w-4" />
-            Star
+    <Card className={cn(className)} {...props}>
+      <CardContent className="pt-6">
+        <div className="grid grid-cols-[1fr_auto] items-start gap-4 space-y-0">
+          <div className="space-y-1">
+            <div className="flex justify-start space-x-4">
+              <div className="w-[80px] overflow-hidden rounded-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80"
+                  alt="event cover image"
+                  width={80}
+                  height={80}
+                  className="aspect-square h-auto w-auto object-cover transition-all hover:scale-105"
+                />
+              </div>
+              <div className="flex-col space-y-1">
+                <h4 className="text-sm font-semibold">Lena Logic</h4>
+                <p className="line-clamp-3 text-sm">Thinking Components</p>
+              </div>
+            </div>
+          </div>
+          <Button variant="ghost" className="px-3 hover:bg-transparent">
+            <HeartIcon className="h-6 w-6 fill-background stroke-primary hover:fill-primary" />
           </Button>
-          <Separator orientation="vertical" className="h-[20px]" />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" className="px-2 shadow-none">
-                <ChevronDownIcon className="h-4 w-4 text-secondary-foreground" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" alignOffset={-5} className="w-[200px]" forceMount>
-              <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>Future Ideas</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>My Stack</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Inspiration</DropdownMenuCheckboxItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <PlusIcon className="mr-2 h-4 w-4" /> Create List
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="flex space-x-4 text-sm text-muted-foreground">
-          <div className="flex items-center">
-            <CircleIcon className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
-            TypeScript
-          </div>
-          <div className="flex items-center">
-            <StarIcon className="mr-1 h-3 w-3" />
-            20k
-          </div>
-          <div>Updated April 2023</div>
         </div>
       </CardContent>
+      <CardFooter
+        className="flex space-x-4 text-sm text-muted-foreground"
+        style={{ borderTop: '1px solid var(--border-color)' }}
+      >
+        <div className="flex items-center">
+          <MapPinIcon className="mr-1 h-3 w-3" />
+          New York, NY
+        </div>
+        <div className="flex items-center">
+          <CalendarDaysIcon className="mr-1 h-3 w-3" />
+          Dec 08
+        </div>
+        <div className="flex items-center">
+          <Clock7Icon className="mr-1 h-3 w-3" />
+          7:00 PM
+        </div>
+      </CardFooter>
     </Card>
   )
 }

@@ -48,7 +48,23 @@ export const userNav: SidebarNavItem[] = [
     title: 'Settings',
     href: '/settings',
     icon: SettingsIcon,
-    items: [],
+    items: [
+      {
+        title: 'Account',
+        href: '/settings',
+        items: [],
+      },
+      {
+        title: 'Appearance',
+        href: '/settings/appearance',
+        items: [],
+      },
+      {
+        title: 'Notifications',
+        href: '/settings/notifications',
+        items: [],
+      },
+    ],
   },
 ]
 
@@ -102,7 +118,33 @@ export const dashboardNav: SidebarNavItem[] = [
     title: 'Settings',
     href: '/dashboard/settings',
     icon: SettingsIcon,
-    items: [],
+    items: [
+      {
+        title: 'Profile',
+        href: '/dashboard/settings',
+        items: [],
+      },
+      {
+        title: 'Account',
+        href: '/dashboard/settings/account',
+        items: [],
+      },
+      {
+        title: 'Team',
+        href: '/dashboard/settings/team',
+        items: [],
+      },
+      {
+        title: 'Appearance',
+        href: '/dashboard/settings/appearance',
+        items: [],
+      },
+      {
+        title: 'Notifications',
+        href: '/dashboard/settings/notifications',
+        items: [],
+      },
+    ],
   },
 ]
 

@@ -2,22 +2,23 @@ import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
 import CreateEventModal from '@/components/create-event-modal'
 
-const sidebarNavItems = [
-  {
-    title: 'Event',
-    href: '/event/react-rendezvous/manage/settings',
-  },
-  {
-    title: 'Appearance',
-    href: '/event/react-rendezvous/manage/settings/appearance',
-  },
-]
-
 interface SettingsLayoutProps {
   children: React.ReactNode
+  params: { slug: string }
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
+export default function SettingsLayout({ children, params }: SettingsLayoutProps) {
+  const sidebarNavItems = [
+    {
+      title: 'Event',
+      href: `/event/${params.slug}/manage/settings`,
+    },
+    {
+      title: 'Appearance',
+      href: `/event/${params.slug}/manage/settings/appearance`,
+    },
+  ]
+
   return (
     <>
       <div className="hidden h-full flex-1 flex-col space-y-8 pt-4 md:flex">
