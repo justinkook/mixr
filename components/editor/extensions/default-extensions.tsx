@@ -95,11 +95,6 @@ export const defaultExtensions = [
       class: 'rounded-lg border border-muted',
     },
   }),
-  UpdatedImage.configure({
-    HTMLAttributes: {
-      class: 'rounded-lg border border-muted',
-    },
-  }),
   Placeholder.configure({
     placeholder: ({ node }) => {
       if (node.type.name === 'heading') {

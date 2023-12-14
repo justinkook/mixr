@@ -1,14 +1,5 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-
 import { Separator } from '@/components/ui/separator'
 import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
-import { BackNavbar } from '@/components/navigation/back-navbar'
-
-export const metadata: Metadata = {
-  title: 'Forms',
-  description: 'Advanced form example using react-hook-form and Zod.',
-}
 
 const sidebarNavItems = [
   {
@@ -22,10 +13,6 @@ const sidebarNavItems = [
   {
     title: 'Notifications',
     href: '/settings/notifications',
-  },
-  {
-    title: 'Display',
-    href: '/settings/display',
   },
 ]
 

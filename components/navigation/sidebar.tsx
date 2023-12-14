@@ -103,7 +103,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       <li key={index}>
                         <Link href={event.href}>
                           <Button
-                            variant={event.current ? 'secondary' : 'ghost'}
+                            variant={pathname === event.href ? 'secondary' : 'ghost'}
                             className="w-full justify-start font-normal"
                           >
                             <event.icon className="mr-2 h-4 w-4" aria-hidden="true" />

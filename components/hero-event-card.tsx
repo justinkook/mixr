@@ -11,6 +11,7 @@ export default async function HeroEventCard() {
           {/* Event Image */}
           <Card className="h-[330px] w-[330px] overflow-hidden rounded-lg">
             <Image
+              priority
               src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
               alt={'alt'}
               width={400}

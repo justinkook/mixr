@@ -29,10 +29,6 @@ const sidebarNavItems = [
     title: 'Notifications',
     href: '/organize/settings/notifications',
   },
-  {
-    title: 'Display',
-    href: '/organize/settings/display',
-  },
 ]
 
 interface SettingsLayoutProps {

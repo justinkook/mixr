@@ -4,11 +4,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
+import { CopyIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/use-toast'
-import { CopyIcon } from 'lucide-react'
+import { Separator } from '@/components/ui/separator'
 
 const EventFormSchema = z.object({
   publicUrl: z
@@ -79,6 +80,14 @@ export function EventForm() {
           Update URL
         </Button>
       </form>
+      <div className="pt-8">
+        <h3 className="text-lg font-medium">Delete Event</h3>
+        <p className="text-sm text-muted-foreground">
+          Cancel and permanently delete this event. This action cannot be undone.
+        </p>
+      </div>
+      <Separator />
+      <Button variant="destructive">Delete event</Button>
     </Form>
   )
 }

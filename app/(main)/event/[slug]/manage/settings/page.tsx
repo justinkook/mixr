@@ -18,7 +18,7 @@ export default function SettingsEventPage() {
         </p>
       </div>
       <Separator />
-      <Button variant="destructive">Delete Event</Button>
+      <Button variant="destructive">Delete event</Button>
     </div>
   )
 }

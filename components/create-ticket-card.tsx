@@ -22,7 +22,7 @@ export function CreateTicketCard() {
             <RadioGroupItem value="card" id="card" className="peer sr-only" />
             <Card className="flex w-full flex-1 flex-col rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
               <CardTitle className="flex flex-row items-center justify-between">
-                <h2 className="text-sm font-medium">General Admission</h2>
+                <span className="text-sm font-medium">General Admission</span>
                 <div>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -63,7 +63,7 @@ export function CreateTicketCard() {
             <RadioGroupItem value="vip" id="card" className="peer sr-only" />
             <Card className="flex w-full flex-1 flex-col rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
               <CardTitle className="flex flex-row items-center justify-between">
-                <h2 className="text-sm font-medium">VIP</h2>
+                <span className="text-sm font-medium">VIP</span>
                 <div>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
