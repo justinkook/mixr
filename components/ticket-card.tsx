@@ -24,10 +24,10 @@ export function TicketCard() {
               <div className="absolute left-2 top-2">
                 <DateCard day={'08'} month={'Jan'} aspectRatio="square" />
               </div>
-              <Card className="absolute bottom-0 w-full border-none bg-transparent">
+              <Card className="absolute bottom-0 w-full border-none bg-transparent backdrop-blur-[1px]">
                 <CardHeader>
-                  <CardTitle className="text-background">React Rendevous</CardTitle>
-                  <CardDescription className="text-muted">7:00 PM</CardDescription>
+                  <CardTitle className="text-white">React Rendevous</CardTitle>
+                  <CardDescription className="text-white">7:00 PM</CardDescription>
                 </CardHeader>
               </Card>
             </div>
