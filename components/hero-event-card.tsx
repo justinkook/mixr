@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import { MapPinIcon, ShareIcon } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { ShareModal } from './share-modal'
 
 export default async function HeroEventCard() {
   return (
@@ -74,9 +75,7 @@ export default async function HeroEventCard() {
             <div className="mt-6 flex h-full items-end">
               <h3 className="sr-only">Save Event Changes Button</h3>
               <Button className="max-w-xs flex-1">Manage Event</Button>
-              <Button variant="secondary" className="ml-4">
-                <ShareIcon className="h-4 w-4" />
-              </Button>
+              <ShareModal className="ml-4" />
             </div>
           </div>
         </div>

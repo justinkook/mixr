@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs'
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -29,4 +30,8 @@ export function formatPascalCase(str: string) {
   return str.replace(/(\w)(\w*)/g, function (g0, g1, g2) {
     return g1.toUpperCase() + g2.toLowerCase()
   })
+}
+
+export function absoluteUrl(path: string) {
+  return `${env.NEXT_PUBLIC_SITE_URL}${path}`
 }
