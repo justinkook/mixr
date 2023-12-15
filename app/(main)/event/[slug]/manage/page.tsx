@@ -6,8 +6,10 @@ import Editor from '@/components/editor/editor'
 import HeroEventCard from '@/components/hero-event-card'
 import { FAQSection } from '@/components/faq-section'
 import { Badge } from '@/components/ui/badge'
-import { CreateTicketCard } from '@/components/create-ticket-card'
 import { Separator } from '@/components/ui/separator'
+import { AgendaCard } from '@/components/agenda-card'
+import { AgendaModal } from '@/components/agenda-modal'
+import { FAQModal } from '@/components/faq-modal'
 
 export default async function EventOverviewPage() {
   return (
@@ -81,10 +83,7 @@ export default async function EventOverviewPage() {
                   Have a different question and can’t find the answer you’re looking for?
                 </CardDescription>
               </div>
-              <Button variant="secondary">
-                <PlusCircleIcon className="mr-2 h-4 w-4" />
-                Add FAQ
-              </Button>
+              <FAQModal />
             </CardHeader>
             <CardContent>
               <FAQSection />
@@ -96,13 +95,10 @@ export default async function EventOverviewPage() {
                 <CardTitle>Event Agenda</CardTitle>
                 <CardDescription>Add Agenda for your event. You can add multiple agenda items.</CardDescription>
               </div>
-              <Button variant="secondary">
-                <PlusCircleIcon className="mr-2 h-4 w-4" />
-                Add Agenda
-              </Button>
+              <AgendaModal />
             </CardHeader>
             <CardContent>
-              <CreateTicketCard />
+              <AgendaCard />
             </CardContent>
           </Card>
         </div>

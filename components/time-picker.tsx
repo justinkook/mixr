@@ -206,19 +206,30 @@ const times = [
   },
 ]
 
-export function TimePicker() {
+export function TimePicker({ className }: { className?: string }) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState('')
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" role="combobox" aria-expanded={open} className="w-fit justify-between">
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className={cn('w-fit justify-between', className)}
+        >
           {value ? times.find((time) => time.value.toLowerCase() === value.toLowerCase())?.label : '12:00 AM'}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-fit p-0">
+      <PopoverContent
+        className="w-fit p-0"
+        style={{
+          width: 'var(--radix-popover-trigger-width)',
+          maxHeight: 'var(--radix-popover-content-available-height)',
+        }}
+      >
         <Command>
           <ScrollArea className="max-h-[300px] overflow-y-auto">
             <CommandGroup>
