@@ -12,8 +12,8 @@ export function TicketCard() {
           <Link href={`/event/react-rendevous`}>
             <div className="relative w-full overflow-hidden rounded-md">
               {/* Half circle ticket stub */}
-              <div className="absolute -top-6 left-[45%] h-[40px] w-[40px] rounded-full bg-background"></div>
-              <div className="absolute -bottom-6 left-[45%] h-[40px] w-[40px] rounded-full bg-background"></div>
+              <div className="absolute -top-6 left-[45%] z-30 h-[40px] w-[40px] rounded-full bg-background"></div>
+              <div className="absolute -bottom-6 left-[45%] z-30 h-[40px] w-[40px] rounded-full bg-background"></div>
               <Image
                 src="https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80"
                 alt="ticket cover image"
@@ -21,7 +21,6 @@ export function TicketCard() {
                 height={330}
                 className="aspect-[3/4] h-auto w-full object-cover transition-all hover:scale-105"
               />
-              <div className="absolute inset-0 opacity-30 backdrop-blur-sm"></div>
               <div className="absolute left-2 top-2">
                 <DateCard day={'08'} month={'Jan'} aspectRatio="square" />
               </div>
