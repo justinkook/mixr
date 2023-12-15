@@ -35,7 +35,7 @@ export function TicketCard() {
           </Link>
         </CardContent>
       </Card>
-      <Card>
+      <Card className="cursor-pointer hover:bg-accent hover:text-accent-foreground">
         <CardHeader className="flex flex-row items-center space-x-4 p-4">
           <TicketIcon className="h-6 w-6" />
           <div className="text-sm">
