@@ -18,14 +18,14 @@ export default function TicketsPage() {
         <TabsContent value="upcoming">
           <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
             {eventMockData.map((event, index) => (
-              <TicketCard />
+              <TicketCard key={index} />
             ))}
           </div>
         </TabsContent>
         <TabsContent value="past">
           <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
             {madeForYouEvents.map((event, index) => (
-              <TicketCard />
+              <TicketCard key={index} />
             ))}
           </div>
         </TabsContent>
