@@ -30,6 +30,7 @@ export default function EventManageLayout({
     {
       title: 'Settings',
       href: `/event/${params.slug}/manage/settings`,
+      segment: 'settings',
     },
   ]
 

@@ -13,11 +13,11 @@ export default function Home() {
     <>
       <div className="h-full space-y-6 px-4 py-6 lg:px-8">
         <div>
-          <div className="text-muted-secondary text-s self-stretch whitespace-nowrap leading-5">Find events near</div>
+          <div className="text-muted-secondary self-stretch whitespace-nowrap text-sm leading-5">Find events near</div>
           <PlacesCombobox />
         </div>
         <Tabs defaultValue="trending" className="h-full space-y-6">
-          <div className="space-between flex items-center">
+          <div className="flex items-center">
             <ScrollArea className="w-full">
               <TabsList>
                 <TabsTrigger value="trending" className="relative">

@@ -85,19 +85,24 @@ const organizations = [
 export default async function FollowingPage() {
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {organizations.length > 0 ? (
-          organizations.map((organization, index) => <OrganizerCard key={index} organizer={organization} />)
-        ) : (
-          <EmptyPlaceholder
-            className="col-span-4"
-            content={{
-              icon: UsersIcon,
-              title: 'No organizers available',
-              description: 'You are not following any organizers.',
-            }}
-          />
-        )}
+      <div className="flex-1 space-y-4">
+        <div className="flex items-center justify-between space-y-2">
+          <h2 className="text-3xl font-bold tracking-tight">Following</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {organizations.length > 0 ? (
+            organizations.map((organization, index) => <OrganizerCard key={index} organizer={organization} />)
+          ) : (
+            <EmptyPlaceholder
+              className="col-span-3"
+              content={{
+                icon: UsersIcon,
+                title: 'No organizers available',
+                description: 'You are not following any organizers.',
+              }}
+            />
+          )}
+        </div>
       </div>
     </>
   )

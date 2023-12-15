@@ -41,7 +41,7 @@ export function EventGridCard({ className, ...props }: React.HTMLAttributes<HTML
             </div>
           </div>
           <Button variant="ghost" className="px-3 hover:bg-transparent">
-            <HeartIcon className="h-6 w-6 fill-background stroke-primary hover:fill-primary" />
+            <HeartIcon className="h-5 w-5 fill-background stroke-primary hover:fill-primary" />
           </Button>
         </div>
       </CardContent>

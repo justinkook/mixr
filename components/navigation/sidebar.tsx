@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import { dashboardSidebarNav, sidebarNav } from '@/config/nav'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -14,48 +14,42 @@ const events = [
   {
     name: 'React Rendezvous',
     href: '/event/react-rendezvous/manage',
+    slug: 'react-rendezvous',
     icon: Zap,
     current: false,
   },
   {
     name: 'Async Awakenings',
     href: '/event/async-awakenings/manage',
+    slug: 'async-awakenings',
     icon: Zap,
     current: false,
   },
   {
     name: 'The Art of Reusability',
     href: '/event/the-art-of-reusability/manage',
+    slug: 'the-art-of-reusability',
     icon: Zap,
     current: false,
   },
   {
     name: 'Thinking Components',
     href: '/event/thinking-components/manage',
-    icon: Zap,
-    current: false,
-  },
-  {
-    name: 'Functional Fury',
-    href: '/event/functional-fury/manage',
+    slug: 'thinking-components',
     icon: Zap,
     current: false,
   },
   {
     name: 'Stateful Symphony',
     href: '/event/stateful-symphony/manage',
+    slug: 'stateful-symphony',
     icon: Zap,
     current: false,
   },
   {
     name: 'Functional Fury',
     href: '/event/functional-fury/manage',
-    icon: Zap,
-    current: false,
-  },
-  {
-    name: 'Stateful Symphony',
-    href: '/event/stateful-symphony/manage',
+    slug: 'functional-fury',
     icon: Zap,
     current: false,
   },
@@ -63,7 +57,7 @@ const events = [
 
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const pathname = usePathname()
-
+  const segments = useSelectedLayoutSegments()
   const sidebarNavItems = pathname.includes('dashboard') ? dashboardSidebarNav : sidebarNav
 
   return (
@@ -90,7 +84,13 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                     <li key={subItem.href}>
                       <Link href={subItem.href}>
                         <Button
-                          variant={pathname === subItem.href ? 'secondary' : 'ghost'}
+                          disabled={subItem.disabled}
+                          variant={
+                            pathname === subItem.href ||
+                            (subItem.segment && segments.includes(subItem.segment) && segments.length < 4)
+                              ? 'secondary'
+                              : 'ghost'
+                          }
                           className="w-full justify-start"
                         >
                           {subItem.icon && <subItem.icon className="mr-2 h-4 w-4" aria-hidden="true" />}
@@ -111,7 +111,11 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       <li key={index}>
                         <Link href={event.href}>
                           <Button
-                            variant={pathname === event.href ? 'secondary' : 'ghost'}
+                            variant={
+                              pathname === event.href || (event.slug && pathname.includes(event.slug))
+                                ? 'secondary'
+                                : 'ghost'
+                            }
                             className="w-full justify-start font-normal"
                           >
                             <event.icon className="mr-2 h-4 w-4" aria-hidden="true" />

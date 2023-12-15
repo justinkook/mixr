@@ -1,68 +1,35 @@
-import { Button } from '@/components/ui/button'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
-
-import { EventCard } from '@/components/event/event-card'
 import { eventMockData, madeForYouEvents } from '@/components/event/events'
+import { TicketCard } from '@/components/ticket-card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-export default function MyTicketsPage() {
+export default function TicketsPage() {
   return (
     <>
-      <div className="col-span-3 lg:col-span-5">
-        <div className="h-full space-y-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-semibold tracking-tight">Upcoming</h2>
-              <p className="text-sm text-muted-foreground">All upcoming events.</p>
-            </div>
+      <Tabs defaultValue="upcoming" className="flex-1 space-y-4 pt-2">
+        <div className="flex items-center justify-between space-y-2">
+          <h2 className="text-3xl font-bold tracking-tight">Tickets</h2>
+          <div className="space-between flex items-center">
+            <TabsList>
+              <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
+              <TabsTrigger value="past">Past</TabsTrigger>
+            </TabsList>
           </div>
-          <Separator className="my-4" />
-          <ScrollArea>
-            <div className="relative max-w-full">
-              <div className="flex space-x-4 pb-4">
-                {madeForYouEvents.map((event, index) => (
-                  <EventCard
-                    key={index}
-                    event={event}
-                    className="w-[250px]"
-                    aspectRatio="portrait"
-                    width={250}
-                    height={330}
-                  />
-                ))}
-              </div>
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
-          <div className="mt-6 flex justify-between space-y-1">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight">Past</h2>
-              <p className="text-sm text-muted-foreground">All past events.</p>
-            </div>
-            <div className="ml-auto mr-4">
-              <Button variant="link">See all</Button>
-            </div>
-          </div>
-          <Separator className="my-4" />
-          <ScrollArea>
-            <div className="relative max-w-full">
-              <div className="flex space-x-4 pb-4">
-                {eventMockData.map((event, index) => (
-                  <EventCard
-                    key={index}
-                    event={event}
-                    className="w-[250px]"
-                    aspectRatio="portrait"
-                    width={250}
-                    height={330}
-                  />
-                ))}
-              </div>
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
         </div>
-      </div>
+        <TabsContent value="upcoming">
+          <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
+            {eventMockData.map((event, index) => (
+              <TicketCard />
+            ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="past">
+          <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
+            {madeForYouEvents.map((event, index) => (
+              <TicketCard />
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
     </>
   )
 }

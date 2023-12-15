@@ -19,18 +19,7 @@ export const userNav: SidebarNavItem[] = [
     title: 'Saved',
     href: '/saved',
     icon: HeartIcon,
-    items: [
-      {
-        title: 'Upcoming',
-        href: '/saved',
-        items: [],
-      },
-      {
-        title: 'Past',
-        href: '/saved/past',
-        items: [],
-      },
-    ],
+    items: [],
   },
   {
     title: 'Following',
@@ -47,6 +36,7 @@ export const userNav: SidebarNavItem[] = [
   {
     title: 'Settings',
     href: '/settings',
+    segment: 'settings',
     icon: SettingsIcon,
     items: [
       {
@@ -90,6 +80,7 @@ export const dashboardNav: SidebarNavItem[] = [
   {
     title: 'Settings',
     href: '/dashboard/settings',
+    segment: 'settings',
     icon: SettingsIcon,
     items: [
       {
@@ -206,6 +197,7 @@ export const dashboardTabs: MainNavItem[] = [
   {
     title: 'Settings',
     href: '/dashboard/settings',
+    segment: 'settings',
   },
 ]
 
