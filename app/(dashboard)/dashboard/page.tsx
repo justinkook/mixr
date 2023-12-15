@@ -3,6 +3,7 @@ import HeroEventCard from '@/components/hero-event-card'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ActivityIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from 'lucide-react'
+import Link from 'next/link'
 
 export default async function DashboardPage() {
   return (
@@ -56,7 +57,9 @@ export default async function DashboardPage() {
               <CardTitle>Next Event</CardTitle>
               <CardDescription>Your next upcoming event.</CardDescription>
             </div>
-            <Button variant="link">View Page</Button>
+            <Link href="/event/react-rendevous">
+              <Button variant="link">View Page</Button>
+            </Link>
           </CardHeader>
           <CardContent>
             <HeroEventCard />
@@ -68,9 +71,11 @@ export default async function DashboardPage() {
               <CardTitle>Recent Sales</CardTitle>
               <CardDescription>You made 265 sales this month.</CardDescription>
             </div>
-            <Button variant="link" className="pr-0">
-              View All
-            </Button>
+            <Link href="/dashboard/sales">
+              <Button variant="link" className="pr-0">
+                View All
+              </Button>
+            </Link>
           </CardHeader>
           <CardContent>
             <RecentSales />

@@ -66,8 +66,8 @@ export const dashboardNav: SidebarNavItem[] = [
     items: [],
   },
   {
-    title: 'Contacts',
-    href: '/dashboard/contacts',
+    title: 'Sales',
+    href: '/dashboard/sales',
     icon: UsersIcon,
     items: [],
   },
@@ -157,7 +157,7 @@ export const dashboardSidebarNav: SidebarNavItem[] = [
     href: '',
     items: [
       {
-        title: 'Dashboard',
+        title: 'Home',
         href: '/dashboard',
         icon: Home,
         items: [],
@@ -187,8 +187,8 @@ export const dashboardTabs: MainNavItem[] = [
     href: '/dashboard/events',
   },
   {
-    title: 'Contacts',
-    href: '/dashboard/contacts',
+    title: 'Sales',
+    href: '/dashboard/sales',
   },
   {
     title: 'Insights',
