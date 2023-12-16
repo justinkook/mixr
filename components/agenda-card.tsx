@@ -46,10 +46,6 @@ export function AgendaCard() {
                     <PenIcon className="mr-2 h-4 w-4" />
                     Edit Agenda
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <CopyPlusIcon className="mr-2 h-4 w-4" />
-                    Duplicate Agenda
-                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem className="text-destructive">
                     <Trash className="mr-2 h-4 w-4" />

@@ -72,10 +72,6 @@ export function TicketTypeCard({ ticketType }: TicketTypeCardProps) {
                       <PenIcon className="mr-2 h-4 w-4" />
                       Edit Ticket
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <CopyPlusIcon className="mr-2 h-4 w-4" />
-                      Duplicate Ticket
-                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="text-destructive">
                       <Trash className="mr-2 h-4 w-4" />
