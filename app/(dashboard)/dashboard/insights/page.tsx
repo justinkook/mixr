@@ -2,7 +2,6 @@ import {
   ActivityIcon,
   DollarSignIcon,
   MousePointerClickIcon,
-  PlusCircleIcon,
   UsersIcon,
 } from 'lucide-react'
 

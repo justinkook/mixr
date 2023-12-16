@@ -2,7 +2,7 @@ import { ZapIcon } from 'lucide-react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { EventGridCard } from '@/components/event/event-grid-card'
+import { EventGridCard } from '@/components/event-grid-card'
 
 const events = [
   {
