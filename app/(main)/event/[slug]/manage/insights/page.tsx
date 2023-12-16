@@ -88,7 +88,7 @@ export default async function EventInsightsPage() {
             <SalesOverTime />
           </CardContent>
         </Card>
-        <Card className="col-span-3">
+        <Card className="col-span-4 lg:col-span-3">
           <CardHeader>
             <CardTitle>Sales by Ticket Type</CardTitle>
           </CardHeader>
@@ -98,7 +98,7 @@ export default async function EventInsightsPage() {
         </Card>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="col-span-2">
+        <Card className="col-span-3 lg:col-span-2">
           <CardHeader>
             <CardTitle>Countries</CardTitle>
             <CardDescription>Which countries your visitors are from.</CardDescription>
@@ -166,7 +166,7 @@ export default async function EventInsightsPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="col-span-2">
+        <Card className="col-span-3 lg:col-span-2">
           <CardHeader>
             <CardTitle>Browsers</CardTitle>
             <CardDescription>Which browsers your visitors are using.</CardDescription>
