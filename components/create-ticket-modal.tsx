@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -18,13 +20,13 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { TimePicker } from './time-picker'
 import { DatePicker } from './date-picker'
 
-export function CreateTicketModal() {
+export function CreateTicketModal({ className }: { className?: string }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button type="submit" variant="outline" className="w-full">
+        <Button variant="secondary" className={cn('w-full', className)}>
           <PlusCircleIcon className="mr-2 h-4 w-4" />
-          Create Ticket Type
+          Create Ticket
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -39,7 +41,7 @@ export function CreateTicketModal() {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="description">Description</Label>
-            <Input id="description" placeholder="VIP access and permium perks" />
+            <Input id="description" placeholder="VIP access and premium perks" />
           </div>
         </div>
         <Tabs defaultValue="free" className="mt-4 w-full space-y-4">

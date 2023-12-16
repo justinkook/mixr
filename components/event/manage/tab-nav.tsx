@@ -6,7 +6,7 @@ import { NavItem } from '@/types/nav'
 import { cn } from '@/lib/utils'
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 interface TabNavProps extends React.HTMLAttributes<HTMLElement> {
   items: NavItem[]
@@ -33,6 +33,7 @@ export default function TabNav({ className, items }: TabNavProps) {
               </Link>
             ))}
           </TabsList>
+          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </Tabs>
     </>

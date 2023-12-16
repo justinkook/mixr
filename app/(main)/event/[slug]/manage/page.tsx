@@ -1,10 +1,11 @@
-import { PlusCircleIcon, XCircleIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { XCircleIcon } from 'lucide-react'
+
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import Editor from '@/components/editor/editor'
 import HeroEventCard from '@/components/hero-event-card'
-import { FAQSection } from '@/components/faq-section'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'
@@ -86,7 +87,24 @@ export default async function EventOverviewPage() {
               <FAQModal />
             </CardHeader>
             <CardContent>
-              <FAQSection />
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Is it styled?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It comes with default styles that matches the other components&apos; aesthetic.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Is it animated?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It&apos;s animated by default, but you can disable it if you prefer.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </CardContent>
           </Card>
           <Card className="col-span-3">
