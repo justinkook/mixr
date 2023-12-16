@@ -89,9 +89,11 @@ export function EventForm() {
                       toast({
                         title: 'Successfully copied url:',
                         description: (
-                          <pre className="mt-2 w-[340px] rounded-md bg-foreground p-4">
-                            <code className="text-background">{text}</code>
-                          </pre>
+                          <div className="mt-2 rounded-md bg-foreground p-4 w-full">
+                            <div className="text-background whitespace-normal">
+                              {text}
+                            </div>
+                          </div>
                         ),
                       })
                     }
