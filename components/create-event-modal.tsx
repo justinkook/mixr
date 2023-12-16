@@ -51,9 +51,7 @@ export default function CreateEventModal({ variant, label }: CreateEventModalPro
       <DialogContent>
         {/* Product info */}
         <div className="flex flex-col space-y-4">
-          <div className="mb-2">
-            <OrganizationSwitcher hidePersonal />
-          </div>
+          <OrganizationSwitcher hidePersonal />
 
           {/* Event Image */}
           <Card className="max-h-[400px] overflow-hidden rounded-lg">

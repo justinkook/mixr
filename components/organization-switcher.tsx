@@ -200,10 +200,9 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
           </div>
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => setShowNewOrganizationDialog(false)}>
-            Cancel
+          <Button type="submit" className="w-full">
+            Continue
           </Button>
-          <Button type="submit">Continue</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
