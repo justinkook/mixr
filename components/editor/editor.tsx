@@ -9,7 +9,7 @@ import { useCompletion } from 'ai/react'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { getPrevText } from '@/lib/editor'
-import useLocalStorage from '@/hooks/use-local-storage'
+import { useLocalStorage } from '@/hooks/use-local-storage'
 import { toast } from '@/components/ui/use-toast'
 
 import { EditorBubbleMenu } from './bubble-menu/bubble-menu'
@@ -19,7 +19,7 @@ import { defaultEditorProps } from './props'
 
 import '@/styles/prosemirror.css'
 
-export default function Editor({
+export function Editor({
   completionApi = '/api/generate',
   className = 'relative min-h-[500px] w-full max-w-screen-lg border-muted bg-background sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg',
   defaultValue = '',

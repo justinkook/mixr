@@ -12,7 +12,7 @@ interface TabNavProps extends React.HTMLAttributes<HTMLElement> {
   items: NavItem[]
 }
 
-export default function TabNav({ className, items }: TabNavProps) {
+export function TabNav({ className, items }: TabNavProps) {
   const pathname = usePathname()
   const segment = useSelectedLayoutSegment()
 

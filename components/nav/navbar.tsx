@@ -6,7 +6,7 @@ import {
 } from '@clerk/clerk-react'
 import { MenuIcon } from 'lucide-react'
 
-import OrganizationSwitcher from '../organization-switcher'
+import { OrganizationSwitcher } from '../organization-switcher'
 import { SearchCommandModal } from '../search-command-modal'
 import { Button } from '../ui/button'
 import { NavContent } from './nav-content'

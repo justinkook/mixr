@@ -8,7 +8,11 @@ type DateCardProps = {
   aspectRatio?: 'portrait' | 'square'
 }
 
-const DateCard: React.FC<DateCardProps> = ({ day, month, aspectRatio }) => {
+export const DateCard: React.FC<DateCardProps> = ({
+  day,
+  month,
+  aspectRatio,
+}) => {
   return (
     <div
       className={cn(
@@ -25,5 +29,3 @@ const DateCard: React.FC<DateCardProps> = ({ day, month, aspectRatio }) => {
     </div>
   )
 }
-
-export default DateCard

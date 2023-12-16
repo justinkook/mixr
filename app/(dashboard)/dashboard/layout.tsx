@@ -1,6 +1,6 @@
 import { dashboardTabs } from '@/config/nav'
-import CreateEventModal from '@/components/create-event-modal'
-import TabNav from '@/components/nav/tab-nav'
+import { CreateEventModal } from '@/components/create-event-modal'
+import { TabNav } from '@/components/nav/tab-nav'
 
 export default function DashboardLayout({
   children,

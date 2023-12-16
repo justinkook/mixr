@@ -21,8 +21,8 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'
 import { AgendaModal } from '@/components/agenda-modal'
-import Editor from '@/components/editor/editor'
-import HeroEventCard from '@/components/event-hero-card'
+import { Editor } from '@/components/editor/editor'
+import { EventHeroCard } from '@/components/event-hero-card'
 import { FAQModal } from '@/components/faq-modal'
 
 type EventOverviewPageProps = {
@@ -50,7 +50,7 @@ export default async function EventOverviewPage({
               </Link>
             </CardHeader>
             <CardContent>
-              <HeroEventCard />
+              <EventHeroCard />
             </CardContent>
           </Card>
           <Card className="col-span-7 md:col-span-3">

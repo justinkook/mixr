@@ -81,7 +81,7 @@ interface OrganizationSwitcherProps extends PopoverTriggerProps {
   hidePersonal?: boolean
 }
 
-export default function OrganizationSwitcher({
+export function OrganizationSwitcher({
   className,
   hidePersonal,
 }: OrganizationSwitcherProps) {

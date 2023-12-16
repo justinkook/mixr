@@ -1,6 +1,6 @@
 import { NavItem } from '@/types/nav'
 import { formatPascalCase } from '@/lib/utils'
-import TabNav from '@/components/nav/tab-nav'
+import { TabNav } from '@/components/nav/tab-nav'
 import { ShareEventtModal } from '@/components/share-event-modal'
 
 export default function EventManageLayout({

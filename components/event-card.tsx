@@ -5,7 +5,7 @@ import { HeartIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 import { Event } from '../lib/mockData/events'
-import DateCard from './date-card'
+import { DateCard } from './date-card'
 
 interface EventCardProps extends React.HTMLAttributes<HTMLDivElement> {
   event: Event

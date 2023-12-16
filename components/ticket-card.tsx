@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import DateCard from './date-card'
+import { DateCard } from './date-card'
 
 export function TicketCard() {
   return (

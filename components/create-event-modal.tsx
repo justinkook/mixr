@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input'
 import { DateTimeCombobox } from '@/components/date-time-combobox'
 import { LocationCombobox } from '@/components/location-combobox'
 
-import OrganizationSwitcher from './organization-switcher'
+import { OrganizationSwitcher } from './organization-switcher'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 
 const product = {
@@ -42,10 +42,7 @@ type CreateEventModalProps = {
   label?: string
 }
 
-export default function CreateEventModal({
-  variant,
-  label,
-}: CreateEventModalProps) {
+export function CreateEventModal({ variant, label }: CreateEventModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>

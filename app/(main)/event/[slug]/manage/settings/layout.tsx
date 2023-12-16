@@ -1,5 +1,5 @@
 import { Separator } from '@/components/ui/separator'
-import CreateEventModal from '@/components/create-event-modal'
+import { CreateEventModal } from '@/components/create-event-modal'
 import { SettingsSidebar } from '@/components/nav/settings-sidebar'
 
 interface SettingsLayoutProps {
