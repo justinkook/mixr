@@ -60,8 +60,8 @@ export function SearchCommandModal({ ...props }: DialogProps) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <Button variant="ghost" className="flex sm:hidden">
-        <SearchIcon className="h-6 w-6" onClick={() => setOpen(true)} />
+      <Button variant="ghost" className="flex sm:hidden p-0">
+        <SearchIcon className="h-6 w-6 p-0" onClick={() => setOpen(true)} />
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
