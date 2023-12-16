@@ -125,7 +125,6 @@ export function ShareEventtModal() {
             text={absoluteUrl('/event')}
             onCopy={(text: string) =>
               toast({
-                variant: 'success',
                 title: 'Successfully copied url:',
                 description: (
                   <pre className="mt-2 w-[340px] rounded-md bg-foreground p-4">
