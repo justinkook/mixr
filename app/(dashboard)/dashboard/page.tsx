@@ -70,8 +70,8 @@ export default async function DashboardPage() {
           </CardContent>
         </Card>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="col-span-7 md:col-span-4">
+      <div className="flex flex-col md:grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+        <Card className="md:col-span-2 lg:col-span-4">
           <CardHeader className="flex flex-row justify-between">
             <div>
               <CardTitle>Next Event</CardTitle>
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
             <EventHeroCard />
           </CardContent>
         </Card>
-        <Card className="col-span-7 md:col-span-3">
+        <Card className="md:col-span-2 lg:col-span-3">
           <CardHeader className="flex flex-row justify-between">
             <div>
               <CardTitle>Recent Sales</CardTitle>

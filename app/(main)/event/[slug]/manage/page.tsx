@@ -39,7 +39,7 @@ export default async function EventOverviewPage({
       <div className="flex lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
         {/* Product info */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-          <Card className="col-span-7 md:col-span-4">
+          <Card className="col-span-7 lg:col-span-4">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event Details</CardTitle>
@@ -53,7 +53,7 @@ export default async function EventOverviewPage({
               <EventHeroCard />
             </CardContent>
           </Card>
-          <Card className="col-span-7 md:col-span-3">
+          <Card className="col-span-7 lg:col-span-3">
             <CardHeader>
               <CardTitle>Custom Tags</CardTitle>
               <CardDescription>Add tags for help in discovery.</CardDescription>
@@ -104,7 +104,7 @@ export default async function EventOverviewPage({
               </Card>
             </CardContent>
           </Card>
-          <Card className="col-span-7 md:col-span-4">
+          <Card className="col-span-7 lg:col-span-4">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event FAQ</CardTitle>
@@ -140,7 +140,7 @@ export default async function EventOverviewPage({
               </Accordion>
             </CardContent>
           </Card>
-          <Card className="col-span-7 md:col-span-3">
+          <Card className="col-span-7 lg:col-span-3">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event Agenda</CardTitle>
