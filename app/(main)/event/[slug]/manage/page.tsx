@@ -22,11 +22,11 @@ type EventOverviewPageProps = {
 
 export default async function EventOverviewPage({ params }: EventOverviewPageProps) {
   return (
-    <div className="hidden h-full flex-col space-y-4 md:flex">
+    <div className="h-full flex-col space-y-4 md:flex">
       <div className="flex lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
         {/* Product info */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-          <Card className="col-span-4">
+          <Card className="col-span-7 md:col-span-4">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event Details</CardTitle>
@@ -40,7 +40,7 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
               <HeroEventCard />
             </CardContent>
           </Card>
-          <Card className="col-span-3">
+          <Card className="col-span-7 md:col-span-3">
             <CardHeader>
               <CardTitle>Custom Tags</CardTitle>
               <CardDescription>Add tags for help in discovery.</CardDescription>
@@ -86,7 +86,7 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
               </Card>
             </CardContent>
           </Card>
-          <Card className="col-span-4">
+          <Card className="col-span-7 md:col-span-4">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event FAQ</CardTitle>
@@ -117,7 +117,7 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
               </Accordion>
             </CardContent>
           </Card>
-          <Card className="col-span-3">
+          <Card className="col-span-7 md:col-span-3">
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event Agenda</CardTitle>

@@ -51,7 +51,7 @@ export default async function DashboardPage() {
         </Card>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="col-span-4">
+        <Card className="col-span-3 lg:col-span-4">
           <CardHeader className="flex flex-row justify-between">
             <div>
               <CardTitle>Next Event</CardTitle>

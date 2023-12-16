@@ -15,7 +15,7 @@ export function SettingsSidebar({ className, items, ...props }: SettingsSidebarP
   const pathname = usePathname()
 
   return (
-    <nav className={cn('flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1', className)} {...props}>
+    <nav className={cn('flex space-x-2 overflow-auto lg:flex-col lg:space-x-0 lg:space-y-1', className)} {...props}>
       {items.map((item) => (
         <Link
           key={item.href}
