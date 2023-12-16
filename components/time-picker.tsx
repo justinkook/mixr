@@ -223,13 +223,7 @@ export function TimePicker({ className }: { className?: string }) {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent
-        className="w-fit p-0"
-        style={{
-          width: 'var(--radix-popover-trigger-width)',
-          maxHeight: 'var(--radix-popover-content-available-height)',
-        }}
-      >
+      <PopoverContent className="p-0">
         <Command>
           <ScrollArea className="max-h-[300px] overflow-y-auto">
             <CommandGroup>

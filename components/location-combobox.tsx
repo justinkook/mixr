@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { useMediaQuery } from 'react-responsive'
 import { Check } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -34,35 +33,63 @@ const locations = [
 
 export function LocationCombobox() {
   const [open, setOpen] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false)
   const [value, setValue] = React.useState('')
-  const isMobile = useMediaQuery({ query: '(max-width: 640px)' })
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="secondary"
-          role="combobox"
-          aria-expanded={open}
-          className="h-full w-full flex-col bg-secondary text-left"
-        >
-          <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-            {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
-          </div>
-          <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-            Offline location or virtual link
-          </div>
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        className="p-0"
-        style={{
-          width: 'var(--radix-popover-trigger-width)',
-          maxHeight: 'var(--radix-popover-content-available-height)',
-        }}
+    <>
+      <Button
+        variant="secondary"
+        role="combobox"
+        aria-expanded={open}
+        onClick={() => setOpenModal(true)}
+        className="flex h-full w-full flex-col bg-secondary text-left md:hidden"
       >
-        {/* Desktop Combobox */}
-        {!isMobile && (
+        <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
+          {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
+        </div>
+        <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+          Offline location or virtual link
+        </div>
+      </Button>
+      {/* Mobile Modal */}
+      <CommandDialog open={openModal} onOpenChange={setOpenModal}>
+        <CommandInput placeholder="Enter location or virtual link" />
+        <CommandEmpty>Add virtual link</CommandEmpty>
+        <CommandGroup>
+          {locations.map((location) => (
+            <CommandItem
+              key={location.value}
+              value={location.value}
+              onSelect={(currentValue) => {
+                setValue(currentValue === value ? '' : currentValue)
+                setOpen(false)
+              }}
+            >
+              <Check className={cn('mr-2 h-4 w-4', value === location.value ? 'opacity-100' : 'opacity-0')} />
+              {location.label}
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandDialog>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="secondary"
+            role="combobox"
+            aria-expanded={open}
+            className="hidden h-full w-full flex-col bg-secondary text-left md:flex"
+          >
+            <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
+              {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
+            </div>
+            <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+              Offline location or virtual link
+            </div>
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="p-0">
+          {/* Desktop Combobox */}
           <Command>
             <CommandInput placeholder="Enter location or virtual link" />
             <CommandEmpty>Add virtual link</CommandEmpty>
@@ -82,31 +109,8 @@ export function LocationCombobox() {
               ))}
             </CommandGroup>
           </Command>
-        )}
-
-        {/* Mobile Modal */}
-        {isMobile && (
-          <CommandDialog open={open} onOpenChange={setOpen}>
-            <CommandInput placeholder="Enter location or virtual link" />
-            <CommandEmpty>Add virtual link</CommandEmpty>
-            <CommandGroup>
-              {locations.map((location) => (
-                <CommandItem
-                  key={location.value}
-                  value={location.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? '' : currentValue)
-                    setOpen(false)
-                  }}
-                >
-                  <Check className={cn('mr-2 h-4 w-4', value === location.value ? 'opacity-100' : 'opacity-0')} />
-                  {location.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandDialog>
-        )}
-      </PopoverContent>
-    </Popover>
+        </PopoverContent>
+      </Popover>
+    </>
   )
 }

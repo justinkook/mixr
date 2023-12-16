@@ -120,13 +120,7 @@ export function InviteGuestModal() {
                         </Button>
                       </FormControl>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      className="p-1"
-                      style={{
-                        width: 'var(--radix-dropdown-menu-trigger-width)',
-                        maxHeight: 'var(--radix-dropdown-menu-content-available-height)',
-                      }}
-                    >
+                    <DropdownMenuContent className="p-1">
                       <DropdownMenuLabel>Types</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       {ticketsTypes.map((type) => (
