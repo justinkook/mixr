@@ -9,7 +9,7 @@ import { useCompletion } from 'ai/react'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { getPrevText } from '@/lib/editor'
-import useLocalStorage from '@/lib/hooks/use-local-storage'
+import useLocalStorage from '@/hooks/use-local-storage'
 import { toast } from '@/components/ui/use-toast'
 
 import { EditorBubbleMenu } from './bubble-menu/bubble-menu'

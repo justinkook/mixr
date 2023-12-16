@@ -18,27 +18,24 @@ export default function Home() {
           </div>
           <CurrentLocationCombobox />
         </div>
-        <Tabs defaultValue="trending" className="h-full space-y-6">
+        <Tabs defaultValue="all" className="h-full space-y-6">
           <div className="flex items-center">
             <ScrollArea className="w-full">
               <TabsList>
-                <TabsTrigger value="trending" className="relative">
+                <TabsTrigger value="all" className="relative">
                   <Zap className="mr-2 h-4 w-4" />
                   All
                 </TabsTrigger>
-                <TabsTrigger value="music">Music</TabsTrigger>
-                <TabsTrigger value="networking">Networking</TabsTrigger>
-                <TabsTrigger value="tech">Tech</TabsTrigger>
-                <TabsTrigger value="parties">Parties</TabsTrigger>
-                <TabsTrigger value="art">Art</TabsTrigger>
+                <TabsTrigger value="trending">Trending</TabsTrigger>
+                <TabsTrigger value="today">Today</TabsTrigger>
+                <TabsTrigger value="weekend">Weekend</TabsTrigger>
+                <TabsTrigger value="free">Free</TabsTrigger>
+                <TabsTrigger value="new">New</TabsTrigger>
               </TabsList>
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
-          <TabsContent
-            value="trending"
-            className="border-none p-0 outline-none"
-          >
+          <TabsContent value="all" className="border-none p-0 outline-none">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
@@ -70,10 +67,10 @@ export default function Home() {
             <div className="mt-6 flex justify-between space-y-1">
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  Music Events
+                  Trending Events
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  All music events.
+                  Sorted by activity such as by views and likes.
                 </p>
               </div>
               <div className="ml-auto mr-4">
@@ -102,10 +99,10 @@ export default function Home() {
             <div className="mt-6 flex justify-between space-y-1">
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  Networking Events
+                  Events going on Today
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  All networking events.
+                  All events held today.
                 </p>
               </div>
               <div className="ml-auto mr-4">
@@ -134,10 +131,74 @@ export default function Home() {
             <div className="mt-6 flex justify-between space-y-1">
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  Tech Events
+                  Events this Weekend
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  All tech events.
+                  Excited for the weekend? Here are some events you can attend.
+                </p>
+              </div>
+              <div className="ml-auto mr-4">
+                <Button variant="link">See all</Button>
+              </div>
+            </div>
+            <Separator className="my-4" />
+            <ScrollArea>
+              <div className="relative max-w-full">
+                <div className="flex space-x-4 pb-4">
+                  {eventMockData.map((event, index) => (
+                    <EventCard
+                      key={index}
+                      event={event}
+                      className="w-[250px]"
+                      aspectRatio="portrait"
+                      width={250}
+                      height={330}
+                    />
+                  ))}
+                </div>
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+
+            <div className="mt-6 flex justify-between space-y-1">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Free Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Events that are free to attend.
+                </p>
+              </div>
+              <div className="ml-auto mr-4">
+                <Button variant="link">See all</Button>
+              </div>
+            </div>
+            <Separator className="my-4" />
+            <ScrollArea>
+              <div className="relative max-w-full">
+                <div className="flex space-x-4 pb-4">
+                  {eventMockData.map((event, index) => (
+                    <EventCard
+                      key={index}
+                      event={event}
+                      className="w-[250px]"
+                      aspectRatio="portrait"
+                      width={250}
+                      height={330}
+                    />
+                  ))}
+                </div>
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+
+            <div className="mt-6 flex justify-between space-y-1">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Newest Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Events hot off the press.
                 </p>
               </div>
               <div className="ml-auto mr-4">

@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react'
 import { ChevronsUpDown, MapPin } from 'lucide-react'
 
-import { useCurrentLocation } from '@/lib/hooks/use-current-location'
-import { usePlaceAutocomplete } from '@/lib/hooks/use-place-autocomplete'
 import { cn } from '@/lib/utils'
+import { useCurrentLocation } from '@/hooks/use-current-location'
+import { usePlaceAutocomplete } from '@/hooks/use-place-autocomplete'
 import { Button } from '@/components/ui/button'
 import {
   Command,

@@ -1,10 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import { SignedIn } from '@clerk/nextjs'
-import { Zap } from 'lucide-react'
+import { Zap, ZapIcon } from 'lucide-react'
 
 import { dashboardSidebarNav, sidebarNav } from '@/config/nav'
 import { cn } from '@/lib/utils'
@@ -73,13 +72,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       <ScrollArea>
         <Link href="/">
           <div className="flex h-16 shrink-0 items-center px-6 py-2">
-            <Image
-              src="https://tailwindui.com/img/logos/mark.svg"
-              alt="Revent"
-              className="h-8 w-auto"
-              width={32}
-              height={32}
-            />
+            <ZapIcon className="ml-2 h-8 w-8 stroke-primary" />
           </div>
         </Link>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
