@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
-  Copy,
+  CopyIcon,
   FacebookIcon,
   InstagramIcon,
   LinkedinIcon,
   ShareIcon,
   TwitterIcon,
 } from 'lucide-react'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 import { absoluteUrl, cn } from '@/lib/utils'
 import { Button, ButtonProps } from '@/components/ui/button'
@@ -25,6 +26,8 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+
+import { toast } from './ui/use-toast'
 
 type ShareModalProps = {
   className?: string
@@ -81,10 +84,24 @@ export function ShareModal({ className, props }: ShareModalProps) {
             </Label>
             <Input id="link" defaultValue={absoluteUrl(pathname)} readOnly />
           </div>
-          <Button type="submit" size="sm" className="px-3">
-            <span className="sr-only">Copy</span>
-            <Copy className="h-4 w-4" />
-          </Button>
+          <CopyToClipboard
+            text={absoluteUrl(pathname)}
+            onCopy={(text: string) =>
+              toast({
+                title: 'Successfully copied url:',
+                description: (
+                  <pre className="mt-2 w-[340px] rounded-md bg-foreground p-4">
+                    <code className="text-background">{text}</code>
+                  </pre>
+                ),
+              })
+            }
+          >
+            <Button size="sm" className="px-3">
+              <span className="sr-only">Copy</span>
+              <CopyIcon className="h-4 w-4" />
+            </Button>
+          </CopyToClipboard>
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>

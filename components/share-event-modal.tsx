@@ -1,7 +1,9 @@
 'use client'
 
 import { ShareIcon } from 'lucide-react'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
+import { absoluteUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -22,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select'
+import { toast } from './ui/use-toast'
 
 export function ShareEventtModal() {
   return (
@@ -118,9 +121,25 @@ export function ShareEventtModal() {
           </div>
         </div>
         <div className="mt-6 flex justify-between">
-          <Button variant="secondary" className="shrink-0">
-            Copy Link
-          </Button>
+          <CopyToClipboard
+            text={absoluteUrl('/event')}
+            onCopy={(text: string) =>
+              toast({
+                variant: 'success',
+                title: 'Successfully copied url:',
+                description: (
+                  <pre className="mt-2 w-[340px] rounded-md bg-foreground p-4">
+                    <code className="text-background">{text}</code>
+                  </pre>
+                ),
+              })
+            }
+          >
+            <Button variant="secondary" className="shrink-0">
+              Copy Link
+            </Button>
+          </CopyToClipboard>
+
           <Button>Send Invite</Button>
         </div>
       </DialogContent>

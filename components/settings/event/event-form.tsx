@@ -2,9 +2,11 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CopyIcon } from 'lucide-react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
+import { absoluteUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -25,8 +27,8 @@ const EventFormSchema = z.object({
     .min(4, {
       message: 'Slug must be at least 4 characters.',
     })
-    .max(10, {
-      message: 'Slug must not be longer than 10 characters.',
+    .max(20, {
+      message: 'Slug must not be longer than 20 characters.',
     }),
 })
 
@@ -79,9 +81,29 @@ export function EventForm() {
                       className="w-fit rounded-l-none border-l-0"
                     />
                   </FormControl>
-                  <Button variant="outline" className="ml-2 shrink-0">
-                    <CopyIcon className="h-4 w-4" />
-                  </Button>
+                  <CopyToClipboard
+                    text={`${absoluteUrl(
+                      `/event/${form.getValues('publicUrl')}`
+                    )}`}
+                    onCopy={(text: string) =>
+                      toast({
+                        title: 'Successfully copied url:',
+                        description: (
+                          <pre className="mt-2 w-[340px] rounded-md bg-foreground p-4">
+                            <code className="text-background">{text}</code>
+                          </pre>
+                        ),
+                      })
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      className="ml-2 shrink-0"
+                      type="button"
+                    >
+                      <CopyIcon className="h-4 w-4" />
+                    </Button>
+                  </CopyToClipboard>
                 </div>
                 <FormMessage />
               </FormItem>
