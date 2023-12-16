@@ -1,10 +1,17 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import {
+  Copy,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  ShareIcon,
+  TwitterIcon,
+} from 'lucide-react'
+
 import { absoluteUrl, cn } from '@/lib/utils'
-
-import { Copy, FacebookIcon, InstagramIcon, LinkedinIcon, ShareIcon, TwitterIcon } from 'lucide-react'
-
 import { Button, ButtonProps } from '@/components/ui/button'
 import {
   Dialog,
@@ -18,7 +25,6 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import Link from 'next/link'
 
 type ShareModalProps = {
   className?: string
@@ -38,7 +44,9 @@ export function ShareModal({ className, props }: ShareModalProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Share</DialogTitle>
-          <DialogDescription>Share link via social media or copy link.</DialogDescription>
+          <DialogDescription>
+            Share link via social media or copy link.
+          </DialogDescription>
         </DialogHeader>
         <div className="flex justify-center gap-x-4">
           <Link href="https://twitter.com">

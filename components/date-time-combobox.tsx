@@ -3,9 +3,17 @@
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
+
 import { DatePicker } from './date-picker'
 import { TimePicker } from './time-picker'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog'
 
 const locations = [
   {
@@ -56,9 +64,14 @@ export function DateTimeCombobox() {
       {/* Mobile Combobox */}
       <Dialog>
         <DialogTrigger className="w-full">
-          <Button variant="secondary" className="flex h-full w-full flex-col text-left md:hidden">
+          <Button
+            variant="secondary"
+            className="flex h-full w-full flex-col text-left md:hidden"
+          >
             <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-              {value ? locations.find((location) => location.value === value)?.label : 'Add Event Date'}
+              {value
+                ? locations.find((location) => location.value === value)?.label
+                : 'Add Event Date'}
             </div>
             <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
               Enter start date and end date

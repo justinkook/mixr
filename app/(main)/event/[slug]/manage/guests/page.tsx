@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { guestSchema } from '@/lib/schema'
-import dataJSON from '@/lib/mockData/guests.json'
 
+import dataJSON from '@/lib/mockData/guests.json'
+import { guestSchema } from '@/lib/schema'
 import { Separator } from '@/components/ui/separator'
-import { DataTable } from '@/components/table/data-table'
-import { columns } from '@/components/table/columns'
 import { InviteGuestModal } from '@/components/invite-guest-modal'
+import { columns } from '@/components/table/columns'
+import { DataTable } from '@/components/table/data-table'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {
@@ -20,7 +20,9 @@ export default async function EventGuestsPage() {
       <div className="flex items-center justify-between space-y-2">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Guests</h2>
-          <p className="text-muted-foreground">Manage your guest list, approvals, and orders.</p>
+          <p className="text-muted-foreground">
+            Manage your guest list, approvals, and orders.
+          </p>
         </div>
         <div className="flex items-center space-x-2">
           <InviteGuestModal />

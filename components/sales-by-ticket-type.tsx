@@ -1,9 +1,27 @@
 'use client'
 
-import { Cell, Label, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { NameType, Payload, ValueType } from 'recharts/types/component/DefaultTooltipContent'
 import { useMemo } from 'react'
+import {
+  Cell,
+  Label,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts'
+import {
+  NameType,
+  Payload,
+  ValueType,
+} from 'recharts/types/component/DefaultTooltipContent'
+
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 
 type DataType = {
   name: string
@@ -61,7 +79,15 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   return null
 }
 
-const COLORS = ['#FFB770', '#2127A3', '#A2C089', '#FF8286', '#FFD45B', '#FF785C', '#9BD3D8']
+const COLORS = [
+  '#FFB770',
+  '#2127A3',
+  '#A2C089',
+  '#FF8286',
+  '#FFD45B',
+  '#FF785C',
+  '#9BD3D8',
+]
 
 const useTotalRevenue = (data: DataType[]) => {
   return useMemo(() => data.reduce((acc, curr) => acc + curr.value, 0), [data])
@@ -93,7 +119,11 @@ export function SalesByTicketType() {
             {`$${useTotalRevenue(data)}`}
           </Label>
         </Pie>
-        <Tooltip content={({ active, payload }) => <CustomTooltip active={active} payload={payload} />} />
+        <Tooltip
+          content={({ active, payload }) => (
+            <CustomTooltip active={active} payload={payload} />
+          )}
+        />
         <Legend />
       </PieChart>
     </ResponsiveContainer>

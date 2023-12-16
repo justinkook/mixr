@@ -1,8 +1,16 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
-import DateCard from './date-card'
 import { TicketIcon } from 'lucide-react'
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+
+import DateCard from './date-card'
 
 export function TicketCard() {
   return (
@@ -27,7 +35,9 @@ export function TicketCard() {
               <Card className="absolute bottom-0 w-full border-none bg-transparent backdrop-blur-[1px]">
                 <CardHeader>
                   <CardTitle className="text-white">React Rendevous</CardTitle>
-                  <CardDescription className="text-white">7:00 PM</CardDescription>
+                  <CardDescription className="text-white">
+                    7:00 PM
+                  </CardDescription>
                 </CardHeader>
               </Card>
             </div>

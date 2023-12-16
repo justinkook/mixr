@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { useRouter } from 'next/navigation'
-import { ChevronsUpDownIcon, CheckIcon, PlusCircleIcon } from 'lucide-react'
+import { CheckIcon, ChevronsUpDownIcon, PlusCircleIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -27,8 +27,18 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 const groups = [
   {
@@ -71,11 +81,16 @@ interface OrganizationSwitcherProps extends PopoverTriggerProps {
   hidePersonal?: boolean
 }
 
-export default function OrganizationSwitcher({ className, hidePersonal }: OrganizationSwitcherProps) {
+export default function OrganizationSwitcher({
+  className,
+  hidePersonal,
+}: OrganizationSwitcherProps) {
   const router = useRouter()
   const [open, setOpen] = React.useState(false)
-  const [showNewOrganizationDialog, setShowNewOrganizationDialog] = React.useState(false)
-  const [selectedOrganization, setSelectedOrganization] = React.useState<Organization>(groups[0].organizations[0])
+  const [showNewOrganizationDialog, setShowNewOrganizationDialog] =
+    React.useState(false)
+  const [selectedOrganization, setSelectedOrganization] =
+    React.useState<Organization>(groups[0].organizations[0])
 
   const filterPersonal = (orgGroups: OrganizationGroup[]) => {
     if (hidePersonal) {
@@ -85,7 +100,10 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
     }
   }
   return (
-    <Dialog open={showNewOrganizationDialog} onOpenChange={setShowNewOrganizationDialog}>
+    <Dialog
+      open={showNewOrganizationDialog}
+      onOpenChange={setShowNewOrganizationDialog}
+    >
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -141,7 +159,9 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
                       <CheckIcon
                         className={cn(
                           'ml-auto h-4 w-4',
-                          selectedOrganization.value === organization.value ? 'opacity-100' : 'opacity-0'
+                          selectedOrganization.value === organization.value
+                            ? 'opacity-100'
+                            : 'opacity-0'
                         )}
                       />
                     </CommandItem>
@@ -171,7 +191,9 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Create organization</DialogTitle>
-          <DialogDescription>Add a new organization to manage products and customers.</DialogDescription>
+          <DialogDescription>
+            Add a new organization to manage products and customers.
+          </DialogDescription>
         </DialogHeader>
         <div>
           <div className="space-y-4 py-2 pb-4">
@@ -188,11 +210,15 @@ export default function OrganizationSwitcher({ className, hidePersonal }: Organi
                 <SelectContent>
                   <SelectItem value="free">
                     <span className="font-medium">Free</span> -{' '}
-                    <span className="text-muted-foreground">Trial for two weeks</span>
+                    <span className="text-muted-foreground">
+                      Trial for two weeks
+                    </span>
                   </SelectItem>
                   <SelectItem value="pro">
                     <span className="font-medium">Pro</span> -{' '}
-                    <span className="text-muted-foreground">$9/month per user</span>
+                    <span className="text-muted-foreground">
+                      $9/month per user
+                    </span>
                   </SelectItem>
                 </SelectContent>
               </Select>

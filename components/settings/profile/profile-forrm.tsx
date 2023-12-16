@@ -7,9 +7,23 @@ import * as z from 'zod'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/use-toast'
 
@@ -42,7 +56,10 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>
 // This can come from your database or API.
 const defaultValues: Partial<ProfileFormValues> = {
   bio: 'I own a computer.',
-  urls: [{ value: 'https://shadcn.com' }, { value: 'http://twitter.com/shadcn' }],
+  urls: [
+    { value: 'https://shadcn.com' },
+    { value: 'http://twitter.com/shadcn' },
+  ],
 }
 
 export function ProfileForm() {
@@ -81,7 +98,8 @@ export function ProfileForm() {
                 <Input placeholder="First Last" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a pseudonym.
+                This is your public display name. It can be your real name or a
+                pseudonym.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -107,7 +125,8 @@ export function ProfileForm() {
               </Select>
               <FormDescription>
                 You can manage verified email addresses in your{' '}
-                <Link href="/dashboard/settings/account">account settings</Link>.
+                <Link href="/dashboard/settings/account">account settings</Link>
+                .
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -120,10 +139,15 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Bio</FormLabel>
               <FormControl>
-                <Textarea placeholder="Tell us a little bit about yourself" className="resize-none" {...field} />
+                <Textarea
+                  placeholder="Tell us a little bit about yourself"
+                  className="resize-none"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
-                You can <span>@mention</span> other users and organizations to link to them.
+                You can <span>@mention</span> other users and organizations to
+                link to them.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -137,7 +161,9 @@ export function ProfileForm() {
               name={`urls.${index}.value`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className={cn(index !== 0 && 'sr-only')}>URLs</FormLabel>
+                  <FormLabel className={cn(index !== 0 && 'sr-only')}>
+                    URLs
+                  </FormLabel>
                   <FormDescription className={cn(index !== 0 && 'sr-only')}>
                     Add links to your website, blog, or social media profiles.
                   </FormDescription>
@@ -149,7 +175,13 @@ export function ProfileForm() {
               )}
             />
           ))}
-          <Button type="button" variant="outline" size="sm" className="mt-2" onClick={() => append({ value: '' })}>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={() => append({ value: '' })}
+          >
             Add URL
           </Button>
         </div>

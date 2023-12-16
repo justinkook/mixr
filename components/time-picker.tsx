@@ -1,13 +1,18 @@
 'use client'
 
 import * as React from 'react'
+import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Command, CommandGroup, CommandItem } from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { ScrollArea } from '@radix-ui/react-scroll-area'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+
 import { ScrollBar } from './ui/scroll-area'
 
 const times = [
@@ -219,7 +224,11 @@ export function TimePicker({ className }: { className?: string }) {
           aria-expanded={open}
           className={cn('w-fit justify-between', className)}
         >
-          {value ? times.find((time) => time.value.toLowerCase() === value.toLowerCase())?.label : '12:00 AM'}
+          {value
+            ? times.find(
+                (time) => time.value.toLowerCase() === value.toLowerCase()
+              )?.label
+            : '12:00 AM'}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -236,7 +245,12 @@ export function TimePicker({ className }: { className?: string }) {
                     setOpen(false)
                   }}
                 >
-                  <Check className={cn('mr-2 h-4 w-4', value === time.value ? 'opacity-100' : 'opacity-0')} />
+                  <Check
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      value === time.value ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
                   {time.label}
                 </CommandItem>
               ))}

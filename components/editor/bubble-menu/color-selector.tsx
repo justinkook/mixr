@@ -1,7 +1,7 @@
-import { Editor } from '@tiptap/core'
-import { Check, ChevronDown } from 'lucide-react'
 import { Dispatch, FC, SetStateAction } from 'react'
 import * as Popover from '@radix-ui/react-popover'
+import { Editor } from '@tiptap/core'
+import { Check, ChevronDown } from 'lucide-react'
 
 export interface BubbleColorMenuItem {
   name: string
@@ -92,10 +92,18 @@ const HIGHLIGHT_COLORS: BubbleColorMenuItem[] = [
   },
 ]
 
-export const ColorSelector: FC<ColorSelectorProps> = ({ editor, isOpen, setIsOpen }) => {
-  const activeColorItem = TEXT_COLORS.find(({ color }) => editor.isActive('textStyle', { color }))
+export const ColorSelector: FC<ColorSelectorProps> = ({
+  editor,
+  isOpen,
+  setIsOpen,
+}) => {
+  const activeColorItem = TEXT_COLORS.find(({ color }) =>
+    editor.isActive('textStyle', { color })
+  )
 
-  const activeHighlightItem = HIGHLIGHT_COLORS.find(({ color }) => editor.isActive('highlight', { color }))
+  const activeHighlightItem = HIGHLIGHT_COLORS.find(({ color }) =>
+    editor.isActive('highlight', { color })
+  )
 
   return (
     <Popover.Root open={isOpen}>
@@ -139,16 +147,23 @@ export const ColorSelector: FC<ColorSelectorProps> = ({ editor, isOpen, setIsOpe
               type="button"
             >
               <div className="flex items-center space-x-2">
-                <div className="rounded-sm border border-stone-200 px-1 py-px font-medium" style={{ color }}>
+                <div
+                  className="rounded-sm border border-stone-200 px-1 py-px font-medium"
+                  style={{ color }}
+                >
                   A
                 </div>
                 <span>{name}</span>
               </div>
-              {editor.isActive('textStyle', { color }) && <Check className="h-4 w-4" />}
+              {editor.isActive('textStyle', { color }) && (
+                <Check className="h-4 w-4" />
+              )}
             </button>
           ))}
 
-          <div className="mb-1 mt-2 px-2 text-sm text-stone-500">Background</div>
+          <div className="mb-1 mt-2 px-2 text-sm text-stone-500">
+            Background
+          </div>
 
           {HIGHLIGHT_COLORS.map(({ name, color }, index) => (
             <button
@@ -170,7 +185,9 @@ export const ColorSelector: FC<ColorSelectorProps> = ({ editor, isOpen, setIsOpe
                 </div>
                 <span>{name}</span>
               </div>
-              {editor.isActive('highlight', { color }) && <Check className="h-4 w-4" />}
+              {editor.isActive('highlight', { color }) && (
+                <Check className="h-4 w-4" />
+              )}
             </button>
           ))}
         </Popover.Content>

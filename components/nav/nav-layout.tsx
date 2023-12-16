@@ -3,9 +3,10 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { X } from 'lucide-react'
-import { Sidebar } from './sidebar'
-import { Navbar } from './navbar'
+
 import { Footer } from './footer'
+import { Navbar } from './navbar'
+import { Sidebar } from './sidebar'
 
 export default function NavLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -13,7 +14,11 @@ export default function NavLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
+        <Dialog
+          as="div"
+          className="relative z-50 lg:hidden"
+          onClose={setSidebarOpen}
+        >
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -47,9 +52,16 @@ export default function NavLayout({ children }: { children: React.ReactNode }) {
                   leaveTo="opacity-0"
                 >
                   <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                    <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
+                    <button
+                      type="button"
+                      className="-m-2.5 p-2.5"
+                      onClick={() => setSidebarOpen(false)}
+                    >
                       <span className="sr-only">Close sidebar</span>
-                      <X className="h-6 w-6 text-background" aria-hidden="true" />
+                      <X
+                        className="h-6 w-6 text-background"
+                        aria-hidden="true"
+                      />
                     </button>
                   </div>
                 </Transition.Child>

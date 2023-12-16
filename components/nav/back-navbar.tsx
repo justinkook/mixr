@@ -1,8 +1,9 @@
 'use client'
 
-import { ChevronLeftIcon } from 'lucide-react'
-import { Button } from '../ui/button'
 import { useRouter } from 'next/navigation'
+import { ChevronLeftIcon } from 'lucide-react'
+
+import { Button } from '../ui/button'
 
 export function BackNavbar() {
   const { back } = useRouter()

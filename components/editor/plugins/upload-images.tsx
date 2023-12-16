@@ -1,6 +1,7 @@
-import { toast } from '@/components/ui/use-toast'
 import { EditorState, Plugin, PluginKey } from '@tiptap/pm/state'
 import { Decoration, DecorationSet, EditorView } from '@tiptap/pm/view'
+
+import { toast } from '@/components/ui/use-toast'
 
 const uploadKey = new PluginKey('upload-image')
 
@@ -21,7 +22,10 @@ const UploadImagesPlugin = () =>
           const placeholder = document.createElement('div')
           placeholder.setAttribute('class', 'img-placeholder')
           const image = document.createElement('img')
-          image.setAttribute('class', 'opacity-40 rounded-lg border border-stone-200')
+          image.setAttribute(
+            'class',
+            'opacity-40 rounded-lg border border-stone-200'
+          )
           image.src = src
           placeholder.appendChild(image)
           const deco = Decoration.widget(pos + 1, placeholder, {
@@ -29,7 +33,13 @@ const UploadImagesPlugin = () =>
           })
           set = set.add(tr.doc, [deco])
         } else if (action && action.remove) {
-          set = set.remove(set.find(undefined, undefined, (spec) => spec.id == action.remove.id))
+          set = set.remove(
+            set.find(
+              undefined,
+              undefined,
+              (spec) => spec.id == action.remove.id
+            )
+          )
         }
         return set
       },
@@ -57,7 +67,10 @@ export function startImageUpload(file: File, view: EditorView, pos: number) {
 
     // check if the file size is less than 20MB
   } else if (file.size / 1024 / 1024 > 20) {
-    toast({ description: 'File size too big (max 20MB).', variant: 'destructive' })
+    toast({
+      description: 'File size too big (max 20MB).',
+      variant: 'destructive',
+    })
     return
   }
 
@@ -97,7 +110,9 @@ export function startImageUpload(file: File, view: EditorView, pos: number) {
     const imageSrc = typeof src === 'object' ? reader.result : src
 
     const node = schema.nodes.image.create({ src: imageSrc })
-    const transaction = view.state.tr.replaceWith(pos, pos, node).setMeta(uploadKey, { remove: { id } })
+    const transaction = view.state.tr
+      .replaceWith(pos, pos, node)
+      .setMeta(uploadKey, { remove: { id } })
     view.dispatch(transaction)
   })
 }
@@ -128,11 +143,14 @@ export const handleImageUpload = (file: File) => {
       } else if (res.status === 401) {
         resolve(file)
         toast({
-          description: '`BLOB_READ_WRITE_TOKEN` environment variable not found, reading image locally instead.',
+          description:
+            '`BLOB_READ_WRITE_TOKEN` environment variable not found, reading image locally instead.',
           variant: 'destructive',
         })
 
-        throw new Error('`BLOB_READ_WRITE_TOKEN` environment variable not found, reading image locally instead.')
+        throw new Error(
+          '`BLOB_READ_WRITE_TOKEN` environment variable not found, reading image locally instead.'
+        )
         // Unknown error
       } else {
         toast({

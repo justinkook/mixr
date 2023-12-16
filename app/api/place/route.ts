@@ -1,5 +1,5 @@
-import { env } from '@/env.mjs'
 import { NextRequest, NextResponse } from 'next/server'
+import { env } from '@/env.mjs'
 
 export async function GET(req: NextRequest) {
   const locationInput = req.nextUrl.searchParams.get('input') as string

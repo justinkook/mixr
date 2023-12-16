@@ -1,4 +1,3 @@
-import { MainNavItem, SidebarNavItem } from '@/types/nav'
 import {
   BarChartBigIcon,
   GithubIcon,
@@ -13,6 +12,8 @@ import {
   UsersIcon,
   ZapIcon,
 } from 'lucide-react'
+
+import { MainNavItem, SidebarNavItem } from '@/types/nav'
 
 export const userNav: SidebarNavItem[] = [
   {

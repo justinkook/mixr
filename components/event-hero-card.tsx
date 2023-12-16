@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import { MapPinIcon } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+
 import { ShareModal } from './share-modal'
 
 export default async function EventHeroCard() {
@@ -21,7 +23,9 @@ export default async function EventHeroCard() {
         </Card>
         <div className="flex flex-col md:mt-auto">
           <div className="mt-4">
-            <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">React Rendezvous</h2>
+            <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">
+              React Rendezvous
+            </h2>
           </div>
 
           {/* Event Date & Time */}

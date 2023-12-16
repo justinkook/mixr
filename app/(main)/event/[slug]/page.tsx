@@ -1,10 +1,11 @@
-import { ArrowUpRightIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { ArrowUpRightIcon, MapPinIcon } from 'lucide-react'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { RegistrationCard } from '@/components/registration-card'
+import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { RegistrationCard } from '@/components/registration-card'
 
 const product = {
   name: `AIMG's Stacked Startup Showcase`,
@@ -59,7 +60,9 @@ export default function EventPage() {
               </div>
             </Link>
             <div className="mt-4">
-              <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">{product.name}</h2>
+              <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">
+                {product.name}
+              </h2>
             </div>
 
             {/* Event Date & Time */}
@@ -118,12 +121,17 @@ export default function EventPage() {
             {/* Description */}
             <div className="mt-6">
               <h3 className="sr-only">Description</h3>
-              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">About Event</h3>
+              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
+                About Event
+              </h3>
               <p
                 className="mt-2 line-clamp-5 self-stretch text-sm leading-5 text-muted-foreground lg:line-clamp-none lg:text-base"
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
-              <Link href="/" className="mt-2 self-stretch text-sm font-medium leading-5 text-primary lg:hidden">
+              <Link
+                href="/"
+                className="mt-2 self-stretch text-sm font-medium leading-5 text-primary lg:hidden"
+              >
                 <Button variant="link" className="p-0">
                   Show more
                 </Button>
@@ -135,7 +143,9 @@ export default function EventPage() {
           {/* Organizer */}
           <div className="mt-6">
             <h3 className="sr-only">Organizer</h3>
-            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">Organizer</h3>
+            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
+              Organizer
+            </h3>
 
             <div className="mt-4 flex items-center">
               <div className="flex h-full w-full items-center justify-between gap-5 self-stretch px-0">
@@ -167,7 +177,9 @@ export default function EventPage() {
           {/* Location Map */}
           <div className="mt-6">
             <h3 className="sr-only">Location Map</h3>
-            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">Location</h3>
+            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
+              Location
+            </h3>
             <p className="mt-4 line-clamp-2 self-stretch text-sm leading-5 text-foreground lg:text-base">
               The Hotel Chelsea, 222 W 23rd St New York, NY 10011
             </p>

@@ -5,8 +5,19 @@ import { Check } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 
 const locations = [
   {
@@ -46,7 +57,9 @@ export function LocationCombobox() {
         className="flex h-full w-full flex-col bg-secondary text-left md:hidden"
       >
         <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-          {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
+          {value
+            ? locations.find((location) => location.value === value)?.label
+            : 'Add Event Location'}
         </div>
         <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
           Offline location or virtual link
@@ -66,7 +79,12 @@ export function LocationCombobox() {
                 setOpen(false)
               }}
             >
-              <Check className={cn('mr-2 h-4 w-4', value === location.value ? 'opacity-100' : 'opacity-0')} />
+              <Check
+                className={cn(
+                  'mr-2 h-4 w-4',
+                  value === location.value ? 'opacity-100' : 'opacity-0'
+                )}
+              />
               {location.label}
             </CommandItem>
           ))}
@@ -81,7 +99,9 @@ export function LocationCombobox() {
             className="hidden h-full w-full flex-col bg-secondary text-left md:flex"
           >
             <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-              {value ? locations.find((location) => location.value === value)?.label : 'Add Event Location'}
+              {value
+                ? locations.find((location) => location.value === value)?.label
+                : 'Add Event Location'}
             </div>
             <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
               Offline location or virtual link
@@ -103,7 +123,12 @@ export function LocationCombobox() {
                     setOpen(false)
                   }}
                 >
-                  <Check className={cn('mr-2 h-4 w-4', value === location.value ? 'opacity-100' : 'opacity-0')} />
+                  <Check
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      value === location.value ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
                   {location.label}
                 </CommandItem>
               ))}

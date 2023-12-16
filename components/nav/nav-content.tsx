@@ -2,7 +2,9 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import { Bot } from 'lucide-react'
 
+import { mainNav } from '@/config/nav'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,9 +14,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import { Bot } from 'lucide-react'
+
 import NavItem from './nav-item'
-import { mainNav } from '@/config/nav'
 
 export function NavContent() {
   return (
@@ -50,10 +51,16 @@ export function NavContent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         {mainNav.map((navItem, index) => (
-          <NavigationMenuItem key={index} className="text-sm font-medium text-muted-foreground transition-colors">
+          <NavigationMenuItem
+            key={index}
+            className="text-sm font-medium text-muted-foreground transition-colors"
+          >
             <NavigationMenuLink
               href={navItem.href}
-              {...(navItem.external && { target: '_blank', rel: 'noopener noreferrer' })}
+              {...(navItem.external && {
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              })}
               className={navigationMenuTriggerStyle()}
             >
               {navItem.title}

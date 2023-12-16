@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import React from 'react'
+
+import { cn } from '@/lib/utils'
 
 type DateCardProps = {
   day: string
@@ -15,8 +16,12 @@ const DateCard: React.FC<DateCardProps> = ({ day, month, aspectRatio }) => {
         aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
       )}
     >
-      <h3 className="self-center whitespace-nowrap text-center text-sm font-bold leading-5">{day}</h3>
-      <div className="self-center whitespace-nowrap text-center text-xs leading-4 text-muted-foreground">{month}</div>
+      <h3 className="self-center whitespace-nowrap text-center text-sm font-bold leading-5">
+        {day}
+      </h3>
+      <div className="self-center whitespace-nowrap text-center text-xs leading-4 text-muted-foreground">
+        {month}
+      </div>
     </div>
   )
 }

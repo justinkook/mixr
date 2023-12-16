@@ -1,13 +1,16 @@
 import { Separator } from '@/components/ui/separator'
-import { SettingsSidebar } from '@/components/nav/settings-sidebar'
 import CreateEventModal from '@/components/create-event-modal'
+import { SettingsSidebar } from '@/components/nav/settings-sidebar'
 
 interface SettingsLayoutProps {
   children: React.ReactNode
   params: { slug: string }
 }
 
-export default function SettingsLayout({ children, params }: SettingsLayoutProps) {
+export default function SettingsLayout({
+  children,
+  params,
+}: SettingsLayoutProps) {
   const sidebarNavItems = [
     {
       title: 'Event',
@@ -25,7 +28,9 @@ export default function SettingsLayout({ children, params }: SettingsLayoutProps
         <div className="flex items-center justify-between space-y-2">
           <div className="space-y-0.5">
             <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
-            <p className="text-muted-foreground">Change public url, appearance, or delete event.</p>
+            <p className="text-muted-foreground">
+              Change public url, appearance, or delete event.
+            </p>
           </div>
           <div className="flex items-center space-x-2">
             <CreateEventModal label="Duplicate Event" variant="secondary" />

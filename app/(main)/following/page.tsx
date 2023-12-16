@@ -1,6 +1,7 @@
-import { OrganizerCard } from '@/components/organizer-card'
-import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { UsersIcon } from 'lucide-react'
+
+import { EmptyPlaceholder } from '@/components/empty-placeholder'
+import { OrganizerCard } from '@/components/organizer-card'
 
 const organizations = [
   {
@@ -12,7 +13,8 @@ const organizations = [
   },
   {
     name: 'vercel',
-    description: 'Develop. Preview. Ship. For the best frontend teams – Vercel.',
+    description:
+      'Develop. Preview. Ship. For the best frontend teams – Vercel.',
     avatar: '',
     followers: 1000,
     createdAt: 'December 2021',
@@ -40,7 +42,8 @@ const organizations = [
   },
   {
     name: 'vercel',
-    description: 'Develop. Preview. Ship. For the best frontend teams – Vercel.',
+    description:
+      'Develop. Preview. Ship. For the best frontend teams – Vercel.',
     avatar: '',
     followers: 1000,
     createdAt: 'December 2021',
@@ -68,7 +71,8 @@ const organizations = [
   },
   {
     name: 'vercel',
-    description: 'Develop. Preview. Ship. For the best frontend teams – Vercel.',
+    description:
+      'Develop. Preview. Ship. For the best frontend teams – Vercel.',
     avatar: '',
     followers: 1000,
     createdAt: 'December 2021',
@@ -91,7 +95,9 @@ export default async function FollowingPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {organizations.length > 0 ? (
-            organizations.map((organization, index) => <OrganizerCard key={index} organizer={organization} />)
+            organizations.map((organization, index) => (
+              <OrganizerCard key={index} organizer={organization} />
+            ))
           ) : (
             <EmptyPlaceholder
               className="col-span-3"

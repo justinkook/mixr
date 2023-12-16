@@ -1,11 +1,11 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ChevronsUpDown } from 'lucide-react'
+import { ChevronsUpDown, PlusCircleIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -16,9 +16,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { PlusCircleIcon } from 'lucide-react'
-import { Separator } from '@/components/ui/separator'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -27,8 +24,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { toast } from '@/components/ui/use-toast'
-import { cn } from '@/lib/utils'
 
 const ticketsTypes = [
   { label: 'General Admission', value: 'general admission' },
@@ -48,7 +54,16 @@ const InviteGuestFormSchema = z.object({
   email: z.string({
     required_error: 'Please enter an email.',
   }),
-  ticketType: z.enum(['general', 'vip', 'speaker', 'sponsor', 'student', 'senior', 'meet and greet', 'press']),
+  ticketType: z.enum([
+    'general',
+    'vip',
+    'speaker',
+    'sponsor',
+    'student',
+    'senior',
+    'meet and greet',
+    'press',
+  ]),
 })
 
 export function InviteGuestModal() {
@@ -59,7 +74,9 @@ export function InviteGuestModal() {
   const onSubmit = (data: z.infer<typeof InviteGuestFormSchema>) => {
     toast({
       title: 'Sent Invite!',
-      description: <span className="mt-2 w-[340px] rounded-md bg-foreground p-4">{`Email sent to ${data.email}`}</span>,
+      description: (
+        <span className="mt-2 w-[340px] rounded-md bg-foreground p-4">{`Email sent to ${data.email}`}</span>
+      ),
     })
   }
 
@@ -84,7 +101,11 @@ export function InviteGuestModal() {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel>Name</FormLabel>
-                  <Input id="name" value={field.value} placeholder="First Last" />
+                  <Input
+                    id="name"
+                    value={field.value}
+                    placeholder="First Last"
+                  />
                 </FormItem>
               )}
             />
@@ -94,7 +115,11 @@ export function InviteGuestModal() {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel>Email</FormLabel>
-                  <Input id="email" value={field.value} placeholder="m@example.com" />
+                  <Input
+                    id="email"
+                    value={field.value}
+                    placeholder="m@example.com"
+                  />
                 </FormItem>
               )}
             />
@@ -111,10 +136,15 @@ export function InviteGuestModal() {
                         <Button
                           variant="outline"
                           role="combobox"
-                          className={cn('w-full justify-between', !field.value && 'text-muted-foreground')}
+                          className={cn(
+                            'w-full justify-between',
+                            !field.value && 'text-muted-foreground'
+                          )}
                         >
                           {field.value
-                            ? ticketsTypes.find((type) => type.value === field.value)?.label
+                            ? ticketsTypes.find(
+                                (type) => type.value === field.value
+                              )?.label
                             : 'Select ticket type'}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>

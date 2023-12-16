@@ -1,10 +1,18 @@
-import { BubbleMenu, BubbleMenuProps, isNodeSelection } from '@tiptap/react'
 import { FC, useState } from 'react'
-import { BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, CodeIcon } from 'lucide-react'
-import { NodeSelector } from './node-selector'
+import { BubbleMenu, BubbleMenuProps, isNodeSelection } from '@tiptap/react'
+import {
+  BoldIcon,
+  CodeIcon,
+  ItalicIcon,
+  StrikethroughIcon,
+  UnderlineIcon,
+} from 'lucide-react'
+
+import { cn } from '@/lib/utils'
+
 import { ColorSelector } from './color-selector'
 import { LinkSelector } from './link-selector'
-import { cn } from '@/lib/utils'
+import { NodeSelector } from './node-selector'
 
 export interface BubbleMenuItem {
   name: string

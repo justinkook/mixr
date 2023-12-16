@@ -1,11 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import { ClerkProvider, MultisessionAppSupport } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
+import { useTheme } from 'next-themes'
 
-export function ClerkThemeProvider({ children }: { children: React.ReactNode }) {
+export function ClerkThemeProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme } = useTheme()
 

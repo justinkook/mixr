@@ -1,20 +1,21 @@
-import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
-
 import { Zap } from 'lucide-react'
 
+import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { EventCard } from '@/components/event-card'
 import { CurrentLocationCombobox } from '@/components/current-location-combobox'
+import { EventCard } from '@/components/event-card'
 
 export default function Home() {
   return (
     <>
       <div className="h-full space-y-6 px-4 py-6 lg:px-8">
         <div>
-          <div className="text-muted-secondary self-stretch whitespace-nowrap text-sm leading-5">Find events near</div>
+          <div className="text-muted-secondary self-stretch whitespace-nowrap text-sm leading-5">
+            Find events near
+          </div>
           <CurrentLocationCombobox />
         </div>
         <Tabs defaultValue="trending" className="h-full space-y-6">
@@ -34,11 +35,18 @@ export default function Home() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
-          <TabsContent value="trending" className="border-none p-0 outline-none">
+          <TabsContent
+            value="trending"
+            className="border-none p-0 outline-none"
+          >
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <h2 className="text-2xl font-semibold tracking-tight">Planned for You</h2>
-                <p className="text-sm text-muted-foreground">Your personalized picks.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Planned for You
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Your personalized picks.
+                </p>
               </div>
             </div>
             <Separator className="my-4" />
@@ -61,8 +69,12 @@ export default function Home() {
             </ScrollArea>
             <div className="mt-6 flex justify-between space-y-1">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Music Events</h2>
-                <p className="text-sm text-muted-foreground">All music events.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Music Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  All music events.
+                </p>
               </div>
               <div className="ml-auto mr-4">
                 <Button variant="link">See all</Button>
@@ -89,8 +101,12 @@ export default function Home() {
 
             <div className="mt-6 flex justify-between space-y-1">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Networking Events</h2>
-                <p className="text-sm text-muted-foreground">All networking events.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Networking Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  All networking events.
+                </p>
               </div>
               <div className="ml-auto mr-4">
                 <Button variant="link">See all</Button>
@@ -117,8 +133,12 @@ export default function Home() {
 
             <div className="mt-6 flex justify-between space-y-1">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Tech Events</h2>
-                <p className="text-sm text-muted-foreground">All tech events.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Tech Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  All tech events.
+                </p>
               </div>
               <div className="ml-auto mr-4">
                 <Button variant="link">See all</Button>

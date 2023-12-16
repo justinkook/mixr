@@ -7,7 +7,15 @@ import * as z from 'zod'
 
 import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { toast } from '@/components/ui/use-toast'
 
@@ -70,7 +78,9 @@ export function AppearanceForm() {
                 </FormControl>
                 <ChevronDownIcon className="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
               </div>
-              <FormDescription>Set the font you want to use in the event page.</FormDescription>
+              <FormDescription>
+                Set the font you want to use in the event page.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -81,7 +91,9 @@ export function AppearanceForm() {
           render={({ field }) => (
             <FormItem className="space-y-1">
               <FormLabel>Theme</FormLabel>
-              <FormDescription>Select the theme for the event page.</FormDescription>
+              <FormDescription>
+                Select the theme for the event page.
+              </FormDescription>
               <FormMessage />
               <RadioGroup
                 onValueChange={field.onChange}
@@ -109,7 +121,9 @@ export function AppearanceForm() {
                         </div>
                       </div>
                     </div>
-                    <span className="block w-full p-2 text-center font-normal">Light</span>
+                    <span className="block w-full p-2 text-center font-normal">
+                      Light
+                    </span>
                   </FormLabel>
                 </FormItem>
                 <FormItem>
@@ -133,7 +147,9 @@ export function AppearanceForm() {
                         </div>
                       </div>
                     </div>
-                    <span className="block w-full p-2 text-center font-normal">Dark</span>
+                    <span className="block w-full p-2 text-center font-normal">
+                      Dark
+                    </span>
                   </FormLabel>
                 </FormItem>
               </RadioGroup>

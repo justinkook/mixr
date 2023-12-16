@@ -1,18 +1,19 @@
+import { Dispatch, FC, SetStateAction } from 'react'
+import * as Popover from '@radix-ui/react-popover'
 import { Editor } from '@tiptap/core'
 import {
   Check,
+  CheckSquare,
   ChevronDown,
+  Code,
   Heading1,
   Heading2,
   Heading3,
-  TextQuote,
   ListOrdered,
   TextIcon,
-  Code,
-  CheckSquare,
+  TextQuote,
 } from 'lucide-react'
-import * as Popover from '@radix-ui/react-popover'
-import { Dispatch, FC, SetStateAction } from 'react'
+
 import { BubbleMenuItem } from './bubble-menu'
 
 interface NodeSelectorProps {
@@ -21,14 +22,22 @@ interface NodeSelectorProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const NodeSelector: FC<NodeSelectorProps> = ({ editor, isOpen, setIsOpen }) => {
+export const NodeSelector: FC<NodeSelectorProps> = ({
+  editor,
+  isOpen,
+  setIsOpen,
+}) => {
   const items: BubbleMenuItem[] = [
     {
       name: 'Text',
       icon: TextIcon,
-      command: () => editor.chain().focus().toggleNode('paragraph', 'paragraph').run(),
+      command: () =>
+        editor.chain().focus().toggleNode('paragraph', 'paragraph').run(),
       // I feel like there has to be a more efficient way to do this – feel free to PR if you know how!
-      isActive: () => editor.isActive('paragraph') && !editor.isActive('bulletList') && !editor.isActive('orderedList'),
+      isActive: () =>
+        editor.isActive('paragraph') &&
+        !editor.isActive('bulletList') &&
+        !editor.isActive('orderedList'),
     },
     {
       name: 'Heading 1',
@@ -69,7 +78,13 @@ export const NodeSelector: FC<NodeSelectorProps> = ({ editor, isOpen, setIsOpen 
     {
       name: 'Quote',
       icon: TextQuote,
-      command: () => editor.chain().focus().toggleNode('paragraph', 'paragraph').toggleBlockquote().run(),
+      command: () =>
+        editor
+          .chain()
+          .focus()
+          .toggleNode('paragraph', 'paragraph')
+          .toggleBlockquote()
+          .run(),
       isActive: () => editor.isActive('blockquote'),
     },
     {

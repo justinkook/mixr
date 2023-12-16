@@ -1,3 +1,5 @@
+import { PlusCircleIcon } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -10,7 +12,7 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { PlusCircleIcon } from 'lucide-react'
+
 import { TimePicker } from './time-picker'
 
 export function AgendaModal() {
@@ -25,7 +27,9 @@ export function AgendaModal() {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add Agenda</DialogTitle>
-          <DialogDescription>A description of a session happening at you event.</DialogDescription>
+          <DialogDescription>
+            A description of a session happening at you event.
+          </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4">
           <div className="grid gap-2">

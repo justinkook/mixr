@@ -1,17 +1,28 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { cn } from '@/lib/utils'
-import { usePlaceAutocomplete } from '@/lib/hooks/use-place-autocomplete'
-import { useCurrentLocation } from '@/lib/hooks/use-current-location'
-
 import { ChevronsUpDown, MapPin } from 'lucide-react'
 
+import { useCurrentLocation } from '@/lib/hooks/use-current-location'
+import { usePlaceAutocomplete } from '@/lib/hooks/use-place-autocomplete'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { toast } from './ui/use-toast'
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+
 import { Skeleton } from './ui/skeleton'
+import { toast } from './ui/use-toast'
 
 export function CurrentLocationCombobox() {
   const [open, setOpen] = useState(false)
@@ -36,7 +47,9 @@ export function CurrentLocationCombobox() {
   useEffect(() => {
     if (currentLocation) {
       const locationData = currentLocation.results[0].address_components
-      const city = locationData.find((component: any) => component.types.includes('locality')).long_name
+      const city = locationData.find((component: any) =>
+        component.types.includes('locality')
+      ).long_name
       const state = locationData.find((component: any) =>
         component.types.includes('administrative_area_level_1')
       ).short_name
@@ -56,7 +69,9 @@ export function CurrentLocationCombobox() {
         {isLoading ? (
           <Skeleton className="mt-2 h-[40px] w-[150px]" />
         ) : (
-          <h2 className="mt-1 truncate text-3xl font-bold tracking-tight md:whitespace-normal">{displayLocation}</h2>
+          <h2 className="mt-1 truncate text-3xl font-bold tracking-tight md:whitespace-normal">
+            {displayLocation}
+          </h2>
         )}
         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
@@ -76,7 +91,10 @@ export function CurrentLocationCombobox() {
                 key={index}
                 value={prediction.description}
                 onSelect={(currentValue) => {
-                  setDisplayLocation(currentValue === prediction.description.toLowerCase() && prediction.description)
+                  setDisplayLocation(
+                    currentValue === prediction.description.toLowerCase() &&
+                      prediction.description
+                  )
                   setLocationInput('')
                   setOpenModal(false)
                 }}
@@ -84,7 +102,9 @@ export function CurrentLocationCombobox() {
                 <MapPin
                   className={cn(
                     'mr-2 h-4 w-4',
-                    displayLocation === prediction.description ? 'opacity-100' : 'opacity-50'
+                    displayLocation === prediction.description
+                      ? 'opacity-100'
+                      : 'opacity-50'
                   )}
                 />
                 {prediction.description}
@@ -139,7 +159,8 @@ export function CurrentLocationCombobox() {
                     value={prediction.description}
                     onSelect={(currentValue) => {
                       setDisplayLocation(
-                        currentValue === prediction.description.toLowerCase() && prediction.description
+                        currentValue === prediction.description.toLowerCase() &&
+                          prediction.description
                       )
                       setLocationInput('')
                       setOpen(false)
@@ -148,7 +169,9 @@ export function CurrentLocationCombobox() {
                     <MapPin
                       className={cn(
                         'mr-2 h-4 w-4',
-                        displayLocation === prediction.description ? 'opacity-100' : 'opacity-50'
+                        displayLocation === prediction.description
+                          ? 'opacity-100'
+                          : 'opacity-50'
                       )}
                     />
                     {prediction.description}

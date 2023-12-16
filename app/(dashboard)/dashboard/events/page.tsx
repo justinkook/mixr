@@ -1,5 +1,4 @@
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
-
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
@@ -13,8 +12,12 @@ export default function EventsPage() {
           <div className="border-none p-0 outline-none">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <h2 className="text-2xl font-semibold tracking-tight">Upcoming events</h2>
-                <p className="text-sm text-muted-foreground">Your upcoming events.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Upcoming events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Your upcoming events.
+                </p>
               </div>
             </div>
             <Separator className="my-4" />
@@ -37,8 +40,12 @@ export default function EventsPage() {
             </ScrollArea>
             <div className="mt-6 flex justify-between space-y-1">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Past events</h2>
-                <p className="text-sm text-muted-foreground">All past events.</p>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Past events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  All past events.
+                </p>
               </div>
               <div className="ml-auto mr-4">
                 <Button variant="link">See all</Button>

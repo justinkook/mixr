@@ -1,21 +1,23 @@
-import StarterKit from '@tiptap/starter-kit'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import TiptapLink from '@tiptap/extension-link'
-import TiptapImage from '@tiptap/extension-image'
-import Placeholder from '@tiptap/extension-placeholder'
-import TiptapUnderline from '@tiptap/extension-underline'
-import TextStyle from '@tiptap/extension-text-style'
+import { InputRule } from '@tiptap/core'
 import { Color } from '@tiptap/extension-color'
+import Highlight from '@tiptap/extension-highlight'
+import HorizontalRule from '@tiptap/extension-horizontal-rule'
+import TiptapImage from '@tiptap/extension-image'
+import TiptapLink from '@tiptap/extension-link'
+import Placeholder from '@tiptap/extension-placeholder'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+import TextStyle from '@tiptap/extension-text-style'
+import TiptapUnderline from '@tiptap/extension-underline'
+import StarterKit from '@tiptap/starter-kit'
 import { Markdown } from 'tiptap-markdown'
-import Highlight from '@tiptap/extension-highlight'
-import SlashCommand from './slash-command'
-import { InputRule } from '@tiptap/core'
+
 import UploadImagesPlugin from '@/components/editor/plugins/upload-images'
-import UpdatedImage from './updated-image'
+
 import CustomKeymap from './custom-keymap'
 import DragAndDrop from './drag-and-drop'
+import SlashCommand from './slash-command'
+import UpdatedImage from './updated-image'
 
 export const defaultExtensions = [
   StarterKit.configure({
@@ -41,12 +43,14 @@ export const defaultExtensions = [
     },
     codeBlock: {
       HTMLAttributes: {
-        class: 'rounded-sm bg-muted p-5 font-mono font-medium text-muted-foreground',
+        class:
+          'rounded-sm bg-muted p-5 font-mono font-medium text-muted-foreground',
       },
     },
     code: {
       HTMLAttributes: {
-        class: 'rounded-md bg-muted px-1.5 py-1 font-mono font-medium text-muted-foreground',
+        class:
+          'rounded-md bg-muted px-1.5 py-1 font-mono font-medium text-muted-foreground',
         spellcheck: 'false',
       },
     },
@@ -70,7 +74,10 @@ export const defaultExtensions = [
             const start = range.from
             let end = range.to
 
-            tr.insert(start - 1, this.type.create(attributes)).delete(tr.mapping.map(start), tr.mapping.map(end))
+            tr.insert(start - 1, this.type.create(attributes)).delete(
+              tr.mapping.map(start),
+              tr.mapping.map(end)
+            )
           },
         }),
       ]
@@ -82,7 +89,8 @@ export const defaultExtensions = [
   }),
   TiptapLink.configure({
     HTMLAttributes: {
-      class: 'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer',
+      class:
+        'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer',
     },
   }),
   TiptapImage.extend({

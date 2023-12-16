@@ -1,11 +1,27 @@
 'use client'
 
 import React from 'react'
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { NameType, Payload, ValueType } from 'recharts/types/component/DefaultTooltipContent'
 import { format } from 'date-fns'
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
+import {
+  NameType,
+  Payload,
+  ValueType,
+} from 'recharts/types/component/DefaultTooltipContent'
 
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 
 const data = [
   {
@@ -44,13 +60,19 @@ interface CustomTooltipProps {
   label: string
 }
 
-const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
+const CustomTooltip: React.FC<CustomTooltipProps> = ({
+  active,
+  payload,
+  label,
+}) => {
   if (active && payload && payload.length) {
     return (
       <Card>
         <CardHeader>
           <CardTitle>${payload[0].value}</CardTitle>
-          <CardDescription>{format(new Date(label), 'iii, LLL dd')}</CardDescription>
+          <CardDescription>
+            {format(new Date(label), 'iii, LLL dd')}
+          </CardDescription>
         </CardHeader>
       </Card>
     )
@@ -97,7 +119,9 @@ export function SalesOverTime() {
           tickFormatter={(value) => `$${value}`}
         />
         <Tooltip
-          content={({ active, payload, label }) => <CustomTooltip active={active} payload={payload} label={label} />}
+          content={({ active, payload, label }) => (
+            <CustomTooltip active={active} payload={payload} label={label} />
+          )}
         />
       </LineChart>
     </ResponsiveContainer>

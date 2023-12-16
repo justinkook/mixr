@@ -1,8 +1,9 @@
+import { TicketIcon } from 'lucide-react'
+
 import { Separator } from '@/components/ui/separator'
-import { TicketTypeCard } from '@/components/ticket-type-card'
 import { CreateTicketModal } from '@/components/create-ticket-modal'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { TicketIcon } from 'lucide-react'
+import { TicketTypeCard } from '@/components/ticket-type-card'
 
 const ticketTypes = [
   {
@@ -16,7 +17,8 @@ const ticketTypes = [
   },
   {
     title: 'VIP',
-    description: 'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
+    description:
+      'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
     price: 210,
     capacity: 50,
     isApprovalRequired: true,
@@ -25,7 +27,8 @@ const ticketTypes = [
   },
   {
     title: 'VIP',
-    description: 'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
+    description:
+      'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
     price: 210,
     capacity: 50,
     isApprovalRequired: true,
@@ -34,7 +37,8 @@ const ticketTypes = [
   },
   {
     title: 'VIP',
-    description: 'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
+    description:
+      'Elevate your event experience with premium perks like VIP access and recognition in event materials.',
     price: 210,
     capacity: 50,
     isApprovalRequired: true,
@@ -50,7 +54,9 @@ export default async function EventTicketsPage() {
         <div className="flex items-center justify-between space-y-2">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">Tickets</h2>
-            <p className="text-muted-foreground">Create ticket types and set prices.</p>
+            <p className="text-muted-foreground">
+              Create ticket types and set prices.
+            </p>
           </div>
           <div className="flex items-center space-x-2">
             <CreateTicketModal />
@@ -60,7 +66,9 @@ export default async function EventTicketsPage() {
       </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {ticketTypes.length > 0 ? (
-          ticketTypes.map((ticketType, index) => <TicketTypeCard key={index} ticketType={ticketType} />)
+          ticketTypes.map((ticketType, index) => (
+            <TicketTypeCard key={index} ticketType={ticketType} />
+          ))
         ) : (
           <EmptyPlaceholder
             className="col-span-3"

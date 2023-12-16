@@ -1,4 +1,5 @@
 import { EditorProps } from '@tiptap/pm/view'
+
 import { startImageUpload } from '@/components/editor/plugins/upload-images'
 
 export const defaultEditorProps: EditorProps = {
@@ -17,7 +18,11 @@ export const defaultEditorProps: EditorProps = {
     },
   },
   handlePaste: (view, event) => {
-    if (event.clipboardData && event.clipboardData.files && event.clipboardData.files[0]) {
+    if (
+      event.clipboardData &&
+      event.clipboardData.files &&
+      event.clipboardData.files[0]
+    ) {
       event.preventDefault()
       const file = event.clipboardData.files[0]
       const pos = view.state.selection.from
@@ -28,7 +33,12 @@ export const defaultEditorProps: EditorProps = {
     return false
   },
   handleDrop: (view, event, _slice, moved) => {
-    if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
+    if (
+      !moved &&
+      event.dataTransfer &&
+      event.dataTransfer.files &&
+      event.dataTransfer.files[0]
+    ) {
       event.preventDefault()
       const file = event.dataTransfer.files[0]
       const coordinates = view.posAtCoords({

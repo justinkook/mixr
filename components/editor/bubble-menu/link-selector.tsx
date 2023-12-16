@@ -1,7 +1,8 @@
 import { Dispatch, FC, SetStateAction, useEffect, useRef } from 'react'
-import { cn, getUrlFromString } from '@/lib/utils'
 import { Editor } from '@tiptap/core'
 import { Check, Trash } from 'lucide-react'
+
+import { cn, getUrlFromString } from '@/lib/utils'
 
 interface LinkSelectorProps {
   editor: Editor
@@ -9,7 +10,11 @@ interface LinkSelectorProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const LinkSelector: FC<LinkSelectorProps> = ({ editor, isOpen, setIsOpen }) => {
+export const LinkSelector: FC<LinkSelectorProps> = ({
+  editor,
+  isOpen,
+  setIsOpen,
+}) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Autofocus on input by default
@@ -28,9 +33,12 @@ export const LinkSelector: FC<LinkSelectorProps> = ({ editor, isOpen, setIsOpen 
       >
         <p className="text-base">↗</p>
         <p
-          className={cn('underline decoration-muted-foreground underline-offset-4', {
-            'text-blue-500': editor.isActive('link'),
-          })}
+          className={cn(
+            'underline decoration-muted-foreground underline-offset-4',
+            {
+              'text-blue-500': editor.isActive('link'),
+            }
+          )}
         >
           Link
         </p>

@@ -1,12 +1,32 @@
-import { ActivityIcon, DollarSignIcon, MousePointerClickIcon, PlusCircleIcon, UsersIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { SalesOverTime } from '@/components/sales-over-time'
-import { SalesByTicketType } from '@/components/sales-by-ticket-type'
+import {
+  ActivityIcon,
+  DollarSignIcon,
+  MousePointerClickIcon,
+  PlusCircleIcon,
+  UsersIcon,
+} from 'lucide-react'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Separator } from '@/components/ui/separator'
 import { CalendarDateRangePicker } from '@/components/date-range-picker'
+import { SalesByTicketType } from '@/components/sales-by-ticket-type'
+import { SalesOverTime } from '@/components/sales-over-time'
 
 export default async function EventInsightsPage() {
   return (
@@ -15,7 +35,9 @@ export default async function EventInsightsPage() {
         <div className="flex items-center justify-between space-y-2">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">Insights</h2>
-            <p className="text-muted-foreground">View tracking metrics and revenue reports.</p>
+            <p className="text-muted-foreground">
+              View tracking metrics and revenue reports.
+            </p>
           </div>
           <div className="flex items-center space-x-2">
             <CalendarDateRangePicker />
@@ -61,7 +83,9 @@ export default async function EventInsightsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+573</div>
-            <p className="text-xs text-muted-foreground">+201 since last hour</p>
+            <p className="text-xs text-muted-foreground">
+              +201 since last hour
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -101,7 +125,9 @@ export default async function EventInsightsPage() {
         <Card className="col-span-7 lg:col-span-2">
           <CardHeader>
             <CardTitle>Countries</CardTitle>
-            <CardDescription>Which countries your visitors are from.</CardDescription>
+            <CardDescription>
+              Which countries your visitors are from.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -112,7 +138,9 @@ export default async function EventInsightsPage() {
                     <AvatarFallback>US</AvatarFallback>
                   </Avatar>
                   <div className="ml-4 space-y-1">
-                    <p className="text-sm font-medium leading-none">United States of America</p>
+                    <p className="text-sm font-medium leading-none">
+                      United States of America
+                    </p>
                   </div>
                   <div className="ml-auto font-medium">20</div>
                 </Button>
@@ -135,7 +163,9 @@ export default async function EventInsightsPage() {
         <Card className="col-span-7 lg:col-span-3">
           <CardHeader>
             <CardTitle>Operating Systems</CardTitle>
-            <CardDescription>Which operating systems your visitors are using.</CardDescription>
+            <CardDescription>
+              Which operating systems your visitors are using.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -169,7 +199,9 @@ export default async function EventInsightsPage() {
         <Card className="col-span-7 lg:col-span-2">
           <CardHeader>
             <CardTitle>Browsers</CardTitle>
-            <CardDescription>Which browsers your visitors are using.</CardDescription>
+            <CardDescription>
+              Which browsers your visitors are using.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -184,7 +216,9 @@ export default async function EventInsightsPage() {
               <div className="flex items-center">
                 <Button variant="secondary" className="w-full">
                   <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">Mobile Safari</p>
+                    <p className="text-sm font-medium leading-none">
+                      Mobile Safari
+                    </p>
                   </div>
                   <div className="ml-auto font-medium">12</div>
                 </Button>

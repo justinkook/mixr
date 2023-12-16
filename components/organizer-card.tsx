@@ -1,9 +1,10 @@
 import { CalendarDaysIcon, UserPlusIcon, ZapIcon } from 'lucide-react'
 
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
+
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { cn } from '@/lib/utils'
 
 type Organizer = {
   name: string
@@ -17,7 +18,10 @@ type OrganizerCardProps = React.HTMLAttributes<HTMLDivElement> & {
   organizer?: Organizer
 }
 
-export function OrganizerCard({ className, ...props }: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
+export function OrganizerCard({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
   return (
     <Card className={cn(className)} {...props}>
       <CardContent className="pt-6">
@@ -30,10 +34,14 @@ export function OrganizerCard({ className, ...props }: React.HTMLAttributes<HTML
               </Avatar>
               <div className="flex-col">
                 <h4 className="text-sm font-semibold">@nextjs</h4>
-                <p className="line-clamp-3 text-sm">The React Framework - created and maintained by @vercel.</p>
+                <p className="line-clamp-3 text-sm">
+                  The React Framework - created and maintained by @vercel.
+                </p>
                 <div className="flex items-center pt-2">
                   <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />{' '}
-                  <span className="text-xs text-muted-foreground">Joined December 2021</span>
+                  <span className="text-xs text-muted-foreground">
+                    Joined December 2021
+                  </span>
                 </div>
               </div>
             </div>

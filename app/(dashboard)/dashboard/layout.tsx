@@ -1,9 +1,12 @@
 import { dashboardTabs } from '@/config/nav'
-
 import CreateEventModal from '@/components/create-event-modal'
 import TabNav from '@/components/nav/tab-nav'
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <div className="flex-1 space-y-4 p-8 pt-6">
       <div className="flex items-center justify-between space-y-2">

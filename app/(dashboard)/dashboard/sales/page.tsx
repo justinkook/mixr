@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { guestSchema } from '@/lib/schema'
-import dataJSON from '@/lib/mockData/guests.json'
 
-import { Separator } from '@/components/ui/separator'
-import { DataTable } from '@/components/table/data-table'
-import { columns } from '@/components/table/columns'
+import dataJSON from '@/lib/mockData/guests.json'
+import { guestSchema } from '@/lib/schema'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { columns } from '@/components/table/columns'
+import { DataTable } from '@/components/table/data-table'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {
@@ -20,7 +20,9 @@ export default async function EventGuestsPage() {
       <div className="flex items-center justify-between space-y-2">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Sales</h2>
-          <p className="text-muted-foreground">See sales and guests for all events.</p>
+          <p className="text-muted-foreground">
+            See sales and guests for all events.
+          </p>
         </div>
         <div className="flex items-center space-x-2">
           <Button disabled variant="secondary">

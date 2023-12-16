@@ -1,8 +1,12 @@
 import Image from 'next/image'
+import {
+  CalendarDaysIcon,
+  Clock7Icon,
+  HeartIcon,
+  MapPinIcon,
+} from 'lucide-react'
+
 import { cn } from '@/lib/utils'
-
-import { CalendarDaysIcon, Clock7Icon, HeartIcon, MapPinIcon } from 'lucide-react'
-
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
@@ -18,7 +22,10 @@ type OrganizerCardProps = React.HTMLAttributes<HTMLDivElement> & {
   event?: Event
 }
 
-export function EventGridCard({ className, ...props }: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
+export function EventGridCard({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
   return (
     <Card className={cn(className)} {...props}>
       <CardContent className="pt-6">

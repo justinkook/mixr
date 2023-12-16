@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import {
   CalendarDaysIcon,
   CopyPlusIcon,
@@ -8,8 +9,15 @@ import {
   Trash,
   UserXIcon,
 } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +27,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { format } from 'date-fns'
 
 type TicketType = {
   title: string
@@ -36,7 +43,15 @@ type TicketTypeCardProps = {
 }
 
 export function TicketTypeCard({ ticketType }: TicketTypeCardProps) {
-  const { title, description, price, capacity, isApprovalRequired, startDateTime, endDateTime } = ticketType
+  const {
+    title,
+    description,
+    price,
+    capacity,
+    isApprovalRequired,
+    startDateTime,
+    endDateTime,
+  } = ticketType
   return (
     <>
       <Card>
@@ -71,11 +86,14 @@ export function TicketTypeCard({ ticketType }: TicketTypeCardProps) {
               </DropdownMenu>
             </div>
           </CardTitle>
-          <CardDescription className="line-clamp-2">{description}</CardDescription>
+          <CardDescription className="line-clamp-2">
+            {description}
+          </CardDescription>
           <div className="flex items-center pt-2">
             <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />{' '}
             <span className="text-xs text-muted-foreground">
-              {format(startDateTime, 'LLL dd, p')} - {format(endDateTime, 'LLL dd, p')}
+              {format(startDateTime, 'LLL dd, p')} -{' '}
+              {format(endDateTime, 'LLL dd, p')}
             </span>
           </div>
         </CardHeader>

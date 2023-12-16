@@ -1,5 +1,7 @@
 'use client'
 
+import { ShareIcon } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -10,10 +12,16 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { ShareIcon } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
+
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select'
 
 export function ShareEventtModal() {
   return (
@@ -27,7 +35,9 @@ export function ShareEventtModal() {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Share this event</DialogTitle>
-          <DialogDescription>Invite collaborators to help manage your event.</DialogDescription>
+          <DialogDescription>
+            Invite collaborators to help manage your event.
+          </DialogDescription>
         </DialogHeader>
         <div className="flex space-x-2">
           <Input placeholder="Enter email to send an invite" type="email" />
@@ -43,7 +53,9 @@ export function ShareEventtModal() {
                   <AvatarFallback>OM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">Olivia Martin</p>
+                  <p className="text-sm font-medium leading-none">
+                    Olivia Martin
+                  </p>
                   <p className="text-sm text-muted-foreground">m@example.com</p>
                 </div>
               </div>
@@ -64,7 +76,9 @@ export function ShareEventtModal() {
                   <AvatarFallback>IN</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">Isabella Nguyen</p>
+                  <p className="text-sm font-medium leading-none">
+                    Isabella Nguyen
+                  </p>
                   <p className="text-sm text-muted-foreground">b@example.com</p>
                 </div>
               </div>
@@ -85,7 +99,9 @@ export function ShareEventtModal() {
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">Sofia Davis</p>
+                  <p className="text-sm font-medium leading-none">
+                    Sofia Davis
+                  </p>
                   <p className="text-sm text-muted-foreground">p@example.com</p>
                 </div>
               </div>

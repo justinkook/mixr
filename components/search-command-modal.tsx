@@ -3,9 +3,10 @@
 import * as React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { DialogProps } from '@radix-ui/react-dialog'
-
-import { mainNav, dashboardNav, userNav } from '@/config/nav'
 import { Calendar, FileIcon, SearchIcon, Smile } from 'lucide-react'
+
+import { dashboardNav, mainNav, userNav } from '@/config/nav'
+import { cn } from '@/lib/utils'
 import {
   CommandDialog,
   CommandEmpty,
@@ -15,8 +16,8 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/ui/command'
+
 import { Button } from './ui/button'
-import { cn } from '@/lib/utils'
 
 export function SearchCommandModal({ ...props }: DialogProps) {
   const router = useRouter()

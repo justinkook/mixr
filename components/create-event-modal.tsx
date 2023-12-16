@@ -1,16 +1,21 @@
 'use client'
 
 import Image from 'next/image'
+import {
+  CalendarIcon,
+  CopyPlusIcon,
+  MapPinIcon,
+  PlusCircleIcon,
+} from 'lucide-react'
 
-import { CalendarIcon, CopyPlusIcon, MapPinIcon, PlusCircleIcon } from 'lucide-react'
-
-import { Input } from '@/components/ui/input'
-import { LocationCombobox } from '@/components/location-combobox'
-import { Card } from '@/components/ui/card'
 import { Button, ButtonProps } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 import { DateTimeCombobox } from '@/components/date-time-combobox'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
+import { LocationCombobox } from '@/components/location-combobox'
+
 import OrganizationSwitcher from './organization-switcher'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 
 const product = {
   name: `AIMG's Stacked Startup Showcase`,
@@ -37,7 +42,10 @@ type CreateEventModalProps = {
   label?: string
 }
 
-export default function CreateEventModal({ variant, label }: CreateEventModalProps) {
+export default function CreateEventModal({
+  variant,
+  label,
+}: CreateEventModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>

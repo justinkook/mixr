@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { userNav } from '@/config/nav'
 
+import { userNav } from '@/config/nav'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -28,7 +28,9 @@ export function UserNav() {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">Justin Kook</p>
-            <p className="text-xs leading-none text-muted-foreground">m@example.com</p>
+            <p className="text-xs leading-none text-muted-foreground">
+              m@example.com
+            </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

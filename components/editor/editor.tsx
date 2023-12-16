@@ -1,19 +1,21 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useEditor, EditorContent, JSONContent } from '@tiptap/react'
-import { defaultEditorProps } from './props'
-import { defaultExtensions } from './extensions/default-extensions'
-import useLocalStorage from '@/lib/hooks/use-local-storage'
-import { useDebouncedCallback } from 'use-debounce'
-import { useCompletion } from 'ai/react'
-import { toast } from '@/components/ui/use-toast'
-import va from '@vercel/analytics'
-import { EditorBubbleMenu } from './bubble-menu/bubble-menu'
-import { getPrevText } from '@/lib/editor'
-import { ImageResizer } from './extensions/image-resizer'
-import { EditorProps } from '@tiptap/pm/view'
 import { Editor as EditorClass, Extensions } from '@tiptap/core'
+import { EditorProps } from '@tiptap/pm/view'
+import { EditorContent, JSONContent, useEditor } from '@tiptap/react'
+import va from '@vercel/analytics'
+import { useCompletion } from 'ai/react'
+import { useDebouncedCallback } from 'use-debounce'
+
+import { getPrevText } from '@/lib/editor'
+import useLocalStorage from '@/lib/hooks/use-local-storage'
+import { toast } from '@/components/ui/use-toast'
+
+import { EditorBubbleMenu } from './bubble-menu/bubble-menu'
+import { defaultExtensions } from './extensions/default-extensions'
+import { ImageResizer } from './extensions/image-resizer'
+import { defaultEditorProps } from './props'
 
 import '@/styles/prosemirror.css'
 
@@ -86,14 +88,17 @@ export default function Editor({
 
   const [hydrated, setHydrated] = useState(false)
 
-  const debouncedUpdates = useDebouncedCallback(async ({ editor }: { editor: EditorClass }) => {
-    const json = editor.getJSON()
-    onDebouncedUpdate(editor)
+  const debouncedUpdates = useDebouncedCallback(
+    async ({ editor }: { editor: EditorClass }) => {
+      const json = editor.getJSON()
+      onDebouncedUpdate(editor)
 
-    if (!disableLocalStorage) {
-      setContent(json)
-    }
-  }, debounceDuration)
+      if (!disableLocalStorage) {
+        setContent(json)
+      }
+    },
+    debounceDuration
+  )
 
   const editor = useEditor({
     extensions: [...defaultExtensions, ...extensions],

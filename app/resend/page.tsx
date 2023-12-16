@@ -1,8 +1,10 @@
 'use client'
-import Link from 'next/link'
-import { emailSchema } from '@/lib/email/utils'
+
 import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { z } from 'zod'
+
+import { emailSchema } from '@/lib/email/utils'
 
 type FormInput = z.infer<typeof emailSchema>
 type Errors = { [K in keyof FormInput]: string[] }
@@ -45,11 +47,17 @@ export default function ResendPage() {
         <div>
           <ol className="list-inside list-decimal space-y-1">
             <li>
-              <Link className="text-primary underline hover:text-muted-foreground" href="https://resend.com/signup">
+              <Link
+                className="text-primary underline hover:text-muted-foreground"
+                href="https://resend.com/signup"
+              >
                 Sign up
               </Link>{' '}
               or{' '}
-              <Link className="text-primary underline hover:text-muted-foreground" href="https://resend.com/login">
+              <Link
+                className="text-primary underline hover:text-muted-foreground"
+                href="https://resend.com/login"
+              >
                 Login
               </Link>{' '}
               to your Resend account
@@ -57,7 +65,9 @@ export default function ResendPage() {
             <li>Add and verify your domain</li>
             <li>
               Create an API Key and add to{' '}
-              <span className="ml-1 bg-neutral-100 p-0.5 font-mono font-thin text-neutral-600">.env</span>
+              <span className="ml-1 bg-neutral-100 p-0.5 font-mono font-thin text-neutral-600">
+                .env
+              </span>
             </li>
             <li>
               Update &quot;from:&quot; in{' '}
@@ -69,8 +79,13 @@ export default function ResendPage() {
           </ol>
         </div>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mt-4 space-y-3 border-t pt-4">
-        {errors && <p className="bg-neutral-50 p-3">{JSON.stringify(errors, null, 2)}</p>}
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="mt-4 space-y-3 border-t pt-4"
+      >
+        {errors && (
+          <p className="bg-neutral-50 p-3">{JSON.stringify(errors, null, 2)}</p>
+        )}
         <div>
           <label className="text-sm text-neutral-700">Name</label>
           <input

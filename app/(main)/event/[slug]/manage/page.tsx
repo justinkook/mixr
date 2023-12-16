@@ -1,17 +1,28 @@
 import Link from 'next/link'
-
 import { XCircleIcon } from 'lucide-react'
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import Editor from '@/components/editor/editor'
-import HeroEventCard from '@/components/event-hero-card'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'
 import { AgendaModal } from '@/components/agenda-modal'
+import Editor from '@/components/editor/editor'
+import HeroEventCard from '@/components/event-hero-card'
 import { FAQModal } from '@/components/faq-modal'
 
 type EventOverviewPageProps = {
@@ -20,7 +31,9 @@ type EventOverviewPageProps = {
   }
 }
 
-export default async function EventOverviewPage({ params }: EventOverviewPageProps) {
+export default async function EventOverviewPage({
+  params,
+}: EventOverviewPageProps) {
   return (
     <div className="h-full flex-col space-y-4 md:flex">
       <div className="flex lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
@@ -47,7 +60,9 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
             </CardHeader>
             <CardContent className="pb-4">
               <Input placeholder="Add a tag" className="w-full" />
-              <p className="py-2 text-xs text-muted-foreground">Enter a comma after each tag</p>
+              <p className="py-2 text-xs text-muted-foreground">
+                Enter a comma after each tag
+              </p>
               <Separator className="my-4" />
               <h4 className="pt-4 text-sm font-medium">Custom tags</h4>
             </CardContent>
@@ -65,7 +80,8 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
                 Solana <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
-                Polygon Labs <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
+                Polygon Labs{' '}
+                <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
               </Badge>
               <Badge className="mr-2">
                 Workshop <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
@@ -76,7 +92,9 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>About Event</CardTitle>
-                <CardDescription>Edit event description or auto generate using AI.</CardDescription>
+                <CardDescription>
+                  Edit event description or auto generate using AI.
+                </CardDescription>
               </div>
               <Button variant="secondary">Save Changes</Button>
             </CardHeader>
@@ -91,7 +109,8 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
               <div className="space-y-1.5">
                 <CardTitle>Event FAQ</CardTitle>
                 <CardDescription>
-                  Have a different question and can’t find the answer you’re looking for?
+                  Have a different question and can’t find the answer you’re
+                  looking for?
                 </CardDescription>
               </div>
               <FAQModal />
@@ -100,18 +119,22 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                  <AccordionContent>
+                    Yes. It adheres to the WAI-ARIA design pattern.
+                  </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
                   <AccordionTrigger>Is it styled?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It comes with default styles that matches the other components&apos; aesthetic.
+                    Yes. It comes with default styles that matches the other
+                    components&apos; aesthetic.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Is it animated?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It&apos;s animated by default, but you can disable it if you prefer.
+                    Yes. It&apos;s animated by default, but you can disable it
+                    if you prefer.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -121,7 +144,9 @@ export default async function EventOverviewPage({ params }: EventOverviewPagePro
             <CardHeader className="flex flex-row justify-between">
               <div className="space-y-1.5">
                 <CardTitle>Event Agenda</CardTitle>
-                <CardDescription>Add Agenda for your event. You can add multiple agenda items.</CardDescription>
+                <CardDescription>
+                  Add Agenda for your event. You can add multiple agenda items.
+                </CardDescription>
               </div>
               <AgendaModal />
             </CardHeader>

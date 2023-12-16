@@ -1,6 +1,19 @@
-import { Clock6Icon, CopyPlusIcon, MoreHorizontal, PenIcon, Trash } from 'lucide-react'
+import {
+  Clock6Icon,
+  CopyPlusIcon,
+  MoreHorizontal,
+  PenIcon,
+  Trash,
+} from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +29,9 @@ export function AgendaCard() {
     <Card className="rounded-l-none border-l-4 border-l-primary">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <span className="text-sm font-semibold">Workshop: Zero Knowledge Proofs 101</span>
+          <span className="text-sm font-semibold">
+            Workshop: Zero Knowledge Proofs 101
+          </span>
           <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -46,7 +61,8 @@ export function AgendaCard() {
           </div>
         </CardTitle>
         <CardDescription className="line-clamp-2">
-          Elevate your event experience with premium perks like VIP access and recognition in event materials.
+          Elevate your event experience with premium perks like VIP access and
+          recognition in event materials.
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex space-x-4 text-sm text-muted-foreground">
