@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { metadataConfig } from '@/config/metadata'
 import { cn } from '@/lib/utils'
@@ -34,7 +34,7 @@ export default function RootLayout({
         <Providers>
           <NavLayout>{children}</NavLayout>
           <Toaster />
-          <Analytics />
+          <SpeedInsights />
         </Providers>
       </body>
       <Script type="text/javascript" src="https://js.finix.com/v/1/finix.js" />
