@@ -22,7 +22,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           <OrganizationSwitcher />
           <NavContent />
           <div className="ml-auto flex items-center space-x-4">
-            <div className="relative hidden flex-1 sm:flex">
+            <div className="relative flex-1">
               <SearchCommandModal />
             </div>
             {/* Profile dropdown */}
