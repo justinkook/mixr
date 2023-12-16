@@ -99,7 +99,12 @@ export function SearchCommandModal({ ...props }: DialogProps) {
           <CommandSeparator />
           <CommandGroup heading="Settings">
             {navItems.map((navItem) => (
-              <CommandItem key={navItem.href}>
+              <CommandItem
+                key={navItem.href}
+                onSelect={() => {
+                  runCommand(() => router.push(navItem.href))
+                }}
+              >
                 {navItem.icon && <navItem.icon className="mr-2 h-4 w-4" />}
                 <span>{navItem.title}</span>
               </CommandItem>

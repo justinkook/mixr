@@ -30,12 +30,14 @@ export function CurrentLocationCombobox() {
   const [locationInput, setLocationInput] = useState('')
   const [currentCoords, setCurrentCoords] = useState({})
   const [displayLocation, setDisplayLocation] = useState('New York')
+  const [isFetching, setIsFetching] = useState(false)
 
   const { data } = usePlaceAutocomplete(locationInput)
-  const { isLoading, data: currentLocation } = useCurrentLocation(currentCoords)
+  const { data: currentLocation } = useCurrentLocation(currentCoords)
 
   const getCurrentLocation = async () => {
     if (navigator.geolocation) {
+      setIsFetching(true)
       navigator.geolocation.getCurrentPosition(async (position) => {
         setCurrentCoords(position.coords)
       })
@@ -53,6 +55,7 @@ export function CurrentLocationCombobox() {
       const state = locationData.find((component: any) =>
         component.types.includes('administrative_area_level_1')
       ).short_name
+      setIsFetching(false)
       setDisplayLocation(`${city}, ${state}`)
     }
   }, [currentLocation])
@@ -66,8 +69,8 @@ export function CurrentLocationCombobox() {
         className="-ml-4 flex max-w-xs justify-between md:hidden"
         onClick={() => setOpenModal(true)}
       >
-        {isLoading ? (
-          <Skeleton className="mt-2 h-[40px] w-[150px]" />
+        {isFetching ? (
+          <Skeleton className="mt-2 h-[40px] w-[200px]" />
         ) : (
           <h2 className="mt-1 truncate text-3xl font-bold tracking-tight md:whitespace-normal">
             {displayLocation}
@@ -132,8 +135,8 @@ export function CurrentLocationCombobox() {
             aria-expanded={open}
             className="-ml-4 hidden max-w-xs justify-between md:flex md:max-w-full"
           >
-            {isLoading ? (
-              <Skeleton className="mt-2 h-[40px] w-[150px]" />
+            {isFetching ? (
+              <Skeleton className="mt-2 h-[40px] w-[200px]" />
             ) : (
               <h2 className="mt-1 truncate text-3xl font-bold tracking-tight md:whitespace-normal">
                 {displayLocation}
