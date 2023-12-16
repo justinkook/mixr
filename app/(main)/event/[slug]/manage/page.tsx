@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { XCircleIcon } from 'lucide-react'
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
@@ -12,7 +14,13 @@ import { AgendaCard } from '@/components/agenda-card'
 import { AgendaModal } from '@/components/agenda-modal'
 import { FAQModal } from '@/components/faq-modal'
 
-export default async function EventOverviewPage() {
+type EventOverviewPageProps = {
+  params: {
+    slug: string
+  }
+}
+
+export default async function EventOverviewPage({ params }: EventOverviewPageProps) {
   return (
     <div className="hidden h-full flex-col space-y-4 md:flex">
       <div className="flex lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
@@ -24,7 +32,9 @@ export default async function EventOverviewPage() {
                 <CardTitle>Event Details</CardTitle>
                 <CardDescription>Edit location and date.</CardDescription>
               </div>
-              <Button variant="link">View Page</Button>
+              <Link href={`/event/${params.slug}`}>
+                <Button variant="link">View Page</Button>
+              </Link>
             </CardHeader>
             <CardContent>
               <HeroEventCard />
