@@ -1,5 +1,5 @@
 import { Separator } from '@/components/ui/separator'
-import { EventForm } from '@/components/event/manage/settings/event/event-form'
+import { EventForm } from '@/components/settings/event/event-form'
 
 export default function SettingsEventPage() {
   return (

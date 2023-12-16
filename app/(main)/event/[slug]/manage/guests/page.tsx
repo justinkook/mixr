@@ -1,11 +1,11 @@
 import { z } from 'zod'
 import { guestSchema } from '@/lib/schema'
-import dataJSON from '@/components/event/manage/guests/guests.json'
+import dataJSON from '@/lib/mockData/guests.json'
 
 import { Separator } from '@/components/ui/separator'
-import { DataTable } from '@/components/event/manage/guests/data-table'
-import { columns } from '@/components/event/manage/guests/columns'
-import { InviteGuestModal } from '@/components/event/manage/guests/invite-guest-modal'
+import { DataTable } from '@/components/table/data-table'
+import { columns } from '@/components/table/columns'
+import { InviteGuestModal } from '@/components/invite-guest-modal'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {

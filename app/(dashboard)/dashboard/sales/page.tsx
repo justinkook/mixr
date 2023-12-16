@@ -1,10 +1,10 @@
 import { z } from 'zod'
 import { guestSchema } from '@/lib/schema'
-import dataJSON from '@/components/event/manage/guests/guests.json'
+import dataJSON from '@/lib/mockData/guests.json'
 
 import { Separator } from '@/components/ui/separator'
-import { DataTable } from '@/components/event/manage/guests/data-table'
-import { columns } from '@/components/event/manage/guests/columns'
+import { DataTable } from '@/components/table/data-table'
+import { columns } from '@/components/table/columns'
 import { Button } from '@/components/ui/button'
 
 // TODO: Replace Simulate a database read for tasks.

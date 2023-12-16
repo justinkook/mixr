@@ -1,4 +1,5 @@
-import { eventMockData, madeForYouEvents } from '@/components/event/events'
+import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
+
 import { TicketCard } from '@/components/ticket-card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 

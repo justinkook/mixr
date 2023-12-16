@@ -5,7 +5,7 @@ import { metadataConfig } from '@/config/metadata'
 import { Noto_Sans_JP } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { Providers } from '@/components/providers/providers'
-import NavLayout from '@/components/navigation/nav-layout'
+import NavLayout from '@/components/nav/nav-layout'
 import { Toaster } from '@/components/ui/toaster'
 
 import '@/styles/globals.css'

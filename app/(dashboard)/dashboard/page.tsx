@@ -1,9 +1,11 @@
-import { RecentSales } from '@/components/event/manage/insights/recent-sales'
-import HeroEventCard from '@/components/hero-event-card'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ActivityIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from 'lucide-react'
 import Link from 'next/link'
+
+import { ActivityIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from 'lucide-react'
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { RecentSales } from '@/components/recent-sales'
+import HeroEventCard from '@/components/event-hero-card'
+import { Button } from '@/components/ui/button'
 
 export default async function DashboardPage() {
   return (

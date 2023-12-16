@@ -1,8 +1,9 @@
+import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
+
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
-import { EventCard } from '@/components/event/event-card'
-import { eventMockData, madeForYouEvents } from '@/components/event/events'
+import { EventCard } from '@/components/event-card'
 
 export default function EventsPage() {
   return (

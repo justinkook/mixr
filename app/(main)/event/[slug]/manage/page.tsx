@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import Editor from '@/components/editor/editor'
-import HeroEventCard from '@/components/hero-event-card'
+import HeroEventCard from '@/components/event-hero-card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'

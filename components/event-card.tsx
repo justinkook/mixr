@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 import { HeartIcon } from 'lucide-react'
-import { Event } from './events'
-import DateCard from '../date-card'
+import { Event } from '../lib/mockData/events'
+import DateCard from './date-card'
 
 interface EventCardProps extends React.HTMLAttributes<HTMLDivElement> {
   event: Event

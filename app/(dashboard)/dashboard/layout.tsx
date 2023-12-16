@@ -1,7 +1,7 @@
 import { dashboardTabs } from '@/config/nav'
 
 import CreateEventModal from '@/components/create-event-modal'
-import TabNav from '@/components/event/manage/tab-nav'
+import TabNav from '@/components/nav/tab-nav'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (

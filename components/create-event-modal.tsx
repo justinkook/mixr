@@ -1,12 +1,14 @@
 'use client'
 
-import { CalendarIcon, CopyPlusIcon, MapPinIcon, PlusCircleIcon } from 'lucide-react'
 import Image from 'next/image'
+
+import { CalendarIcon, CopyPlusIcon, MapPinIcon, PlusCircleIcon } from 'lucide-react'
+
 import { Input } from '@/components/ui/input'
 import { LocationCombobox } from '@/components/location-combobox'
 import { Card } from '@/components/ui/card'
 import { Button, ButtonProps } from '@/components/ui/button'
-import { DateCombobox } from '@/components/date-combobox'
+import { DateTimeCombobox } from '@/components/date-time-combobox'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import OrganizationSwitcher from './organization-switcher'
 
@@ -78,7 +80,7 @@ export default function CreateEventModal({ variant, label }: CreateEventModalPro
                   <CalendarIcon className="h-6 w-6" />
                 </div>
                 <div className="flex w-full flex-col items-start self-center">
-                  <DateCombobox />
+                  <DateTimeCombobox />
                 </div>
               </div>
             </div>

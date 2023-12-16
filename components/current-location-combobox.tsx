@@ -13,7 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { toast } from './ui/use-toast'
 import { Skeleton } from './ui/skeleton'
 
-export function PlacesCombobox() {
+export function CurrentLocationCombobox() {
   const [open, setOpen] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [locationInput, setLocationInput] = useState('')

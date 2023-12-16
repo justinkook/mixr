@@ -1,7 +1,8 @@
-import { ShareEventtModal } from '@/components/event/manage/share-modal'
-import TabNav from '@/components/event/manage/tab-nav'
 import { formatPascalCase } from '@/lib/utils'
 import { NavItem } from '@/types/nav'
+
+import { ShareEventtModal } from '@/components/share-event-modal'
+import TabNav from '@/components/nav/tab-nav'
 
 export default function EventManageLayout({
   children,

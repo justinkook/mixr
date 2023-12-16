@@ -12,8 +12,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { ShareIcon } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../ui/select'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 
 export function ShareEventtModal() {
   return (

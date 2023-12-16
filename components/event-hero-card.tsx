@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ShareModal } from './share-modal'
 
-export default async function HeroEventCard() {
+export default async function EventHeroCard() {
   return (
     <div className="flex w-full flex-col justify-between lg:flex-row">
       <div className="flex w-full flex-col md:flex-row md:space-x-8">

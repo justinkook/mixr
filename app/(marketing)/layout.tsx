@@ -1,6 +1,6 @@
 import { BackNavbar } from '@/components/nav/back-navbar'
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <BackNavbar />

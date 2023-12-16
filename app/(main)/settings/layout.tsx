@@ -1,7 +1,7 @@
 import { userNav } from '@/config/nav'
 
 import { Separator } from '@/components/ui/separator'
-import { SettingsSidebar } from '@/components/navigation/settings-sidebar'
+import { SettingsSidebar } from '@/components/nav/settings-sidebar'
 
 interface SettingsLayoutProps {
   children: React.ReactNode
