@@ -46,7 +46,7 @@ export function TeamMembersForm() {
                 <ChevronDownIcon className="ml-2 h-4 w-4 text-muted-foreground" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="end">
+            <PopoverContent className="p-0 w-[16rem]" align="end">
               <Command>
                 <CommandInput placeholder="Select new role..." />
                 <CommandList>
@@ -100,7 +100,7 @@ export function TeamMembersForm() {
                 <ChevronDownIcon className="ml-2 h-4 w-4 text-muted-foreground" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="end">
+            <PopoverContent className="p-0 w-[16rem]" align="end">
               <Command>
                 <CommandInput placeholder="Select new role..." />
                 <CommandList>
