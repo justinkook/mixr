@@ -50,8 +50,8 @@ export function ShareEventtModal() {
           <h4 className="text-sm font-medium">People with access</h4>
           <div className="grid gap-6">
             <div className="flex items-center justify-between space-x-4">
-              <div className="flex items-center md:space-x-4">
-                <Avatar className="hidden md:flex">
+              <div className="flex items-center sm:space-x-4">
+                <Avatar className="hidden sm:flex">
                   <AvatarImage src="/avatars/03.png" />
                   <AvatarFallback>OM</AvatarFallback>
                 </Avatar>
@@ -73,8 +73,8 @@ export function ShareEventtModal() {
               </Select>
             </div>
             <div className="flex items-center justify-between space-x-4">
-              <div className="flex items-center md:space-x-4">
-                <Avatar className="hidden md:flex">
+              <div className="flex items-center sm:space-x-4">
+                <Avatar className="hidden sm:flex">
                   <AvatarImage src="/avatars/05.png" />
                   <AvatarFallback>IN</AvatarFallback>
                 </Avatar>
@@ -96,8 +96,8 @@ export function ShareEventtModal() {
               </Select>
             </div>
             <div className="flex items-center justify-between space-x-4">
-              <div className="flex items-center md:space-x-4">
-                <Avatar className="hidden md:flex">
+              <div className="flex items-center sm:space-x-4">
+                <Avatar className="hidden sm:flex">
                   <AvatarImage src="/avatars/01.png" />
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
