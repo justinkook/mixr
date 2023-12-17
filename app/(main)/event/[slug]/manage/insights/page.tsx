@@ -107,14 +107,16 @@ export default async function EventInsightsPage() {
               </Select>
             </CardTitle>
           </CardHeader>
-          <CardContent className="pl-2">{/* <SalesOverTime /> */}</CardContent>
+          <CardContent className="pl-2">
+            <SalesOverTime />
+          </CardContent>
         </Card>
         <Card className="col-span-4 lg:col-span-3">
           <CardHeader>
             <CardTitle>Sales by Ticket Type</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
-            {/* <SalesByTicketType /> */}
+            <SalesByTicketType />
           </CardContent>
         </Card>
       </div>
