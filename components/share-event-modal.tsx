@@ -128,7 +128,7 @@ export function ShareEventtModal() {
                 title: 'Successfully copied url:',
                 description: (
                   <div className="mt-2 rounded-md bg-foreground p-4">
-                    <div className="text-background whitespace-normal">
+                    <div className="text-background whitespace-normal break-words min-w-0">
                       {text}
                     </div>
                   </div>

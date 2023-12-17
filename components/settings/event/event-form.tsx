@@ -78,7 +78,7 @@ export function EventForm() {
                   <FormControl>
                     <Input
                       {...field}
-                      className="w-fit rounded-l-none border-l-0"
+                      className="w-fit rounded-l-none border-l-0 min-w-0"
                     />
                   </FormControl>
                   <CopyToClipboard
@@ -90,7 +90,7 @@ export function EventForm() {
                         title: 'Successfully copied url:',
                         description: (
                           <div className="mt-2 rounded-md bg-foreground p-4 w-full">
-                            <div className="text-background whitespace-normal">
+                            <div className="text-background whitespace-normal break-words min-w-0">
                               {text}
                             </div>
                           </div>
