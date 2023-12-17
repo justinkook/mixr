@@ -30,7 +30,9 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
       </Button>
       <div className="flex flex-1 items-center justify-between gap-x-4 self-stretch lg:gap-x-6">
         <div className="flex w-full items-center gap-x-4 lg:gap-x-6">
-          <OrganizationSwitcher />
+          <SignedIn>
+            <OrganizationSwitcher />
+          </SignedIn>
           <NavContent />
           <div className="ml-auto flex items-center space-x-4">
             <div className="relative flex-1">

@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 
 import { Event } from '../lib/mockData/events'
 import { DateCard } from './date-card'
+import { Button } from './ui/button'
 
 interface EventCardProps extends React.HTMLAttributes<HTMLDivElement> {
   event: Event
@@ -45,7 +46,12 @@ export function EventCard({
                   aspectRatio="square"
                 />
               </div>
-              <HeartIcon className="absolute right-4 top-4 fill-background stroke-primary hover:fill-primary" />
+              <Button
+                variant="ghost"
+                className="absolute right-4 top-4 hover:bg-transparent"
+              >
+                <HeartIcon className="fill-background stroke-primary hover:fill-primary" />
+              </Button>
             </>
           )}
         </div>
