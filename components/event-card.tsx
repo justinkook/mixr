@@ -25,8 +25,8 @@ export function EventCard({
 }: EventCardProps) {
   return (
     <div className={cn('space-y-3', className)} {...props}>
-      <Link href={`/event/${event.name}`}>
-        <div className="relative overflow-hidden rounded-md">
+      <div className="relative overflow-hidden rounded-md">
+        <Link href={`/event/${event.name}`}>
           <Image
             src={event.cover}
             alt={event.name}
@@ -37,25 +37,25 @@ export function EventCard({
               aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
             )}
           />
-          {event.date?.day && event.date?.month && (
-            <>
-              <div className="absolute left-2 top-2">
-                <DateCard
-                  day={event.date?.day}
-                  month={event.date?.month}
-                  aspectRatio="square"
-                />
-              </div>
-              <Button
-                variant="ghost"
-                className="absolute right-4 top-4 hover:bg-transparent"
-              >
-                <HeartIcon className="fill-background stroke-primary hover:fill-primary" />
-              </Button>
-            </>
-          )}
-        </div>
-      </Link>
+        </Link>
+        {event.date?.day && event.date?.month && (
+          <>
+            <div className="absolute left-2 top-2">
+              <DateCard
+                day={event.date?.day}
+                month={event.date?.month}
+                aspectRatio="square"
+              />
+            </div>
+            <Button
+              variant="ghost"
+              className="absolute right-4 top-4 hover:bg-transparent"
+            >
+              <HeartIcon className="fill-background stroke-primary hover:fill-primary" />
+            </Button>
+          </>
+        )}
+      </div>
       <div className="space-y-1 text-sm">
         <p className="text-xs text-muted-foreground">{event.organizer}</p>
         <h3 className="font-medium leading-none">{event.name}</h3>

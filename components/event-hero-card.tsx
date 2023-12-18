@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { MapPinIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -11,16 +12,19 @@ export async function EventHeroCard() {
     <div className="flex w-full flex-col justify-between lg:flex-row">
       <div className="flex w-full flex-col md:flex-row md:space-x-8">
         {/* Event Image */}
-        <Card className="h-auto w-full max-w-[350px] overflow-hidden rounded-lg">
-          <Image
-            priority
-            src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
-            alt={'alt'}
-            width={350}
-            height={350}
-            className="aspect-square h-full w-full object-cover object-center"
-          />
-        </Card>
+        <Link href={`/event/react-rendevous`}>
+          <Card className="h-auto w-full max-w-[350px] overflow-hidden rounded-lg">
+            <Image
+              priority
+              src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
+              alt={'alt'}
+              width={350}
+              height={350}
+              className="aspect-square h-full w-full object-cover object-center"
+            />
+          </Card>
+        </Link>
+        {/* Event Details */}
         <div className="flex flex-col md:mt-auto">
           <div className="mt-4">
             <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">
