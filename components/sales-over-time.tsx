@@ -71,7 +71,9 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
         <CardHeader>
           <CardTitle>${payload[0].value}</CardTitle>
           <CardDescription>
-            {format(new Date(label), 'iii, LLL dd')}
+            {!isNaN(new Date(label).getTime())
+              ? format(new Date(label), 'iii, LLL dd')
+              : label}
           </CardDescription>
         </CardHeader>
       </Card>
