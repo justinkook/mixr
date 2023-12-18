@@ -4,11 +4,10 @@ import { MapPinIcon } from 'lucide-react'
 
 import { Card } from '@/components/ui/card'
 
-export async function EventHeroCard({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+import { ShareModal } from './share-modal'
+import { Button } from './ui/button'
+
+export async function EventHeroCard() {
   return (
     <div className="flex w-full flex-col justify-between lg:flex-row">
       <div className="flex w-full flex-col md:flex-row md:space-x-8">
@@ -72,10 +71,10 @@ export async function EventHeroCard({
                   </div>
                   <div className="my-auto flex flex-col items-start self-center">
                     <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-                      The Hotel Chelsea
+                      222 W 23rd St
                     </div>
                     <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-                      222 W 23rd St New York, NY 10011
+                      New York, NY 10011
                     </div>
                   </div>
                 </div>
@@ -85,7 +84,10 @@ export async function EventHeroCard({
 
           <div className="mt-6 flex h-full items-end">
             <h3 className="sr-only">Save Event Changes Button</h3>
-            {children}
+            <Button className="max-w-xs flex-1" asChild>
+              <Link href={'/event/react-rendevous/manage'}>Manage Event</Link>
+            </Button>
+            <ShareModal className="ml-4" />
           </div>
         </div>
       </div>

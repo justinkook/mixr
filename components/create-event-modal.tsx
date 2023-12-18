@@ -1,14 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import {
-  CalendarIcon,
-  CopyPlusIcon,
-  MapPinIcon,
-  PlusCircleIcon,
-} from 'lucide-react'
+import { CalendarIcon, CopyPlusIcon, MapPinIcon } from 'lucide-react'
 
-import { Button, ButtonProps } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { DateTimeCombobox } from '@/components/date-time-combobox'

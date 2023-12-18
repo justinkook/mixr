@@ -51,9 +51,7 @@ export default async function EventOverviewPage({
               </Link>
             </CardHeader>
             <CardContent>
-              <EventHeroCard>
-                <CreateEventModal mode="edit" />
-              </EventHeroCard>
+              <EventHeroCard />
             </CardContent>
           </Card>
           <Card className="col-span-7 lg:col-span-3">
