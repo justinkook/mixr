@@ -1,7 +1,6 @@
 import { format } from 'date-fns'
 import {
   CalendarDaysIcon,
-  CopyPlusIcon,
   DollarSignIcon,
   LockIcon,
   MoreHorizontal,
@@ -73,9 +72,11 @@ export function TicketTypeCard({ ticketType }: TicketTypeCardProps) {
                       Edit Ticket
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="text-destructive">
-                      <Trash className="mr-2 h-4 w-4" />
-                      Delete
+                    <DropdownMenuItem className="group text-destructive">
+                      <Trash className="mr-2 h-4 w-4 group-hover:text-destructive" />
+                      <span className="group-hover:text-destructive">
+                        Delete
+                      </span>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>

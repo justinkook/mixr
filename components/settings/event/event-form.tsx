@@ -20,6 +20,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { toast } from '@/components/ui/use-toast'
+import { DeleteModal } from '@/components/delete-modal'
 
 const EventFormSchema = z.object({
   publicUrl: z
@@ -62,77 +63,79 @@ export function EventForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name={'maxCapacity'}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Max Capacity</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription>
-                Auto-close registration when the capacity is reached. Only
-                approved guests count toward the cap.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name={'publicUrl'}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Public Url</FormLabel>
-              <FormDescription>
-                Url must be a unique slug. When you choose a new URL, the
-                current one will no longer work.
-              </FormDescription>
-              <div className="mt-2 flex rounded-md">
-                <span className="inline-flex items-center rounded-l-md border border-r-0 border-muted bg-muted px-3 text-foreground sm:text-sm">
-                  event/
-                </span>
+    <>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name={'maxCapacity'}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Max Capacity</FormLabel>
                 <FormControl>
-                  <Input
-                    {...field}
-                    className="w-fit rounded-l-none border-l-0 min-w-0"
-                  />
+                  <Input {...field} />
                 </FormControl>
-                <CopyToClipboard
-                  text={`${absoluteUrl(
-                    `/event/${form.getValues('publicUrl')}`
-                  )}`}
-                  onCopy={(text: string) =>
-                    toast({
-                      title: 'Successfully copied url:',
-                      description: (
-                        <div className="mt-2 rounded-md bg-foreground p-4 w-full">
-                          <div className="text-background [overflow-wrap:anywhere] min-w-0">
-                            {text}
+                <FormDescription>
+                  Auto-close registration when the capacity is reached. Only
+                  approved guests count toward the cap.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name={'publicUrl'}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Public Url</FormLabel>
+                <FormDescription>
+                  Url must be a unique slug. When you choose a new URL, the
+                  current one will no longer work.
+                </FormDescription>
+                <div className="mt-2 flex rounded-md">
+                  <span className="inline-flex items-center rounded-l-md border border-r-0 border-muted bg-muted px-3 text-foreground sm:text-sm">
+                    event/
+                  </span>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      className="w-fit rounded-l-none border-l-0 min-w-0"
+                    />
+                  </FormControl>
+                  <CopyToClipboard
+                    text={`${absoluteUrl(
+                      `/event/${form.getValues('publicUrl')}`
+                    )}`}
+                    onCopy={(text: string) =>
+                      toast({
+                        title: 'Successfully copied url:',
+                        description: (
+                          <div className="mt-2 rounded-md bg-foreground p-4 w-full">
+                            <div className="text-background [overflow-wrap:anywhere] min-w-0">
+                              {text}
+                            </div>
                           </div>
-                        </div>
-                      ),
-                    })
-                  }
-                >
-                  <Button
-                    variant="outline"
-                    className="ml-2 shrink-0"
-                    type="button"
+                        ),
+                      })
+                    }
                   >
-                    <CopyIcon className="h-4 w-4" />
-                  </Button>
-                </CopyToClipboard>
-              </div>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Update event</Button>
-      </form>
+                    <Button
+                      variant="outline"
+                      className="ml-2 shrink-0"
+                      type="button"
+                    >
+                      <CopyIcon className="h-4 w-4" />
+                    </Button>
+                  </CopyToClipboard>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Update event</Button>
+        </form>
+      </Form>
       <div className="pt-8">
         <h3 className="text-lg font-medium">Delete Event</h3>
         <p className="text-sm text-muted-foreground">
@@ -141,9 +144,7 @@ export function EventForm() {
         </p>
       </div>
       <Separator />
-      <Button variant="destructive" type="button">
-        Delete event
-      </Button>
-    </Form>
+      <DeleteModal />
+    </>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LogOutIcon } from 'lucide-react'
 
 import { userNav } from '@/config/nav'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -40,12 +41,18 @@ export function UserNav() {
         <DropdownMenuGroup>
           {userNav.map((navItem) => (
             <Link key={navItem.href} href={navItem.href}>
-              <DropdownMenuItem>{navItem.title}</DropdownMenuItem>
+              <DropdownMenuItem>
+                {navItem.icon && <navItem.icon className="mr-2 w-4 h-4" />}
+                <span>{navItem.title}</span>
+              </DropdownMenuItem>
             </Link>
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Log out</DropdownMenuItem>
+        <DropdownMenuItem>
+          <LogOutIcon className="mr-2 h-4 w-4" />
+          <span>Log out</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

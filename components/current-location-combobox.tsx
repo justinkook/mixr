@@ -83,7 +83,7 @@ export function CurrentLocationCombobox() {
         <CommandInput
           placeholder="Enter Location..."
           value={locationInput}
-          onValueChange={(v) => setLocationInput(v)}
+          onValueChange={setLocationInput}
         />
         <CommandEmpty>No places found.</CommandEmpty>
         <CommandGroup>
@@ -150,7 +150,7 @@ export function CurrentLocationCombobox() {
             <CommandInput
               placeholder="Enter Location..."
               value={locationInput}
-              onValueChange={(v) => setLocationInput(v)}
+              onValueChange={setLocationInput}
             />
             <CommandEmpty>No places found.</CommandEmpty>
             <CommandGroup>
