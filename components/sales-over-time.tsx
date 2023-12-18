@@ -124,7 +124,11 @@ export function SalesOverTime() {
           axisLine={false}
           tickFormatter={(value) => `$${value}`}
         />
-        <Tooltip />
+        <Tooltip
+          content={({ active, payload, label }) => (
+            <CustomTooltip active={active} payload={payload} label={label} />
+          )}
+        />
       </LineChart>
     </ResponsiveContainer>
   )
