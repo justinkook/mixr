@@ -109,7 +109,13 @@ export function SalesOverTime() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(date) => format(new Date(date), 'LL/dd')}
+          tickFormatter={(date) => {
+            try {
+              return format(new Date(date), 'LL/dd')
+            } catch {
+              return date
+            }
+          }}
         />
         <YAxis
           stroke="hsl(var(--muted-foreground))"
