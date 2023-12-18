@@ -2,12 +2,12 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CopyIcon } from 'lucide-react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
 import { absoluteUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { Copy } from '@/components/ui/copy'
 import {
   Form,
   FormControl,
@@ -103,31 +103,12 @@ export function EventForm() {
                       className="w-fit rounded-l-none border-l-0 min-w-0"
                     />
                   </FormControl>
-                  <CopyToClipboard
-                    text={`${absoluteUrl(
+                  <Copy
+                    content={`${absoluteUrl(
                       `/event/${form.getValues('publicUrl')}`
                     )}`}
-                    onCopy={(text: string) =>
-                      toast({
-                        title: 'Successfully copied url:',
-                        description: (
-                          <div className="mt-2 rounded-md bg-foreground p-4 w-full">
-                            <div className="text-background [overflow-wrap:anywhere] min-w-0">
-                              {text}
-                            </div>
-                          </div>
-                        ),
-                      })
-                    }
-                  >
-                    <Button
-                      variant="outline"
-                      className="ml-2 shrink-0"
-                      type="button"
-                    >
-                      <CopyIcon className="h-4 w-4" />
-                    </Button>
-                  </CopyToClipboard>
+                    className="ml-2 my-auto"
+                  />
                 </div>
                 <FormMessage />
               </FormItem>

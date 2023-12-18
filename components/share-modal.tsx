@@ -10,10 +10,10 @@ import {
   ShareIcon,
   TwitterIcon,
 } from 'lucide-react'
-import CopyToClipboard from 'react-copy-to-clipboard'
 
 import { absoluteUrl, cn } from '@/lib/utils'
 import { Button, ButtonProps } from '@/components/ui/button'
+import { Copy } from '@/components/ui/copy'
 import {
   Dialog,
   DialogClose,
@@ -84,26 +84,7 @@ export function ShareModal({ className, props }: ShareModalProps) {
             </Label>
             <Input id="link" defaultValue={absoluteUrl(pathname)} readOnly />
           </div>
-          <CopyToClipboard
-            text={absoluteUrl(pathname)}
-            onCopy={(text: string) =>
-              toast({
-                title: 'Successfully copied url:',
-                description: (
-                  <div className="mt-2 rounded-md bg-foreground p-4">
-                    <div className="text-background [overflow-wrap:anywhere]">
-                      {text}
-                    </div>
-                  </div>
-                ),
-              })
-            }
-          >
-            <Button size="sm" className="px-3">
-              <span className="sr-only">Copy</span>
-              <CopyIcon className="h-4 w-4" />
-            </Button>
-          </CopyToClipboard>
+          <Copy content={absoluteUrl(pathname)} className="ml-2 my-auto" />
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
