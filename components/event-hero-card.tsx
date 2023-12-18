@@ -27,6 +27,9 @@ export async function EventHeroCard() {
         {/* Event Details */}
         <div className="flex flex-col md:mt-auto">
           <div className="mt-4">
+            <h4 className="text-sm font-medium leading-8 tracking-tight text-muted-foreground sm:text-base">
+              Private
+            </h4>
             <h2 className="text-2xl font-bold leading-8 tracking-tight sm:text-3xl">
               React Rendezvous
             </h2>
