@@ -33,7 +33,7 @@ export default function SettingsLayout({
             </p>
           </div>
           <div className="flex items-center space-x-2">
-            <CreateEventModal label="Duplicate Event" variant="secondary" />
+            <CreateEventModal mode="duplicate" />
           </div>
         </div>
         <Separator className="my-6" />

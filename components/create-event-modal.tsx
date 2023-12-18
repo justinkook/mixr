@@ -15,6 +15,7 @@ import { DateTimeCombobox } from '@/components/date-time-combobox'
 import { LocationCombobox } from '@/components/location-combobox'
 
 import { OrganizationSwitcher } from './organization-switcher'
+import { ShareModal } from './share-modal'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 
 const product = {
@@ -38,22 +39,31 @@ const product = {
 }
 
 type CreateEventModalProps = {
-  variant?: ButtonProps['variant']
-  label?: string
+  mode: 'default' | 'edit' | 'duplicate'
 }
 
-export function CreateEventModal({ variant, label }: CreateEventModalProps) {
+export function CreateEventModal({ mode = 'default' }: CreateEventModalProps) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant={variant}>
-          {label === 'Duplicate Event' ? (
+      <DialogTrigger>
+        {mode === 'duplicate' && (
+          <Button variant="secondary">
             <CopyPlusIcon className="mr-2 h-4 w-4" />
-          ) : (
-            <PlusCircleIcon className="mr-2 h-4 w-4" />
-          )}
-          {label || 'Create Event'}
-        </Button>
+            Duplicate Event
+          </Button>
+        )}
+        {mode === 'edit' && (
+          <div className="w-[280px] flex">
+            <Button className="w-full">Edit Event</Button>
+            <ShareModal className="ml-4" />
+          </div>
+        )}
+        {mode === 'default' && (
+          <Button variant="secondary">
+            <CopyPlusIcon className="mr-2 h-4 w-4" />
+            Create Event
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent>
         {/* Product info */}
@@ -110,7 +120,9 @@ export function CreateEventModal({ variant, label }: CreateEventModalProps) {
 
           <div className="mt-6">
             <h3 className="sr-only">Create Event Button</h3>
-            <Button className="w-full">Create Event</Button>
+            <Button className="w-full">
+              {mode === 'edit' ? 'Save changes' : 'Create event'}
+            </Button>
           </div>
         </div>
       </DialogContent>

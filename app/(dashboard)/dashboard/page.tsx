@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/card'
 import { EventHeroCard } from '@/components/event-hero-card'
 import { RecentSales } from '@/components/recent-sales'
+import { ShareModal } from '@/components/share-modal'
 
 export default async function DashboardPage() {
   return (
@@ -82,7 +83,12 @@ export default async function DashboardPage() {
             </Link>
           </CardHeader>
           <CardContent>
-            <EventHeroCard />
+            <EventHeroCard>
+              <Button className="max-w-xs flex-1">
+                <Link href={'/event/react-rendevous/manage'}>Manage Event</Link>
+              </Button>
+              <ShareModal className="ml-4" />
+            </EventHeroCard>
           </CardContent>
         </Card>
         <Card className="md:col-span-2 lg:col-span-3">

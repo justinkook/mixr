@@ -71,10 +71,10 @@ export function DateTimeCombobox() {
             <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
               {value
                 ? locations.find((location) => location.value === value)?.label
-                : 'Add Event Date'}
+                : 'Add Date & Time'}
             </div>
             <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-              Enter start date and end date
+              Enter start and end
             </div>
           </Button>
         </DialogTrigger>

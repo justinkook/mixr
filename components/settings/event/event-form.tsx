@@ -30,6 +30,9 @@ const EventFormSchema = z.object({
     .max(20, {
       message: 'Slug must not be longer than 20 characters.',
     }),
+  maxCapacity: z.number().min(1, {
+    message: 'Capacity must be at least 1.',
+  }),
 })
 
 type EventFormValues = z.infer<typeof EventFormSchema>
@@ -37,6 +40,7 @@ type EventFormValues = z.infer<typeof EventFormSchema>
 // This can come from your database or API.
 const defaultValues: Partial<EventFormValues> = {
   publicUrl: 'newy-art-festival',
+  maxCapacity: 100,
 }
 
 export function EventForm() {
@@ -60,61 +64,74 @@ export function EventForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div>
-          <FormField
-            control={form.control}
-            name={'publicUrl'}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Public Url</FormLabel>
-                <FormDescription>
-                  Url must be a unique slug. When you choose a new URL, the
-                  current one will no longer work.
-                </FormDescription>
-                <div className="mt-2 flex rounded-md">
-                  <span className="inline-flex items-center rounded-l-md border border-r-0 border-muted bg-muted px-3 text-foreground sm:text-sm">
-                    event/
-                  </span>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      className="w-fit rounded-l-none border-l-0 min-w-0"
-                    />
-                  </FormControl>
-                  <CopyToClipboard
-                    text={`${absoluteUrl(
-                      `/event/${form.getValues('publicUrl')}`
-                    )}`}
-                    onCopy={(text: string) =>
-                      toast({
-                        title: 'Successfully copied url:',
-                        description: (
-                          <div className="mt-2 rounded-md bg-foreground p-4 w-full">
-                            <div className="text-background [overflow-wrap:anywhere] min-w-0">
-                              {text}
-                            </div>
+        <FormField
+          control={form.control}
+          name={'maxCapacity'}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Max Capacity</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormDescription>
+                Auto-close registration when the capacity is reached. Only
+                approved guests count toward the cap.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name={'publicUrl'}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Public Url</FormLabel>
+              <FormDescription>
+                Url must be a unique slug. When you choose a new URL, the
+                current one will no longer work.
+              </FormDescription>
+              <div className="mt-2 flex rounded-md">
+                <span className="inline-flex items-center rounded-l-md border border-r-0 border-muted bg-muted px-3 text-foreground sm:text-sm">
+                  event/
+                </span>
+                <FormControl>
+                  <Input
+                    {...field}
+                    className="w-fit rounded-l-none border-l-0 min-w-0"
+                  />
+                </FormControl>
+                <CopyToClipboard
+                  text={`${absoluteUrl(
+                    `/event/${form.getValues('publicUrl')}`
+                  )}`}
+                  onCopy={(text: string) =>
+                    toast({
+                      title: 'Successfully copied url:',
+                      description: (
+                        <div className="mt-2 rounded-md bg-foreground p-4 w-full">
+                          <div className="text-background [overflow-wrap:anywhere] min-w-0">
+                            {text}
                           </div>
-                        ),
-                      })
-                    }
+                        </div>
+                      ),
+                    })
+                  }
+                >
+                  <Button
+                    variant="outline"
+                    className="ml-2 shrink-0"
+                    type="button"
                   >
-                    <Button
-                      variant="outline"
-                      className="ml-2 shrink-0"
-                      type="button"
-                    >
-                      <CopyIcon className="h-4 w-4" />
-                    </Button>
-                  </CopyToClipboard>
-                </div>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <Button variant="secondary" type="submit">
-          Update URL
-        </Button>
+                    <CopyIcon className="h-4 w-4" />
+                  </Button>
+                </CopyToClipboard>
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Update event</Button>
       </form>
       <div className="pt-8">
         <h3 className="text-lg font-medium">Delete Event</h3>
@@ -124,7 +141,9 @@ export function EventForm() {
         </p>
       </div>
       <Separator />
-      <Button variant="destructive">Delete event</Button>
+      <Button variant="destructive" type="button">
+        Delete event
+      </Button>
     </Form>
   )
 }

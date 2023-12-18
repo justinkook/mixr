@@ -2,12 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MapPinIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 
-import { ShareModal } from './share-modal'
-
-export async function EventHeroCard() {
+export async function EventHeroCard({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <div className="flex w-full flex-col justify-between lg:flex-row">
       <div className="flex w-full flex-col md:flex-row md:space-x-8">
@@ -84,8 +85,7 @@ export async function EventHeroCard() {
 
           <div className="mt-6 flex h-full items-end">
             <h3 className="sr-only">Save Event Changes Button</h3>
-            <Button className="max-w-xs flex-1">Manage Event</Button>
-            <ShareModal className="ml-4" />
+            {children}
           </div>
         </div>
       </div>

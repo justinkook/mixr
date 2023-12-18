@@ -21,6 +21,7 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'
 import { AgendaModal } from '@/components/agenda-modal'
+import { CreateEventModal } from '@/components/create-event-modal'
 import { Editor } from '@/components/editor/editor'
 import { EventHeroCard } from '@/components/event-hero-card'
 import { FAQModal } from '@/components/faq-modal'
@@ -50,7 +51,9 @@ export default async function EventOverviewPage({
               </Link>
             </CardHeader>
             <CardContent>
-              <EventHeroCard />
+              <EventHeroCard>
+                <CreateEventModal mode="edit" />
+              </EventHeroCard>
             </CardContent>
           </Card>
           <Card className="col-span-7 lg:col-span-3">
