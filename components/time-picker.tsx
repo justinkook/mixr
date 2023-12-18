@@ -232,7 +232,7 @@ export function TimePicker({ className }: { className?: string }) {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0">
+      <PopoverContent className="p-0 w-[8rem]">
         <Command>
           <ScrollArea className="max-h-[300px] overflow-y-auto">
             <CommandGroup>
@@ -248,7 +248,9 @@ export function TimePicker({ className }: { className?: string }) {
                   <Check
                     className={cn(
                       'mr-2 h-4 w-4',
-                      value === time.value ? 'opacity-100' : 'opacity-0'
+                      value.toLowerCase() === time.value.toLowerCase()
+                        ? 'opacity-100'
+                        : 'opacity-0'
                     )}
                   />
                   {time.label}
