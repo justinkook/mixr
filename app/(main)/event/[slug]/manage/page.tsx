@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { XCircleIcon } from 'lucide-react'
 
 import {
   Accordion,
@@ -7,21 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
 import { AgendaCard } from '@/components/agenda-card'
 import { AgendaModal } from '@/components/agenda-modal'
-import { CreateEventModal } from '@/components/create-event-modal'
+import { CustomTagsForm } from '@/components/custom-tags-form'
 import { Editor } from '@/components/editor/editor'
 import { EventHeroCard } from '@/components/event-hero-card'
 import { FAQModal } from '@/components/faq-modal'
@@ -60,34 +55,8 @@ export default async function EventOverviewPage({
               <CardDescription>Add tags for help in discovery.</CardDescription>
             </CardHeader>
             <CardContent className="pb-4">
-              <Input placeholder="Add a tag" className="w-full" />
-              <p className="py-2 text-xs text-muted-foreground">
-                Enter a comma after each tag
-              </p>
-              <Separator className="my-4" />
-              <h4 className="pt-4 text-sm font-medium">Custom tags</h4>
+              <CustomTagsForm />
             </CardContent>
-            <CardFooter className="flex-wrap gap-4 overflow-y-auto">
-              <Badge className="mr-2">
-                Tech <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-              <Badge className="mr-2">
-                Crypto <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-              <Badge className="mr-2">
-                NFT.NYC <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-              <Badge className="mr-2">
-                Solana <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-              <Badge className="mr-2">
-                Polygon Labs{' '}
-                <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-              <Badge className="mr-2">
-                Workshop <XCircleIcon className="ml-2 h-4 w-4 cursor-pointer" />
-              </Badge>
-            </CardFooter>
           </Card>
           <Card className="col-span-7">
             <CardHeader className="flex flex-row justify-between">

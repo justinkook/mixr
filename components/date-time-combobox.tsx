@@ -14,6 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog'
+import { Separator } from './ui/separator'
 
 const locations = [
   {
@@ -45,19 +46,24 @@ export function DateTimeCombobox() {
     <>
       {/* Desktop Combobox */}
       <div className="hidden w-full flex-col items-start self-start rounded-lg bg-muted p-4 md:flex">
-        <div className="flex w-full items-center justify-between space-x-2 pb-2">
+        <div className="flex w-full items-center justify-between space-x-2">
           <div className="self-center whitespace-nowrap pr-4 text-sm font-bold leading-5 text-foreground lg:text-base">
             Start
           </div>
-          <DatePicker />
-          <TimePicker />
+          <div className="flex items-center space-x-2">
+            <DatePicker />
+            <TimePicker />
+          </div>
         </div>
+        <Separator className="my-2" />
         <div className="flex w-full items-center justify-between space-x-2">
           <div className="self-center whitespace-nowrap pr-6 text-sm font-bold leading-5 text-foreground lg:text-base">
             End
           </div>
-          <DatePicker />
-          <TimePicker />
+          <div className="flex items-center space-x-2">
+            <DatePicker />
+            <TimePicker />
+          </div>
         </div>
       </div>
 
@@ -90,6 +96,7 @@ export function DateTimeCombobox() {
               <DatePicker />
               <TimePicker />
             </div>
+            <Separator />
             <div className="flex w-full items-center justify-between space-x-2">
               <div className="self-center whitespace-nowrap pr-6 text-sm font-bold leading-5 text-foreground lg:text-base">
                 End

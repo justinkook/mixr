@@ -17,14 +17,22 @@ const Checkbox = React.forwardRef<
       className
     )}
     {...props}
-  >
-    <CheckboxPrimitive.Indicator
-      className={cn('flex items-center justify-center text-current')}
-    >
-      <Check className="h-4 w-4" />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
+  />
 ))
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
-export { Checkbox }
+const CheckboxIndicator = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Indicator>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Indicator>
+>(({ children, className, ...props }, ref) => (
+  <CheckboxPrimitive.Indicator
+    ref={ref}
+    className={cn('flex items-center justify-center text-current', className)}
+    {...props}
+  >
+    {children ? children : <Check className="h-4 w-4" />}
+  </CheckboxPrimitive.Indicator>
+))
+CheckboxIndicator.displayName = CheckboxPrimitive.Indicator.displayName
+
+export { Checkbox, CheckboxIndicator }

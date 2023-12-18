@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { AvatarStack } from './ui/avatar-stack'
 
 type Event = {
   name: string
@@ -73,19 +74,14 @@ export function EventGridCard({
           7:00 PM
         </div>
         <div className="flex items-center">
-          <Avatar className="h-4 w-4">
-            <AvatarImage src="/images/card.png" />
-            <AvatarFallback>JK</AvatarFallback>
-          </Avatar>
-          <Avatar className="h-4 w-4 -ml-[6px] border-l-background border-2">
-            <AvatarImage src="https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80" />
-            <AvatarFallback>JK</AvatarFallback>
-          </Avatar>
-          <Avatar className="h-4 w-fit -ml-[6px]">
-            <AvatarImage />
-            <AvatarFallback className="text-xs px-1">+85</AvatarFallback>
-          </Avatar>
-          Going
+          <AvatarStack
+            avatars={[
+              '/images/card.png',
+              'https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80',
+              'https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80',
+              'https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?w=300&dpr=2&q=80',
+            ]}
+          />
         </div>
       </CardFooter>
     </Card>

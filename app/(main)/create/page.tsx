@@ -1,15 +1,16 @@
 'use client'
 
 import Image from 'next/image'
-import { OrganizationSwitcher } from '@clerk/clerk-react'
 import { CalendarIcon, MapPinIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { DateTimeCombobox } from '@/components/date-time-combobox'
 import { Editor } from '@/components/editor/editor'
 import { LocationCombobox } from '@/components/location-combobox'
+import { OrganizationSwitcher } from '@/components/organization-switcher'
 import { TicketTypeCard } from '@/components/ticket-type-card'
 
 const product = {
@@ -76,107 +77,201 @@ const ticketTypes = [
 
 export default function CreateEventPage() {
   return (
-    <div className="mx-auto max-w-2xl py-4 sm:px-4 sm:py-8 lg:max-w-7xl lg:px-8">
-      <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
-        <div className="lg:col-span-3 lg:row-end-1 lg:min-w-fit">
-          {/* Product info */}
-          <div className="flex flex-col">
-            <Card>
-              <CardHeader>
-                <div className="mb-2">
-                  <OrganizationSwitcher />
-                </div>
+    <Card>
+      <CardContent>
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+          <div className="col-span-1">
+            <CardHeader></CardHeader>
 
-                {/* Event Image */}
-                <Card className="max-h-[400px] overflow-hidden rounded-lg">
-                  <Image
-                    src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
-                    alt={product.images[0].alt}
-                    width={400}
-                    height={400}
-                    className="aspect-square h-full w-full object-cover object-center"
-                  />
-                </Card>
-              </CardHeader>
-              <CardContent>
-                <Input
-                  type="text"
-                  placeholder="Event Name"
-                  className="border-none pl-0 text-2xl font-bold leading-8 tracking-tight sm:text-3xl"
-                />
-
-                {/* Event Date & Time */}
-                <div className="mt-6">
-                  <h2 className="sr-only">Event Date</h2>
-                  <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
-                    <div className="flex w-full items-start justify-start gap-4 self-stretch">
-                      <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
-                        <CalendarIcon className="h-6 w-6" />
-                      </div>
-                      <div className="flex w-full flex-col items-start self-center">
-                        <DateTimeCombobox />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Location */}
-                <div className="mt-3">
-                  <h3 className="sr-only">Location</h3>
-                  <div className="flex items-center">
-                    <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
-                      <div className="flex w-full items-start justify-between gap-4 self-stretch">
-                        <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
-                          <MapPinIcon />
-                        </div>
-                        <div className="flex w-full flex-col items-start self-center">
-                          <LocationCombobox />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <h3 className="sr-only">Create Event Button</h3>
-                  <Button type="submit" className="w-full">
-                    Create Event
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        <div className="row-span-1 mx-auto mt-6 max-w-2xl flex-wrap lg:col-span-4 lg:row-end-2 lg:mt-0 xl:row-span-2">
-          <div className="flex flex-col">
-            {/* Description */}
-            <div className="mt-6 lg:mt-0">
-              <h3 className="sr-only">Description</h3>
-              <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
-                About Event
-              </h3>
-              <p className="mt-4">
-                <Editor />
-              </p>
+            <div className="mb-2">
+              <OrganizationSwitcher hidePersonal />
             </div>
 
-            {/* Tickets */}
-            <div className="mt-12 lg:mt-6">
-              <h3 className="sr-only">Tickets</h3>
-              <h3 className="mb-4 self-stretch text-base font-bold leading-6 lg:text-lg">
-                Tickets
-              </h3>
+            {/* Event Image */}
+            <div className="max-h-[373px] max-w-[373px] overflow-hidden rounded-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
+                alt={product.images[0].alt}
+                width={400}
+                height={400}
+                className="aspect-square h-full w-full object-cover object-center"
+              />
+            </div>
 
-              <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
+            <Input
+              type="text"
+              placeholder="Event Name"
+              className="border-none pl-0 text-2xl font-bold leading-8 tracking-tight sm:text-3xl"
+            />
+
+            {/* Event Date & Time */}
+            <div className="mt-6">
+              <h2 className="sr-only">Event Date</h2>
+              <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                <div className="flex w-full items-start justify-start gap-4 self-stretch">
+                  <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                    <CalendarIcon className="h-6 w-6" />
+                  </div>
+                  <div className="flex w-full flex-col items-start self-center">
+                    <DateTimeCombobox />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Location */}
+            <div className="mt-3">
+              <h3 className="sr-only">Location</h3>
+              <div className="flex items-center">
+                <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+                  <div className="flex w-full items-start justify-between gap-4 self-stretch">
+                    <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+                      <MapPinIcon />
+                    </div>
+                    <div className="flex w-full flex-col items-start self-center">
+                      <LocationCombobox />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="sr-only">Create Event Button</h3>
+              <Button type="submit" className="w-full">
+                Create Event
+              </Button>
+            </div>
+          </div>
+
+          <div className="col-span-1">
+            <CardHeader></CardHeader>
+            <h3 className="sr-only">Description</h3>
+            <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
+              About Event
+            </h3>
+            <Card className="mt-4 max-h-[400px]">
+              <Editor className="h-[400px]" />
+            </Card>
+
+            <h3 className="sr-only">Tickets</h3>
+            <h3 className="mb-4 self-stretch text-base font-bold leading-6 lg:text-lg">
+              Tickets
+            </h3>
+            <ScrollArea className="max-h-[400px] overflow-y-auto">
+              <div className="grid gap-4 grid-cols-1">
                 {ticketTypes.map((ticketType, index) => (
                   <TicketTypeCard key={index} ticketType={ticketType} />
                 ))}
               </div>
-            </div>
+              <ScrollBar orientation="vertical" />
+            </ScrollArea>
           </div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
+
+    // <div className="mx-auto max-w-2xl py-4 sm:px-4 sm:py-8 lg:max-w-7xl lg:px-8">
+    //   <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+    //     <div className="lg:col-span-3 lg:row-end-1 lg:min-w-fit">
+    //       {/* Product info */}
+    //       <div className="flex flex-col">
+    //         <Card>
+    //           <CardHeader>
+    // <div className="mb-2">
+    //   <OrganizationSwitcher />
+    // </div>
+
+    // {/* Event Image */}
+    // <Card className="max-h-[400px] overflow-hidden rounded-lg">
+    //   <Image
+    //     src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80"
+    //     alt={product.images[0].alt}
+    //     width={400}
+    //     height={400}
+    //     className="aspect-square h-full w-full object-cover object-center"
+    //   />
+    // </Card>
+    //           </CardHeader>
+    //           <CardContent>
+    // <Input
+    //   type="text"
+    //   placeholder="Event Name"
+    //   className="border-none pl-0 text-2xl font-bold leading-8 tracking-tight sm:text-3xl"
+    // />
+
+    // {/* Event Date & Time */}
+    // <div className="mt-6">
+    //   <h2 className="sr-only">Event Date</h2>
+    //   <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+    //     <div className="flex w-full items-start justify-start gap-4 self-stretch">
+    //       <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+    //         <CalendarIcon className="h-6 w-6" />
+    //       </div>
+    //       <div className="flex w-full flex-col items-start self-center">
+    //         <DateTimeCombobox />
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+    // {/* Location */}
+    // <div className="mt-3">
+    //   <h3 className="sr-only">Location</h3>
+    //   <div className="flex items-center">
+    //     <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+    //       <div className="flex w-full items-start justify-between gap-4 self-stretch">
+    //         <div className="flex h-12 w-12 flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+    //           <MapPinIcon />
+    //         </div>
+    //         <div className="flex w-full flex-col items-start self-center">
+    //           <LocationCombobox />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+    // <div className="mt-6">
+    //   <h3 className="sr-only">Create Event Button</h3>
+    //   <Button type="submit" className="w-full">
+    //     Create Event
+    //   </Button>
+    // </div>
+    //           </CardContent>
+    //         </Card>
+    //       </div>
+    //     </div>
+
+    //     <div className="row-span-1 mx-auto mt-6 max-w-2xl flex-wrap lg:col-span-4 lg:row-end-2 lg:mt-0 xl:row-span-2">
+    //       <div className="flex flex-col">
+    //         {/* Description */}
+    //         <div className="mt-6 lg:mt-0">
+    //           <h3 className="sr-only">Description</h3>
+    //           <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
+    //             About Event
+    //           </h3>
+    //           <p className="mt-4">
+    //             <Editor />
+    //           </p>
+    //         </div>
+
+    //         {/* Tickets */}
+    //         <div className="mt-12 lg:mt-6">
+    // <h3 className="sr-only">Tickets</h3>
+    // <h3 className="mb-4 self-stretch text-base font-bold leading-6 lg:text-lg">
+    //   Tickets
+    // </h3>
+
+    // <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
+    //   {ticketTypes.map((ticketType, index) => (
+    //     <TicketTypeCard key={index} ticketType={ticketType} />
+    //   ))}
+    // </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   )
 }
