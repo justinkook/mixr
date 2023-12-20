@@ -53,12 +53,7 @@ export function CreateEventModal({ mode = 'default' }: CreateEventModalProps) {
             <ShareModal className="ml-4" />
           </div>
         )}
-        {mode === 'default' && (
-          <Button variant="secondary">
-            <CopyPlusIcon className="mr-2 h-4 w-4" />
-            Create Event
-          </Button>
-        )}
+        {mode === 'default' && <Button>Create Event</Button>}
       </DialogTrigger>
       <DialogContent>
         {/* Product info */}
