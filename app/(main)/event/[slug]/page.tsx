@@ -270,8 +270,8 @@ export default function Example() {
                 {/* Colors */}
                 <div className="space-y-4">
                   {/* <h3 className="text-sm font-medium text-gray-900">Color</h3> */}
-                  {product.colors.map((color) => (
-                    <RegistrationCard />
+                  {product.colors.map((color, index) => (
+                    <RegistrationCard key={index} />
                   ))}
 
                   {/* <RadioGroup
