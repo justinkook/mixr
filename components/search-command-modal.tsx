@@ -97,7 +97,7 @@ export function SearchCommandModal({ ...props }: DialogProps) {
             ))}
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Settings">
+          <CommandGroup heading="You">
             {navItems.map((navItem) => (
               <CommandItem
                 key={navItem.href}

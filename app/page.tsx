@@ -1,4 +1,4 @@
-import { Zap } from 'lucide-react'
+import { Zap, ZapOffIcon } from 'lucide-react'
 
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Button } from '@/components/ui/button'
@@ -6,7 +6,9 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CurrentLocationCombobox } from '@/components/current-location-combobox'
+import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { EventCard } from '@/components/event-card'
+import { EventGridCard } from '@/components/event-grid-card'
 
 export default function Home() {
   return (
@@ -223,6 +225,35 @@ export default function Home() {
               </div>
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
+          </TabsContent>
+          <TabsContent value="trending">
+            <div className="mt-6 flex justify-between space-y-1">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Trending Events
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Sorted by activity such as by views and likes.
+                </p>
+              </div>
+            </div>
+            <Separator className="my-4" />
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {eventMockData.length > 0 ? (
+                eventMockData.map((event, index) => (
+                  <EventGridCard key={index} />
+                ))
+              ) : (
+                <EmptyPlaceholder
+                  className="col-span-3"
+                  content={{
+                    icon: ZapOffIcon,
+                    title: 'No events available',
+                    description: 'You have not saved any upcoming events.',
+                  }}
+                />
+              )}
+            </div>
           </TabsContent>
         </Tabs>
       </div>

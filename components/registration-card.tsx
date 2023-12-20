@@ -1,123 +1,63 @@
-import { SignedOut } from '@clerk/nextjs'
+'use client'
+
+import * as React from 'react'
+import { Minus, Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select'
 
 export function RegistrationCard() {
+  const [goal, setGoal] = React.useState(1)
+
+  function onClick(e: any, adjustment: number) {
+    e.preventDefault()
+    setGoal(Math.max(1, Math.min(20, goal + adjustment)))
+  }
+
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-sm font-medium">Ticket Type</CardTitle>
+      <CardHeader className="pb-4">
+        <CardTitle className="flex justify-between text-base">
+          <span>General Admission</span>$54
+        </CardTitle>
+        <CardDescription>GA Tickets for entrance A</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6">
-        <RadioGroup
-          id="ticket-type"
-          defaultValue="card"
-          className="grid grid-cols-1 gap-4 lg:grid-cols-2"
-        >
-          <div>
-            <RadioGroupItem value="card" id="card" className="peer sr-only" />
-            <Card className="flex w-full flex-1 flex-col rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-              <CardTitle className="text-sm font-medium">
-                General Admission
-              </CardTitle>
-              <CardDescription className="line-clamp-2">
-                Ticket for GA access
-              </CardDescription>
-              <CardFooter className="w-full items-end justify-between p-0">
-                <div className="flex items-center space-x-4">
-                  <p className="text-sm font-medium">FREE</p>
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="quantity" className="sr-only">
-                    Quantity
-                  </Label>
-                  <Select>
-                    <SelectTrigger id="quantity" className="mr-4">
-                      <SelectValue placeholder="1" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1</SelectItem>
-                      <SelectItem value="2">2</SelectItem>
-                      <SelectItem value="3">3</SelectItem>
-                      <SelectItem value="4">4</SelectItem>
-                      <SelectItem value="5">5</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </CardFooter>
-            </Card>
+      <CardContent className="pb-2">
+        <div className="flex items-center justify-center space-x-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8 shrink-0 rounded-full"
+            onClick={(e) => onClick(e, -1)}
+            disabled={goal <= 1}
+          >
+            <Minus className="h-4 w-4" />
+            <span className="sr-only">Decrease</span>
+          </Button>
+          <div className="flex-1 text-center">
+            <div className="text-5xl font-bold tracking-tighter">{goal}</div>
+            <div className="text-[0.70rem] uppercase text-muted-foreground">
+              Tickets
+            </div>
           </div>
-          <div>
-            <RadioGroupItem value="vip" id="card" className="peer sr-only" />
-            <Card className="flex w-full flex-1 flex-col rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-              <CardTitle className="text-sm font-medium">VIP</CardTitle>
-              <CardDescription className="line-clamp-1">
-                Elevate your event experience with premium perks like VIP access
-                and recognition in event materials.
-              </CardDescription>
-              <CardFooter className="w-full items-end justify-between p-0">
-                <div className="flex items-center space-x-4">
-                  <p className="text-sm font-medium">FREE</p>
-                  <p className="text-sm text-muted-foreground">
-                    Requires Approval
-                  </p>
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="quantity" className="sr-only">
-                    Quantity
-                  </Label>
-                  <Select>
-                    <SelectTrigger id="quantity" className="mr-4">
-                      <SelectValue placeholder="1" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1</SelectItem>
-                      <SelectItem value="2">2</SelectItem>
-                      <SelectItem value="3">3</SelectItem>
-                      <SelectItem value="4">4</SelectItem>
-                      <SelectItem value="5">5</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </CardFooter>
-            </Card>
-          </div>
-        </RadioGroup>
-        <SignedOut>
-          <div className="grid gap-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" type="text" placeholder="First Last" />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="number">Email Address</Label>
-            <Input id="email" type="email" placeholder="" />
-          </div>
-        </SignedOut>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8 shrink-0 rounded-full"
+            onClick={(e) => onClick(e, 1)}
+            disabled={goal >= 20}
+          >
+            <Plus className="h-4 w-4" />
+            <span className="sr-only">Increase</span>
+          </Button>
+        </div>
       </CardContent>
-      <CardFooter>
-        <Button type="submit" size="lg" className="w-full">
-          Continue
-        </Button>
-      </CardFooter>
     </Card>
   )
 }

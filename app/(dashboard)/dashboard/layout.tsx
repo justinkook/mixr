@@ -3,6 +3,7 @@ import { PlusCircleIcon } from 'lucide-react'
 
 import { dashboardTabs } from '@/config/nav'
 import { Button } from '@/components/ui/button'
+import { CreateEventModal } from '@/components/create-event-modal'
 import { TabNav } from '@/components/nav/tab-nav'
 
 export default function DashboardLayout({
@@ -15,12 +16,7 @@ export default function DashboardLayout({
       <div className="flex items-center justify-between space-y-2">
         <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
         <div className="flex items-center space-x-2">
-          <Button asChild>
-            <Link href="/create">
-              <PlusCircleIcon className="mr-2 h-4 w-4" />
-              Create Event
-            </Link>
-          </Button>
+          <CreateEventModal mode="default" />
         </div>
       </div>
       <TabNav items={dashboardTabs} />
