@@ -34,10 +34,10 @@ const product = {
 }
 
 type CreateEventModalProps = {
-  mode: 'default' | 'edit' | 'duplicate'
+  mode?: 'create' | 'edit' | 'duplicate'
 }
 
-export function CreateEventModal({ mode = 'default' }: CreateEventModalProps) {
+export function CreateEventModal({ mode = 'create' }: CreateEventModalProps) {
   return (
     <Dialog>
       <DialogTrigger>
@@ -53,7 +53,7 @@ export function CreateEventModal({ mode = 'default' }: CreateEventModalProps) {
             <ShareModal className="ml-4" />
           </div>
         )}
-        {mode === 'default' && <Button>Create Event</Button>}
+        {mode === 'create' && <Button>Create Event</Button>}
       </DialogTrigger>
       <DialogContent>
         {/* Product info */}
