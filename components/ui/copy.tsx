@@ -51,30 +51,28 @@ const Copy = React.forwardRef<
   const Component = asChild ? Slot : Button
 
   return (
-    <TooltipProvider>
-      <Tooltip open={done || open} onOpenChange={setOpen}>
-        <TooltipTrigger asChild>
-          <Component
-            variant="secondary"
-            ref={ref}
-            aria-label="Copy code snippet"
-            type="button"
-            className={cn('h-fit w-fit', className)}
-            onClick={copyToClipboard}
-            {...props}
-          >
-            {children ? (
-              children
-            ) : done ? (
-              <CheckCircle2Icon className="w-4 h-4" />
-            ) : (
-              <CopyIcon className="w-4 h-4" />
-            )}
-          </Component>
-        </TooltipTrigger>
-        <TooltipContent>{text}</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip open={done || open} onOpenChange={setOpen}>
+      <TooltipTrigger asChild>
+        <Component
+          variant="secondary"
+          ref={ref}
+          aria-label="Copy code snippet"
+          type="button"
+          className={cn('h-fit w-fit', className)}
+          onClick={copyToClipboard}
+          {...props}
+        >
+          {children ? (
+            children
+          ) : done ? (
+            <CheckCircle2Icon className="w-4 h-4" />
+          ) : (
+            <CopyIcon className="w-4 h-4" />
+          )}
+        </Component>
+      </TooltipTrigger>
+      <TooltipContent>{text}</TooltipContent>
+    </Tooltip>
   )
 })
 Copy.displayName = 'Copy'

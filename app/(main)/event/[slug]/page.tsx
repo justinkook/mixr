@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { MapPinIcon } from 'lucide-react'
+import { InfoIcon, MapPinIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import {
@@ -15,11 +15,16 @@ import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { OrganizerCard } from '@/components/organizer-card'
 import { RegistrationCard } from '@/components/registration-card'
 
@@ -81,12 +86,8 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 }
-const reviews = { href: '#', average: 4, totalCount: 117 }
 
-export default function Example() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-
+export default function EventPage() {
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -228,176 +229,70 @@ export default function Example() {
 
           {/* Options */}
           <Card className="hidden sm:flex sm:flex-col mt-4 lg:row-span-3 lg:mt-0 h-fit">
-            <CardHeader>
+            <CardHeader className="pb-4">
               <CardTitle>Registration</CardTitle>
-              <CardDescription>Select number of tickets</CardDescription>
             </CardHeader>
             <CardContent>
-              {/* <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">
-                {product.price}
-              </p> */}
-
-              {/* Reviews */}
-              {/* <div className="mt-6">
-                <h3 className="sr-only">Reviews</h3>
-                <div className="flex items-center">
-                  <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
-                      <StarIcon
-                        key={rating}
-                        className={cn(
-                          reviews.average > rating
-                            ? 'text-gray-900'
-                            : 'text-gray-200',
-                          'h-5 w-5 flex-shrink-0'
-                        )}
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                  <p className="sr-only">{reviews.average} out of 5 stars</p>
-                  <a
-                    href={reviews.href}
-                    className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    {reviews.totalCount} reviews
-                  </a>
-                </div>
-              </div> */}
-
               <form>
                 {/* Colors */}
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {/* <h3 className="text-sm font-medium text-gray-900">Color</h3> */}
                   {product.colors.map((color, index) => (
                     <RegistrationCard key={index} />
                   ))}
-
-                  {/* <RadioGroup
-                    value={selectedColor}
-                    onChange={setSelectedColor}
-                    className="mt-4"
-                  >
-                    <RadioGroup.Label className="sr-only">
-                      Choose a color
-                    </RadioGroup.Label>
-                    <div className="flex items-center space-x-3">
-                      {product.colors.map((color) => (
-                        <RadioGroup.Option
-                          key={color.name}
-                          value={color}
-                          className={({ active, checked }) =>
-                            cn(
-                              color.selectedClass,
-                              active && checked ? 'ring ring-offset-1' : '',
-                              !active && checked ? 'ring-2' : '',
-                              'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
-                            )
-                          }
-                        >
-                          <RadioGroup.Label as="span" className="sr-only">
-                            {color.name}
-                          </RadioGroup.Label>
-                          <span
-                            aria-hidden="true"
-                            className={cn(
-                              color.class,
-                              'h-8 w-8 rounded-full border border-black border-opacity-10'
-                            )}
-                          />
-                        </RadioGroup.Option>
-                      ))}
-                    </div>
-                  </RadioGroup> */}
                 </div>
-
-                {/* Sizes */}
-                {/* <div className="mt-10">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Size guide
-                    </a>
-                  </div>
-
-                  <RadioGroup
-                    value={selectedSize}
-                    onChange={setSelectedSize}
-                    className="mt-4"
-                  >
-                    <RadioGroup.Label className="sr-only">
-                      Choose a size
-                    </RadioGroup.Label>
-                    <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                      {product.sizes.map((size) => (
-                        <RadioGroup.Option
-                          key={size.name}
-                          value={size}
-                          disabled={!size.inStock}
-                          className={({ active }) =>
-                            cn(
-                              size.inStock
-                                ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                                : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                              active ? 'ring-2 ring-indigo-500' : '',
-                              'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
-                            )
-                          }
-                        >
-                          {({ active, checked }) => (
-                            <>
-                              <RadioGroup.Label as="span">
-                                {size.name}
-                              </RadioGroup.Label>
-                              {size.inStock ? (
-                                <span
-                                  className={cn(
-                                    active ? 'border' : 'border-2',
-                                    checked
-                                      ? 'border-indigo-500'
-                                      : 'border-transparent',
-                                    'pointer-events-none absolute -inset-px rounded-md'
-                                  )}
-                                  aria-hidden="true"
-                                />
-                              ) : (
-                                <span
-                                  aria-hidden="true"
-                                  className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                >
-                                  <svg
-                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                    viewBox="0 0 100 100"
-                                    preserveAspectRatio="none"
-                                    stroke="currentColor"
-                                  >
-                                    <line
-                                      x1={0}
-                                      y1={100}
-                                      x2={100}
-                                      y2={0}
-                                      vectorEffect="non-scaling-stroke"
-                                    />
-                                  </svg>
-                                </span>
-                              )}
-                            </>
-                          )}
-                        </RadioGroup.Option>
-                      ))}
-                    </div>
-                  </RadioGroup>
-                </div> */}
-
-                <Button type="submit" className="mt-10 w-full">
+                <Button type="submit" className="my-6 w-full">
                   Continue
                 </Button>
               </form>
             </CardContent>
+            <CardFooter>
+              <div className="space-y-4 w-full">
+                <div className="flex items-center">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium leading-none">GA</p>
+                    <p className="text-sm text-muted-foreground">
+                      $23 x 4 tickets
+                    </p>
+                  </div>
+                  <div className="ml-auto font-medium">$92.00</div>
+                </div>
+
+                <div className="flex items-center">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium leading-none">VIP</p>
+                    <p className="text-sm text-muted-foreground">
+                      $49 x 5 tickets
+                    </p>
+                  </div>
+                  <div className="ml-auto font-medium">$245.00</div>
+                </div>
+
+                <div className="flex items-center">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium leading-none space-x-2">
+                      <span>Service fee</span>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <InfoIcon className="inline-block h-4 w-4" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          Credit card processing fee + platform fee
+                        </TooltipContent>
+                      </Tooltip>
+                    </p>
+                  </div>
+                  <div className="ml-auto font-medium">$16.85</div>
+                </div>
+
+                <Separator />
+
+                <div className="flex items-center justify-between">
+                  <p className="font-medium leading-none">Total before taxes</p>
+                  <div className="ml-auto font-medium">$353.85</div>
+                </div>
+              </div>
+            </CardFooter>
           </Card>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -479,34 +374,7 @@ export default function Example() {
               <h3 className="self-stretch text-base font-bold leading-6 lg:text-lg">
                 Organizer
               </h3>
-
               <OrganizerCard />
-
-              {/* <div className="mt-4 flex items-center">
-                <div className="flex h-full w-full items-center justify-between gap-5 self-stretch px-0">
-                  <div className="flex items-start justify-between gap-4 self-stretch">
-                    <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch px-4 py-1.5">
-                      <Link href="/dashboard/revent">
-                        <Avatar className="h-12 w-12">
-                          <AvatarImage src="/images/card.png" alt="@revent" />
-                          <AvatarFallback>RE</AvatarFallback>
-                        </Avatar>
-                      </Link>
-                    </div>
-                    <div className="my-auto flex flex-col items-start self-center">
-                      <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-                        Revent
-                      </div>
-                      <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-                        12k Members
-                      </div>
-                    </div>
-                  </div>
-                  <Button variant="outline" size="lg">
-                    Join
-                  </Button>
-                </div>
-              </div> */}
             </div>
 
             {/* Location Map */}
