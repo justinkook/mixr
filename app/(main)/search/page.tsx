@@ -11,7 +11,6 @@ import {
   PartyPopperIcon,
   SchoolIcon,
   ShirtIcon,
-  SlidersHorizontalIcon,
   UsersIcon,
   ZapOffIcon,
 } from 'lucide-react'
@@ -19,6 +18,7 @@ import {
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { SearchFilters } from '@/components/ui/search-filters'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
@@ -33,7 +33,7 @@ export default function SearchPage() {
         <Search />
         <Tabs defaultValue="grid" className="h-full space-y-6">
           <div className="flex items-center flex-wrap md:flex-nowrap space-y-4 md:space-y-0">
-            <div className="space-x-2 min-w-fit">
+            <div className="flex space-x-2 min-w-fit">
               <TabsList className="h-[36px]">
                 <TabsTrigger value="grid">
                   <LayoutGridIcon className="h-4 w-4" />
@@ -42,10 +42,7 @@ export default function SearchPage() {
                   <AlignJustifyIcon className="h-4 w-4" />
                 </TabsTrigger>
               </TabsList>
-              <Button variant={'outline'}>
-                <SlidersHorizontalIcon className="mr-2 h-4 w-4" />
-                Filters
-              </Button>
+              <SearchFilters />
             </div>
 
             <Separator
