@@ -25,18 +25,20 @@ export function EventCard({
 }: EventCardProps) {
   return (
     <div className={cn('space-y-3', className)} {...props}>
-      <div className="relative overflow-hidden rounded-md">
+      <div className="relative">
         <Link href={`/event/${event.name}`}>
-          <Image
-            src={event.cover}
-            alt={event.name}
-            width={width}
-            height={height}
-            className={cn(
-              'h-auto w-auto object-cover transition-all hover:scale-105',
-              aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
-            )}
-          />
+          <div className="w-full flex flex-1 rounded-lg overflow-hidden">
+            <Image
+              src={event.cover}
+              alt={event.name}
+              width={width}
+              height={height}
+              className={cn(
+                'h-auto w-full object-cover transition-all hover:scale-105',
+                aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
+              )}
+            />
+          </div>
         </Link>
         {event.date?.day && event.date?.month && (
           <>
