@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { DialogProps } from '@radix-ui/react-dialog'
 import { Calendar, FileIcon, SearchIcon, Smile } from 'lucide-react'
@@ -54,14 +55,16 @@ export function SearchCommandModal({ ...props }: DialogProps) {
         onClick={() => setOpen(true)}
         {...props}
       >
-        <span className="hidden lg:inline-flex">Search events...</span>
+        <span className="hidden lg:inline-flex">Search...</span>
         <span className="inline-flex lg:hidden">Search...</span>
         <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <Button variant="ghost" className="flex sm:hidden">
-        <SearchIcon className="h-6 w-6" onClick={() => setOpen(true)} />
+      <Button variant="ghost" className="flex sm:hidden" asChild>
+        <Link href={'/search'}>
+          <SearchIcon className="h-5 w-5 text-muted-foreground" />
+        </Link>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
@@ -73,12 +76,16 @@ export function SearchCommandModal({ ...props }: DialogProps) {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
             <CommandItem>
-              <Calendar className="mr-2 h-4 w-4" />
-              <span>{`Search ${searchQuery} in Events`}</span>
+              <Link href={`/search?input=${searchQuery}`}>
+                <Calendar className="mr-2 h-4 w-4" />
+                <span>{`Search ${searchQuery} in Events`}</span>
+              </Link>
             </CommandItem>
             <CommandItem>
-              <Smile className="mr-2 h-4 w-4" />
-              <span>{`Search ${searchQuery} in Organizers`}</span>
+              <Link href={`/search?input=${searchQuery}`}>
+                <Smile className="mr-2 h-4 w-4" />
+                <span>{`Search ${searchQuery} in Organizers`}</span>
+              </Link>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />

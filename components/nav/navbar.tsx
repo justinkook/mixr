@@ -9,6 +9,7 @@ import { MenuIcon } from 'lucide-react'
 import { OrganizationSwitcher } from '../organization-switcher'
 import { SearchCommandModal } from '../search-command-modal'
 import { Button } from '../ui/button'
+import { Notifications } from '../ui/notifications'
 import { NavContent } from './nav-content'
 import { UserNav } from './user-nav'
 
@@ -40,6 +41,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
             </div>
             {/* Profile dropdown */}
             <SignedIn>
+              <Notifications />
               <UserNav />
             </SignedIn>
             <SignedOut>
