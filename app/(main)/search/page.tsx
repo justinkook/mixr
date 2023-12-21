@@ -35,11 +35,11 @@ export default function SearchPage() {
           <div className="flex items-center flex-wrap md:flex-nowrap space-y-2 md:space-y-0">
             <div className="space-x-2 min-w-fit">
               <TabsList className="h-[36px]">
-                <TabsTrigger value="column" className="relative">
-                  <AlignJustifyIcon className="h-4 w-4" />
-                </TabsTrigger>
                 <TabsTrigger value="grid">
                   <LayoutGridIcon className="h-4 w-4" />
+                </TabsTrigger>
+                <TabsTrigger value="column">
+                  <AlignJustifyIcon className="h-4 w-4" />
                 </TabsTrigger>
               </TabsList>
               <Button variant={'outline'}>
