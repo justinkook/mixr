@@ -139,7 +139,7 @@ export const sidebarNav: SidebarNavItem[] = [
       },
       {
         title: 'Browse',
-        href: '/browse',
+        href: '/search',
         icon: LayoutGridIcon,
         items: [],
       },
@@ -165,7 +165,7 @@ export const dashboardSidebarNav: SidebarNavItem[] = [
       },
       {
         title: 'Marketplace',
-        href: '/marketplace',
+        href: '/search',
         icon: LayoutGridIcon,
         items: [],
       },
