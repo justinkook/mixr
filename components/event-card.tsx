@@ -53,7 +53,7 @@ export function EventCard({
               variant="ghost"
               className="absolute right-4 top-4 hover:bg-transparent"
             >
-              <HeartIcon className="fill-background stroke-primary hover:fill-primary" />
+              <HeartIcon className="fill-primary-foreground stroke-primary hover:fill-primary" />
             </Button>
           </>
         )}

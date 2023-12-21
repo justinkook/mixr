@@ -60,7 +60,7 @@ export function EventGridCard({
             </div>
           </div>
           <Button variant="ghost" className="px-3 hover:bg-transparent">
-            <HeartIcon className="h-5 w-5 fill-background stroke-primary hover:fill-primary" />
+            <HeartIcon className="h-5 w-5 fill-primary-foreground stroke-primary hover:fill-primary" />
           </Button>
         </div>
       </CardContent>
