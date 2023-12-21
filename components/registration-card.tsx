@@ -4,10 +4,12 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
 
+import { Button } from './ui/button'
 import { Counter } from './ui/counter'
 
 export function RegistrationCard() {
@@ -22,6 +24,9 @@ export function RegistrationCard() {
       <CardContent className="pb-2">
         <Counter />
       </CardContent>
+      <CardFooter>
+        <Button className="w-full">Add to cart</Button>
+      </CardFooter>
     </Card>
   )
 }

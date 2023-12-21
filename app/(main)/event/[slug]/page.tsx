@@ -241,58 +241,12 @@ export default function EventPage() {
                     <RegistrationCard key={index} />
                   ))}
                 </div>
-                <Button type="submit" className="my-6 w-full">
-                  Continue
+                <Separator className="my-6" />
+                <Button variant="outline" className="w-full">
+                  Show more tickets
                 </Button>
               </form>
             </CardContent>
-            <CardFooter>
-              <div className="space-y-4 w-full">
-                <div className="flex items-center">
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">GA</p>
-                    <p className="text-sm text-muted-foreground">
-                      $23 x 4 tickets
-                    </p>
-                  </div>
-                  <div className="ml-auto font-medium">$92.00</div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">VIP</p>
-                    <p className="text-sm text-muted-foreground">
-                      $49 x 5 tickets
-                    </p>
-                  </div>
-                  <div className="ml-auto font-medium">$245.00</div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none space-x-2">
-                      <span>Service fee</span>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <InfoIcon className="inline-block h-4 w-4" />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          Credit card processing fee + platform fee
-                        </TooltipContent>
-                      </Tooltip>
-                    </p>
-                  </div>
-                  <div className="ml-auto font-medium">$16.85</div>
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <p className="font-medium leading-none">Total before taxes</p>
-                  <div className="ml-auto font-medium">$353.85</div>
-                </div>
-              </div>
-            </CardFooter>
           </Card>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">

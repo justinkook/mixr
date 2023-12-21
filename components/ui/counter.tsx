@@ -34,7 +34,7 @@ export function Counter({ label, minCount = 1, maxCount = 20 }: CounterProps) {
       <div className="flex-1 text-center">
         <div className="text-5xl font-bold tracking-tighter">{count}</div>
         <div className="text-[0.70rem] uppercase text-muted-foreground">
-          {label ? label : 'Tickets'}
+          {label ? label : count === 1 ? 'Ticket' : 'Tickets'}
         </div>
       </div>
       <Button
