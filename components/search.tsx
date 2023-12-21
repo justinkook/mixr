@@ -79,7 +79,7 @@ export default function Search() {
               text-background
             "
             >
-              <SearchIcon size={18} />
+              <SearchIcon size={18} className="text-primary-foreground" />
             </div>
           </div>
         </div>
