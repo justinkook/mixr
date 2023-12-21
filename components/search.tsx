@@ -16,6 +16,7 @@ export default function Search() {
       <div
         className="
         border-[1px] 
+        w-full
         min-w-[300px] 
         md:w-auto 
         py-2 

@@ -32,7 +32,7 @@ export default function SearchPage() {
       <div className="h-full space-y-6">
         <Search />
         <Tabs defaultValue="grid" className="h-full space-y-6">
-          <div className="flex items-center flex-wrap md:flex-nowrap space-y-2 md:space-y-0">
+          <div className="flex items-center flex-wrap md:flex-nowrap space-y-4 md:space-y-0">
             <div className="space-x-2 min-w-fit">
               <TabsList className="h-[36px]">
                 <TabsTrigger value="grid">
@@ -53,7 +53,7 @@ export default function SearchPage() {
               className="h-8 mx-4 hidden md:block"
             />
 
-            <ScrollArea className="flex-1">
+            <ScrollArea>
               <div className="flex space-x-2 overflow-x-auto">
                 <Button variant={'outline'} className="rounded-full">
                   <CpuIcon className="mr-2 h-4 w-4" />
