@@ -5,6 +5,7 @@ import {
   Home,
   InstagramIcon,
   LayoutGridIcon,
+  ScrollTextIcon,
   SettingsIcon,
   TicketIcon,
   TwitterIcon,
@@ -77,6 +78,13 @@ export const dashboardNav: SidebarNavItem[] = [
     href: '/dashboard/insights',
     icon: BarChartBigIcon,
     items: [],
+  },
+  {
+    title: 'Billing',
+    href: 'https://finix.payments-dashboard.com/',
+    icon: ScrollTextIcon,
+    items: [],
+    external: true,
   },
   {
     title: 'Settings',
