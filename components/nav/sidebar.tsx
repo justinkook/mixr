@@ -55,7 +55,15 @@ const events = [
   },
 ]
 
-export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
+type SidebarProps = {
+  setOpen: (open: boolean) => void
+  className?: string
+}
+
+export function Sidebar({
+  setOpen,
+  className,
+}: React.HTMLAttributes<HTMLDivElement> & SidebarProps) {
   const pathname = usePathname()
   const segments = useSelectedLayoutSegments()
   const sidebarNavItems = pathname.includes('dashboard')
@@ -87,19 +95,21 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 <ul role="list" className="space-y-1">
                   {navItem.items.map((subItem) => (
                     <li key={subItem.href}>
-                      <Link href={subItem.href}>
-                        <Button
-                          disabled={subItem.disabled}
-                          variant={
-                            pathname === subItem.href ||
-                            (subItem.segment &&
-                              segments.includes(subItem.segment) &&
-                              segments.length < 4)
-                              ? 'secondary'
-                              : 'ghost'
-                          }
-                          className="w-full justify-start"
-                        >
+                      <Button
+                        onClick={() => setOpen(false)}
+                        disabled={subItem.disabled}
+                        variant={
+                          pathname === subItem.href ||
+                          (subItem.segment &&
+                            segments.includes(subItem.segment) &&
+                            segments.length < 4)
+                            ? 'secondary'
+                            : 'ghost'
+                        }
+                        className="w-full justify-start"
+                        asChild
+                      >
+                        <Link href={subItem.href}>
                           {subItem.icon && (
                             <subItem.icon
                               className="mr-2 h-4 w-4"
@@ -107,8 +117,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                             />
                           )}
                           {subItem.title}
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -123,23 +133,25 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                   <ul role="list" className="space-y-1 p-2">
                     {events.map((event, index) => (
                       <li key={index}>
-                        <Link href={event.href}>
-                          <Button
-                            variant={
-                              pathname === event.href ||
-                              (event.slug && pathname.includes(event.slug))
-                                ? 'secondary'
-                                : 'ghost'
-                            }
-                            className="w-full justify-start font-normal"
-                          >
+                        <Button
+                          onClick={() => setOpen(false)}
+                          variant={
+                            pathname === event.href ||
+                            (event.slug && pathname.includes(event.slug))
+                              ? 'secondary'
+                              : 'ghost'
+                          }
+                          className="w-full justify-start font-normal"
+                          asChild
+                        >
+                          <Link href={event.href}>
                             <event.icon
                               className="mr-2 h-4 w-4"
                               aria-hidden="true"
                             />
                             <span className="truncate">{event.name}</span>
-                          </Button>
-                        </Link>
+                          </Link>
+                        </Button>
                       </li>
                     ))}
                   </ul>
