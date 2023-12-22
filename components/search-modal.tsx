@@ -230,6 +230,7 @@ export const SearchModal = () => {
                       defaultMonth={dateRange?.from}
                       selected={dateRange}
                       onSelect={setDateRange}
+                      disabled={{ before: new Date() }}
                     />
                   </CardContent>
                 </Card>
