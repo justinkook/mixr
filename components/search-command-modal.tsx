@@ -61,6 +61,11 @@ export function SearchCommandModal({ ...props }: DialogProps) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
+      <Button variant="ghost" className="flex sm:hidden" asChild>
+        <Link href={'/search'}>
+          <SearchIcon className="h-5 w-5 text-muted-foreground" />
+        </Link>
+      </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
           placeholder="Type a command or search..."
