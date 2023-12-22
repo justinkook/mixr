@@ -75,13 +75,19 @@ export function SearchCommandModal({ ...props }: DialogProps) {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
-            <Link href={`/search?input=${searchQuery}`}>
+            <Link
+              href={`/search?input=${searchQuery}`}
+              onClick={() => setOpen(false)}
+            >
               <CommandItem>
                 <Calendar className="mr-2 h-4 w-4" />
                 <span>{`Search ${searchQuery} in Events`}</span>
               </CommandItem>
             </Link>
-            <Link href={`/search?input=${searchQuery}`}>
+            <Link
+              href={`/search?input=${searchQuery}&type=organizers`}
+              onClick={() => setOpen(false)}
+            >
               <CommandItem>
                 <Smile className="mr-2 h-4 w-4" />
                 <span>{`Search ${searchQuery} in Organizers`}</span>
