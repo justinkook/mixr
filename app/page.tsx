@@ -238,21 +238,17 @@ export default function Home() {
               </div>
             </div>
             <Separator className="my-4" />
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {eventMockData.length > 0 ? (
-                eventMockData.map((event, index) => (
-                  <EventGridCard key={index} />
-                ))
-              ) : (
-                <EmptyPlaceholder
-                  className="col-span-3"
-                  content={{
-                    icon: ZapOffIcon,
-                    title: 'No events available',
-                    description: 'You have not saved any upcoming events.',
-                  }}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {madeForYouEvents.map((event) => (
+                <EventCard
+                  key={event.name}
+                  event={event}
+                  className="w-full flex-1"
+                  aspectRatio="square"
+                  width={450}
+                  height={450}
                 />
-              )}
+              ))}
             </div>
           </TabsContent>
         </Tabs>
