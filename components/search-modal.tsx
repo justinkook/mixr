@@ -278,7 +278,7 @@ export const SearchModal = () => {
                         className="rounded-full w-fit"
                         onClick={() => setInput(`New Year's Eve Parties`)}
                       >
-                        New Year's Eve Parties
+                        New Years Eve Parties
                       </Button>
                       <Button
                         variant="secondary"
