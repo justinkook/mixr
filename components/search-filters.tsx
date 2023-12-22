@@ -11,9 +11,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from './dialog'
-import { Input } from './input'
-import { Separator } from './separator'
+} from './ui/dialog'
+import { Input } from './ui/input'
+import { Separator } from './ui/separator'
 import {
   Sheet,
   SheetClose,
@@ -23,9 +23,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from './sheet'
-import { Slider } from './slider'
-import { Tabs, TabsList, TabsTrigger } from './tabs'
+} from './ui/sheet'
+import { Slider } from './ui/slider'
+import { Tabs, TabsList, TabsTrigger } from './ui/tabs'
 
 type SearchFilterProps = React.ComponentProps<
   typeof DialogContent | typeof SheetContent
@@ -41,7 +41,7 @@ export function SearchFilters({ className, ...props }: SearchFilterProps) {
             Filters
           </Button>
         </SheetTrigger>
-        <SheetContent className="w-full">
+        <SheetContent side="bottom" className="w-full">
           <SheetHeader>
             <SheetTitle>Filters</SheetTitle>
           </SheetHeader>

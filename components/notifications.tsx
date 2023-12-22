@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import { Popover, PopoverTrigger } from './popover'
+import { Popover, PopoverTrigger } from './ui/popover'
 import {
   Sheet,
   SheetClose,
@@ -22,7 +22,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from './sheet'
+} from './ui/sheet'
 
 const notifications = [
   {

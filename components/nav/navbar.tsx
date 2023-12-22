@@ -6,10 +6,10 @@ import {
 } from '@clerk/clerk-react'
 import { MenuIcon } from 'lucide-react'
 
+import { Notifications } from '../notifications'
 import { OrganizationSwitcher } from '../organization-switcher'
 import { SearchCommandModal } from '../search-command-modal'
 import { Button } from '../ui/button'
-import { Notifications } from '../ui/notifications'
 import { NavContent } from './nav-content'
 import { UserNav } from './user-nav'
 

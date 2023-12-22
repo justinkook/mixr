@@ -18,19 +18,19 @@ import {
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { SearchFilters } from '@/components/ui/search-filters'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { EventCard } from '@/components/event-card'
 import { EventGridCard } from '@/components/event-grid-card'
-import Search from '@/components/search'
+import { SearchFilters } from '@/components/search-filters'
+import { SearchModal } from '@/components/search-modal'
 
 export default function SearchPage() {
   return (
     <>
       <div className="h-full space-y-6">
-        <Search />
+        <SearchModal />
         <Tabs defaultValue="grid" className="h-full space-y-6">
           <div className="flex items-center flex-wrap md:flex-nowrap space-y-4 md:space-y-0">
             <div className="flex space-x-2 min-w-fit">
