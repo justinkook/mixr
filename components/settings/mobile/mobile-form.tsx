@@ -47,7 +47,7 @@ type MobileFormValues = z.infer<typeof mobileFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<MobileFormValues> = {
-  phoneNumbers: [{ value: '+17067280283', label: 'Primary' }],
+  phoneNumbers: [{ value: '+13123123123', label: 'Primary' }],
   countryCode: 'US',
 }
 
