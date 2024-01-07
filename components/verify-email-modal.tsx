@@ -30,6 +30,7 @@ export function VerifyEmailModal({
       name: string
       emails?:
         | {
+            label: string
             value: string
           }[]
         | undefined

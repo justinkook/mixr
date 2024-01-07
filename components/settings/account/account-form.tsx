@@ -32,6 +32,7 @@ const accountFormSchema = z.object({
   emails: z
     .array(
       z.object({
+        label: z.string(),
         value: z.string().email({ message: 'Please enter a valid email.' }),
       })
     )
@@ -43,7 +44,7 @@ type AccountFormValues = z.infer<typeof accountFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
-  emails: [{ value: 'm@example.com' }],
+  emails: [{ value: 'm@example.com', label: 'Primary' }],
   // name: "Your name",
   // dob: new Date("2023-01-23"),
 }
@@ -105,8 +106,29 @@ export function AccountForm() {
                     Add and verify email address.
                   </FormDescription>
                   <FormControl>
-                    <div className="flex items-center">
-                      <Input {...field} readOnly />
+                    <div className="flex w-full justify-between rounded-md border px-4 py-3 flex-row items-center">
+                      <p className="text-sm font-medium leading-none">
+                        <span className="text-muted-foreground">
+                          {field.value}
+                        </span>
+                        {(form.getValues(`emails.${index}.label`) ===
+                          'Primary' ||
+                          form.getValues(`emails.${index}.label`) ===
+                            'Unverified') && (
+                          <span
+                            className={cn(
+                              'ml-2 rounded-lg bg-destructive px-2 py-1 text-xs text-primary-foreground',
+                              {
+                                'bg-primary':
+                                  form.getValues(`emails.${index}.label`) ===
+                                  'Primary',
+                              }
+                            )}
+                          >
+                            {form.getValues(`emails.${index}.label`)}
+                          </span>
+                        )}
+                      </p>
                       <RemoveEmailModal
                         email={field.value}
                         index={index}

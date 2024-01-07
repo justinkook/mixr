@@ -43,6 +43,7 @@ export function EmailForm({
       name: string
       emails?:
         | {
+            label: string
             value: string
           }[]
         | undefined
@@ -61,7 +62,7 @@ export function EmailForm({
   const isDesktop = useMediaQuery('(min-width: 768px)')
 
   function onSubmit(data: EmailFormValues) {
-    append({ value: data.email })
+    append({ value: data.email, label: 'Unverified' })
     toast({
       title: 'Email verification sent to:',
       description: (
