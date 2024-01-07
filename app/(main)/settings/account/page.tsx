@@ -21,6 +21,7 @@ export default function SettingsAccountPage() {
             navbar: 'hidden',
             card: 'shadow-none w-full',
             pageScrollBox: 'p-0 overflow-hidden',
+            scrollBox: 'overflow-visible',
             header: 'hidden',
             rootBox: 'w-full',
           },
