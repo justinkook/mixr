@@ -7,6 +7,7 @@ import { useMediaQuery } from '@/hooks/use-media-query'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -34,6 +35,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import { toast } from './ui/use-toast'
 
 export function RemoveEmailModal({
   email,
@@ -44,6 +46,14 @@ export function RemoveEmailModal({
   index: number
   remove: UseFieldArrayRemove
 }) {
+  const onHandleClick = () => {
+    toast({
+      title: 'Email removed',
+      description: `${email} has been removed from your account.`,
+    })
+    remove(index)
+  }
+
   const isDesktop = useMediaQuery('(min-width: 768px)')
 
   if (isDesktop) {
@@ -85,7 +95,10 @@ export function RemoveEmailModal({
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="destructive" onClick={() => remove(index)}>
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <Button variant="destructive" onClick={onHandleClick}>
               Continue
             </Button>
           </DialogFooter>
@@ -132,7 +145,7 @@ export function RemoveEmailModal({
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
-          <Button variant="destructive" onClick={() => remove(index)}>
+          <Button variant="destructive" onClick={onHandleClick}>
             Continue
           </Button>
           <DrawerClose asChild>
