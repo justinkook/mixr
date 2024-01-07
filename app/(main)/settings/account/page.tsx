@@ -1,6 +1,8 @@
+'use client'
+
+import { UserProfile } from '@clerk/clerk-react'
+
 import { Separator } from '@/components/ui/separator'
-import { EmailForm } from '@/components/settings/email/email-form'
-import { MobileForm } from '@/components/settings/mobile/mobile-form'
 
 export default function SettingsAccountPage() {
   return (
@@ -12,8 +14,18 @@ export default function SettingsAccountPage() {
         </p>
       </div>
       <Separator />
-      <EmailForm />
-      <MobileForm />
+      <UserProfile
+        appearance={{
+          elements: {
+            navbarMobileMenuRow: 'hidden',
+            navbar: 'hidden',
+            card: 'shadow-none w-full',
+            pageScrollBox: 'p-0 overflow-hidden',
+            header: 'hidden',
+            rootBox: 'w-full',
+          },
+        }}
+      />
     </div>
   )
 }

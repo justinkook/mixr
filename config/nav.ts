@@ -52,11 +52,6 @@ export const userNav: SidebarNavItem[] = [
         items: [],
       },
       {
-        title: 'Security',
-        href: '/settings/security',
-        items: [],
-      },
-      {
         title: 'Appearance',
         href: '/settings/appearance',
         items: [],
