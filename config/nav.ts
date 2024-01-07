@@ -52,6 +52,11 @@ export const userNav: SidebarNavItem[] = [
         items: [],
       },
       {
+        title: 'Security',
+        href: '/settings/security',
+        items: [],
+      },
+      {
         title: 'Appearance',
         href: '/settings/appearance',
         items: [],
@@ -103,18 +108,8 @@ export const dashboardNav: SidebarNavItem[] = [
         items: [],
       },
       {
-        title: 'Account',
-        href: '/dashboard/settings/account',
-        items: [],
-      },
-      {
         title: 'Members',
         href: '/dashboard/settings/members',
-        items: [],
-      },
-      {
-        title: 'Appearance',
-        href: '/dashboard/settings/appearance',
         items: [],
       },
       {
