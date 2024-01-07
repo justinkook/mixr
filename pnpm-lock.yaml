@@ -179,6 +179,9 @@ dependencies:
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
+  libphonenumber-js:
+    specifier: ^1.10.53
+    version: 1.10.53
   lucide-react:
     specifier: ^0.290.0
     version: 0.290.0(react@18.2.0)
@@ -212,6 +215,12 @@ dependencies:
   react-moveable:
     specifier: ^0.55.0
     version: 0.55.0
+  react-otp-input:
+    specifier: ^3.1.1
+    version: 3.1.1(react-dom@18.2.0)(react@18.2.0)
+  react-phone-number-input:
+    specifier: ^3.3.8
+    version: 3.3.8(react-dom@18.2.0)(react@18.2.0)
   recharts:
     specifier: ^2.9.3
     version: 2.9.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -11757,6 +11766,13 @@ packages:
       typescript: 5.2.2
     dev: true
 
+  /country-flag-icons@1.5.9:
+    resolution:
+      {
+        integrity: sha512-9jrjv2w7kRbqNtdtMdK2j3gmDIZzd5l9L2pZiQjF9J0mUcB+NKIGDNADTDHBEp8EQtjOkCOcciJGGSOpERdXPQ==,
+      }
+    dev: false
+
   /create-ecdh@4.0.4:
     resolution:
       {
@@ -15555,6 +15571,15 @@ packages:
         integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==,
       }
 
+  /input-format@0.3.9:
+    resolution:
+      {
+        integrity: sha512-99Gew2huiuYpNsyZoucauy5OT3oXEoWUeINGES4SlU74eFxbtYqNO+yEP6uKFhfB0UKTvq4gOC+6/3Oskru+IQ==,
+      }
+    dependencies:
+      prop-types: 15.8.1
+    dev: false
+
   /internal-slot@1.0.6:
     resolution:
       {
@@ -17843,6 +17868,13 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
     dev: true
+
+  /libphonenumber-js@1.10.53:
+    resolution:
+      {
+        integrity: sha512-sDTnnqlWK4vH4AlDQuswz3n4Hx7bIQWTpIcScJX+Sp7St3LXHmfiax/ZFfyYxHmkdCvydOLSuvtAO/XpXiSySw==,
+      }
+    dev: false
 
   /lilconfig@2.1.0:
     resolution:
@@ -21247,6 +21279,37 @@ packages:
       overlap-area: 1.1.0
       react-css-styled: 1.1.9
       react-selecto: 1.26.1
+    dev: false
+
+  /react-otp-input@3.1.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-bjPavgJ0/Zmf/AYi4onj8FbH93IjeD+e8pWwxIJreDEWsU1ILR5fs8jEJmMGWSBe/yyvPP6X/W6Mk9UkOCkTPw==,
+      }
+    peerDependencies:
+      react: '>=16.8.6 || ^17.0.0 || ^18.0.0'
+      react-dom: '>=16.8.6 || ^17.0.0 || ^18.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-phone-number-input@3.3.8(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-9k9OslI3OfutpUbDgyvsiDuLXqZ5YqdPTT4fOynK0WsWFEdYp4inkgLchvXkqpCmnG1P8uTQLj6PBCkLJJvC7g==,
+      }
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      classnames: 2.3.2
+      country-flag-icons: 1.5.9
+      input-format: 0.3.9
+      libphonenumber-js: 1.10.53
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-refresh@0.11.0:

@@ -1,25 +1,17 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { DotsVerticalIcon } from '@radix-ui/react-icons'
-import { da } from 'date-fns/locale'
-import { PlusIcon, TrashIcon } from 'lucide-react'
+import parsePhoneNumber, {
+  AsYouType,
+  CountryCode,
+  isSupportedCountry,
+} from 'libphonenumber-js'
 import { useFieldArray, useForm } from 'react-hook-form'
-import OtpInput from 'react-otp-input'
 import * as z from 'zod'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import {
   Form,
   FormControl,
@@ -32,60 +24,74 @@ import {
 import { Input } from '@/components/ui/input'
 import { Modal } from '@/components/ui/modal'
 import { toast } from '@/components/ui/use-toast'
+import { CountrySelect } from '@/components/country-select'
 import { RemoveEmailModal } from '@/components/remove-email-modal'
 
 import { OtpForm } from '../otp/otp-form'
 
-const emailFormSchema = z.object({
-  emails: z.array(
+const mobileFormSchema = z.object({
+  phoneNumbers: z.array(
     z.object({
       label: z.string().default('Unverified').optional(),
-      value: z.string().email({ message: 'Please enter a valid email.' }),
+      value: z
+        .string()
+        .refine(
+          (str) => parsePhoneNumber(str, { defaultCountry: 'US' })?.isValid()
+        ),
     })
   ),
+  countryCode: z.string().refine(isSupportedCountry),
 })
 
-type EmailFormValues = z.infer<typeof emailFormSchema>
+type MobileFormValues = z.infer<typeof mobileFormSchema>
 
 // This can come from your database or API.
-const defaultValues: Partial<EmailFormValues> = {
-  emails: [{ value: 'm@example.com', label: 'Primary' }],
+const defaultValues: Partial<MobileFormValues> = {
+  phoneNumbers: [{ value: '+17067280283', label: 'Primary' }],
+  countryCode: 'US',
 }
 
 enum STEPS {
-  EMAIL = 0,
+  MOBILE = 0,
   VERIFICATION = 1,
 }
 
-export function EmailForm() {
-  const [step, setStep] = useState(STEPS.EMAIL)
-  const form = useForm<EmailFormValues>({
-    resolver: zodResolver(emailFormSchema),
+export function MobileForm() {
+  const [step, setStep] = useState(STEPS.MOBILE)
+  const form = useForm<MobileFormValues>({
+    resolver: zodResolver(mobileFormSchema),
     defaultValues,
     mode: 'onBlur',
   })
 
   const { fields, remove } = useFieldArray({
-    name: 'emails',
+    name: 'phoneNumbers',
     control: form.control,
   })
 
-  const onSubmit = (data: EmailFormValues) => {
-    if (step === STEPS.EMAIL) {
+  const onSubmit = (data: MobileFormValues) => {
+    if (step === STEPS.MOBILE) {
       setStep(STEPS.VERIFICATION)
       toast({
         title: 'Verification code sent',
         description: (
           <p className="mt-2">
-            An email containing a verification code has been sent to{' '}
+            A text message containing a verification code has been sent to{' '}
             <span className="font-medium">
-              {data.emails[data.emails.length - 1].value}
+              {data.phoneNumbers[data.phoneNumbers.length - 1].value}
             </span>
             .
           </p>
         ),
       })
     }
+  }
+
+  const transform = (value: string) => {
+    const asYouType = new AsYouType(
+      form.getValues('countryCode') as CountryCode
+    )
+    return asYouType.input(value)
   }
 
   return (
@@ -96,33 +102,34 @@ export function EmailForm() {
             <FormField
               control={form.control}
               key={field.id}
-              name={`emails.${index}.value`}
+              name={`phoneNumbers.${index}.value`}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                    Email addresses
+                    Phone numbers
                   </FormLabel>
                   <FormControl>
                     <div className="flex w-full justify-between rounded-md border px-4 py-3 flex-row items-center">
                       <p className="text-sm font-medium leading-none">
                         <span className="text-muted-foreground">
-                          {field.value}
+                          {parsePhoneNumber(field.value)?.formatNational()}
                         </span>
-                        {(form.getValues(`emails.${index}.label`) ===
+                        {(form.getValues(`phoneNumbers.${index}.label`) ===
                           'Primary' ||
-                          form.getValues(`emails.${index}.label`) ===
+                          form.getValues(`phoneNumbers.${index}.label`) ===
                             'Unverified') && (
                           <span
                             className={cn(
                               'ml-2 rounded-lg bg-destructive px-2 py-1 text-xs text-primary-foreground',
                               {
                                 'bg-primary':
-                                  form.getValues(`emails.${index}.label`) ===
-                                  'Primary',
+                                  form.getValues(
+                                    `phoneNumbers.${index}.label`
+                                  ) === 'Primary',
                               }
                             )}
                           >
-                            {form.getValues(`emails.${index}.label`)}
+                            {form.getValues(`phoneNumbers.${index}.label`)}
                           </span>
                         )}
                       </p>
@@ -141,7 +148,7 @@ export function EmailForm() {
           ))}
 
           <Modal
-            onOpenChange={() => setStep(STEPS.EMAIL)}
+            onOpenChange={() => setStep(STEPS.MOBILE)}
             trigger={
               <Button
                 type="button"
@@ -149,26 +156,47 @@ export function EmailForm() {
                 size="sm"
                 className="mt-2"
               >
-                Add an email address
+                Add a phone number
               </Button>
             }
-            title="Add email address"
+            title="Add phone number"
           >
             <div className="grid items-start gap-4 px-4 sm:px-0">
-              {step === STEPS.EMAIL ? (
+              {step === STEPS.MOBILE ? (
                 <>
                   <FormField
                     control={form.control}
-                    name={`emails.${fields.length}.value`}
+                    name={`phoneNumbers.${fields.length}.value`}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email address</FormLabel>
+                        <FormLabel>Phone number</FormLabel>
                         <FormControl>
-                          <Input type="email" id="email" {...field} />
+                          <span className="flex">
+                            <FormField
+                              control={form.control}
+                              name={`countryCode`}
+                              render={({ field }) => (
+                                <CountrySelect
+                                  countryCode={field.value}
+                                  setCountryCode={field.onChange}
+                                />
+                              )}
+                            />
+                            <Input
+                              type="tel"
+                              id="phone"
+                              {...field}
+                              onChange={(e) =>
+                                field.onChange(transform(e.target.value))
+                              }
+                            />
+                          </span>
                         </FormControl>
                         <FormDescription>
-                          An email containing a verification code will be sent
-                          to this email address.
+                          A text message containing a verification code will be
+                          sent to this phone number.
+                          <br />
+                          Message and data rates may apply.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -181,7 +209,7 @@ export function EmailForm() {
                 </>
               ) : (
                 <OtpForm
-                  target={form.getValues(`emails.${fields.length}.value`)}
+                  target={form.getValues(`phoneNumbers.${fields.length}.value`)}
                 />
               )}
             </div>

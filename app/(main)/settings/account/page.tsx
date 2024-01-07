@@ -1,5 +1,6 @@
 import { Separator } from '@/components/ui/separator'
 import { EmailForm } from '@/components/settings/email/email-form'
+import { MobileForm } from '@/components/settings/mobile/mobile-form'
 
 export default function SettingsAccountPage() {
   return (
@@ -12,6 +13,7 @@ export default function SettingsAccountPage() {
       </div>
       <Separator />
       <EmailForm />
+      <MobileForm />
     </div>
   )
 }
