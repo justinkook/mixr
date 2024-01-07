@@ -42,8 +42,13 @@ export const userNav: SidebarNavItem[] = [
     icon: SettingsIcon,
     items: [
       {
-        title: 'Account',
+        title: 'Profile',
         href: '/settings',
+        items: [],
+      },
+      {
+        title: 'Account',
+        href: '/settings/account',
         items: [],
       },
       {

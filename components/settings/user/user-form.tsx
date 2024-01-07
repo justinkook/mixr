@@ -3,10 +3,9 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useFieldArray, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
-import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -26,10 +25,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/use-toast'
 
-const profileFormSchema = z.object({
+const userFormSchema = z.object({
   profileImage: z.string(),
   name: z
     .string()
@@ -44,39 +42,19 @@ const profileFormSchema = z.object({
       required_error: 'Please select an email to display.',
     })
     .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: 'Please enter a valid URL.' }),
-      })
-    )
-    .optional(),
 })
 
-type ProfileFormValues = z.infer<typeof profileFormSchema>
+type UserFormValues = z.infer<typeof userFormSchema>
 
 // This can come from your database or API.
-const defaultValues: Partial<ProfileFormValues> = {
-  bio: 'I own a computer.',
-  urls: [
-    { value: 'https://shadcn.com' },
-    { value: 'http://twitter.com/shadcn' },
-  ],
-}
+const defaultValues: Partial<UserFormValues> = {}
 
-export function ProfileForm() {
+export function UserForm() {
   const [imagePreview, setImagePreview] = useState<string | null>()
-
-  const form = useForm<ProfileFormValues>({
-    resolver: zodResolver(profileFormSchema),
+  const form = useForm<UserFormValues>({
+    resolver: zodResolver(userFormSchema),
     defaultValues,
     mode: 'onChange',
-  })
-
-  const { fields, append } = useFieldArray({
-    name: 'urls',
-    control: form.control,
   })
 
   useEffect(() => {
@@ -85,7 +63,7 @@ export function ProfileForm() {
     }
   }, [imagePreview])
 
-  function onSubmit(data: ProfileFormValues) {
+  function onSubmit(data: UserFormValues) {
     toast({
       title: 'You submitted the following values:',
       description: (
@@ -173,60 +151,7 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="bio"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Bio</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Tell us a little bit about yourself"
-                  className="resize-none"
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>
-                You can <span>@mention</span> other users and organizations to
-                link to them.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && 'sr-only')}>
-                    Add links to your website, blog, or social media profiles.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="mt-2"
-            onClick={() => append({ value: '' })}
-          >
-            Add URL
-          </Button>
-        </div>
-        <Button type="submit">Update profile</Button>
+        <Button type="submit">Update user</Button>
       </form>
     </Form>
   )
