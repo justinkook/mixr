@@ -62,7 +62,7 @@ export function CountrySelect({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant="outline" className="w-[150px] justify-start">
+        <Button variant="outline" className="w-[150px] h-10 justify-start">
           {`${
             en[countryCode.toUpperCase() as unknown as keyof typeof en]
           } +${getCountryCallingCode(countryCode.toUpperCase() as any)}`}
@@ -94,7 +94,7 @@ function CountryList({
     <Command>
       <CommandInput className="h-9" />
       <CommandEmpty>No countries found.</CommandEmpty>
-      <CommandGroup>
+      <CommandGroup className="max-h-[300px] overflow-y-auto">
         {getCountries().map((country, index) => (
           <CommandItem
             key={country}
