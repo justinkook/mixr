@@ -77,7 +77,7 @@ export function RemoveEmailModal({
                 Set as Primary
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DialogTrigger asChild>
+              <DialogTrigger asChild disabled={index === 0}>
                 <DropdownMenuItem className="flex items-center text-destructive">
                   <TrashIcon className="mr-2 h-4 w-4" />
                   Delete
@@ -127,7 +127,7 @@ export function RemoveEmailModal({
               Set as Primary
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DrawerTrigger asChild>
+            <DrawerTrigger asChild disabled={index === 0}>
               <DropdownMenuItem className="flex items-center text-destructive">
                 <TrashIcon className="mr-2 h-4 w-4" />
                 Delete
