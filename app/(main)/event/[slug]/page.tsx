@@ -71,11 +71,11 @@ const product = {
   ],
   description: `
   <p>Join AI Marketers Guild at our next Stacked Startup Showcase event in NYC!</p>
-  <br><p>We'll be bringing together community members and friends. Participating startups will offer demos. Cash bar.</p>
-  <br><p>Startups will share demos on their laptops. Presenters will be invited to join the previous day's virtual AI Insiders event for more formal presentations.</p>
-  <br><strong>Request to demo when you RSVP.</strong><br>
-  <br><p>The location is a centrally located bar in Chelsea, visible to all approved attendees.</p>
-  <br><p>Demoing companies to be announced soon.</p>
+  <br/><p>We'll be bringing together community members and friends. Participating startups will offer demos. Cash bar.</p>
+  <br/><p>Startups will share demos on their laptops. Presenters will be invited to join the previous day's virtual AI Insiders event for more formal presentations.</p>
+  <br/><strong>Request to demo when you RSVP.</strong><br/>
+  <br/><p>The location is a centrally located bar in Chelsea, visible to all approved attendees.</p>
+  <br/><p>Demoing companies to be announced soon.</p>
 `,
   highlights: [
     'Hand cut and sewn locally',
