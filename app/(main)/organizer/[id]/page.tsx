@@ -1,8 +1,9 @@
-import { ZapOffIcon } from 'lucide-react'
+import { AlignJustifyIcon, LayoutGridIcon, ZapOffIcon } from 'lucide-react'
 
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { EventCard } from '@/components/event-card'
 import { EventGridCard } from '@/components/event-grid-card'
@@ -38,27 +39,55 @@ export default function OrganizerPage() {
             </ScrollArea>
 
             <Separator className="my-4" />
-            <div className="mt-6 mb-3 flex justify-between">
-              <h2 className="text-2xl font-semibold tracking-tight">
-                Past events
-              </h2>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {eventMockData.length > 0 ? (
-                eventMockData.map((event, index) => (
-                  <EventGridCard key={index} />
-                ))
-              ) : (
-                <EmptyPlaceholder
-                  className="col-span-3"
-                  content={{
-                    icon: ZapOffIcon,
-                    title: 'No events available',
-                    description: 'You have not saved any upcoming events.',
-                  }}
-                />
-              )}
-            </div>
+            <Tabs defaultValue="grid" className="flex-1 space-y-4">
+              <div className="mt-6 mb-3 flex justify-between">
+                <h2 className="text-2xl font-semibold tracking-tight self-end">
+                  Past events
+                </h2>
+                <div className="space-between flex items-center">
+                  <TabsList className="h-[36px]">
+                    <TabsTrigger value="grid">
+                      <LayoutGridIcon className="h-4 w-4" />
+                    </TabsTrigger>
+                    <TabsTrigger value="column">
+                      <AlignJustifyIcon className="h-4 w-4" />
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+              </div>
+              <TabsContent value="grid">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                  {madeForYouEvents.map((event) => (
+                    <EventCard
+                      key={event.name}
+                      event={event}
+                      className="w-full flex-1"
+                      aspectRatio="square"
+                      width={450}
+                      height={450}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+              <TabsContent value="column">
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {eventMockData.length > 0 ? (
+                    eventMockData.map((event, index) => (
+                      <EventGridCard key={index} />
+                    ))
+                  ) : (
+                    <EmptyPlaceholder
+                      className="col-span-3"
+                      content={{
+                        icon: ZapOffIcon,
+                        title: 'No events available',
+                        description: 'You have not saved any upcoming events.',
+                      }}
+                    />
+                  )}
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </div>
