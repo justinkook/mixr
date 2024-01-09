@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { CalendarDaysIcon, UserPlusIcon, ZapIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -33,7 +34,11 @@ export function OrganizerCard({
                 <AvatarFallback>VC</AvatarFallback>
               </Avatar>
               <div className="flex-col">
-                <h4 className="text-sm font-semibold">@nextjs</h4>
+                <Button variant="link" asChild className="p-0 h-fit">
+                  <Link href="/organizer/nextjs">
+                    <h4 className="text-sm font-semibold">@nextjs</h4>
+                  </Link>
+                </Button>
                 <p className="line-clamp-3 text-sm">
                   The React Framework - created and maintained by @vercel.
                 </p>
