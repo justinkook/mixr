@@ -90,7 +90,7 @@ export function Notifications({ className, ...props }: CardProps) {
       </Sheet>
 
       <Popover>
-        <PopoverTrigger>
+        <PopoverTrigger asChild>
           <Button variant="ghost" className="hidden sm:block">
             <span className="sr-only">View notifications</span>
             <BellIcon
