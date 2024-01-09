@@ -19,7 +19,7 @@ export default function OrganizerLayout({
 }) {
   return (
     <div className="space-y-4 px-4 sm:px-6 lg:px-8">
-      <div className="mb-12 flex items-center justify-between space-y-2">
+      <div className="sm:mb-12 flex items-center justify-between space-y-6 flex-wrap sm:flex-nowrap">
         <div className="flex w-full flex-col justify-between lg:flex-row">
           <div className="flex w-full flex-col md:flex-row md:space-x-8">
             {/* Event Image */}

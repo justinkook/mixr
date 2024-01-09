@@ -14,7 +14,7 @@ export default function OrganizerPage() {
         <div className="h-full space-y-8">
           <div className="border-none p-0 outline-none">
             <Separator className="my-4" />
-            <div className="mt-6 mb-4 flex items-center justify-between">
+            <div className="mt-6 mb-3 flex items-center justify-between">
               <h2 className="text-2xl font-semibold tracking-tight">
                 Upcoming events
               </h2>
@@ -38,7 +38,7 @@ export default function OrganizerPage() {
             </ScrollArea>
 
             <Separator className="my-4" />
-            <div className="mt-6 mb-4 flex justify-between">
+            <div className="mt-6 mb-3 flex justify-between">
               <h2 className="text-2xl font-semibold tracking-tight">
                 Past events
               </h2>
