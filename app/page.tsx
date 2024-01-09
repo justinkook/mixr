@@ -1,25 +1,16 @@
-import { Zap, ZapOffIcon } from 'lucide-react'
+import { Zap } from 'lucide-react'
 
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { CurrentLocationCombobox } from '@/components/current-location-combobox'
-import { EmptyPlaceholder } from '@/components/empty-placeholder'
 import { EventCard } from '@/components/event-card'
-import { EventGridCard } from '@/components/event-grid-card'
 
 export default function Home() {
   return (
     <>
       <div className="h-full space-y-6 px-4 py-6 lg:px-8">
-        <div>
-          <div className="text-muted-secondary self-stretch whitespace-nowrap text-sm leading-5">
-            Find events near
-          </div>
-          <CurrentLocationCombobox />
-        </div>
         <Tabs defaultValue="all" className="h-full space-y-6">
           <div className="flex items-center">
             <ScrollArea className="w-full">
