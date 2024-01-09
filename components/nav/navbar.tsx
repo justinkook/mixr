@@ -8,7 +8,6 @@ import { MenuIcon } from 'lucide-react'
 
 import { Notifications } from '../notifications'
 import { OrganizationSwitcher } from '../organization-switcher'
-import { SearchCommandModal } from '../search-command-modal'
 import { Button } from '../ui/button'
 import { NavContent } from './nav-content'
 import { UserNav } from './user-nav'
@@ -36,9 +35,6 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </SignedIn>
           <NavContent />
           <div className="ml-auto flex items-center md:space-x-4">
-            <div className="relative flex-1">
-              <SearchCommandModal />
-            </div>
             {/* Profile dropdown */}
             <SignedIn>
               <Notifications />
