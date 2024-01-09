@@ -1,8 +1,4 @@
-import Link from 'next/link'
-import { PlusCircleIcon } from 'lucide-react'
-
 import { dashboardTabs } from '@/config/nav'
-import { Button } from '@/components/ui/button'
 import { CreateEventModal } from '@/components/create-event-modal'
 import { TabNav } from '@/components/nav/tab-nav'
 

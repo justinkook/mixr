@@ -27,6 +27,7 @@ export function TabNav({ className, items }: TabNavProps) {
             {items.map((item) => (
               <Link key={item.href} href={item.href}>
                 <TabsTrigger
+                  disabled={item.disabled}
                   value={item.title}
                   data-state={
                     (pathname === item.href ||

@@ -8,28 +8,28 @@ export default function EventManageLayout({
   params,
 }: {
   children: React.ReactNode
-  params: { slug: string }
+  params: { id: string }
 }) {
   const eventManageTabs: NavItem[] = [
     {
       title: 'Overview',
-      href: `/event/${params.slug}/manage`,
+      href: `/event/${params.id}/manage`,
     },
     {
       title: 'Guests',
-      href: `/event/${params.slug}/manage/guests`,
+      href: `/event/${params.id}/manage/guests`,
     },
     {
       title: 'Tickets',
-      href: `/event/${params.slug}/manage/tickets`,
+      href: `/event/${params.id}/manage/tickets`,
     },
     {
       title: 'Insights',
-      href: `/event/${params.slug}/manage/insights`,
+      href: `/event/${params.id}/manage/insights`,
     },
     {
       title: 'Settings',
-      href: `/event/${params.slug}/manage/settings`,
+      href: `/event/${params.id}/manage/settings`,
       segment: 'settings',
     },
   ]
@@ -41,7 +41,7 @@ export default function EventManageLayout({
           <div className="flex-1 space-y-4 pt-0">
             <div className="flex items-center justify-between space-y-2">
               <h2 className="text-3xl font-bold tracking-tight">
-                {formatPascalCase(params.slug)}
+                {formatPascalCase(params.id)}
               </h2>
               <div className="flex items-center space-x-2">
                 <ShareEventtModal />
