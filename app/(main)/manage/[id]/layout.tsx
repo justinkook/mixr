@@ -13,23 +13,23 @@ export default function EventManageLayout({
   const eventManageTabs: NavItem[] = [
     {
       title: 'Overview',
-      href: `/event/${params.id}/manage`,
+      href: `/manage/${params.id}`,
     },
     {
       title: 'Guests',
-      href: `/event/${params.id}/manage/guests`,
+      href: `/manage/${params.id}/guests`,
     },
     {
       title: 'Tickets',
-      href: `/event/${params.id}/manage/tickets`,
+      href: `/manage/${params.id}/tickets`,
     },
     {
       title: 'Insights',
-      href: `/event/${params.id}/manage/insights`,
+      href: `/manage/${params.id}/insights`,
     },
     {
       title: 'Settings',
-      href: `/event/${params.id}/manage/settings`,
+      href: `/manage/${params.id}/settings`,
       segment: 'settings',
     },
   ]

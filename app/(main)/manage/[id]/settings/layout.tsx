@@ -14,11 +14,11 @@ export default function SettingsLayout({
   const sidebarNavItems = [
     {
       title: 'Event',
-      href: `/event/${params.slug}/manage/settings`,
+      href: `/manage/${params.slug}/settings`,
     },
     {
       title: 'Appearance',
-      href: `/event/${params.slug}/manage/settings/appearance`,
+      href: `/manage/${params.slug}/settings/appearance`,
     },
   ]
 
