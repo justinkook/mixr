@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { CalendarIcon, MapPinIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -10,33 +11,8 @@ import { OrganizationSwitcher } from '@/components/organization-switcher'
 import { DateTimeCombobox } from '@/app/(main)/create/components/date-time-combobox'
 import { LocationCombobox } from '@/app/(main)/create/components/location-combobox'
 
-const product = {
-  name: `AIMG's Stacked Startup Showcase`,
-  images: [
-    {
-      id: 1,
-      name: 'Angled view',
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
-      alt: 'Angled front view with bag zipped and handles upright.',
-    },
-  ],
-  description: `
-    <p>Join AI Marketers Guild at our next Stacked Startup Showcase event in NYC!</p>
-    <br><p>We'll be bringing together community members and friends. Participating startups will offer demos. Cash bar.</p>
-    <br><p>Startups will share demos on their laptops. Presenters will be invited to join the previous day's virtual AI Insiders event for more formal presentations.</p>
-    <br><strong>Request to demo when you RSVP.</strong><br>
-    <br><p>The location is a centrally located bar in Chelsea, visible to all approved attendees.</p>
-    <br><p>Demoing companies to be announced soon.</p>
-  `,
-}
-
-type CreateEventModalProps = {
-  mode?: 'create' | 'edit' | 'duplicate'
-}
-
-export default function CreateEventModal({
-  mode = 'create',
-}: CreateEventModalProps) {
+export default function CreateEventPage() {
+  const [mode, setMode] = useState<'create' | 'edit'>('create')
   return (
     <div>
       {/* Product info */}
