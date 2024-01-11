@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import { SignedIn } from '@clerk/nextjs'
@@ -80,9 +81,14 @@ export function Sidebar({
       <ScrollArea>
         <Link href="/">
           <div className="flex h-16 shrink-0 items-center px-6 py-2">
-            <h1 className="uppercase text-xl font-bold tracking-widest">
-              Revent
-            </h1>
+            <span className="sr-only">Revent</span>
+            <Image
+              className="h-4 w-auto dark:invert"
+              src="/images/logo-black.svg"
+              alt="Revent Logo"
+              height={32}
+              width={128}
+            />
           </div>
         </Link>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
