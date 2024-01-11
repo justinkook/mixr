@@ -6,7 +6,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { metadataConfig } from '@/config/metadata'
 import { cn } from '@/lib/utils'
 import { Toaster } from '@/components/ui/toaster'
-import NavLayout from '@/components/nav/nav-layout'
 import { Providers } from '@/components/providers'
 
 import '@/styles/globals.css'
@@ -32,7 +31,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <NavLayout>{children}</NavLayout>
+          {children}
           <Toaster />
           <Analytics />
           <SpeedInsights />

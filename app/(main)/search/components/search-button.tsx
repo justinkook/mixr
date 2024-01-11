@@ -45,7 +45,7 @@ export function SearchButton() {
   return (
     <Button
       variant="outline"
-      className="h-[50px] w-full min-w-[300px] md:w-auto py-2 px-0 rounded-full hover:bg-transparent hover:shadow-md"
+      className="h-[50px] w-[300px] md:w-auto py-2 px-0 rounded-full hover:bg-transparent hover:shadow-md"
     >
       <div className="flex flex-row items-center justify-between w-full">
         <div className="text-sm font-semibold px-6">{locationLabel}</div>

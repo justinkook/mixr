@@ -9,8 +9,8 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { ShareModal } from '@/components/modals/share-modal'
 import { OrganizationSwitcher } from '@/components/organization-switcher'
-import { DateTimeCombobox } from '@/app/(main)/create/components/date-time-combobox'
-import { LocationCombobox } from '@/app/(main)/create/components/location-combobox'
+import { DateTimeCombobox } from '@/app/(main)/(user)/create/components/date-time-combobox'
+import { LocationCombobox } from '@/app/(main)/(user)/create/components/location-combobox'
 
 const product = {
   name: `AIMG's Stacked Startup Showcase`,

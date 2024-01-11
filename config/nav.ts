@@ -141,7 +141,7 @@ export const sidebarNav: SidebarNavItem[] = [
     items: [
       {
         title: 'Home',
-        href: '/',
+        href: '/home',
         icon: Home,
         items: [],
       },
