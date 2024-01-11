@@ -57,8 +57,8 @@ export default function Home() {
               </div>
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Trending Events
                 </h2>
@@ -89,8 +89,8 @@ export default function Home() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Events going on Today
                 </h2>
@@ -121,8 +121,8 @@ export default function Home() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Events this Weekend
                 </h2>
@@ -153,8 +153,8 @@ export default function Home() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Free Events
                 </h2>
@@ -185,8 +185,8 @@ export default function Home() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Newest Events
                 </h2>
@@ -218,8 +218,8 @@ export default function Home() {
             </ScrollArea>
           </TabsContent>
           <TabsContent value="trending">
-            <div className="mt-6 flex justify-between space-y-1">
-              <div>
+            <div className="mt-6 flex justify-between">
+              <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   Trending Events
                 </h2>
