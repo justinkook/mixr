@@ -39,7 +39,6 @@ export default function RootLayout({
           <SpeedInsights />
         </Providers>
       </body>
-      <Script type="text/javascript" src="https://js.finix.com/v/1/finix.js" />
     </html>
   )
 }
