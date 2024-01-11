@@ -1,16 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  CalendarDaysIcon,
-  Clock7Icon,
-  HeartIcon,
-  MapPinIcon,
-} from 'lucide-react'
+import { CalendarDaysIcon, Clock7Icon, MapPinIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { AvatarStack } from '@/components/ui/avatar-stack'
-import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { HeartButton } from '@/components/buttons/heart-button'
 
 type EventGridCardProps = React.HTMLAttributes<HTMLDivElement> & {
   name?: string
@@ -53,9 +48,7 @@ export function EventGridCard({
               </div>
             </div>
           </div>
-          <Button variant="ghost" className="px-3 hover:bg-transparent">
-            <HeartIcon className="h-5 w-5 fill-primary-foreground stroke-primary hover:fill-primary" />
-          </Button>
+          <HeartButton className="px-3" />
         </div>
       </CardContent>
       <CardFooter className="flex space-x-4 text-sm text-muted-foreground">

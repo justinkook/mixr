@@ -26,10 +26,12 @@ export const HeartButton: React.FC<HeartButtonProps> = ({
       className={cn(className)}
     >
       <HeartIcon
-        size={24}
-        className={cn('stroke-primary fill-[#eeeae6] transition-colors', {
-          'fill-primary stroke-[#eeeae6]': hasLiked,
-        })}
+        className={cn(
+          'h-5 w-5 stroke-primary fill-primary-foreground transition-colors',
+          {
+            'fill-primary stroke-primary-foreground animate-pulse': hasLiked,
+          }
+        )}
       />
     </Button>
   )
