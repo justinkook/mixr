@@ -27,9 +27,10 @@ export const HeartButton: React.FC<HeartButtonProps> = ({
     >
       <HeartIcon
         className={cn(
-          'h-5 w-5 stroke-primary fill-primary-foreground transition-colors',
+          'h-5 w-5 stroke-primary fill-primary-foreground transition-colors dark:stroke-primary-foreground dark:fill-primary',
           {
-            'fill-primary stroke-primary-foreground animate-pulse': hasLiked,
+            'fill-primary stroke-primary-foreground animate-pulse dark:fill-primary-foreground dark:stroke-primary':
+              hasLiked,
           }
         )}
       />
