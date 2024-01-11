@@ -12,12 +12,10 @@ import TiptapUnderline from '@tiptap/extension-underline'
 import StarterKit from '@tiptap/starter-kit'
 import { Markdown } from 'tiptap-markdown'
 
+import CustomKeymap from '@/components/editor/extensions/custom-keymap'
+import DragAndDrop from '@/components/editor/extensions/drag-and-drop'
+import SlashCommand from '@/components/editor/extensions/slash-command'
 import UploadImagesPlugin from '@/components/editor/plugins/upload-images'
-
-import CustomKeymap from './custom-keymap'
-import DragAndDrop from './drag-and-drop'
-import SlashCommand from './slash-command'
-import UpdatedImage from './updated-image'
 
 export const defaultExtensions = [
   StarterKit.configure({

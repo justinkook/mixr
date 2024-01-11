@@ -6,11 +6,11 @@ import {
 } from '@clerk/clerk-react'
 import { MenuIcon } from 'lucide-react'
 
-import { Notifications } from '../notifications'
-import { OrganizationSwitcher } from '../organization-switcher'
-import { Button } from '../ui/button'
-import { NavContent } from './nav-content'
-import { UserNav } from './user-nav'
+import { Button } from '@/components/ui/button'
+import { NavContent } from '@/components/nav/nav-content'
+import { UserNav } from '@/components/nav/user-nav'
+import { Notifications } from '@/components/notifications'
+import { OrganizationSwitcher } from '@/components/organization-switcher'
 
 type NavbarProps = {
   setSidebarOpen: (open: boolean) => void

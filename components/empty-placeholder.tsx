@@ -3,7 +3,7 @@ import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type EmptyPlaceholderProps = {
-  content: {
+  placeholder: {
     icon: LucideIcon
     title: string
     description: string
@@ -13,7 +13,7 @@ type EmptyPlaceholderProps = {
 }
 
 export function EmptyPlaceholder({
-  content,
+  placeholder,
   className,
 }: EmptyPlaceholderProps) {
   return (
@@ -24,15 +24,15 @@ export function EmptyPlaceholder({
       )}
     >
       <div className="mx-auto flex w-full flex-col items-center justify-center text-center">
-        {content.icon && (
-          <content.icon className="h-10 w-10 text-muted-foreground" />
+        {placeholder.icon && (
+          <placeholder.icon className="h-10 w-10 text-muted-foreground" />
         )}
 
-        <h3 className="mt-4 text-lg font-semibold">{content.title}</h3>
+        <h3 className="mt-4 text-lg font-semibold">{placeholder.title}</h3>
         <p className="mb-4 mt-2 text-sm text-muted-foreground">
-          {content.description}
+          {placeholder.description}
         </p>
-        {content.action}
+        {placeholder.action}
       </div>
     </div>
   )

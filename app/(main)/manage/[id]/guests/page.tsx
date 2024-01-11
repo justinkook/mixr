@@ -3,9 +3,10 @@ import { z } from 'zod'
 import dataJSON from '@/lib/mockData/guests.json'
 import { guestSchema } from '@/lib/schema'
 import { Separator } from '@/components/ui/separator'
-import { InviteGuestModal } from '@/components/invite-guest-modal'
-import { columns } from '@/components/table/columns'
-import { DataTable } from '@/components/table/data-table'
+import { DataTable } from '@/components/data-table'
+import { columns } from '@/components/data-table/columns'
+
+import { InviteGuestModal } from './components/invite-guest-modal'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Label } from '../ui/label'
+import { Label } from '@/components/ui/label'
 
 const meta: Meta<typeof Label> = {
   title: 'ui/Label',

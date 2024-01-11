@@ -14,16 +14,17 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { AgendaCard } from '@/components/agenda-card'
-import { AgendaModal } from '@/components/agenda-modal'
-import { CustomTagsForm } from '@/components/custom-tags-form'
-import { Editor } from '@/components/editor/editor'
-import { EventHeroCard } from '@/components/event-hero-card'
-import { FAQModal } from '@/components/faq-modal'
+import { AgendaCard } from '@/components/cards/agenda-card'
+import { EventHeroCard } from '@/components/cards/event-hero-card'
+import { Editor } from '@/components/editor'
+
+import { AgendaModal } from './components/agenda-modal'
+import { CustomTagsForm } from './components/custom-tags-form'
+import { FAQModal } from './components/faq-modal'
 
 type EventOverviewPageProps = {
   params: {
-    slug: string
+    id: string
   }
 }
 
@@ -41,7 +42,7 @@ export default async function EventOverviewPage({
                 <CardTitle>Event Details</CardTitle>
                 <CardDescription>Edit location and date.</CardDescription>
               </div>
-              <Link href={`/event/${params.slug}`}>
+              <Link href={`/event/${params.id}`}>
                 <Button variant="link">View Page</Button>
               </Link>
             </CardHeader>

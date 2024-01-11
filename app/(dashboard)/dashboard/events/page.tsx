@@ -1,12 +1,14 @@
+import Link from 'next/link'
 import { AlignJustifyIcon, LayoutGridIcon, ZapOffIcon } from 'lucide-react'
 
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
+import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { EventCard } from '@/components/cards/event-card'
+import { EventGridCard } from '@/components/cards/event-grid-card'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { EventCard } from '@/components/event-card'
-import { EventGridCard } from '@/components/event-grid-card'
 
 export default function EventsPage() {
   return (
@@ -92,10 +94,15 @@ export default function EventsPage() {
                   ) : (
                     <EmptyPlaceholder
                       className="col-span-3"
-                      content={{
+                      placeholder={{
                         icon: ZapOffIcon,
                         title: 'No events available',
-                        description: 'You have not saved any upcoming events.',
+                        description: 'You do have have any past events.',
+                        action: (
+                          <Button asChild>
+                            <Link href="/create">Create event</Link>
+                          </Button>
+                        ),
                       }}
                     />
                   )}

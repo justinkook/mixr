@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Label } from '../ui/label'
-import { Switch } from '../ui/switch'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
 
 const meta: Meta<typeof Switch> = {
   title: 'ui/Switch',

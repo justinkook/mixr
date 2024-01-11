@@ -14,7 +14,7 @@ import {
   TextQuote,
 } from 'lucide-react'
 
-import { BubbleMenuItem } from './bubble-menu'
+import { BubbleMenuItem } from '@/components/editor/bubble-menu/bubble-menu'
 
 interface NodeSelectorProps {
   editor: Editor

@@ -1,24 +1,24 @@
 import { Separator } from '@/components/ui/separator'
-import { CreateEventModal } from '@/components/create-event-modal'
+import { CreateEventModal } from '@/components/modals/create-event-modal'
 import { SettingsSidebar } from '@/components/nav/settings-sidebar'
 
 interface SettingsLayoutProps {
   children: React.ReactNode
-  params: { slug: string }
+  params: { id: string }
 }
 
-export default function SettingsLayout({
+export default function EventSettingsLayout({
   children,
   params,
 }: SettingsLayoutProps) {
   const sidebarNavItems = [
     {
       title: 'Event',
-      href: `/manage/${params.slug}/settings`,
+      href: `/manage/${params.id}/settings`,
     },
     {
-      title: 'Appearance',
-      href: `/manage/${params.slug}/settings/appearance`,
+      title: 'Team',
+      href: `/manage/${params.id}/settings/team`,
     },
   ]
 

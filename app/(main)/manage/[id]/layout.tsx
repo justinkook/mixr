@@ -1,7 +1,7 @@
 import { NavItem } from '@/types/nav'
 import { formatPascalCase } from '@/lib/utils'
+import { ShareEventModal } from '@/components/modals/share-event-modal'
 import { TabNav } from '@/components/nav/tab-nav'
-import { ShareEventtModal } from '@/components/share-event-modal'
 
 export default function EventManageLayout({
   children,
@@ -44,7 +44,7 @@ export default function EventManageLayout({
                 {formatPascalCase(params.id)}
               </h2>
               <div className="flex items-center space-x-2">
-                <ShareEventtModal />
+                <ShareEventModal />
               </div>
             </div>
             <TabNav items={eventManageTabs} />

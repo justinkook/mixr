@@ -1,10 +1,9 @@
 import React from 'react'
 
 import { cn } from '@/lib/utils'
+import { NavigationMenuLink } from '@/components/ui/navigation-menu'
 
-import { NavigationMenuLink } from '../ui/navigation-menu'
-
-const NavItem = React.forwardRef<
+export const NavItem = React.forwardRef<
   React.ElementRef<'a'>,
   React.ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, ...props }, ref) => {
@@ -29,5 +28,3 @@ const NavItem = React.forwardRef<
   )
 })
 NavItem.displayName = 'NavItem'
-
-export default NavItem

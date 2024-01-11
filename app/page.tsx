@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { EventCard } from '@/components/event-card'
+import { EventCard } from '@/components/cards/event-card'
 
 export default function Home() {
   return (

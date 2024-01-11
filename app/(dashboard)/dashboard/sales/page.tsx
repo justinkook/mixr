@@ -4,8 +4,8 @@ import dataJSON from '@/lib/mockData/guests.json'
 import { guestSchema } from '@/lib/schema'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { columns } from '@/components/table/columns'
-import { DataTable } from '@/components/table/data-table'
+import { DataTable } from '@/components/data-table'
+import { columns } from '@/components/data-table/columns'
 
 // TODO: Replace Simulate a database read for tasks.
 async function getTasks() {

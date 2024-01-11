@@ -23,9 +23,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
-import { CalendarDateRangePicker } from '@/components/date-range-picker'
-import { SalesByTicketType } from '@/components/sales-by-ticket-type'
-import { SalesOverTime } from '@/components/sales-over-time'
+import { SalesByTicketType } from '@/components/charts/sales-by-ticket-type'
+import { SalesOverTime } from '@/components/charts/sales-over-time'
+import { DateRangePicker } from '@/components/date-range-picker'
 
 export default async function EventInsightsPage() {
   return (
@@ -39,7 +39,7 @@ export default async function EventInsightsPage() {
             </p>
           </div>
           <div className="flex items-center space-x-2">
-            <CalendarDateRangePicker />
+            <DateRangePicker />
           </div>
         </div>
         <Separator />

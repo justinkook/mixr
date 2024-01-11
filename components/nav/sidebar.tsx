@@ -21,7 +21,7 @@ const events = [
   },
   {
     name: 'Async Awakenings',
-    href: '/async-awakenings',
+    href: '/manage/async-awakenings',
     slug: 'async-awakenings',
     icon: Zap,
     current: false,
@@ -67,6 +67,8 @@ export function Sidebar({
 }: React.HTMLAttributes<HTMLDivElement> & SidebarProps) {
   const pathname = usePathname()
   const segments = useSelectedLayoutSegments()
+
+  // TODO: Replace with verifying user from auth as organizer
   const sidebarNavItems = pathname.includes('dashboard')
     ? dashboardSidebarNav
     : sidebarNav

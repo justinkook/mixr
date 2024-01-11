@@ -108,8 +108,8 @@ export const dashboardNav: SidebarNavItem[] = [
         items: [],
       },
       {
-        title: 'Members',
-        href: '/dashboard/settings/members',
+        title: 'Team',
+        href: '/dashboard/settings/team',
         items: [],
       },
       {

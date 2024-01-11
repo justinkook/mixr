@@ -4,9 +4,9 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { X } from 'lucide-react'
 
-import { Footer } from './footer'
-import { Navbar } from './navbar'
-import { Sidebar } from './sidebar'
+import { Footer } from '@/components/nav/footer'
+import { Navbar } from '@/components/nav/navbar'
+import { Sidebar } from '@/components/nav/sidebar'
 
 export default function NavLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)

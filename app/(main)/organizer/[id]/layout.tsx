@@ -10,7 +10,7 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import { ShareModal } from '@/components/share-modal'
+import { ShareModal } from '@/components/modals/share-modal'
 
 export default function OrganizerLayout({
   children,

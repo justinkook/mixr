@@ -1,8 +1,8 @@
 import { ZapIcon } from 'lucide-react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { EventGridCard } from '@/components/cards/event-grid-card'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { EventGridCard } from '@/components/event-grid-card'
 
 const events = [
   {
@@ -45,13 +45,11 @@ export default async function SavedPage() {
         <TabsContent value="upcoming">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {events.length > 0 ? (
-              events.map((event, index) => (
-                <EventGridCard key={index} event={event} />
-              ))
+              events.map((event, index) => <EventGridCard key={index} />)
             ) : (
               <EmptyPlaceholder
                 className="col-span-3"
-                content={{
+                placeholder={{
                   icon: ZapIcon,
                   title: 'No events available',
                   description: 'You have not saved any upcoming events.',
@@ -63,13 +61,11 @@ export default async function SavedPage() {
         <TabsContent value="past">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {events.length > 0 ? (
-              events.map((event, index) => (
-                <EventGridCard key={index} event={event} />
-              ))
+              events.map((event, index) => <EventGridCard key={index} />)
             ) : (
               <EmptyPlaceholder
                 className="col-span-3"
-                content={{
+                placeholder={{
                   icon: ZapIcon,
                   title: 'No events available',
                   description: 'You have not saved any upcoming events.',

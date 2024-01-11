@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
 import { Bot } from 'lucide-react'
 
 import { mainNav } from '@/config/nav'
@@ -14,8 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-
-import NavItem from './nav-item'
+import { NavItem } from '@/components/nav/nav-item'
 
 export function NavContent() {
   return (

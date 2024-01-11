@@ -1,9 +1,10 @@
 import { TicketIcon } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
-import { CreateTicketModal } from '@/components/create-ticket-modal'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { TicketTypeCard } from '@/components/ticket-type-card'
+
+import { CreateTicketModal } from './components/create-ticket-modal'
+import { TicketTypeCard } from './components/ticket-type-card'
 
 const ticketTypes = [
   {
@@ -67,12 +68,12 @@ export default async function EventTicketsPage() {
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {ticketTypes.length > 0 ? (
           ticketTypes.map((ticketType, index) => (
-            <TicketTypeCard key={index} ticketType={ticketType} />
+            <TicketTypeCard key={index} {...ticketType} />
           ))
         ) : (
           <EmptyPlaceholder
             className="col-span-3"
-            content={{
+            placeholder={{
               icon: TicketIcon,
               title: 'No ticket types yet.',
               description: 'Create your first ticket type to get started.',

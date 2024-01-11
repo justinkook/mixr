@@ -12,8 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-
-import { ScrollBar } from './ui/scroll-area'
+import { ScrollBar } from '@/components/ui/scroll-area'
 
 const times = [
   {

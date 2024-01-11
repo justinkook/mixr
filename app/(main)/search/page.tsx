@@ -20,11 +20,12 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { EventCard } from '@/components/cards/event-card'
+import { EventGridCard } from '@/components/cards/event-grid-card'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
-import { EventCard } from '@/components/event-card'
-import { EventGridCard } from '@/components/event-grid-card'
-import { SearchFilters } from '@/components/search-filters'
-import { SearchModal } from '@/components/search-modal'
+
+import { SearchFilters } from './components/search-filters'
+import { SearchModal } from './components/search-modal'
 
 export default function SearchPage() {
   return (
@@ -125,7 +126,7 @@ export default function SearchPage() {
               ) : (
                 <EmptyPlaceholder
                   className="col-span-3"
-                  content={{
+                  placeholder={{
                     icon: ZapOffIcon,
                     title: 'No events available',
                     description: 'You have not saved any upcoming events.',

@@ -1,7 +1,8 @@
 import { Separator } from '@/components/ui/separator'
-import { EventForm } from '@/components/settings/event/event-form'
 
-export default function SettingsEventPage() {
+import { EventForm } from './components/event-form'
+
+export default function EventSettingsPage() {
   return (
     <div className="space-y-6">
       <div>

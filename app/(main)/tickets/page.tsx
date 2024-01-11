@@ -1,6 +1,7 @@
 import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { TicketCard } from '@/components/ticket-card'
+
+import { TicketCard } from './components/ticket-card'
 
 export default function TicketsPage() {
   return (

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
-import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -8,7 +7,7 @@ import { metadataConfig } from '@/config/metadata'
 import { cn } from '@/lib/utils'
 import { Toaster } from '@/components/ui/toaster'
 import NavLayout from '@/components/nav/nav-layout'
-import { Providers } from '@/components/providers/providers'
+import { Providers } from '@/components/providers'
 
 import '@/styles/globals.css'
 
