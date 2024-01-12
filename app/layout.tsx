@@ -42,7 +42,6 @@ export default function RootLayout({
         <Script
           id="schema.org"
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'http://schema.org',
