@@ -17,11 +17,11 @@ import {
 
 import { cn } from '@/lib/utils'
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTrigger,
-} from '@/components/ui/dialog'
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 
 const navigation = [
   { name: 'Features', href: '#features' },
@@ -177,8 +177,8 @@ export default function LandingPage() {
               />
             </a>
           </div>
-          <Dialog>
-            <DialogTrigger asChild>
+          <Sheet>
+            <SheetTrigger asChild>
               <button
                 type="button"
                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 lg:hidden"
@@ -186,29 +186,19 @@ export default function LandingPage() {
                 <span className="sr-only">Open main menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </button>
-            </DialogTrigger>
-            <div className="lg:hidden fixed inset-0 z-50" />
-            <DialogContent className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            </SheetTrigger>
+            <SheetContent className="overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a href="#" className="-m-1.5 p-1.5">
                   <span className="sr-only">Revent</span>
                   <Image
                     className="h-4 w-auto"
-                    src="/images/logo-white.svg"
+                    src="/images/logo-black.svg"
                     alt="Revent Logo"
                     height={32}
                     width={128}
                   />
                 </a>
-                <DialogClose asChild>
-                  <button
-                    type="button"
-                    className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </DialogClose>
               </div>
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
@@ -233,8 +223,8 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-            </DialogContent>
-          </Dialog>
+            </SheetContent>
+          </Sheet>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <a
