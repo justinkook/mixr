@@ -1,4 +1,4 @@
-export default function OrganizerLayout({
+export default function OrganizerMainLayout({
   children,
 }: {
   children: React.ReactNode
