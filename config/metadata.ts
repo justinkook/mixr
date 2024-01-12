@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadataConfig: Metadata = {
-  metadataBase: new URL('https://app.gen3tickets.com'),
+  metadataBase: new URL('https://reventapp.com'),
   title: 'Revent',
   description: 'Re-invent how you event',
   manifest: '/manifest.json',
@@ -19,7 +19,7 @@ export const metadataConfig: Metadata = {
   openGraph: {
     title: 'Revent',
     description: 'Re-invent how you event',
-    url: 'https://app.gen3tickets.com',
+    url: 'https://reventapp.com',
     siteName: 'Revent',
     images: [
       {
