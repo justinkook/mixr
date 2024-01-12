@@ -55,19 +55,6 @@ export const metadataConfig: Metadata = {
     'Event Registration',
     'Happy Hours',
   ],
-  robots: {
-    index: false,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
   appleWebApp: {
     startupImage: ['/android-chrome-512x512.png'],
   },
