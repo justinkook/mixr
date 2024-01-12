@@ -85,13 +85,6 @@ export const dashboardNav: SidebarNavItem[] = [
     items: [],
   },
   {
-    title: 'Billing',
-    href: 'https://finix.payments-dashboard.com/',
-    icon: ScrollTextIcon,
-    items: [],
-    external: true,
-  },
-  {
     title: 'Settings',
     href: '/dashboard/settings',
     segment: 'settings',
