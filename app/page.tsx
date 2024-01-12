@@ -166,7 +166,7 @@ export default function LandingPage() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Revent</span>
               <Image
                 className="h-4 w-auto"
