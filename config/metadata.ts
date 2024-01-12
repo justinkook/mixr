@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 
 export const metadataConfig: Metadata = {
   metadataBase: new URL('https://reventapp.com'),
-  title: 'Revent',
-  description: 'Re-invent how you event',
+  title: 'Revent | One-Source Platform to Reinvent the Modern Event',
+  description: `Experience a new level of efficiency and simplicity in event planning – it's your all-in-one solution.`,
   manifest: '/manifest.json',
   alternates: {
     canonical: '/',
@@ -17,8 +17,8 @@ export const metadataConfig: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Revent',
-    description: 'Re-invent how you event',
+    title: 'Revent | One-Source Platform to Reinvent the Modern Event',
+    description: `Experience a new level of efficiency and simplicity in event planning – it's your all-in-one solution.`,
     url: 'https://reventapp.com',
     siteName: 'Revent',
     images: [
@@ -40,8 +40,8 @@ export const metadataConfig: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Revent',
-    description: 'Reinvent how you event',
+    title: 'Revent | One-Source Platform to Reinvent the Modern Event',
+    description: `Experience a new level of efficiency and simplicity in event planning – it's your all-in-one solution.`,
     siteId: '1467726470533754880',
     creator: '@Revent',
     creatorId: '1467726470533754880',
