@@ -133,13 +133,11 @@ export const SearchModal = () => {
   }, [step])
 
   return (
-    <>
+    <div className="flex justify-center w-full py-4">
       <Sheet open={open} onOpenChange={setOpen}>
-        <div className="flex justify-center w-full py-4">
-          <SheetTrigger asChild>
-            <SearchButton />
-          </SheetTrigger>
-        </div>
+        <SheetTrigger>
+          <SearchButton />
+        </SheetTrigger>
         <SheetContent className="w-full h-full flex items-center flex-col sm:min-w-[500px]">
           <SheetHeader>
             <SheetTitle>Search</SheetTitle>
@@ -320,6 +318,6 @@ export const SearchModal = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
-    </>
+    </div>
   )
 }
