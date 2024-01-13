@@ -7,6 +7,23 @@ export interface Event {
   cover: string
 }
 
+// Mock data to be replaced later
+export const mockEventGridCardData = {
+  organizer: { name: 'Lena Logic' },
+  name: 'Thinking Components',
+  slug: 'thinking-components',
+  thumbnailUrl:
+    'https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80',
+  location: '123 W 29 St, New York, NY',
+  startDateTime: '2024-01-13T06:01:46.139Z',
+  avatars: [
+    '/images/card.png',
+    'https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80',
+    'https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80',
+    'https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?w=300&dpr=2&q=80',
+  ],
+}
+
 export const eventMockData: Event[] = [
   {
     name: 'React Rendezvous',

@@ -10,7 +10,11 @@ import {
   ZapOffIcon,
 } from 'lucide-react'
 
-import { eventMockData, madeForYouEvents } from '@/lib/mockData/events'
+import {
+  eventMockData,
+  madeForYouEvents,
+  mockEventGridCardData,
+} from '@/lib/mockData/events'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
@@ -173,7 +177,7 @@ export default function OrganizerPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {eventMockData.length > 0 ? (
                     eventMockData.map((event, index) => (
-                      <EventGridCard key={index} />
+                      <EventGridCard key={index} {...mockEventGridCardData} />
                     ))
                   ) : (
                     <EmptyPlaceholder
