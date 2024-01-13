@@ -9,7 +9,6 @@ export const env = createEnv({
     SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
     OPENAI_API_KEY: z.string().min(1),
     CLERK_SECRET_KEY: z.string().min(1),
-    RESEND_API_KEY: z.string().min(1),
     STRIPE_SECRET_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     GOOGLE_PLACES_API_KEY: z.string().min(1),
