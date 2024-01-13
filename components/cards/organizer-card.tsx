@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { format } from 'date-fns'
 import { CalendarDaysIcon, UserPlusIcon, ZapIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
@@ -9,40 +10,44 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card'
 type OrganizerCardProps = React.HTMLAttributes<HTMLDivElement> & {
   name?: string
   description?: string
-  avatar?: string
+  avatarUrl?: string
   followers?: number
   createdAt?: string
+  events?: number
 }
 
 export function OrganizerCard({
   className,
+  name = '@nextjs',
+  description = 'The React Framework - created and maintained by @vercel.',
+  avatarUrl = 'https://github.com/vercel.png',
+  followers = 12000,
+  createdAt = '2024-01-13T05:16:06.071Z',
+  events = 23,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & OrganizerCardProps) {
+}: OrganizerCardProps) {
+  const formattedDate = format(new Date(createdAt), 'MMMM yyyy')
   return (
-    <Card className={cn(className)} {...props}>
+    <Card className={cn('flex flex-col', className)} {...props}>
       <CardContent className="pt-6">
         <div className="grid grid-cols-[1fr_auto] items-start gap-4 space-y-0">
-          <div className="space-y-1">
-            <div className="flex justify-start space-x-4">
-              <Avatar>
-                <AvatarImage src="https://github.com/vercel.png" />
-                <AvatarFallback>VC</AvatarFallback>
-              </Avatar>
-              <div className="flex-col">
-                <Button variant="link" asChild className="p-0 h-fit">
-                  <Link href="/organizer/nextjs">
-                    <h4 className="text-sm font-semibold">@nextjs</h4>
-                  </Link>
-                </Button>
-                <p className="line-clamp-3 text-sm">
-                  The React Framework - created and maintained by @vercel.
-                </p>
-                <div className="flex items-center pt-2">
-                  <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />
-                  <span className="text-xs text-muted-foreground">
-                    Joined December 2021
-                  </span>
-                </div>
+          <div className="flex justify-start space-x-4">
+            <Avatar>
+              <AvatarImage src={avatarUrl} />
+              <AvatarFallback>{name.slice(0, 2).toUpperCase()}</AvatarFallback>
+            </Avatar>
+            <div className="flex-col">
+              <Button variant="link" asChild className="p-0 h-fit">
+                <Link href={`/organizer/${name}`}>
+                  <h4 className="text-sm font-semibold">@{name}</h4>
+                </Link>
+              </Button>
+              <p className="line-clamp-3 text-sm">{description}</p>
+              <div className="flex items-center pt-2">
+                <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />
+                <span className="text-xs text-muted-foreground">
+                  Joined {formattedDate}
+                </span>
               </div>
             </div>
           </div>
@@ -53,14 +58,14 @@ export function OrganizerCard({
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex space-x-4 text-sm text-muted-foreground">
+      <CardFooter className="flex space-x-4 text-sm text-muted-foreground mt-auto">
         <div className="flex items-center">
           <ZapIcon className="mr-1 h-3 w-3" />
-          23 Events
+          {events} Events
         </div>
         <div className="flex items-center">
           <UserPlusIcon className="mr-1 h-3 w-3" />
-          12k Followers
+          {followers} Followers
         </div>
       </CardFooter>
     </Card>
