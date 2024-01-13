@@ -4,26 +4,28 @@ import { useState } from 'react'
 import { HeartIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { Button, ButtonProps } from '@/components/ui/button'
 
-interface HeartButtonProps {
-  // listingId: string
-  // currentUser?: SafeUser | null
+interface HeartButtonProps extends ButtonProps {
   className?: string
 }
 
 export const HeartButton: React.FC<HeartButtonProps> = ({
-  // listingId,
-  // currentUser,
   className,
+  ...props
 }) => {
-  const [hasLiked, toggleLiked] = useState(false)
+  const [hasLiked, setHasLiked] = useState(false)
+
+  const handleLike = () => {
+    setHasLiked(!hasLiked)
+  }
 
   return (
     <Button
       variant="ghost"
-      onClick={() => toggleLiked(!hasLiked)}
-      className={cn(className)}
+      onClick={handleLike}
+      className={className}
+      {...props}
     >
       <HeartIcon
         className={cn(
