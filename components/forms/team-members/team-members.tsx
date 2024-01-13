@@ -49,6 +49,13 @@ export function TeamMembersForm() {
     // Add more team members here...
   ]
 
+  const roles = [
+    { name: 'Viewer', description: 'Can view and comment.' },
+    { name: 'Organizer', description: 'Can view, comment and edit.' },
+    { name: 'Billing', description: 'Can view, comment and manage billing.' },
+    { name: 'Owner', description: 'Admin-level access to all resources.' },
+  ]
+
   const isDesktop = useMediaQuery('(min-width: 768px)')
 
   return (
@@ -91,30 +98,17 @@ export function TeamMembersForm() {
                     <CommandList>
                       <CommandEmpty>No roles found.</CommandEmpty>
                       <CommandGroup>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Viewer</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view and comment.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Developer</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view, comment and edit.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Billing</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view, comment and manage billing.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Owner</p>
-                          <p className="text-sm text-muted-foreground">
-                            Admin-level access to all resources.
-                          </p>
-                        </CommandItem>
+                        {roles.map((role) => (
+                          <CommandItem
+                            className="space-y-1 flex flex-col items-start px-4 py-2"
+                            key={role.name}
+                          >
+                            <p>{role.name}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {role.description}
+                            </p>
+                          </CommandItem>
+                        ))}
                       </CommandGroup>
                     </CommandList>
                   </Command>
@@ -137,30 +131,17 @@ export function TeamMembersForm() {
                     <CommandList>
                       <CommandEmpty>No roles found.</CommandEmpty>
                       <CommandGroup>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Viewer</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view and comment.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Developer</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view, comment and edit.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Billing</p>
-                          <p className="text-sm text-muted-foreground">
-                            Can view, comment and manage billing.
-                          </p>
-                        </CommandItem>
-                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
-                          <p>Owner</p>
-                          <p className="text-sm text-muted-foreground">
-                            Admin-level access to all resources.
-                          </p>
-                        </CommandItem>
+                        {roles.map((role) => (
+                          <CommandItem
+                            className="space-y-1 flex flex-col items-start px-4 py-2"
+                            key={role.name}
+                          >
+                            <p>{role.name}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {role.description}
+                            </p>
+                          </CommandItem>
+                        ))}
                       </CommandGroup>
                     </CommandList>
                   </Command>
