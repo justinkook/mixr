@@ -48,7 +48,6 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
         </Providers>
-        <GoogleTagManager gtmId={env.GOOGLE_TAG_MANAGER_ID} />
       </body>
     </html>
   )
