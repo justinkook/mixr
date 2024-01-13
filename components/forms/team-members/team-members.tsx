@@ -58,6 +58,28 @@ export function TeamMembersForm() {
 
   const isDesktop = useMediaQuery('(min-width: 768px)')
 
+  const RoleCommand = () => (
+    <Command>
+      <CommandInput placeholder="Select new role..." />
+      <CommandList>
+        <CommandEmpty>No roles found.</CommandEmpty>
+        <CommandGroup>
+          {roles.map((role) => (
+            <CommandItem
+              className="space-y-1 flex flex-col items-start px-4 py-2"
+              key={role.name}
+            >
+              <p>{role.name}</p>
+              <p className="text-sm text-muted-foreground">
+                {role.description}
+              </p>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  )
+
   return (
     <>
       <div className="flex space-x-2">
@@ -93,25 +115,7 @@ export function TeamMembersForm() {
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="p-0 w-[16rem]" align="end">
-                  <Command>
-                    <CommandInput placeholder="Select new role..." />
-                    <CommandList>
-                      <CommandEmpty>No roles found.</CommandEmpty>
-                      <CommandGroup>
-                        {roles.map((role) => (
-                          <CommandItem
-                            className="space-y-1 flex flex-col items-start px-4 py-2"
-                            key={role.name}
-                          >
-                            <p>{role.name}</p>
-                            <p className="text-sm text-muted-foreground">
-                              {role.description}
-                            </p>
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
+                  <RoleCommand />
                 </PopoverContent>
               </Popover>
             ) : (
@@ -126,25 +130,7 @@ export function TeamMembersForm() {
                   <DrawerHeader className="text-left">
                     <DrawerTitle>{member.role}</DrawerTitle>
                   </DrawerHeader>
-                  <Command>
-                    <CommandInput placeholder="Select new role..." />
-                    <CommandList>
-                      <CommandEmpty>No roles found.</CommandEmpty>
-                      <CommandGroup>
-                        {roles.map((role) => (
-                          <CommandItem
-                            className="space-y-1 flex flex-col items-start px-4 py-2"
-                            key={role.name}
-                          >
-                            <p>{role.name}</p>
-                            <p className="text-sm text-muted-foreground">
-                              {role.description}
-                            </p>
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
+                  <RoleCommand />
                   <DrawerFooter className="pt-2">
                     <DrawerClose asChild>
                       <Button variant="outline">Cancel</Button>
