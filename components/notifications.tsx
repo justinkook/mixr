@@ -51,7 +51,10 @@ export function Notifications({ className, ...props }: CardProps) {
     return (
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="ghost" className="hidden sm:block">
+          <Button
+            variant="outline"
+            className="hidden sm:block rounded-full px-2"
+          >
             <span className="sr-only">View notifications</span>
             {notifications.length > 1 ? (
               <span className="h-5 w-5 flex relative">
@@ -110,8 +113,8 @@ export function Notifications({ className, ...props }: CardProps) {
 
   return (
     <Drawer>
-      <DrawerTrigger>
-        <Button variant="ghost" className="block sm:hidden">
+      <DrawerTrigger asChild>
+        <Button variant="outline" className="block sm:hidden rounded-full px-2">
           <span className="sr-only">View notifications</span>
           {notifications.length > 1 ? (
             <span className="h-5 w-5 flex relative">

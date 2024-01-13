@@ -12,7 +12,6 @@ export const env = createEnv({
     STRIPE_SECRET_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     GOOGLE_PLACES_API_KEY: z.string().min(1),
-    GOOGLE_TAG_MANAGER_ID: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_SITE_URL: z.string().url(),
@@ -37,7 +36,6 @@ export const env = createEnv({
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     GOOGLE_PLACES_API_KEY: process.env.GOOGLE_PLACES_API_KEY,
-    GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,

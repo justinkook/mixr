@@ -35,18 +35,21 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </SignedIn>
           <NavContent />
           <div className="ml-auto flex items-center md:space-x-4">
-            {/* Profile dropdown */}
             <SignedIn>
-              <Notifications />
-              <UserNav />
+              <div className="flex space-x-2">
+                <Notifications />
+                <UserNav />
+              </div>
             </SignedIn>
             <SignedOut>
-              <Button variant="outline">
-                <SignInButton mode="modal" />
-              </Button>
-              <Button>
-                <SignUpButton mode="modal" />
-              </Button>
+              <div className="flex space-x-2">
+                <Button variant="outline">
+                  <SignInButton mode="modal" />
+                </Button>
+                <Button>
+                  <SignUpButton mode="modal" />
+                </Button>
+              </div>
             </SignedOut>
           </div>
         </div>
