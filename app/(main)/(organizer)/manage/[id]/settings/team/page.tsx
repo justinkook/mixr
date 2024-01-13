@@ -1,5 +1,5 @@
 import { Separator } from '@/components/ui/separator'
-import { TeamMembersForm } from '@/components/forms/team-members/team-members'
+import { TeamMembersForm } from '@/components/forms/team-members/team-members-form'
 
 export default function EventSettingsTeamPage() {
   return (
