@@ -6,7 +6,56 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ShareModal } from '@/components/modals/share-modal'
 
-export async function EventHeroCard() {
+const EventDate: React.FC = () => (
+  <div className="mt-6">
+    <h2 className="sr-only">Event Date</h2>
+    <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+      <div className="flex items-start justify-between gap-4 self-stretch">
+        <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+          <div className="self-stretch whitespace-nowrap text-center text-sm font-bold leading-5 text-foreground">
+            29
+          </div>
+          <div className="self-center whitespace-nowrap text-center text-xs leading-4 text-muted-foreground">
+            Nov
+          </div>
+        </div>
+        <div className="my-auto flex flex-col items-start self-center">
+          <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 text-foreground lg:text-base">
+            Wednesday, November 29
+          </div>
+          <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+            5:00 PM to 7:00 PM
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+const EventLocation: React.FC = () => (
+  <div className="mt-3">
+    <h3 className="sr-only">Location</h3>
+    <div className="flex items-center">
+      <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
+        <div className="flex items-start justify-between gap-4 self-stretch">
+          <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
+            <MapPinIcon />
+          </div>
+          <div className="my-auto flex flex-col items-start self-center">
+            <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
+              222 W 23rd St
+            </div>
+            <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
+              New York, NY 10011
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+export const EventHeroCard: React.FC = () => {
   return (
     <div className="flex w-full flex-col justify-between lg:flex-row">
       <div className="flex w-full flex-col md:flex-row md:space-x-8">
@@ -33,54 +82,8 @@ export async function EventHeroCard() {
               React Rendezvous
             </h2>
           </div>
-
-          {/* Event Date & Time */}
-          <div className="mt-6">
-            <h2 className="sr-only">Event Date</h2>
-            <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
-              <div className="flex items-start justify-between gap-4 self-stretch">
-                <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
-                  <div className="self-stretch whitespace-nowrap text-center text-sm font-bold leading-5 text-foreground">
-                    29
-                  </div>
-                  <div className="self-center whitespace-nowrap text-center text-xs leading-4 text-muted-foreground">
-                    Nov
-                  </div>
-                </div>
-                <div className="my-auto flex flex-col items-start self-center">
-                  <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 text-foreground lg:text-base">
-                    Wednesday, November 29
-                  </div>
-                  <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-                    5:00 PM to 7:00 PM
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Location */}
-          <div className="mt-3">
-            <h3 className="sr-only">Location</h3>
-            <div className="flex items-center">
-              <div className="flex h-full w-full items-start justify-between gap-5 self-stretch px-0">
-                <div className="flex items-start justify-between gap-4 self-stretch">
-                  <div className="flex h-full w-12 max-w-full flex-col items-center justify-center self-stretch rounded-xl bg-muted px-4 py-1.5">
-                    <MapPinIcon />
-                  </div>
-                  <div className="my-auto flex flex-col items-start self-center">
-                    <div className="self-stretch whitespace-nowrap text-sm font-bold leading-5 lg:text-base">
-                      222 W 23rd St
-                    </div>
-                    <div className="mt-1 self-stretch whitespace-nowrap text-left text-xs leading-5 text-muted-foreground lg:text-sm">
-                      New York, NY 10011
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <EventDate />
+          <EventLocation />
           <div className="mt-6 flex h-full items-end">
             <h3 className="sr-only">Save Event Changes Button</h3>
             <Button className="max-w-xs flex-1" asChild>

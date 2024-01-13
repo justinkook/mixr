@@ -1,3 +1,9 @@
+# *
 User-agent: *
-Disallow: /dashboard/
 Allow: /
+
+# Host
+Host: https://reventapp.com
+
+# Sitemaps
+Sitemap: https://reventapp.com/sitemap.xml

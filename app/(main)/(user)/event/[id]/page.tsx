@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import { env } from '@/env.mjs'
+import { GoogleMapsEmbed } from '@next/third-parties/google'
 import { MapPinIcon } from 'lucide-react'
 
 import {
@@ -328,14 +330,14 @@ export default function EventPage() {
                 The Hotel Chelsea, 222 W 23rd St New York, NY 10011
               </p>
               <div className="mt-4">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.820241093209!2d-74.00096000919245!3d40.74398079761726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2592b2fd36f67%3A0x1ff686d31ab672d3!2sThe%20Hotel%20Chelsea!5e0!3m2!1sen!2sus!4v1701014837537!5m2!1sen!2sus"
-                  width="100%"
-                  height="350"
-                  className="rounded-lg border-none"
+                <GoogleMapsEmbed
+                  apiKey={env.GOOGLE_PLACES_API_KEY}
+                  mode="place"
+                  allowfullscreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                  style="border:0; border-radius: 0.5rem;"
+                  q="The Hotel Chelsea, 222 W 23rd St New York, NY 10011"
+                />
               </div>
             </div>
           </div>

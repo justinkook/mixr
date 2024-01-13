@@ -158,10 +158,12 @@ export function TeamMembersForm() {
                       <CommandEmpty>No roles found.</CommandEmpty>
                       <CommandGroup>
                         {roles.map((role) => (
-                          <PopoverClose className="p-0 w-full text-left">
+                          <PopoverClose
+                            key={role.name}
+                            className="p-0 w-full text-left"
+                          >
                             <CommandItem
                               className="space-y-1 flex flex-col items-start px-4 py-2"
-                              key={role.name}
                               onSelect={() => {
                                 setMemberRoles((prev) => ({
                                   ...prev,
@@ -199,10 +201,9 @@ export function TeamMembersForm() {
                       <CommandEmpty>No roles found.</CommandEmpty>
                       <CommandGroup>
                         {roles.map((role) => (
-                          <DrawerClose className="w-full">
+                          <DrawerClose key={role.name} className="w-full">
                             <CommandItem
                               className="space-y-1 flex flex-col items-start px-4 py-2"
-                              key={role.name}
                               onSelect={() => {
                                 setMemberRoles((prev) => ({
                                   ...prev,
