@@ -12,6 +12,8 @@ import { Providers } from '@/components/providers'
 
 import '@/styles/globals.css'
 
+import { env } from '@/env.mjs'
+
 export const fontSans = Noto_Sans_JP({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -46,7 +48,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
         </Providers>
-        <GoogleTagManager gtmId="GTM-TN3W5XCH" />
+        <GoogleTagManager gtmId={env.GOOGLE_TAG_MANAGER_ID} />
       </body>
     </html>
   )
