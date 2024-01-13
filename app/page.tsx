@@ -11,17 +11,11 @@ import {
   TwitterIcon,
   UserPlusIcon,
   UsersIcon,
-  XIcon,
   ZapIcon,
 } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 
 const navigation = [
   { name: 'Features', href: '#features' },
@@ -215,7 +209,7 @@ export default function LandingPage() {
                   </div>
                   <div className="py-6">
                     <a
-                      href="https://reventapp.com"
+                      href="https://reventapp.com/home"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       Get Started
@@ -317,7 +311,7 @@ export default function LandingPage() {
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
-                  href="https://reventapp.com/sign-in"
+                  href="https://reventapp.com/home"
                   className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                 >
                   Get started
