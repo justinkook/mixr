@@ -1,5 +1,8 @@
+'use client'
+
 import { ChevronDownIcon } from 'lucide-react'
 
+import { useMediaQuery } from '@/hooks/use-media-query'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -10,6 +13,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command'
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import {
   Popover,
@@ -37,6 +49,8 @@ export function TeamMembersForm() {
     // Add more team members here...
   ]
 
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
   return (
     <>
       <div className="flex space-x-2">
@@ -63,48 +77,101 @@ export function TeamMembersForm() {
                 <p className="text-sm text-muted-foreground">{member.email}</p>
               </div>
             </div>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  {member.role}{' '}
-                  <ChevronDownIcon className="ml-2 h-4 w-4 text-muted-foreground" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="p-0 w-[16rem]" align="end">
-                <Command>
-                  <CommandInput placeholder="Select new role..." />
-                  <CommandList>
-                    <CommandEmpty>No roles found.</CommandEmpty>
-                    <CommandGroup>
-                      <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                        <p>Viewer</p>
-                        <p className="text-sm text-muted-foreground">
-                          Can view and comment.
-                        </p>
-                      </CommandItem>
-                      <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                        <p>Developer</p>
-                        <p className="text-sm text-muted-foreground">
-                          Can view, comment and edit.
-                        </p>
-                      </CommandItem>
-                      <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                        <p>Billing</p>
-                        <p className="text-sm text-muted-foreground">
-                          Can view, comment and manage billing.
-                        </p>
-                      </CommandItem>
-                      <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                        <p>Owner</p>
-                        <p className="text-sm text-muted-foreground">
-                          Admin-level access to all resources.
-                        </p>
-                      </CommandItem>
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
+            {isDesktop ? (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" className="ml-auto">
+                    {member.role}
+                    <ChevronDownIcon className="ml-2 h-4 w-4 text-muted-foreground" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="p-0 w-[16rem]" align="end">
+                  <Command>
+                    <CommandInput placeholder="Select new role..." />
+                    <CommandList>
+                      <CommandEmpty>No roles found.</CommandEmpty>
+                      <CommandGroup>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Viewer</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view and comment.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Developer</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view, comment and edit.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Billing</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view, comment and manage billing.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Owner</p>
+                          <p className="text-sm text-muted-foreground">
+                            Admin-level access to all resources.
+                          </p>
+                        </CommandItem>
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <Drawer>
+                <DrawerTrigger>
+                  <Button variant="outline" className="ml-auto">
+                    {member.role}
+                    <ChevronDownIcon className="ml-2 h-4 w-4 text-muted-foreground" />
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader className="text-left">
+                    <DrawerTitle>{member.role}</DrawerTitle>
+                  </DrawerHeader>
+                  <Command>
+                    <CommandInput placeholder="Select new role..." />
+                    <CommandList>
+                      <CommandEmpty>No roles found.</CommandEmpty>
+                      <CommandGroup>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Viewer</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view and comment.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Developer</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view, comment and edit.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Billing</p>
+                          <p className="text-sm text-muted-foreground">
+                            Can view, comment and manage billing.
+                          </p>
+                        </CommandItem>
+                        <CommandItem className="space-y-1 flex flex-col items-start px-4 py-2">
+                          <p>Owner</p>
+                          <p className="text-sm text-muted-foreground">
+                            Admin-level access to all resources.
+                          </p>
+                        </CommandItem>
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                  <DrawerFooter className="pt-2">
+                    <DrawerClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </DrawerContent>
+              </Drawer>
+            )}
           </div>
         ))}
       </div>
