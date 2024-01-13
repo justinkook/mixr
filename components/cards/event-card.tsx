@@ -13,22 +13,25 @@ interface EventCardProps extends React.HTMLAttributes<HTMLDivElement> {
   height: number
 }
 
-export function EventCard({
+export const EventCard: React.FC<EventCardProps> = ({
   event,
   aspectRatio = 'portrait',
   width,
   height,
   className,
   ...props
-}: EventCardProps) {
+}) => {
+  // Destructure event for cleaner code
+  const { cover, name, date, organizer, location, time } = event
+
   return (
     <div className={cn('space-y-3', className)} {...props}>
       <div className="relative">
-        <Link href={`/event/${event.name}`}>
+        <Link href={`/event/${name}`}>
           <div className="w-full flex flex-1 rounded-lg overflow-hidden">
             <Image
-              src={event.cover}
-              alt={event.name}
+              src={cover}
+              alt={name}
               width={width}
               height={height}
               className={cn(
@@ -38,24 +41,22 @@ export function EventCard({
             />
           </div>
         </Link>
-        {event.date?.day && event.date?.month && (
-          <>
-            <div className="absolute left-2 top-2">
-              <DateCard
-                day={event.date?.day}
-                month={event.date?.month}
-                aspectRatio="square"
-              />
-            </div>
-            <HeartButton className="absolute right-4 top-4 hover:bg-transparent" />
-          </>
-        )}
+        <div className="absolute left-2 top-2">
+          <DateCard
+            day={date?.day!}
+            month={date?.month!}
+            aspectRatio="square"
+          />
+        </div>
+        <div className="absolute right-4 top-4">
+          <HeartButton className="hover:bg-transparent" />
+        </div>
       </div>
       <div className="space-y-1 text-sm">
-        <p className="text-xs text-muted-foreground">{event.organizer}</p>
-        <h3 className="font-medium leading-none">{event.name}</h3>
-        <p className="text-xs text-muted-foreground">{event.location}</p>
-        <p className="text-xs text-secondary-foreground">{event.time}</p>
+        <p className="text-xs text-muted-foreground">{organizer}</p>
+        <h3 className="font-medium leading-none">{name}</h3>
+        <p className="text-xs text-muted-foreground">{location}</p>
+        <p className="text-xs text-secondary-foreground">{time}</p>
       </div>
     </div>
   )
