@@ -16,7 +16,7 @@ type OrganizerCardProps = React.HTMLAttributes<HTMLDivElement> & {
   events?: number
 }
 
-export function OrganizerCard({
+export const OrganizerCard: React.FC<OrganizerCardProps> = ({
   className,
   name = '@nextjs',
   description = 'The React Framework - created and maintained by @vercel.',
@@ -25,7 +25,7 @@ export function OrganizerCard({
   createdAt = '2024-01-13T05:16:06.071Z',
   events = 23,
   ...props
-}: OrganizerCardProps) {
+}) => {
   const formattedDate = format(new Date(createdAt), 'MMMM yyyy')
 
   return (
