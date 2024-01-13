@@ -27,6 +27,7 @@ export function OrganizerCard({
   ...props
 }: OrganizerCardProps) {
   const formattedDate = format(new Date(createdAt), 'MMMM yyyy')
+
   return (
     <Card className={cn('flex flex-col', className)} {...props}>
       <CardContent className="pt-6">
