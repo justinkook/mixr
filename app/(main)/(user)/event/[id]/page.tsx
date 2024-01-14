@@ -331,7 +331,7 @@ export default function EventPage() {
               </p>
               <div className="mt-4">
                 <GoogleMapsEmbed
-                  apiKey={env.GOOGLE_PLACES_API_KEY}
+                  apiKey={env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}
                   mode="place"
                   allowfullscreen
                   loading="lazy"

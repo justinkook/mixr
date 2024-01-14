@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const data = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${env.GOOGLE_PLACES_API_KEY}&components=locality`
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}&components=locality`
     )
     const response = await data.json()
     return NextResponse.json(response)

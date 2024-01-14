@@ -5,8 +5,8 @@ import { CalendarIcon, CopyPlusIcon, MapPinIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { ShareModal } from '@/components/modals/share-modal'
 import { OrganizationSwitcher } from '@/components/organization-switcher'
 import { DateTimeCombobox } from '@/app/(main)/(user)/create/components/date-time-combobox'
@@ -38,8 +38,8 @@ type CreateEventModalProps = {
 
 export function CreateEventModal({ mode = 'create' }: CreateEventModalProps) {
   return (
-    <Dialog>
-      <DialogTrigger>
+    <Sheet>
+      <SheetTrigger>
         {mode === 'duplicate' && (
           <Button variant="secondary">
             <CopyPlusIcon className="mr-2 h-4 w-4" />
@@ -53,8 +53,8 @@ export function CreateEventModal({ mode = 'create' }: CreateEventModalProps) {
           </div>
         )}
         {mode === 'create' && <Button>Create Event</Button>}
-      </DialogTrigger>
-      <DialogContent>
+      </SheetTrigger>
+      <SheetContent className="w-full sm:min-w-[480px]">
         {/* Product info */}
         <div className="flex flex-col space-y-4">
           <OrganizationSwitcher hidePersonal />
@@ -114,7 +114,7 @@ export function CreateEventModal({ mode = 'create' }: CreateEventModalProps) {
             </Button>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </SheetContent>
+    </Sheet>
   )
 }

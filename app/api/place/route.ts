@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const data = await fetch(
-      `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${locationInput}&key=${env.GOOGLE_PLACES_API_KEY}&components=country:us&types=(cities)`
+      `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${locationInput}&key=${env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}&components=country:us&types=(cities)`
     )
     const response = await data.json()
 
