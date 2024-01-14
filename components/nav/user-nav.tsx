@@ -106,7 +106,7 @@ export const UserNav: React.FC = () => {
         </DrawerHeader>
         <div className="space-y-2 flex flex-col px-4">
           {userNav.map((navItem) => (
-            <Button variant="secondary" asChild>
+            <Button key={navItem.href} variant="secondary" asChild>
               <Link key={navItem.href} href={navItem.href}>
                 <div className="pl-4 relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                   <span>{navItem.title}</span>
