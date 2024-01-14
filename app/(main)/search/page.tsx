@@ -28,7 +28,7 @@ import { EventCard } from '@/components/cards/event-card'
 import { EventGridCard } from '@/components/cards/event-grid-card'
 import { EmptyPlaceholder } from '@/components/empty-placeholder'
 
-import { SearchFilters } from './components/search-filters'
+import { SearchFiltersModal } from './components/search-filters-modal'
 import { SearchModal } from './components/search-modal'
 
 export default function SearchPage() {
@@ -47,7 +47,7 @@ export default function SearchPage() {
                   <AlignJustifyIcon className="h-4 w-4" />
                 </TabsTrigger>
               </TabsList>
-              <SearchFilters />
+              <SearchFiltersModal />
             </div>
 
             <Separator
