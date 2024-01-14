@@ -169,14 +169,16 @@ export function Sidebar({
           </ul>
         </nav>
       </ScrollArea>
-      <div className="sm:hidden relative bottom-0 w-full py-4 px-3">
-        <SignOutButton>
-          <Button variant="ghost" className="w-full justify-start">
-            <LogOutIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-            Log out
-          </Button>
-        </SignOutButton>
-      </div>
+      <SignedIn>
+        <div className="sm:hidden relative bottom-0 w-full py-4 px-3">
+          <SignOutButton>
+            <Button variant="ghost" className="w-full justify-start">
+              <LogOutIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+              Log out
+            </Button>
+          </SignOutButton>
+        </div>
+      </SignedIn>
     </div>
   )
 }
