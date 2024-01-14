@@ -13,6 +13,8 @@ export default authMiddleware({
     '/organizer/:slug',
     '/terms',
     '/privacy',
+    '/sign-in',
+    '/sign-up',
   ],
   afterAuth(auth, req, evt) {
     // Handle users who aren't authenticated

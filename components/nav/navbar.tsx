@@ -47,11 +47,11 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
                 <UserNav />
               </SignedIn>
               <SignedOut>
-                <Button variant="outline">
-                  <SignInButton mode="modal" />
+                <Button variant="outline" asChild>
+                  <Link href="/sign-in">Login</Link>
                 </Button>
-                <Button>
-                  <SignUpButton mode="modal" />
+                <Button asChild>
+                  <Link href="/sign-up">Sign up</Link>
                 </Button>
               </SignedOut>
             </div>
