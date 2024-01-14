@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   BarChartBigIcon,
   CheckIcon,
@@ -20,9 +21,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 const navigation = [
   { name: 'Features', href: '#features' },
   { name: 'Pricing', href: '#pricing' },
-  { name: 'Discover', href: 'https://reventapp.com/search' },
-  { name: 'My Tickets', href: 'https://reventapp.com/tickets' },
-  { name: 'Organize', href: 'https://reventapp.com/dashboard' },
+  { name: 'Discover', href: '/search' },
+  { name: 'My Tickets', href: '/tickets' },
+  { name: 'Organize', href: '/dashboard' },
 ]
 const features = [
   {
@@ -113,9 +114,9 @@ const primaryFeatures = [
 ]
 const footerNavigation = {
   solutions: [
-    { name: 'Discover', href: 'https://reventapp.com/search' },
-    { name: 'Tickets', href: 'https://reventapp.com/tickets' },
-    { name: 'Organize', href: 'https://reventapp.com/dashboard' },
+    { name: 'Discover', href: '/search' },
+    { name: 'Tickets', href: '/tickets' },
+    { name: 'Organize', href: '/dashboard' },
     { name: 'Ask Eva', href: '#ask-eva' },
   ],
   support: [
@@ -160,7 +161,7 @@ export default function LandingPage() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="/" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Revent</span>
               <Image
                 className="h-4 w-auto"
@@ -169,7 +170,7 @@ export default function LandingPage() {
                 height={32}
                 width={128}
               />
-            </a>
+            </Link>
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -183,7 +184,7 @@ export default function LandingPage() {
             </SheetTrigger>
             <SheetContent className="overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <a href="#" className="-m-1.5 p-1.5">
+                <Link href="/" className="-m-1.5 p-1.5">
                   <span className="sr-only">Revent</span>
                   <Image
                     className="h-4 w-auto"
@@ -192,28 +193,28 @@ export default function LandingPage() {
                     height={32}
                     width={128}
                   />
-                </a>
+                </Link>
               </div>
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <div className="py-6">
-                    <a
-                      href="https://reventapp.com/home"
+                    <Link
+                      href="/home"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       Get Started
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -221,22 +222,22 @@ export default function LandingPage() {
           </Sheet>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm font-semibold leading-6 text-white"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="https://reventapp.com/sign-in"
+            <Link
+              href="/sign-in"
               className="text-sm font-semibold leading-6 text-white"
             >
               Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </nav>
       </header>
@@ -288,18 +289,22 @@ export default function LandingPage() {
           <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-40 lg:flex lg:px-8 lg:pt-40">
             <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
               <div className="mt-24 sm:mt-32 lg:mt-16">
-                <a href="#" className="inline-flex space-x-6">
-                  <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-                    Latest updates
-                  </span>
-                  <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
-                    <span>Just shipped v1.0</span>
-                    <ChevronRightIcon
-                      className="h-5 w-5 text-gray-500"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </a>
+                <Link href="/" className="inline-flex space-x-6">
+                  <div className="hidden sm:flex sm:justify-center">
+                    <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+                      Launching on Product Hunt.{' '}
+                      <a
+                        href="https://producthunt.com"
+                        className="font-semibold text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="absolute inset-0" aria-hidden="true" />
+                        Follow updates <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </div>
+                  </div>
+                </Link>
               </div>
               <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
                 Collaborate Seamlessly with Revent
@@ -310,14 +315,16 @@ export default function LandingPage() {
                 organizing.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="https://reventapp.com/home"
+                <Link
+                  href="/home"
                   className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                 >
                   Get started
-                </a>
+                </Link>
                 <a
                   href="https://calendly.com/reventapp/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-semibold leading-6 text-white"
                 >
                   Book demo <span aria-hidden="true">→</span>
@@ -539,7 +546,7 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <a
+                <Link
                   href={tier.href}
                   aria-describedby={tier.id}
                   className={cn(
@@ -550,7 +557,7 @@ export default function LandingPage() {
                   )}
                 >
                   Get started today
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -583,12 +590,12 @@ export default function LandingPage() {
                   <ul role="list" className="mt-6 space-y-4">
                     {footerNavigation.solutions.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className="text-sm leading-6 text-gray-300 hover:text-white"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -600,12 +607,12 @@ export default function LandingPage() {
                   <ul role="list" className="mt-6 space-y-4">
                     {footerNavigation.support.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className="text-sm leading-6 text-gray-300 hover:text-white"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -619,12 +626,12 @@ export default function LandingPage() {
                   <ul role="list" className="mt-6 space-y-4">
                     {footerNavigation.company.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className="text-sm leading-6 text-gray-300 hover:text-white"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -636,12 +643,12 @@ export default function LandingPage() {
                   <ul role="list" className="mt-6 space-y-4">
                     {footerNavigation.legal.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className="text-sm leading-6 text-gray-300 hover:text-white"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -688,6 +695,8 @@ export default function LandingPage() {
                 <a
                   key={item.name}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-500 hover:text-gray-400"
                 >
                   <span className="sr-only">{item.name}</span>
