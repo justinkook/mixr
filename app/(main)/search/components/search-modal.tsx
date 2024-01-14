@@ -64,9 +64,8 @@ export const SearchModal = () => {
   const { data } = usePlaceAutocomplete(location)
 
   const clearAll = useCallback(() => {
-    setLocation('')
-    setInput('')
-    setDateRange(undefined)
+    setOpen(false)
+    router.push('/search')
   }, [])
 
   const onNext = useCallback(() => {
