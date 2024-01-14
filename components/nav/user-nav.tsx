@@ -104,18 +104,21 @@ export const UserNav: React.FC = () => {
             {user?.emailAddresses[0].emailAddress}
           </DrawerDescription>
         </DrawerHeader>
-        {userNav.map((navItem) => (
-          <Link key={navItem.href} href={navItem.href}>
-            <div className="pl-4 relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
-              {navItem.icon && <navItem.icon className="mr-2 w-4 h-4" />}
-              <span>{navItem.title}</span>
-            </div>
-          </Link>
-        ))}
+        <div className="space-y-2 flex flex-col px-4">
+          {userNav.map((navItem) => (
+            <Button variant="secondary" asChild>
+              <Link key={navItem.href} href={navItem.href}>
+                <div className="pl-4 relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                  <span>{navItem.title}</span>
+                </div>
+              </Link>
+            </Button>
+          ))}
+        </div>
         <DrawerFooter>
           <DrawerClose asChild>
             <SignOutButton>
-              <Button variant="secondary" className="w-full">
+              <Button variant="outline" className="w-full">
                 Log out
               </Button>
             </SignOutButton>
