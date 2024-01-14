@@ -244,7 +244,7 @@ export default function LandingPage() {
 
       <main>
         {/* Hero section */}
-        <div className="relative isolate overflow-hidden bg-gradient-to-r from-blue-900 to-violet-900">
+        <div className="h-screen relative isolate overflow-hidden bg-gradient-to-r from-blue-900 to-violet-900">
           <svg
             className="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
             aria-hidden="true"
