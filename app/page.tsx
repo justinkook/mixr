@@ -66,7 +66,7 @@ const tiers = [
   {
     name: 'Basic',
     id: 'tier-free',
-    href: '#',
+    href: '/home',
     priceMonthly: '$0',
     description:
       "The perfect plan if you're just getting started with our product.",
@@ -81,7 +81,7 @@ const tiers = [
   {
     name: 'Pro',
     id: 'tier-pro',
-    href: '#',
+    href: '/home',
     priceMonthly: '$49',
     description: 'Everything in free plan plus:',
     features: [
