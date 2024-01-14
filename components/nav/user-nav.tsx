@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { SignOutButton, useUser } from '@clerk/nextjs'
-import { LogOutIcon } from 'lucide-react'
 
 import { userNav } from '@/config/nav'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -48,8 +47,7 @@ export const UserNav: React.FC = () => {
         <DropdownMenuGroup>
           {userNav.map((navItem) => (
             <Link key={navItem.href} href={navItem.href}>
-              <DropdownMenuItem>
-                {navItem.icon && <navItem.icon className="mr-2 w-4 h-4" />}
+              <DropdownMenuItem className="flex justify-between">
                 <span>{navItem.title}</span>
               </DropdownMenuItem>
             </Link>
@@ -57,8 +55,7 @@ export const UserNav: React.FC = () => {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <SignOutButton>
-          <DropdownMenuItem>
-            <LogOutIcon className="mr-2 h-4 w-4" />
+          <DropdownMenuItem className="flex justify-between">
             <span>Log out</span>
           </DropdownMenuItem>
         </SignOutButton>
