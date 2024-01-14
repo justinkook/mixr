@@ -34,15 +34,15 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
             <OrganizationSwitcher />
           </SignedIn>
           <NavContent />
-          <div className="ml-auto flex items-center md:space-x-4">
+          <div className="sm:ml-auto flex items-center">
             <SignedIn>
-              <div className="flex space-x-2">
+              <div className="flex items-center space-x-2">
                 <Notifications />
                 <UserNav />
               </div>
             </SignedIn>
             <SignedOut>
-              <div className="flex space-x-2">
+              <div className="flex items-center space-x-2">
                 <Button variant="outline">
                   <SignInButton mode="modal" />
                 </Button>
