@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { SignOutButton, useUser } from '@clerk/nextjs'
 import { LogOutIcon } from 'lucide-react'
 
 import { userNav } from '@/config/nav'
@@ -25,7 +28,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export function UserNav() {
+export const UserNav: React.FC = () => {
+  const { user } = useUser()
   const isDesktop = useMediaQuery('(min-width: 768px)')
 
   if (isDesktop) {
@@ -37,17 +41,21 @@ export function UserNav() {
             className="relative h-8 w-8 rounded-full flex pl-4"
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/images/card.png" alt="@shadcn" />
-              <AvatarFallback>JK</AvatarFallback>
+              <AvatarImage src={user?.imageUrl} alt="Profile Avatar" />
+              <AvatarFallback>
+                {user?.username?.slice(0, 2).toUpperCase()}
+              </AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">Justin Kook</p>
+              <p className="text-sm font-medium leading-none">
+                {user?.fullName}
+              </p>
               <p className="text-xs leading-none text-muted-foreground">
-                m@example.com
+                {user?.emailAddresses[0].emailAddress}
               </p>
             </div>
           </DropdownMenuLabel>
@@ -63,10 +71,13 @@ export function UserNav() {
             ))}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <LogOutIcon className="mr-2 h-4 w-4" />
-            <span>Log out</span>
-          </DropdownMenuItem>
+
+          <SignOutButton>
+            <DropdownMenuItem>
+              <LogOutIcon className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </DropdownMenuItem>
+          </SignOutButton>
         </DropdownMenuContent>
       </DropdownMenu>
     )
@@ -79,15 +90,19 @@ export function UserNav() {
           className="relative h-8 w-8 rounded-full flex pl-4"
         >
           <Avatar className="h-8 w-8">
-            <AvatarImage src="/images/card.png" alt="@shadcn" />
-            <AvatarFallback>JK</AvatarFallback>
+            <AvatarImage src={user?.imageUrl} alt="Profile Avatar" />
+            <AvatarFallback>
+              {user?.fullName?.slice(0, 2).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Justin Kook</DrawerTitle>
-          <DrawerDescription>m@example.com</DrawerDescription>
+          <DrawerTitle>{user?.fullName}</DrawerTitle>
+          <DrawerDescription>
+            {user?.emailAddresses[0].emailAddress}
+          </DrawerDescription>
         </DrawerHeader>
         {userNav.map((navItem) => (
           <Link key={navItem.href} href={navItem.href}>
@@ -99,9 +114,11 @@ export function UserNav() {
         ))}
         <DrawerFooter>
           <DrawerClose asChild>
-            <Button variant="secondary" className="w-full">
-              Log out
-            </Button>
+            <SignOutButton>
+              <Button variant="secondary" className="w-full">
+                Log out
+              </Button>
+            </SignOutButton>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
