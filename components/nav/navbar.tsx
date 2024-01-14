@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import {
   SignedIn,
   SignedOut,
   SignInButton,
   SignUpButton,
 } from '@clerk/clerk-react'
-import { MenuIcon } from 'lucide-react'
+import { MenuIcon, SearchIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { NavContent } from '@/components/nav/nav-content'
@@ -35,22 +36,25 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
           </SignedIn>
           <NavContent />
           <div className="sm:ml-auto flex items-center">
-            <SignedIn>
-              <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2">
+              <Button className="h-8 w-8 rounded-full">
+                <Link href="/search">
+                  <SearchIcon className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              </Button>
+              <SignedIn>
                 <Notifications />
                 <UserNav />
-              </div>
-            </SignedIn>
-            <SignedOut>
-              <div className="flex items-center space-x-2">
+              </SignedIn>
+              <SignedOut>
                 <Button variant="outline">
                   <SignInButton mode="modal" />
                 </Button>
                 <Button>
                   <SignUpButton mode="modal" />
                 </Button>
-              </div>
-            </SignedOut>
+              </SignedOut>
+            </div>
           </div>
         </div>
       </div>

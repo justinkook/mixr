@@ -38,7 +38,7 @@ export const UserNav: React.FC = () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="relative h-8 w-8 rounded-full flex pl-4"
+            className="relative h-8 w-8 rounded-full hiddden sm:flex pl-4"
           >
             <Avatar className="h-8 w-8">
               <AvatarImage src={user?.imageUrl} alt="Profile Avatar" />
@@ -87,7 +87,7 @@ export const UserNav: React.FC = () => {
       <DrawerTrigger asChild>
         <Button
           variant="ghost"
-          className="relative h-8 w-8 rounded-full flex pl-4"
+          className="relative h-8 w-8 rounded-full hidden sm:flex pl-4"
         >
           <Avatar className="h-8 w-8">
             <AvatarImage src={user?.imageUrl} alt="Profile Avatar" />
