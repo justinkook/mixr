@@ -129,7 +129,7 @@ export const SearchFiltersModal: React.FC = () => {
                   onChange={(e) => setMinPrice(Number(e.target.value))}
                 />
               </div>
-              <Separator className="w-4 self-center" />
+              <Separator className="w-4 self-center mt-4" />
               <div className="flex flex-col space-y-1 justify-end items-end">
                 <Label htmlFor="maxPrice">Maximum Price</Label>
                 <Input
@@ -143,11 +143,9 @@ export const SearchFiltersModal: React.FC = () => {
             </div>
           </div>
           <DrawerFooter>
-            <DrawerClose asChild>
-              <Button variant="link" onClick={clearAllFilters}>
-                Clear All
-              </Button>
-            </DrawerClose>
+            <Button variant="link" onClick={clearAllFilters}>
+              Clear All
+            </Button>
             <DrawerClose asChild>
               <Button onClick={applyFilters}>Apply Filters</Button>
             </DrawerClose>
@@ -200,7 +198,7 @@ export const SearchFiltersModal: React.FC = () => {
             />
             <div className="flex justify-between">
               <div>
-                <Label htmlFor="minPrice">Minimum</Label>
+                <Label htmlFor="minPrice">Minimum Price</Label>
                 <Input
                   id="minPrice"
                   name="minPrice"
@@ -212,7 +210,7 @@ export const SearchFiltersModal: React.FC = () => {
               </div>
               <Separator className="w-4 self-center" />
               <div className="flex flex-col space-y-1 justify-end items-end">
-                <Label htmlFor="maxPrice">Maximum</Label>
+                <Label htmlFor="maxPrice">Maximum Price</Label>
                 <Input
                   id="maxPrice"
                   placeholder="Maximum"
@@ -224,11 +222,9 @@ export const SearchFiltersModal: React.FC = () => {
             </div>
           </div>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button variant="link" onClick={clearAllFilters}>
-                Clear All
-              </Button>
-            </DialogClose>
+            <Button variant="link" onClick={clearAllFilters}>
+              Clear All
+            </Button>
             <DialogClose asChild>
               <Button onClick={applyFilters}>Apply Filters</Button>
             </DialogClose>
