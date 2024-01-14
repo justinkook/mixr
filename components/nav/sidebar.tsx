@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
-import { SignedIn } from '@clerk/nextjs'
-import { Zap } from 'lucide-react'
+import { SignedIn, SignOutButton } from '@clerk/nextjs'
+import { LogOutIcon, Zap } from 'lucide-react'
 
 import { dashboardSidebarNav, sidebarNav } from '@/config/nav'
 import { cn } from '@/lib/utils'
@@ -80,19 +80,19 @@ export function Sidebar({
         className
       )}
     >
+      <Link href="/">
+        <div className="flex h-16 shrink-0 items-center px-6 py-2">
+          <span className="sr-only">Revent</span>
+          <Image
+            className="h-4 w-auto dark:invert"
+            src="/images/logo-black.svg"
+            alt="Revent Logo"
+            height={32}
+            width={128}
+          />
+        </div>
+      </Link>
       <ScrollArea>
-        <Link href="/">
-          <div className="flex h-16 shrink-0 items-center px-6 py-2">
-            <span className="sr-only">Revent</span>
-            <Image
-              className="h-4 w-auto dark:invert"
-              src="/images/logo-black.svg"
-              alt="Revent Logo"
-              height={32}
-              width={128}
-            />
-          </div>
-        </Link>
         <nav className="flex flex-1 flex-col space-y-4 py-4">
           <ul role="list" className="flex flex-1 flex-col">
             {sidebarNavItems.map((navItem, index) => (
@@ -169,6 +169,14 @@ export function Sidebar({
           </ul>
         </nav>
       </ScrollArea>
+      <div className="sm:hidden relative bottom-0 w-full py-4 px-3">
+        <SignOutButton>
+          <Button variant="ghost" className="w-full justify-start">
+            <LogOutIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+            Log out
+          </Button>
+        </SignOutButton>
+      </div>
     </div>
   )
 }

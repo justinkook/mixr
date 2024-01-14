@@ -35,7 +35,7 @@ export function Navbar({ setSidebarOpen }: NavbarProps) {
             <OrganizationSwitcher />
           </SignedIn>
           <NavContent />
-          <div className="sm:ml-auto flex items-center">
+          <div className="ml-auto flex items-center">
             <div className="flex items-center space-x-2">
               <Button className="h-8 w-8 rounded-full">
                 <Link href="/search">
